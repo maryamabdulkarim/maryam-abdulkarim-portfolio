@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kioni Case Study — Maryam Abdulkarim</title>
+    <meta name="description" content="Redesigning a private work notebook so people remember their best work, and walk into their next review with a clear story." />
+
+    <!-- Google Fonts: Fraunces (Headings/Quotes), Inter (Body), Caveat (Handwritten Notes) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="theme-kioni">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-bar" aria-hidden="true"></div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-fade-overlay" aria-hidden="true"></div>
+
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
+    <div class="custom-cursor-ring" aria-hidden="true"></div>
+
+    <!-- Top Navigation -->
+    <header class="site-nav">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
+
+        <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          ☰
+        </button>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li>
+              <a href="Maryam-Abdulkarim-CV.pdf" download class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Case Study Header -->
+      <section class="cs-header">
+        <div class="container">
+          <a href="index.html#work" class="text-link" style="margin-bottom: 1.5rem; display: inline-flex;">
+            ← Back to all work
+          </a>
+
+          <h1 class="cs-title reveal-fade-up">Kioni</h1>
+          <p class="cs-subtitle reveal-fade-up delay-1">
+            Redesigning a private work notebook so people remember their best work, and walk into their next review with a clear story
+          </p>
+
+          <!-- AT A GLANCE (Table) -->
+          <div class="reveal-fade-up delay-2">
+            <h3 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-top: 2rem; margin-bottom: 0.5rem;">
+              At a glance
+            </h3>
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 20%;">Focus</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Focus"><strong>My role</strong></td>
+                  <td data-label="Details">Product Designer</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Worked with</strong></td>
+                  <td data-label="Details">Kioni's founder <span class="gap-highlight">[add "and the development team" if true]</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>What I did</strong></td>
+                  <td data-label="Details">Product audit, competitor research, UX and UI, dark mode, phone, design system</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Tools</strong></td>
+                  <td data-label="Details"><span class="gap-highlight">[Figma, if used]</span> · Claude (design exploration, prototyping, writing support)</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Timeline</strong></td>
+                  <td data-label="Details">November 2026 · <span class="gap-highlight">[duration]</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Status</strong></td>
+                  <td data-label="Details"><span class="gap-highlight">[e.g. Adopted by the founder / In development]</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- STATS (count up) -->
+          <div class="cs-stats-row reveal-fade-up delay-3">
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="22">0</span>
+              <span class="stat-label">Core screens</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="66">0</span>
+              <span class="stat-label">Artboards</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="5">0</span>
+              <span class="stat-label">Design principles</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="11" data-suffix=" of 11">0</span>
+              <span class="stat-label">Colour pairs pass WCAG AA</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IN SHORT -->
+      <section class="cs-section" style="border-top: none; padding-top: 1rem;">
+        <div class="container">
+          <div class="in-short-box reveal-fade-up" style="background-color: var(--cream-box); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2rem; margin-bottom: 2.5rem;">
+            <h3 style="font-family: var(--font-heading); margin-bottom: 0.75rem;">Summary</h3>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-main);">
+              By the time a performance review comes around, most people have forgotten what they achieved months earlier. Kioni already let people save examples of their work and turn them into a report, but it felt like a form to fill in, not something you'd come back to every Friday. I redesigned the whole product around one calm weekly habit, made every consequence clear before people act, and designed every screen in light mode, dark mode and on phone.
+            </p>
+          </div>
+
+          <!-- Hero Image Composition: Desktop + Phone companion -->
+          <div class="kioni-hero-composite reveal-fade-up">
+            <div class="cs-image-card kioni-hero-desktop">
+              <div class="cs-img-frame desktop-frame" data-title="Home: Private Workspace" data-desc="Desktop view of Kioni workspace with recent achievements, fast Friday capture, and private career report preview.">
+                <img
+                  src="/images/kioni/01-home-desktop.png"
+                  alt="Kioni private workspace desktop view"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+            </div>
+
+            <div class="cs-image-card kioni-hero-phone">
+              <div class="cs-img-frame phone-frame" data-title="Home: Mobile Companion" data-desc="Mobile companion view optimized for quick capture on the go with single-tap Friday check-ins.">
+                <img
+                  src="/images/kioni/02-home-phone.png"
+                  alt="Kioni mobile companion view"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+            </div>
+            <p class="cs-image-caption" style="margin-top: 1.25rem; text-align: center;">
+              Your week, your wins and your next review, at a glance.
+            </p>
+            <p style="font-size: 0.85rem; color: #8A8A85; margin-top: 0.25rem; text-align: center;">
+              All names, companies and work examples shown are sample data.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: The problem: the product worked, but it felt like a form -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Audit & Research</span>
+          <h2 class="cs-section-heading reveal-fade-up">The problem: the product worked, but it felt like a form</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              I started with the live product, not a blank page. I went through every screen, studied how each feature behaves, and reviewed five competitors: <span class="gap-highlight">[names]</span>.
+            </p>
+            <p style="font-weight: 600; color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem;">What I found:</p>
+            <ol style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+              <li><strong>The idea was strong.</strong> Saving small examples of real work, turning some into a report, and a weekly growth routine are genuinely useful. It didn't need new features.</li>
+              <li><strong>The experience was flat.</strong> Long pages, generic styling, and a settings page with seven separate Save buttons made it feel like admin, not a personal notebook.</li>
+              <li><strong>Good rules were hidden.</strong> Free plan limits, what happens when you edit an example already in a report, and how private everything is were all real features. People only found out after they acted.</li>
+            </ol>
+          </div>
+
+          <!-- Before & After Comparison: Audit of Live Product -->
+          <div class="ba-pair">
+            <div class="ba-before">
+              <div class="ba-label">Before</div>
+              <div class="ba-browser"><div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen"><img src="/images/kioni/old-homepage-hero-24oct.jpg" alt="Kioni old homepage"></div></div>
+            </div>
+            <div class="ba-after">
+              <div class="ba-label">After</div>
+              <div class="ba-browser"><div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen"><img src="/images/kioni/03-homepage-new.png" alt="Kioni new homepage"></div></div>
+            </div>
+            <p class="ba-caption">From a generic software page to a calm, personal notebook.</p>
+          </div>
+
+          <div class="ba-pair">
+            <div class="ba-before">
+              <div class="ba-label">Before</div>
+              <div class="ba-browser"><div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen"><img src="/images/kioni/old-dashboard.jpg" alt="Kioni old dashboard"></div></div>
+            </div>
+            <div class="ba-after">
+              <div class="ba-label">After</div>
+              <div class="ba-browser"><div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen"><img src="/images/kioni/01-home-desktop.png" alt="Kioni new dashboard"></div></div>
+            </div>
+            <p class="ba-caption">From a form to fill in, to a place you come back to every Friday.</p>
+          </div>
+
+          <div class="ba-pair">
+            <div class="ba-before">
+              <div class="ba-label">Before</div>
+              <div class="ba-browser"><div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen"><img src="/images/kioni/old-save-work-example.jpg" alt="Kioni old save work example"></div></div>
+            </div>
+            <div class="ba-after">
+              <div class="ba-label">After</div>
+              <div class="ba-browser"><div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen"><img src="/images/kioni/07-flow-1-save-example.png" alt="Kioni new save work example"></div></div>
+            </div>
+            <p class="ba-caption">One question at a time, with a live preview.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Key decisions -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Key Decisions</span>
+          <h2 class="cs-section-heading reveal-fade-up">Key decisions</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <h3>Five principles decided every screen</h3>
+            <p>When two options looked equally good, these decided it.</p>
+            <ol style="margin-left: 1.5rem; line-height: 1.8; margin-top: 1rem; margin-bottom: 2rem;">
+              <li><strong>Private by default.</strong> Nothing leaves Kioni unless you copy, print or download it. Every screen says who can see what.</li>
+              <li><strong>Your words, kept as you wrote them.</strong> Anything you write about yourself sits on cream "paper". Kioni never rewrites it, and edits keep a history.</li>
+              <li><strong>Calm, not gamified.</strong> No scores, no streak shaming, no red badges. Every result counts, including "Not yet".</li>
+              <li><strong>Small steps, real work.</strong> Thirty seconds on a Friday is enough. One question at a time, and anything extra is marked optional.</li>
+              <li><strong>Honest by design.</strong> Limits, prices and consequences are shown before you act, never after.</li>
+            </ol>
+          </div>
+
+          <!-- [Image: 24-ds-principles.png, full width] -->
+          <div class="cs-image-card reveal-fade-up" style="margin-bottom: 3.5rem;">
+            <div class="cs-img-frame desktop-frame" data-title="Kioni Design Principles" data-desc="Five product principles formalized into actionable UI design patterns and component constraints.">
+              <img
+                src="/images/kioni/24-ds-principles.png"
+                alt="Kioni design principles board"
+                loading="lazy"
+              />
+              <span class="fullscreen-badge">View full screen</span>
+            </div>
+            <p class="cs-image-caption">
+              <strong>Principles:</strong> Five principles decided every screen
+            </p>
+          </div>
+
+          <div class="cs-prose reveal-fade-up">
+            <h3>Being honest about consequences builds trust</h3>
+            <p>People trust Kioni with private notes about their work. If it surprises them, they stop trusting it.</p>
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+              <li><strong>Delete says exactly what will happen:</strong> "This example and its 2 earlier versions will be removed. This can't be undone. Your report will ask you to refresh."</li>
+              <li><strong>Editing an example flags any report that uses it.</strong> The report is marked "Needs a look", and downloading pauses until you check it, so what you share is always up to date.</li>
+              <li><strong>Limits are shown before you reach them:</strong> "Free includes 1 open growth area. See plans." Calm gold notes, never red warnings.</li>
+              <li><strong>AI is optional, and its button is deliberately quiet,</strong> so nobody is pushed into sharing their work with AI.</li>
+            </ul>
+          </div>
+
+          <!-- 3 decision cards: 12-decision-delete.png · 13-decision-example-changed.png · 14-decision-plan-limits.png -->
+          <div class="flow-screens-grid reveal-fade-up" style="margin-top: 1.5rem; margin-bottom: 3.5rem;">
+            <!-- Decision 1 -->
+            <div class="cs-image-card">
+              <span class="ba-col-label" style="color: var(--accent-color);">DECISION 01 · DELETION</span>
+              <div class="cs-img-frame desktop-frame" style="height: 480px;" data-title="Explicit Deletion Contract" data-desc="Delete says exactly what will happen: 'This example and its 2 earlier versions will be removed. This can't be undone. Your report will ask you to refresh.'">
+                <img
+                  src="/images/kioni/12-decision-delete.png"
+                  alt="Delete confirmation modal with explicit consequences"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption">
+                <strong>Delete confirmation:</strong> Explicit consequences explained before permanent removal
+              </p>
+            </div>
+
+            <!-- Decision 2 -->
+            <div class="cs-image-card">
+              <span class="ba-col-label" style="color: var(--accent-color);">DECISION 02 · REPORT INTEGRITY</span>
+              <div class="cs-img-frame desktop-frame" style="height: 480px;" data-title="Report Sync Safeguard" data-desc="Editing an example flags any report that uses it. The report is marked 'Needs a look', and downloading pauses until you check it.">
+                <img
+                  src="/images/kioni/13-decision-example-changed.png"
+                  alt="'An example changed' report sync warning notification"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption">
+                <strong>Report sync safeguard:</strong> "An example changed" warning pauses downloads so data stays up to date
+              </p>
+            </div>
+
+            <!-- Decision 3 -->
+            <div class="cs-image-card">
+              <span class="ba-col-label" style="color: var(--accent-color);">DECISION 03 · UPFRONT LIMITS</span>
+              <div class="cs-img-frame desktop-frame" style="height: 480px;" data-title="Calm Upfront Plan Allowance" data-desc="Limits are shown before you reach them: 'Free includes 1 open growth area. See plans.' Calm gold notes, never red warnings.">
+                <img
+                  src="/images/kioni/14-decision-plan-limits.png"
+                  alt="Transparent plan and billing allowance limits"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption">
+                <strong>Calm upfront limits:</strong> Clear boundaries and allowances shown ahead of time, never as surprises
+              </p>
+            </div>
+          </div>
+
+          <!-- Trade-offs I made Table -->
+          <div class="reveal-fade-up" style="margin-top: 2rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 1rem;">Trade-offs I made</h3>
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 28%;">I chose</th>
+                  <th style="width: 28%;">Over</th>
+                  <th style="width: 44%;">Because</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="I chose"><strong>Calm progress</strong></td>
+                  <td data-label="Over">Scores and streaks</td>
+                  <td data-label="Because">Streak shaming makes people quit a tool meant to make them feel good</td>
+                </tr>
+                <tr>
+                  <td data-label="I chose"><strong>One question at a time</strong></td>
+                  <td data-label="Over">One long form</td>
+                  <td data-label="Because">Thirty seconds is only possible if every step is tiny</td>
+                </tr>
+                <tr>
+                  <td data-label="I chose"><strong>Pausing downloads when an example changes</strong></td>
+                  <td data-label="Over">Letting people download anyway</td>
+                  <td data-label="Because">A slightly slower download beats sharing an out-of-date report</td>
+                </tr>
+                <tr>
+                  <td data-label="I chose"><strong>A quiet, optional AI button</strong></td>
+                  <td data-label="Over">A big AI feature</td>
+                  <td data-label="Because">Privacy comes before promoting a feature</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: From thirty seconds on a Friday to a story for your review (The Report) -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Core Product Flow</span>
+          <h2 class="cs-section-heading reveal-fade-up">"From thirty seconds on a Friday to a story for your review"</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              The user flow removes all blank-canvas intimidation, guiding the user in gentle bite-sized increments:
+            </p>
+          </div>
+
+          <div class="cs-card-grid reveal-fade-up">
+            <div class="cs-card">
+              <span class="card-number">01</span>
+              <h4>Save a work example</h4>
+              <p>One question, "What did you do?", with a live preview on paper.</p>
+            </div>
+
+            <div class="cs-card">
+              <span class="card-number">02</span>
+              <h4>Work examples</h4>
+              <p>Everything you have saved, grouped by week, with filters like "No result yet".</p>
+            </div>
+
+            <div class="cs-card">
+              <span class="card-number">03</span>
+              <h4>Career report builder</h4>
+              <p>Choose examples, add your personal perspective, and curate evidence.</p>
+            </div>
+
+            <div class="cs-card">
+              <span class="card-number">04</span>
+              <h4>Report review</h4>
+              <p>Check the review story before sharing, then copy, print or export.</p>
+            </div>
+
+            <div class="cs-card">
+              <span class="card-number">05</span>
+              <h4>Growth</h4>
+              <p>One small action at a time, with a gentle weekly look back.</p>
+            </div>
+          </div>
+
+      <!-- SECTION: The design -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Design Execution</span>
+          <h2 class="cs-section-heading reveal-fade-up">The design</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <h3>Your words belong on paper</h3>
+            <p>The visual design separates the person from the tool:</p>
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              <li>White cards hold the things you use.</li>
+              <li>Cream paper holds what you wrote about yourself.</li>
+              <li>Gold appears only for wins and things that need a look.</li>
+              <li>Green means you can act.</li>
+              <li>Red is used for one thing only: delete.</li>
+            </ul>
+            <p style="margin-top: 1rem;">
+              <strong>Colours:</strong> Forest #1F5C45 · Deep forest #1E3A2F · Mint #86D6B2 · Gold #E3B661 · Cream #F7F3EC · Paper #FFFDF6<br />
+              <strong>Fonts:</strong> Fraunces for headings and your own words · Inter for the interface · Caveat for reflections only
+            </p>
+          </div>
+
+          <!-- Images side by side: 25-ds-colour-brand.png · 26-ds-contrast.png -->
+          <div class="before-after-grid reveal-fade-up" style="margin: 2.5rem 0;">
+            <div class="cs-image-card">
+              <div class="cs-img-frame desktop-frame" data-title="Brand Colours" data-desc="Kioni brand palette and color tokens.">
+                <img
+                  src="/images/kioni/25-ds-colour-brand.png"
+                  alt="Kioni color tokens and brand palette"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+            </div>
+
+            <div class="cs-image-card">
+              <div class="cs-img-frame desktop-frame" data-title="Contrast Validation" data-desc="WCAG AA contrast validation table.">
+                <img
+                  src="/images/kioni/26-ds-contrast.png"
+                  alt="WCAG AA contrast matrix"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-fade-up" style="margin-bottom: 4rem;">
+            <a href="kioni-design-system.html" class="btn btn-primary">
+              View the full design system →
+            </a>
+          </div>
+
+          <div class="cs-prose reveal-fade-up">
+            <h3>From thirty seconds on a Friday to a story for your review</h3>
+            <ol style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+              <li><strong>Save a win.</strong> One question, "What did you do?", with a live preview.</li>
+              <li><strong>Find it again.</strong> Everything you've saved, grouped by week, with filters like "No result yet".</li>
+              <li><strong>Choose for your review.</strong> Pick 1 to 20 examples and see which review criteria they cover.</li>
+              <li><strong>Tell your story.</strong> Add your own view, then copy, print or download a private report.</li>
+              <li><strong>Keep growing.</strong> One small action at a time, with a gentle Monday look back.</li>
+            </ol>
+          </div>
+
+          <!-- 5-step row: 07-flow-1-save-example.png · 08-flow-2-work-examples.png · 09-flow-3-report-choose.png · 10-flow-4-report-review.png · 11-flow-5-growth.png -->
+          <div class="phone-swipe-row reveal-fade-up">
+            <div class="cs-image-card">
+              <div class="cs-img-frame desktop-frame" style="height: 380px;" data-title="Step 1: Save a win" data-desc="One question, 'What did you do?', with a live preview.">
+                <img src="/images/kioni/07-flow-1-save-example.png" alt="Save a win flow" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption">1. Save a win</p>
+            </div>
+
+            <div class="cs-image-card">
+              <div class="cs-img-frame desktop-frame" style="height: 380px;" data-title="Step 2: Find it again" data-desc="Everything saved, grouped by week, with filters.">
+                <img src="/images/kioni/08-flow-2-work-examples.png" alt="Work examples library" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption">2. Find it again</p>
+            </div>
+
+            <div class="cs-image-card">
+              <div class="cs-img-frame desktop-frame" style="height: 380px;" data-title="Step 3: Choose for your review" data-desc="Pick 1 to 20 examples and see review criteria.">
+                <img src="/images/kioni/09-flow-3-report-choose.png" alt="Report builder choosing examples" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption">3. Choose for your review</p>
+            </div>
+
+            <div class="cs-image-card">
+              <div class="cs-img-frame desktop-frame" style="height: 380px;" data-title="Step 4: Tell your story" data-desc="Add your own view, copy, print or download report.">
+                <img src="/images/kioni/10-flow-4-report-review.png" alt="Report review and export" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption">4. Tell your story</p>
+            </div>
+
+            <div class="cs-image-card">
+              <div class="cs-img-frame desktop-frame" style="height: 380px;" data-title="Step 5: Keep growing" data-desc="One small action at a time, gentle Monday look back.">
+                <img src="/images/kioni/11-flow-5-growth.png" alt="Weekly growth loop" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption">5. Keep growing</p>
+            </div>
+          </div>
+
+          <!-- Video placeholder: prototype walkthrough -->
+          <div class="cs-placeholder-box reveal-fade-up" style="background: #141414; border-color: #333; color: #FAF8F5; margin-bottom: 4rem;">
+            <span class="cs-placeholder-tag" style="background: rgba(255, 255, 255, 0.15); color: #FFF;">[Video: prototype walkthrough, muted, autoplay, loop]</span>
+            <p class="cs-placeholder-desc" style="color: #D6D6D2;">
+              Interactive prototype walkthrough recording navigating from the homepage win entry to generating the private review report.
+            </p>
+          </div>
+
+          <!-- Settings section -->
+          <div class="cs-prose reveal-fade-up">
+            <h3>Settings went from 3,700px to 1,560px on phone, without losing anything</h3>
+            <p>The old settings page was one long column with seven Save buttons. I:</p>
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              <li>grouped all reminders into one "Check-ins and reminders" section</li>
+              <li>asked for the time zone once</li>
+              <li>hid settings that do nothing, like a check-in time when check-ins are off</li>
+              <li>made switches save instantly, with a small "Saved" message</li>
+            </ul>
+            <p>On phone, each section folds into a card showing its current setting in one line, so people can check everything without opening anything.</p>
+          </div>
+
+          <!-- Big stat (count up) -->
+          <div class="cs-card reveal-fade-up" style="background-color: var(--cream-box); border-color: var(--border-color); text-align: center; padding: 2.5rem; margin-bottom: 2.5rem;">
+            <span style="font-family: var(--font-heading); font-size: 2.75rem; color: var(--accent-color); font-weight: 600; display: block;">
+              3,700px → 1,560px
+            </span>
+            <p style="font-weight: 600; color: var(--text-main); margin-top: 0.5rem;">
+              about 58% shorter · 0 settings removed
+            </p>
+          </div>
+
+          <!-- [Before/after: old-settings-live.png (placeholder until I add it) → 04-settings-desktop.png] -->
+          <div class="before-after-grid reveal-fade-up">
+            <div class="cs-image-card">
+              <span class="ba-col-label">BEFORE</span>
+              <div class="cs-placeholder-box" style="height: 480px; margin: 0;">
+                <span class="cs-placeholder-tag">[Before: old-settings-live.png (placeholder until I add it)]</span>
+                <p class="cs-placeholder-desc">Old settings page screenshot: single-column layout with 7 save buttons.</p>
+              </div>
+              <p class="cs-image-caption">Old settings</p>
+            </div>
+
+            <div class="cs-image-card">
+              <span class="ba-col-label" style="color: var(--accent-color);">AFTER</span>
+              <div class="cs-img-frame desktop-frame" style="height: 480px;" data-title="Settings Desktop" data-desc="Settings on desktop with categorized tabs and instant toggle autosave.">
+                <img src="/images/kioni/04-settings-desktop.png" alt="Settings desktop redesigned" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption">Redesigned settings desktop</p>
+            </div>
+          </div>
+
+          <!-- Phones side by side: 05-settings-phone.png and 06-settings-phone-checkins-open.png -->
+          <div class="before-after-grid reveal-fade-up" style="margin: 2.5rem 0 4rem 0;">
+            <div class="cs-image-card">
+              <div class="cs-img-frame phone-frame" data-title="Settings Phone: Closed" data-desc="Closed: every section shows its current setting.">
+                <img src="/images/kioni/05-settings-phone.png" alt="Settings on phone closed state" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="text-align: center;">Closed: every section shows its current setting.</p>
+            </div>
+
+            <div class="cs-image-card">
+              <div class="cs-img-frame phone-frame" data-title="Settings Phone: Open" data-desc="Open: one section at a time.">
+                <img src="/images/kioni/06-settings-phone-checkins-open.png" alt="Settings on phone open state" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="text-align: center;">Open: one section at a time.</p>
+            </div>
+          </div>
+
+          <!-- Designed for every state, theme and screen -->
+          <div class="cs-prose reveal-fade-up">
+            <h3>Designed for every state, theme and screen</h3>
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+              <li><strong>Dark mode is designed, not just inverted.</strong> Every colour has a chosen dark version, and paper still looks like paper.</li>
+              <li><strong>Every screen works on phone.</strong> Forms swap the menu bar for a pinned "Cancel · Save" bar.</li>
+              <li><strong>Loading feels steady.</strong> The layout stays in place, and loading screens only appear after 300 milliseconds, so fast pages never flash.</li>
+              <li><strong>Accessible:</strong> every colour pair meets WCAG AA, tap areas are at least 44px, focus is always visible, status never relies on colour alone, and reduced-motion settings are respected.</li>
+              <li><strong>Beyond the happy path:</strong> empty, loading and unusual states are designed for every screen.</li>
+            </ul>
+          </div>
+
+          <!-- The report: desktop and phone side by side -->
+          <div class="report-side-by-side reveal-fade-up">
+            <div class="cs-image-card report-desktop-col">
+              <div class="cs-img-frame desktop-frame" data-title="Career Report: Desktop Review" data-desc="Review the story, see what others will read, and print, export PDF or copy private link.">
+                <img
+                  src="/images/kioni/10-flow-4-report-review.png"
+                  alt="Kioni career report desktop review"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption">Career report: desktop review</p>
+            </div>
+            <div class="cs-image-card report-phone-col">
+              <div class="cs-img-frame phone-frame" data-title="Career Report: Mobile Companion" data-desc="Reviewing drafted milestones directly on phone.">
+                <img
+                  src="/images/kioni/20-phone-report.png"
+                  alt="Kioni career report phone companion"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="text-align: center;">Phone companion</p>
+            </div>
+          </div>
+
+          <!-- Dark mode grid: 15-dark-home.png · 16-dark-work-examples.png · 17-dark-report.png -->
+          <div class="flow-screens-grid reveal-fade-up" style="margin-top: 3rem;">
+            <div class="cs-image-card">
+              <div class="cs-img-frame desktop-frame" style="height: 440px;" data-title="Dark Home" data-desc="Tactile paper surfaces rendered against deep charcoal-forest background.">
+                <img src="/images/kioni/15-dark-home.png" alt="Dark mode home screen" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+            </div>
+            <div class="cs-image-card">
+              <div class="cs-img-frame desktop-frame" style="height: 440px;" data-title="Dark Work Examples" data-desc="Work examples library in dark mode.">
+                <img src="/images/kioni/16-dark-work-examples.png" alt="Dark mode work examples" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+            </div>
+            <div class="cs-image-card">
+              <div class="cs-img-frame desktop-frame" style="height: 440px;" data-title="Dark Report" data-desc="Report review in dark mode.">
+                <img src="/images/kioni/17-dark-report.png" alt="Dark mode report" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+            </div>
+          </div>
+          <p class="cs-image-caption" style="text-align: center; margin-top: 1rem; margin-bottom: 3.5rem;">
+            Every screen has a designed dark mode.
+          </p>
+
+          <!-- Phone row: 19-phone-work-examples.png · 20-phone-report.png · 21-phone-growth.png -->
+          <div class="phone-swipe-row reveal-fade-up">
+            <div class="cs-image-card">
+              <div class="cs-img-frame phone-frame" data-title="Phone: Work Examples" data-desc="Mobile work examples library.">
+                <img src="/images/kioni/19-phone-work-examples.png" alt="Phone work examples" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="text-align: center;">Phone work examples</p>
+            </div>
+            <div class="cs-image-card">
+              <div class="cs-img-frame phone-frame" data-title="Phone: Report" data-desc="Mobile career report view.">
+                <img src="/images/kioni/20-phone-report.png" alt="Phone report" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="text-align: center;">Phone report</p>
+            </div>
+            <div class="cs-image-card">
+              <div class="cs-img-frame phone-frame" data-title="Phone: Growth" data-desc="Mobile weekly look back and goals.">
+                <img src="/images/kioni/21-phone-growth.png" alt="Phone growth" loading="lazy" />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="text-align: center;">Phone growth</p>
+            </div>
+          </div>
+
+          <!-- Image: 33-ds-states-covered.png, full width -->
+          <div class="cs-image-card reveal-fade-up" style="margin-top: 3.5rem;">
+            <div class="cs-img-frame desktop-frame" data-title="States Covered" data-desc="Every screen designed in light, dark and phone, plus its empty, loading and edge-case states.">
+              <img src="/images/kioni/33-ds-states-covered.png" alt="Interactive states covered matrix" loading="lazy" />
+              <span class="fullscreen-badge">View full screen</span>
+            </div>
+            <p class="cs-image-caption" style="text-align: center;">
+              Every screen designed in light, dark and phone, plus its empty, loading and edge-case states.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Where it is now -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Project Status</span>
+          <h2 class="cs-section-heading reveal-fade-up">Where it is now</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              <li><span class="gap-highlight">[Outcome, e.g. "The founder adopted the redesign" / "Now in development"]</span></li>
+              <li>22 core screens and a full design system, linked into one clickable prototype</li>
+              <li><span class="gap-highlight">[Optional founder quote, with permission]</span></li>
+            </ul>
+            <p>
+              <strong>Next:</strong> design the plan-limit, error and payment states, then test the new flow with real users to see whether the weekly habit sticks.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: What I learned -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Retrospective</span>
+          <h2 class="cs-section-heading reveal-fade-up">What I learned</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              <strong>In a product about people's own work, calm and clarity matter more than features.</strong> Kioni already did the right things. The redesign made them feel trustworthy and easy enough to do every week.
+            </p>
+            <p>
+              <strong>Honesty is cheap to design and expensive to skip.</strong> An honest delete message costs one sentence, and it earns trust a feature can't.
+            </p>
+            <p>
+              <strong>AI sped up the work, but the decisions were mine.</strong> I used AI tools to explore options and build the prototype quickly, which gave me more time for the small details that build trust.
+            </p>
+          </div>
+
+          <!-- Buttons side by side -->
+          <div class="reveal-fade-up" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-top: 2.5rem;">
+            <a href="kioni-design-system.html" class="btn btn-primary">
+              View the design system →
+            </a>
+            <a href="ecosmart.html" class="btn btn-secondary">
+              Next project: EcoSmart AI →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project Link: EcoSmart AI → ecosmart.html -->
+      <section class="next-project-bar">
+        <div class="container">
+          <div>
+            <span class="category-tag">Next Project</span>
+            <br />
+            <a href="ecosmart.html" class="next-project-link">
+              <span>EcoSmart AI</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Maryam Abdulkarim</span>
+        <a href="mailto:maryamabdulkarim06@gmail.com" style="color: var(--text-muted); text-decoration: none;">maryamabdulkarim06@gmail.com</a>
+        <a href="Maryam-Abdulkarim-CV.pdf" download class="text-link" style="font-weight: 500;">Download CV</a>
+      </div>
+    </footer>
+
+    <!-- Shared Lightbox Modal -->
+    <div id="portfolioLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+      <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="" alt="" />
+        <p class="lightbox-caption-text"></p>
+      </div>
+      <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <!-- Interactive JavaScript Engine -->
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

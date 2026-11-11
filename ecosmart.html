@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoSmart AI Case Study — Maryam Abdulkarim</title>
+    <meta name="description" content="Designing trust into an AI recycling marketplace for Nigeria." />
+
+    <!-- Google Fonts: Manrope (Headings), Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="theme-ecosmart">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-bar" aria-hidden="true"></div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-fade-overlay" aria-hidden="true"></div>
+
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
+    <div class="custom-cursor-ring" aria-hidden="true"></div>
+
+    <!-- Top Navigation -->
+    <header class="site-nav">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
+
+        <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          ☰
+        </button>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li>
+              <a href="Maryam-Abdulkarim-CV.pdf" download class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Case Study Header -->
+      <section class="cs-header">
+        <div class="container">
+          <a href="index.html#work" class="text-link" style="margin-bottom: 1.5rem; display: inline-flex;">
+            ← Back to all work
+          </a>
+
+          <h1 class="cs-title reveal-fade-up">EcoSmart AI</h1>
+          <p class="cs-subtitle reveal-fade-up delay-1">
+            Designing trust into an AI recycling marketplace for Nigeria
+          </p>
+
+          <!-- AT A GLANCE (Table) -->
+          <div class="reveal-fade-up delay-2">
+            <h3 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-top: 2rem; margin-bottom: 0.5rem;">
+              At a glance
+            </h3>
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 20%;">Focus</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Focus"><strong>My role</strong></td>
+                  <td data-label="Details">Founder & Product Lead</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>What I did</strong></td>
+                  <td data-label="Details">User research, product strategy, UX and UI, design system, company website</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Team</strong></td>
+                  <td data-label="Details">Muhammad Najeeb Yusuf (CTO), Chizaram Obi (Frontend Developer), Sa'adatu Ahmad Shehu (Business Development Lead), Najaatu Abdulkarim (Social Media Manager)</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Tools</strong></td>
+                  <td data-label="Details">Figma, Figma Make, Claude, ChatGPT</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Platform</strong></td>
+                  <td data-label="Details">Android-first mobile app, for households and recyclers</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Status</strong></td>
+                  <td data-label="Details">MVP tested · Version 2 in progress</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- STATS (count up) -->
+          <div class="cs-stats-row reveal-fade-up delay-3">
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="57">0</span>
+              <span class="stat-label">Recyclers researched</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="157">0</span>
+              <span class="stat-label">Households, individuals, small & medium businesses</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="50" data-suffix="+">0</span>
+              <span class="stat-label">MVP testers</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="130" data-suffix="+">0</span>
+              <span class="stat-label">On the waitlist</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-prefix="₦" data-count-to="1" data-suffix="M">0</span>
+              <span class="stat-label">In funding (about $650)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IN SHORT -->
+      <section class="cs-section" style="border-top: none; padding-top: 1rem;">
+        <div class="container">
+          <div class="in-short-box reveal-fade-up">
+            <h3>Summary</h3>
+            <p>
+              In Nigeria, recyclable waste is often dumped or burned. Households don't know it's worth money, and recyclers struggle to find enough material. EcoSmart AI lets people take a photo of an item, find out what it is and what it's worth, and connect with a verified recycler nearby. The hardest design problem wasn't the AI. It was getting two groups who didn't trust each other to do a deal.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: The problem -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Problem Space</span>
+          <h2 class="cs-section-heading reveal-fade-up">
+            The problem: two groups needed each other, but couldn't find or trust each other
+          </h2>
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              Households saw waste as something to throw away. Recyclers spent time and money chasing material through middlemen. Both sides would have benefited from dealing directly, but there was no easy way to find each other, and no reason to trust each other.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Research -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Research & Discovery</span>
+          <h2 class="cs-section-heading reveal-fade-up">
+            Research: trust, not willingness, was the real barrier
+          </h2>
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              I surveyed 157 households, individuals, and small and medium businesses, and spoke with 57 recyclers working with metal, plastic and paper.
+            </p>
+          </div>
+
+          <div class="cs-card-grid reveal-fade-up" style="margin-top: 2rem;">
+            <div class="cs-card">
+              <span class="card-number">01</span>
+              <h4>1. People didn't know their waste had value.</h4>
+              <p>Households weren't against recycling. They didn't know what was recyclable, what it was worth, or where to take it.</p>
+              <p style="margin-top: 0.75rem; font-weight: 500; color: var(--accent-color);">
+                So the app shows what an item is and what it's worth first, before asking for anything.
+              </p>
+            </div>
+
+            <div class="cs-card">
+              <span class="card-number">02</span>
+              <h4>2. Recyclers couldn't find reliable supply.</h4>
+              <p>One recycler told us only about 30% of his material came directly from the people who produce it. The rest came through middlemen who took a cut.</p>
+              <p style="margin-top: 0.75rem; font-weight: 500; color: var(--accent-color);">
+                So the app had to bring recyclers a steady supply, not just help households.
+              </p>
+            </div>
+
+            <div class="cs-card">
+              <span class="card-number">03</span>
+              <h4>3. Trust was the biggest barrier.</h4>
+              <p>One recycler had lost millions of naira to a fraudulent deal. Households worried about being underpaid.</p>
+              <p style="margin-top: 0.75rem; font-weight: 500; color: var(--accent-color);">
+                So every step of a deal had to be visible, fair and traceable.
+              </p>
+            </div>
+          </div>
+
+          <div class="in-short-box reveal-fade-up" style="margin-top: 2rem; background: #FFFFFF;">
+            <p style="font-weight: 500;">
+              That last insight became the product's one job: make every step of a waste deal visible, fair and traceable.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Key decisions -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Key Decisions</span>
+          <h2 class="cs-section-heading reveal-fade-up">Key decisions</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <h3>The AI admits when it might be wrong.</h3>
+            <p>
+              An AI that guesses confidently and gets it wrong loses trust fast, especially when money is involved. So the result screen shows:
+            </p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8;">
+              <li>what the item is, and whether it's recyclable</li>
+              <li>its value as a range, like ₦50 – ₦150, because the final amount depends on the weight</li>
+              <li>an "AI verified" or "Self-reported" badge, so people know where the answer came from</li>
+              <li>a "This doesn't look right?" link, so people can correct it</li>
+              <li>a clear "Not recyclable" result for photos that aren't waste, instead of a guess</li>
+            </ul>
+          </div>
+
+          <div class="cs-prose reveal-fade-up" style="margin-top: 3rem;">
+            <h3>The final price is fair, and either side can challenge it.</h3>
+            <p>
+              An estimate only builds trust if the final payment is fair too. In the Fair Final Amount flow:
+            </p>
+            <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8;">
+              <li>The user sees an estimated range when they scan.</li>
+              <li>After the handover, the recycler enters the actual weight.</li>
+              <li>The app calculates the amount at the recycler's published rate.</li>
+              <li>The user accepts it or flags it as unfair.</li>
+              <li>If nobody acts, it confirms itself after 24 hours.</li>
+            </ol>
+            <p>Nobody has to take the other's word for it.</p>
+          </div>
+
+          <div class="cs-prose reveal-fade-up" style="margin-top: 3rem;">
+            <h3>Addresses stay private until a recycler commits.</h3>
+            <p>
+              Sharing a home address with a stranger is a real safety risk. Pickup requests show only the user's area until a recycler accepts. Only then is the exact location shared, and only with that recycler.
+            </p>
+          </div>
+
+          <!-- Trade-offs I made Table -->
+          <div class="reveal-fade-up" style="margin-top: 3rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 1rem;">Trade-offs I made</h3>
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">I chose</th>
+                  <th style="width: 30%;">Over</th>
+                  <th style="width: 45%;">Because</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="I chose"><strong>In-app chat and calls</strong></td>
+                  <td data-label="Over">WhatsApp and phone calls</td>
+                  <td data-label="Because">We can trace what was agreed and protect both sides</td>
+                </tr>
+                <tr>
+                  <td data-label="I chose"><strong>A value range</strong></td>
+                  <td data-label="Over">One fixed price</td>
+                  <td data-label="Because">The weight isn't known until the scale</td>
+                </tr>
+                <tr>
+                  <td data-label="I chose"><strong>Area only, until accepted</strong></td>
+                  <td data-label="Over">Full address up front</td>
+                  <td data-label="Because">Safety for households</td>
+                </tr>
+                <tr>
+                  <td data-label="I chose"><strong>Location as the user's choice, set any time</strong></td>
+                  <td data-label="Over">Automatic GPS for everyone</td>
+                  <td data-label="Because">People get the convenience if they want it, without being put at risk by default</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: The design -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">System Design</span>
+          <h2 class="cs-section-heading reveal-fade-up">The design</h2>
+
+          <!-- NEW SECTION: Empathy mapping -->
+          <div class="reveal-fade-up" style="margin-bottom: 3.5rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 1rem;">
+              Empathy mapping: what each side needed to feel safe
+            </h3>
+            <div class="cs-prose" style="margin-bottom: 2rem;">
+              <p>
+                Before drawing flows, I mapped what households and recyclers were thinking, feeling, and worrying about. The maps showed the real tension: households felt anxious about strangers coming to their gate, and recyclers felt anxious about travelling for waste that might not be worth the fuel.
+              </p>
+            </div>
+
+            <div class="ecosmart-image-card" style="margin-bottom: 48px;">
+              <div class="ecosmart-stacked-group">
+                <div class="ecosmart-img-frame" data-lightbox data-title="Empathy Map: Household" data-desc="Empathy map identifying household emotional and safety barriers.">
+                  <img
+                    src="/images/ecosmart/empathy-map-household.png"
+                    alt="Empathy maps for households identifying the emotional barriers that shaped the trust and safety decisions in the app."
+                  />
+                  <span class="fullscreen-badge">View full screen</span>
+                </div>
+                <div class="ecosmart-img-frame" data-lightbox data-title="Empathy Map: Recycler" data-desc="Empathy map identifying recycler operational and trust barriers.">
+                  <img
+                    src="/images/ecosmart/empathy-map-recycler.png"
+                    alt="Empathy maps for recyclers identifying the emotional barriers that shaped the trust and safety decisions in the app."
+                    loading="lazy"
+                  />
+                  <span class="fullscreen-badge">View full screen</span>
+                </div>
+              </div>
+              <p class="ecosmart-img-caption">
+                Empathy maps for households and recyclers, identifying the emotional barriers that shaped the trust and safety decisions in the app.
+              </p>
+            </div>
+          </div>
+
+          <div class="reveal-fade-up" style="margin-bottom: 2rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 1rem;">Two users, one system</h3>
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 50%;">Households</th>
+                  <th style="width: 50%;">Recyclers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Households">Scan an item and see what it's worth</td>
+                  <td data-label="Recyclers">A dashboard with their wallet and pending payments</td>
+                </tr>
+                <tr>
+                  <td data-label="Households">Compare nearby verified recyclers by rating, distance, materials and price</td>
+                  <td data-label="Recyclers">Incoming requests showing area, material and estimated weight</td>
+                </tr>
+                <tr>
+                  <td data-label="Households">Request a pickup or drop-off, and track it</td>
+                  <td data-label="Recyclers">Accept or decline, then enter the final weight</td>
+                </tr>
+                <tr>
+                  <td data-label="Households">Accept or flag the final amount</td>
+                  <td data-label="Recyclers">Publish their own price ranges</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Image: User flows for both sides -->
+          <div class="ecosmart-image-card reveal-fade-up" style="margin-top: 2rem; margin-bottom: 48px;">
+            <div class="ecosmart-img-frame" data-lightbox data-title="User Flows for Both Sides" data-desc="Two-sided user journey mapping the household pickup request flow and the recycler's acceptance and weighing flow.">
+              <img
+                src="/images/ecosmart/user-flows.png"
+                alt="Two-sided user journey mapping the household pickup request flow and the recycler's acceptance and weighing flow."
+                loading="lazy"
+              />
+              <span class="fullscreen-badge">View full screen</span>
+            </div>
+            <p class="ecosmart-img-caption">
+              Two-sided user journey mapping the household pickup request flow and the recycler's acceptance and weighing flow.
+            </p>
+          </div>
+
+          <!-- Image: Final screens -->
+          <div class="ecosmart-image-card reveal-fade-up" style="margin-bottom: 48px;">
+            <div class="ecosmart-img-frame" data-lightbox data-title="Final Screens" data-desc="Final screens for households and recyclers across scanning, pickup requests, collections, and in-app chat.">
+              <img
+                src="/images/ecosmart/final-screens.png"
+                alt="Final screens for households and recyclers across scanning, pickup requests, collections, and in-app chat."
+                loading="lazy"
+              />
+              <span class="fullscreen-badge">View full screen</span>
+            </div>
+            <p class="ecosmart-img-caption">
+              Final screens for households and recyclers across scanning, pickup requests, collections, and in-app chat.
+            </p>
+          </div>
+
+          <div class="cs-prose reveal-fade-up" style="margin-top: 3rem;">
+            <h3>A design system built for low-cost phones</h3>
+            <p>
+              I designed for the phones and networks people actually have: 360px-wide screens first, 48px touch targets, light pages, and words beside every icon. The system includes 41 colour tokens in light and dark, 11 text styles (Manrope and Inter), a 4px spacing scale and 12 components, such as the AI result card, recycler card and wallet card.
+            </p>
+            <p>
+              An accessibility check changed the palette. White text on our brand green (#599432) only reached a contrast of 3.68:1, below the 4.5:1 minimum. I kept the green for the logo and icons, and added a deeper green (#3F7A22) for buttons and links, which passes at 5.2:1. Every status also has a word, not just a colour.
+            </p>
+          </div>
+
+          <!-- Image: Design system (5 stacked images) -->
+          <div class="ecosmart-image-card reveal-fade-up" style="margin-top: 2rem; margin-bottom: 48px;">
+            <div class="ecosmart-stacked-group">
+              <div class="ecosmart-img-frame" data-lightbox data-title="EcoSmart Design System: Logo & Mark" data-desc="EcoSmart AI brand mark and icon geometry.">
+                <img
+                  src="/images/ecosmart/2-logo.png"
+                  alt="EcoSmart AI design system: brand mark"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+
+              <div class="ecosmart-img-frame" data-lightbox data-title="EcoSmart Design System: Accessible Colour Tokens" data-desc="Accessible colour tokens with WCAG AA compliance.">
+                <img
+                  src="/images/ecosmart/3-colour.png"
+                  alt="EcoSmart AI design system: accessible colour tokens"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+
+              <div class="ecosmart-img-frame" data-lightbox data-title="EcoSmart Design System: Typography Scale" data-desc="Typography scale in Manrope and Inter.">
+                <img
+                  src="/images/ecosmart/4-typography.png"
+                  alt="EcoSmart AI design system: type scale in Manrope and Inter"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+
+              <div class="ecosmart-img-frame" data-lightbox data-title="EcoSmart Design System: Core Components" data-desc="Buttons, inputs, status pills with 48px touch targets.">
+                <img
+                  src="/images/ecosmart/5-components.png"
+                  alt="EcoSmart AI design system: foundational components"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+
+              <div class="ecosmart-img-frame" data-lightbox data-title="EcoSmart Design System: Cards Light & Dark" data-desc="Household and recycler cards in both light and dark mode.">
+                <img
+                  src="/images/ecosmart/6-cards-light-dark.png"
+                  alt="EcoSmart AI design system: cards in both light and dark mode"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">View full screen</span>
+              </div>
+            </div>
+            <p class="ecosmart-img-caption">
+              EcoSmart AI design system: brand mark, accessible colour tokens, type scale, foundational components, and cards in both light and dark mode.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Testing -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Usability Testing</span>
+          <h2 class="cs-section-heading reveal-fade-up">
+            Testing: the AI earned trust by admitting when something was wrong
+          </h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              We shared the MVP with 50+ testers from our community and asked them to try it with their own waste.
+            </p>
+            <p>
+              <strong>What worked:</strong> sign-up and scanning were smooth. The AI identified materials like PET bottles, aluminium and cans, and users could confirm or change the result.
+            </p>
+          </div>
+
+          <!-- Pull quote -->
+          <div class="pull-quote reveal-fade-up">
+            <p>"I uploaded an incorrect image first, and the platform correctly flagged it."</p>
+            <cite>— MVP tester</cite>
+          </div>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              This was the result I cared about most: the honesty I designed into the AI worked for a real user.
+            </p>
+          </div>
+
+          <!-- What testers struggled with Table -->
+          <div class="reveal-fade-up" style="margin-top: 2rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 1rem;">What testers struggled with</h3>
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 45%;">What testers said</th>
+                  <th style="width: 55%;">What we learned</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="What testers said">"Search Nearby Recycler" found no recyclers</td>
+                  <td data-label="What we learned">A marketplace is only as good as its supply. Signing up recyclers matters as much as the app.</td>
+                </tr>
+                <tr>
+                  <td data-label="What testers said">They wanted to search by area, like Kubwa (a neighbourhood in Abuja)</td>
+                  <td data-label="What we learned">People think in neighbourhoods, not map pins.</td>
+                </tr>
+                <tr>
+                  <td data-label="What testers said">The estimate didn't show how it was worked out</td>
+                  <td data-label="What we learned">People trust a number more when they can see the sum (₦ per kg × kg).</td>
+                </tr>
+                <tr>
+                  <td data-label="What testers said">The plastic bottle instructions contradicted each other</td>
+                  <td data-label="What we learned">Small mistakes weaken trust in everything else.</td>
+                </tr>
+                <tr>
+                  <td data-label="What testers said">Some items, like old phones, were missing</td>
+                  <td data-label="What we learned">The list of materials has to grow with what people actually scan.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cs-prose reveal-fade-up" style="margin-top: 2rem;">
+            <p>
+              <strong>A request I turned into a choice:</strong> testers wanted automatic location. Instead of switching it on for everyone, I made it optional. People can turn on their location, or set it manually, at any time. Live location could put people at risk if it were misused, so each person decides for themselves.
+            </p>
+            <p>
+              <strong>What I changed:</strong> in Version 1, users contacted recyclers by WhatsApp or phone. Once a conversation left the app, we couldn't see what had been agreed, which was exactly the fraud risk our research warned about. In Version 2, all contact happens through in-app chat and calls.
+            </p>
+          </div>
+
+          <!-- Image: Version 1 → Version 2 -->
+          <div class="ecosmart-image-card reveal-fade-up" style="margin-top: 2rem; margin-bottom: 48px;">
+            <div class="ecosmart-img-frame" data-lightbox data-title="Version 1 → Version 2" data-desc="From Version 1 (WhatsApp contact, no dispute trace) to Version 2 (fully in-app chat and calls, traceable handovers).">
+              <img
+                src="/images/ecosmart/v1-v2.png"
+                alt="From Version 1 (WhatsApp contact, no dispute trace) to Version 2 (fully in-app chat and calls, traceable handovers)."
+                loading="lazy"
+              />
+              <span class="fullscreen-badge">View full screen</span>
+            </div>
+            <p class="ecosmart-img-caption">
+              From Version 1 (WhatsApp contact, no dispute trace) to Version 2 (fully in-app chat and calls, traceable handovers).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Where it is now -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Current Status</span>
+          <h2 class="cs-section-heading reveal-fade-up">Where it is now</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              <li>MVP tested by 50+ users</li>
+              <li>130+ people on the waitlist</li>
+              <li>₦1M in non-dilutive funding from two pitch wins and a grant (about $650)</li>
+              <li>Version 2 in progress</li>
+            </ul>
+            <p>
+              <strong>Next:</strong> sign up more recyclers before growing users, add search by area, show how each estimate is calculated, and measure completed deals and disputes once Version 2 ships.
+            </p>
+          </div>
+
+          <!-- Demo Video Section: See it in action -->
+          <div class="demo-presentation-panel theme-ecosmart-panel reveal-fade-up">
+            <div class="demo-layout-grid">
+              <div class="demo-phone-col">
+                <div class="modern-phone-wrapper">
+                  <span class="phone-btn phone-btn-vol-up" aria-hidden="true"></span>
+                  <span class="phone-btn phone-btn-vol-down" aria-hidden="true"></span>
+                  <span class="phone-btn phone-btn-power" aria-hidden="true"></span>
+                  <div class="modern-phone-body">
+                    <div class="modern-phone-screen">
+                      <div class="phone-camera-pill" aria-hidden="true"></div>
+                      <video
+                        class="modern-phone-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                        poster="/images/ecosmart/ecosmart-demo-poster.jpg"
+                        aria-label="Demo of EcoSmart AI identifying waste from a photo"
+                      >
+                        <source src="/videos/ecosmart-demo.mp4" type="video/mp4" />
+                        <source src="/assets/aistudio/EcoSmart-scan-clip_f7fc4124.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <button class="phone-playback-btn" aria-label="Pause demo video" type="button">
+                        <svg class="phone-icon-play" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true" style="display: none;">
+                          <polygon points="6 4 20 12 6 20 6 4"></polygon>
+                        </svg>
+                        <svg class="phone-icon-pause" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+                          <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+                          <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-text-col">
+                <h3 class="demo-heading">See it in action</h3>
+                <p class="demo-text">
+                  The AI turns down images that aren't waste instead of guessing, then identifies real items with a value range and a confidence score.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: What I learned -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Retrospective</span>
+          <h2 class="cs-section-heading reveal-fade-up">What I learned</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              <strong>In a marketplace, the design problem is trust.</strong> I started by focusing on scan accuracy, but research showed that a perfect scan means nothing if people don't trust the deal.
+            </p>
+            <p>
+              <strong>Honest AI beats impressive AI.</strong> Testers trusted the app most when it said something wasn't right.
+            </p>
+            <p>
+              <strong>Supply shapes the experience.</strong> The best search screen shows nothing if there are no recyclers nearby. Next time, I'd sign up recyclers alongside user testing, not after it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project Link: Ajo Book → ajobook.html -->
+      <section class="next-project-bar">
+        <div class="container">
+          <div>
+            <span class="category-tag">Next Project</span>
+            <br />
+            <a href="ajobook.html" class="next-project-link">
+              <span>Ajo Book</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Maryam Abdulkarim</span>
+        <a href="mailto:maryamabdulkarim06@gmail.com" style="color: var(--text-muted); text-decoration: none;">maryamabdulkarim06@gmail.com</a>
+        <a href="Maryam-Abdulkarim-CV.pdf" download class="text-link" style="font-weight: 500;">Download CV</a>
+      </div>
+    </footer>
+
+    <!-- Shared Lightbox Modal -->
+    <div id="portfolioLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+      <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="" alt="" />
+        <p class="lightbox-caption-text"></p>
+      </div>
+      <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <!-- Interactive JavaScript Engine -->
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

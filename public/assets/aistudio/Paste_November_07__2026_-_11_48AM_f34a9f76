@@ -1,0 +1,499 @@
+Update my existing portfolio website using the new content below. Do not start from scratch.
+
+==================================================
+KEEP AS IT IS
+==================================================
+- The current visual style, colours, fonts, spacing and layout
+- All motion and interactions (reveals, hover effects, custom cursor, page transitions, lightbox, scroll progress bar, count-up numbers, reduced-motion support)
+- Mobile responsiveness and fast loading
+- EcoSmart AI's green accents on its own page, and Kioni's green and gold accents on its pages
+
+==================================================
+CHANGE
+==================================================
+1. Replace ALL text on every page with the new content below. Use my wording exactly. Do not rewrite, shorten, add or invent anything: no new numbers, quotes, names or claims.
+2. Navigation: Work · About · Contact · Download CV. Remove the Graphics and Illustrations sections and nav links completely.
+3. Home page, in this order: Hero → Selected work (3 project cards) → More work (table) → About → Contact → Footer.
+4. Project order and "Next project" links: EcoSmart AI → Ajo Book → Kioni → EcoSmart AI.
+5. Case study pages: ecosmart.html, ajobook.html, kioni.html. Every case study uses the same layout: At a glance table → stat numbers (count up) → In short → sections in the order given → Where it is now → What I learned → Next project.
+6. Kioni also links to kioni-design-system.html. Keep that page and its image placements exactly as I specified before.
+7. Tables: clean tables on desktop; on mobile, turn each row into a stacked card so nothing scrolls sideways.
+8. Quotes: large pull quotes with the attribution below in grey.
+9. Image placeholders: wherever the content says [Image: ...], [Illustration: ...], [Video: ...] or [Before/after: ...], show a clearly labelled placeholder box with that description, so I can swap in my files later.
+10. Text in square brackets like [X], [names] or [duration] is a gap I still need to fill. Highlight it in yellow so I can find it easily. Do not fill it in yourself.
+
+==================================================
+CONTACT AND CV
+==================================================
+- Email: maryamabdulkarim06@gmail.com as a mailto link everywhere it appears.
+- "Download CV" buttons in the nav, hero, About, Contact and footer, all linking to Maryam-Abdulkarim-CV.pdf (same folder), downloading on click.
+- LinkedIn: https://linkedin.com/in/maryam-abdulkarim-a671931a3
+- Instagram: https://www.instagram.com/uiux_maryambintkarim
+- X: https://x.com/MaryamBintKarim
+- WhatsApp: "Message me on WhatsApp" linking to https://wa.me/2349021399802. Do not print the number as text.
+- All external links open in a new tab.
+
+==================================================
+OUTPUT
+==================================================
+Give me every updated file separately and in full: index.html, ecosmart.html, ajobook.html, kioni.html, kioni-design-system.html, plus any CSS or JS files. Then list exactly what you changed.
+
+##################################################
+NEW CONTENT
+##################################################
+
+==================================================
+HOME PAGE (index.html)
+==================================================
+
+NAV
+Maryam Abdulkarim · Work · About · Contact · [Download CV button]
+
+HERO
+Hi, I'm Maryam.
+Heading: I design products people can trust.
+Subline: Honest AI, fair prices, private data, and design that works on any screen, any network.
+Small line: Product Designer (UI/UX) · Based in Nigeria (GMT+1) · Open to remote and relocation
+Buttons: See my work · Download CV
+
+SELECTED WORK
+Section heading: Three products. One question: would you trust it?
+
+Card 01 · EcoSmart AI
+An AI recycling marketplace that tells Nigerian households what their waste is worth and connects them with verified recyclers.
+Tags: Founder & Product Lead · AI · Two-sided marketplace
+Highlights: 20+ testers · 130+ waitlist · ₦1M funding
+Link: View case study → ecosmart.html
+
+Card 02 · Ajo Book
+A simple digital ledger for people who run rotating savings groups, designed to replace the notebook, not their way of working.
+Tags: Solo Product Designer · Fintech · Accessibility · Live
+Highlights: 12 interviews · Live with a real user
+Link: View case study → ajobook.html
+
+Card 03 · Kioni
+A redesign of a private work notebook that helps people save their wins each week and walk into their review with a clear story.
+Tags: Product Designer · Redesign · Design system
+Highlights: 22 screens · Light, dark and phone · WCAG AA
+Link: View case study → kioni.html
+
+MORE WORK
+Heading: More work
+Intro: Shorter projects and work under NDA. I'm happy to walk through any of them on a call.
+Table (Project | What it is | My role):
+- Carmpus · CodeBoulevard Systems | A learning management system that grew into an AI adaptive learning platform for students, tutors and businesses | Product Designer, 2 years · Under NDA, available on request
+- [Project] | [One line] | [Your role]
+- [Project] | [One line] | [Your role]
+
+ABOUT
+Heading: Hi, I'm Maryam.
+[Photo placeholder]
+
+Product Designer based in Nigeria. I design AI, fintech, edtech and climate products for people in emerging markets, from learning platforms to marketplaces. I'm currently the founder and product lead at EcoSmart AI. Previously, I spent two years as the product designer on Carmpus, a learning management system that grew into an AI adaptive learning platform at CodeBoulevard Systems.
+
+As a founder and a designer, I fall in love with the problem before the solution. I've sat with recyclers who lost money to bad deals, and with market women keeping a whole group's savings in a notebook. Their problems shape everything I design.
+
+I don't just build with AI, I design how AI behaves: when it should admit it's unsure, when it should stay out of the way, and how people can correct it. And I keep testing until people trust it.
+
+I work closely with developers, from early ideas to handoff, so what I design is what ships. When I'm not designing products, I'm illustrating. See that side of me on Instagram (link "Instagram" to my Instagram).
+
+Buttons: Download my CV · Email me
+
+CONTACT
+Heading: Let's work together
+Text: I'm open to product design roles, remote or on-site, and freelance projects. The fastest way to reach me is email.
+Email: maryamabdulkarim06@gmail.com
+Buttons: Email me · Download CV
+Links: LinkedIn · Instagram · X · WhatsApp
+
+FOOTER
+© 2026 Maryam Abdulkarim · maryamabdulkarim06@gmail.com · Download CV
+
+==================================================
+CASE STUDY 1 (ecosmart.html)
+==================================================
+
+Title: EcoSmart AI
+Subtitle: Designing trust into an AI recycling marketplace for Nigeria
+
+AT A GLANCE (table)
+- My role: Founder & Product Lead
+- What I did: User research, product strategy, UX and UI, design system, company website
+- Team: Muhammad Najeeb Yusuf (CTO), Chizaram Obi (Frontend Developer), Sa'adatu Ahmad Shehu (Business Development Lead), Najaatu Abdulkarim (Social Media Manager)
+- Tools: Figma, Figma Make, Claude, ChatGPT
+- Platform: Android-first mobile app, for households and recyclers
+- Status: MVP tested · Version 2 in progress
+
+STATS (count up): 57 recyclers researched · 157 households surveyed · 20+ MVP testers · 130+ on the waitlist · ₦1M in funding [about $X]
+
+IN SHORT
+In Nigeria, recyclable waste is often dumped or burned. Households don't know it's worth money, and recyclers struggle to find enough material. EcoSmart AI lets people take a photo of an item, find out what it is and what it's worth, and connect with a verified recycler nearby. The hardest design problem wasn't the AI. It was getting two groups who didn't trust each other to do a deal.
+
+[Image: Key screens]
+
+SECTION: The problem: two groups needed each other, but couldn't find or trust each other
+Households saw waste as something to throw away. Recyclers spent time and money chasing material through middlemen. Both sides would have benefited from dealing directly, but there was no easy way to find each other, and no reason to trust each other.
+
+SECTION: Research: trust, not willingness, was the real barrier
+I surveyed 157 households and spoke with 57 recyclers working with metal, plastic and paper.
+
+1. People didn't know their waste had value.
+Households weren't against recycling. They didn't know what was recyclable, what it was worth, or where to take it.
+So the app shows what an item is and what it's worth first, before asking for anything.
+
+2. Recyclers couldn't find reliable supply.
+One recycler told us only about 30% of his material came directly from the people who produce it. The rest came through middlemen who took a cut.
+So the app had to bring recyclers a steady supply, not just help households.
+
+3. Trust was the biggest barrier.
+One recycler had lost millions of naira to a fraudulent deal. Households worried about being underpaid.
+So every step of a deal had to be visible, fair and traceable.
+
+That last insight became the product's one job: make every step of a waste deal visible, fair and traceable.
+
+SECTION: Key decisions
+
+The AI admits when it might be wrong.
+An AI that guesses confidently and gets it wrong loses trust fast, especially when money is involved. So the result screen shows:
+- what the item is, and whether it's recyclable
+- its value as a range, like ₦50 – ₦150, because the final amount depends on the weight
+- an "AI verified" or "Self-reported" badge, so people know where the answer came from
+- a "This doesn't look right?" link, so people can correct it
+- a clear "Not recyclable" result for photos that aren't waste, instead of a guess
+
+[Image: AI result · "This doesn't look right?" · Not recyclable]
+
+The final price is fair, and either side can challenge it.
+An estimate only builds trust if the final payment is fair too. In the Fair Final Amount flow:
+1. The user sees an estimated range when they scan.
+2. After the handover, the recycler enters the actual weight.
+3. The app calculates the amount at the recycler's published rate.
+4. The user accepts it or flags it as unfair.
+5. If nobody acts, it confirms itself after 24 hours.
+Nobody has to take the other's word for it.
+
+[Image: Fair Final Amount · Flagged]
+
+Addresses stay private until a recycler commits.
+Sharing a home address with a stranger is a real safety risk. Pickup requests show only the user's area until a recycler accepts. Only then is the exact location shared, and only with that recycler.
+
+[Image: Incoming request with area only]
+
+Trade-offs I made (table: I chose | Over | Because):
+- In-app chat and calls | WhatsApp and phone calls | We can trace what was agreed and protect both sides
+- A value range | One fixed price | The weight isn't known until the scale
+- Area only, until accepted | Full address up front | Safety for households
+- Location as the user's choice, set any time | Automatic GPS for everyone | People get the convenience if they want it, without being put at risk by default
+
+SECTION: The design
+
+Two users, one system (table: Households | Recyclers):
+- Scan an item and see what it's worth | A dashboard with their wallet and pending payments
+- Compare nearby verified recyclers by rating, distance, materials and price | Incoming requests showing area, material and estimated weight
+- Request a pickup or drop-off, and track it | Accept or decline, then enter the final weight
+- Accept or flag the final amount | Publish their own price ranges
+
+[Image: User flows for both sides]
+[Image: Final screens]
+
+A design system built for low-cost phones
+I designed for the phones and networks people actually have: 360px-wide screens first, 48px touch targets, light pages, and words beside every icon. The system includes 41 colour tokens in light and dark, 11 text styles (Manrope and Inter), a 4px spacing scale and 12 components, such as the AI result card, recycler card and wallet card.
+
+An accessibility check changed the palette. White text on our brand green (#599432) only reached a contrast of 3.68:1, below the 4.5:1 minimum. I kept the green for the logo and icons, and added a deeper green (#3F7A22) for buttons and links, which passes at 5.2:1. Every status also has a word, not just a colour.
+
+[Image: Design system]
+
+SECTION: Testing: the AI earned trust by admitting when something was wrong
+We shared the MVP with 20+ testers from our community and asked them to try it with their own waste.
+
+What worked: sign-up and scanning were smooth. The AI identified materials like PET bottles, aluminium and cans, and users could confirm or change the result.
+
+Pull quote: "I uploaded an incorrect image first, and the platform correctly flagged it." — MVP tester
+
+This was the result I cared about most: the honesty I designed into the AI worked for a real user.
+
+What testers struggled with (table: What testers said | What we learned):
+- "Search Nearby Recycler" found no recyclers | A marketplace is only as good as its supply. Signing up recyclers matters as much as the app.
+- They wanted to search by area, like Kubwa (a neighbourhood in Abuja) | People think in neighbourhoods, not map pins.
+- The estimate didn't show how it was worked out | People trust a number more when they can see the sum (₦ per kg × kg).
+- The plastic bottle instructions contradicted each other | Small mistakes weaken trust in everything else.
+- Some items, like old phones, were missing | The list of materials has to grow with what people actually scan.
+
+A request I turned into a choice: testers wanted automatic location. Instead of switching it on for everyone, I made it optional. People can turn on their location, or set it manually, at any time. Live location could put people at risk if it were misused, so each person decides for themselves.
+
+What I changed: in Version 1, users contacted recyclers by WhatsApp or phone. Once a conversation left the app, we couldn't see what had been agreed, which was exactly the fraud risk our research warned about. In Version 2, all contact happens through in-app chat and calls.
+
+[Image: Version 1 → Version 2]
+
+SECTION: Where it is now
+- MVP tested by 20+ users
+- 130+ people on the waitlist
+- ₦1M in non-dilutive funding from two pitch wins and a grant
+- Version 2 in progress
+
+Next: sign up more recyclers before growing users, add search by area, show how each estimate is calculated, and measure completed deals and disputes once Version 2 ships.
+
+[Video: 13-second scan demo, muted, autoplay, loop]
+
+SECTION: What I learned
+In a marketplace, the design problem is trust. I started by focusing on scan accuracy, but research showed that a perfect scan means nothing if people don't trust the deal.
+
+Honest AI beats impressive AI. Testers trusted the app most when it said something wasn't right.
+
+Supply shapes the experience. The best search screen shows nothing if there are no recyclers nearby. Next time, I'd sign up recyclers alongside user testing, not after it.
+
+Next project: Ajo Book → ajobook.html
+
+==================================================
+CASE STUDY 2 (ajobook.html)
+==================================================
+
+Title: Ajo Book
+Subtitle: A savings group ledger designed to beat the notebook, not other apps
+
+AT A GLANCE (table)
+- My role: Product Designer (solo)
+- What I did: User research, UX and UI, design system, directing the AI build, testing
+- Tools: FigJam, Figma, Bolt (AI app builder), paper sketches
+- Platform: Web app, designed for low-cost Android phones
+- Timeline: About one month, from first build through rounds of improvements
+- Status: Live, with a real group holder shaping Version 2
+
+STATS (count up): 12 in-person interviews · 7 usability fixes · 1 live holder using it
+
+IN SHORT
+An ajo is a rotating savings group, common across West Africa. Members pay in a fixed amount each round, and one member takes the whole pot in turn. One person, the holder, keeps the record, usually in a notebook and a WhatsApp list of ticks. I designed Ajo Book to make her job easier without changing how the group works. One insight shaped everything: the competitor isn't another app. It's her notebook.
+
+[Image: Cover illustration]
+
+SECTION: The problem: one person carries the whole group's trust in a notebook
+The holder marks every payment by hand, posts the list on WhatsApp, calls late payers one by one, and settles arguments about who paid and whose turn it is. When the notebook is wrong, she's the one people blame.
+
+[Illustration: Notebook and WhatsApp list]
+
+SECTION: Research: the notebook works, and that's the problem
+I interviewed 12 people in person, holders and members of ajo groups, and watched how holders keep their records. Holders didn't want their notebooks photographed, so I took notes on what I saw instead. That alone said a lot about how private and personal this record is.
+
+What I found:
+1. The notebook is fast, familiar and trusted. Any app has to be quicker than drawing a tick, or it loses.
+2. Members want to see the record themselves. The holder gets called constantly by people asking if their payment was recorded.
+3. Sharing updates again and again wears holders out. Re-posting the list after every payment is a hidden job.
+4. When a member goes silent, there's no backup. Holders have no way to reach someone close to a member who stops answering.
+5. Swapped turns get forgotten. When two members swap, it's easy to lose track of who's next.
+
+Pull quote: "If the group can have a link that's only for the members, instead of calling all the time, it will be more transparent." — Ajo member
+Pull quote: "Having to keep sharing will be stressful." — Ajo holder
+Pull quote: "We wish the app could have a guarantor's phone number, so we can reach close family when we can't reach a member." — Ajo holder
+
+The insight: most savings apps ask people to move their money into the app. Holders didn't want that. They wanted a better notebook that the whole group could see.
+
+[Image: Competitor comparison]
+
+SECTION: Who I designed for
+Mama Bisi, 48, market trader and ajo holder. Busy and respected, not very confident with technology, and her eyesight isn't what it used to be. She uses her Android phone mostly for WhatsApp and calls.
+- She needs to know instantly who has paid, and to pay the right person on time.
+- She worries about being accused of cheating or losing someone's money.
+- She won't learn a complicated app or hand the group's money to a company.
+
+[Illustration: Mama Bisi · Empathy map]
+
+SECTION: Key decisions
+
+Design principles: faster than a pen, kinder than a notebook
+1. One tap to mark someone paid. If it's slower than a tick, it fails.
+2. Easy to read in sunlight, on a cheap phone. At least 18px text and 56px buttons.
+3. Words beside every icon. Colour is never the only signal.
+4. Undo instead of "Are you sure?" Mistakes should be easy to fix, not scary to make.
+5. Fit the habits she already has. Share to WhatsApp, and call or text from the app.
+
+What I changed, and why (table: Before | After | Why):
+- Drag and drop to reorder turns | A simple Swap button | Dragging is hard on a small screen and easy to get wrong
+- "Are you sure?" pop-ups | Undo | Pop-ups slow her down; undo makes mistakes safe
+- WhatsApp-only reminders | Call, WhatsApp or SMS for each member | Not every member uses WhatsApp
+- Pay-out button always ready | Faded until everyone has paid, with "2 people still owe" | Stops her paying out too early by mistake
+- Different reminder options in different places | The same options everywhere | She wondered where options had gone
+
+[Image: 3 before-and-after pairs]
+
+SECTION: The design
+
+From paper to flows
+I sketched the 8 main screens on paper first, then mapped two flows in FigJam: setting up a group, and a payment round.
+
+[Image: Paper sketches · FigJam flows]
+
+Key features
+- Mark paid in one tap, with paid and owes shown in words, not just colour
+- A members-only link, so members can check their own status, and the holder stops getting calls and re-sharing the list. This came straight from what members asked for.
+- Reminders by call, WhatsApp or SMS, depending on each member
+- Share the paid list to the WhatsApp group when she wants to
+- Swap turns and see the new order instantly
+- Undo any mistake in one tap
+- Try it with example groups before adding real names
+
+[Image: Key screens]
+
+Market Ledger: a design system with roots
+I based the look on the markets where these groups live: adire indigo (#23356B, from the traditional Yoruba dyed cloth) for trust and actions, marigold (#E8A33D) for highlights, and a warm paper background (#FAF6EE) that echoes the notebook. For body text, I chose Atkinson Hyperlegible, a typeface designed for people with low vision, and Fraunces for headings. It feels familiar, not like a bank, which matters for someone who doesn't trust financial apps.
+
+[Image: Design system]
+
+Building with AI, directed by design
+I used Bolt, an AI app builder, to turn my designs into a working app quickly, so I could test with a real holder early. Then I spent about a month improving it based on feedback. The AI wrote the code; I made the decisions. I wrote each change as a clear instruction, checked every result against my principles, and kept a log of what changed and why.
+
+SECTION: Testing
+I put the live app in front of a real ajo holder and ran a full screen-by-screen review against Mama Bisi's needs. This produced 7 prioritised fixes, which shaped the changes above.
+- Speed: marking 10 people as paid took [X] in the notebook and [Y] in Ajo Book
+- Readability: [result of asking holders to read ₦40,000 aloud]
+Pull quote: [Holder's quote, with her permission]
+
+SECTION: Where it is now
+- Live, with a real holder whose feedback is shaping Version 2
+Next:
+- Guarantor contacts. Holders asked to add a guarantor's number for each member. The challenge is consent: the guarantor must agree, and only the holder should see the number.
+- Privacy choices for the members' link: should names be visible to everyone? Should links expire? Should amounts show?
+- Working offline, for markets with weak signal
+- A dashboard for holders who run several groups
+- Testing in Yoruba, Hausa and Pidgin
+
+SECTION: What I learned
+Never assume while building a product. The only way to understand a problem is to talk to the people you're solving it for. My 12 interviews changed what I built. The members' link, for example, came straight from members asking for it.
+
+Building is only half the work. After you build, put it in front of real users. Watching a holder use Ajo Book showed me problems I would never have found on my own, and drove a month of improvements.
+
+Sometimes the best design fits into a habit instead of replacing it. I didn't need to move the group's money into an app. I needed to make the holder's job easier, and let the whole group see the record.
+
+Next project: Kioni → kioni.html
+
+==================================================
+CASE STUDY 3 (kioni.html)
+==================================================
+
+Title: Kioni
+Subtitle: Redesigning a private work notebook so people remember their best work, and walk into their next review with a clear story
+
+AT A GLANCE (table)
+- My role: Product Designer
+- Worked with: Kioni's founder [add "and the development team" if true]
+- What I did: Product audit, competitor research, UX and UI, dark mode, phone, design system
+- Tools: [Figma, if used] · Claude (design exploration, prototyping, writing support)
+- Timeline: November 2026 · [duration]
+- Status: [e.g. Adopted by the founder / In development]
+
+STATS (count up): 22 core screens · 66 artboards · 5 design principles · 11 of 11 colour pairs pass accessibility contrast (WCAG AA)
+
+IN SHORT
+By the time a performance review comes around, most people have forgotten what they achieved months earlier. Kioni already let people save examples of their work and turn them into a report, but it felt like a form to fill in, not something you'd come back to every Friday. I redesigned the whole product around one calm weekly habit, made every consequence clear before people act, and designed every screen in light mode, dark mode and on phone.
+
+[Image: Home on desktop and phone — 01-home-desktop.png and 02-home-phone.png]
+Caption: Your week, your wins and your next review, at a glance.
+Small note: All names, companies and work examples shown are sample data.
+
+SECTION: The problem: the product worked, but it felt like a form
+I started with the live product, not a blank page. I went through every screen, studied how each feature behaves, and reviewed five competitors: [names].
+
+What I found:
+1. The idea was strong. Saving small examples of real work, turning some into a report, and a weekly growth routine are genuinely useful. It didn't need new features.
+2. The experience was flat. Long pages, generic styling, and a settings page with seven separate Save buttons made it feel like admin, not a personal notebook.
+3. Good rules were hidden. Free plan limits, what happens when you edit an example already in a report, and how private everything is were all real features. People only found out after they acted.
+
+[Before/after: old-homepage-hero-24oct.jpg → 03-homepage-new.png] Caption: From a generic software page to a calm, personal notebook.
+[Before/after: old-dashboard.jpg → 01-home-desktop.png] Caption: From a form to fill in, to a place you come back to every Friday.
+[Before/after: old-save-work-example.jpg → 07-flow-1-save-example.png] Caption: One question at a time, with a live preview.
+
+SECTION: Key decisions
+
+Five principles decided every screen
+When two options looked equally good, these decided it.
+1. Private by default. Nothing leaves Kioni unless you copy, print or download it. Every screen says who can see what.
+2. Your words, kept as you wrote them. Anything you write about yourself sits on cream "paper". Kioni never rewrites it, and edits keep a history.
+3. Calm, not gamified. No scores, no streak shaming, no red badges. Every result counts, including "Not yet".
+4. Small steps, real work. Thirty seconds on a Friday is enough. One question at a time, and anything extra is marked optional.
+5. Honest by design. Limits, prices and consequences are shown before you act, never after.
+
+[Image: 24-ds-principles.png, full width]
+
+Being honest about consequences builds trust
+People trust Kioni with private notes about their work. If it surprises them, they stop trusting it.
+- Delete says exactly what will happen: "This example and its 2 earlier versions will be removed. This can't be undone. Your report will ask you to refresh."
+- Editing an example flags any report that uses it. The report is marked "Needs a look", and downloading pauses until you check it, so what you share is always up to date.
+- Limits are shown before you reach them: "Free includes 1 open growth area. See plans." Calm gold notes, never red warnings.
+- AI is optional, and its button is deliberately quiet, so nobody is pushed into sharing their work with AI.
+
+[3 decision cards: 12-decision-delete.png · 13-decision-example-changed.png · 14-decision-plan-limits.png]
+
+Trade-offs I made (table: I chose | Over | Because):
+- Calm progress | Scores and streaks | Streak shaming makes people quit a tool meant to make them feel good
+- One question at a time | One long form | Thirty seconds is only possible if every step is tiny
+- Pausing downloads when an example changes | Letting people download anyway | A slightly slower download beats sharing an out-of-date report
+- A quiet, optional AI button | A big AI feature | Privacy comes before promoting a feature
+
+SECTION: The design
+
+Your words belong on paper
+The visual design separates the person from the tool:
+- White cards hold the things you use.
+- Cream paper holds what you wrote about yourself.
+- Gold appears only for wins and things that need a look.
+- Green means you can act.
+- Red is used for one thing only: delete.
+
+Colours: Forest #1F5C45 · Deep forest #1E3A2F · Mint #86D6B2 · Gold #E3B661 · Cream #F7F3EC · Paper #FFFDF6
+Fonts: Fraunces for headings and your own words · Inter for the interface · Caveat for reflections only
+
+[Images side by side: 25-ds-colour-brand.png · 26-ds-contrast.png]
+Button: View the full design system → kioni-design-system.html
+
+From thirty seconds on a Friday to a story for your review
+1. Save a win. One question, "What did you do?", with a live preview.
+2. Find it again. Everything you've saved, grouped by week, with filters like "No result yet".
+3. Choose for your review. Pick 1 to 20 examples and see which review criteria they cover.
+4. Tell your story. Add your own view, then copy, print or download a private report.
+5. Keep growing. One small action at a time, with a gentle Monday look back.
+
+[5-step row: 07-flow-1-save-example.png · 08-flow-2-work-examples.png · 09-flow-3-report-choose.png · 10-flow-4-report-review.png · 11-flow-5-growth.png]
+[Video: prototype walkthrough, muted, autoplay, loop]
+
+Settings went from 3,700px to 1,560px on phone, without losing anything
+The old settings page was one long column with seven Save buttons. I:
+- grouped all reminders into one "Check-ins and reminders" section
+- asked for the time zone once
+- hid settings that do nothing, like a check-in time when check-ins are off
+- made switches save instantly, with a small "Saved" message
+On phone, each section folds into a card showing its current setting in one line, so people can check everything without opening anything.
+
+Big stat (count up): 3,700px → 1,560px · about 58% shorter · 0 settings removed
+
+[Before/after: old-settings-live.png (placeholder until I add it) → 04-settings-desktop.png]
+[Phones side by side: 05-settings-phone.png "Closed: every section shows its current setting." · 06-settings-phone-checkins-open.png "Open: one section at a time."]
+
+Designed for every state, theme and screen
+- Dark mode is designed, not just inverted. Every colour has a chosen dark version, and paper still looks like paper.
+- Every screen works on phone. Forms swap the menu bar for a pinned "Cancel · Save" bar.
+- Loading feels steady. The layout stays in place, and loading screens only appear after 300 milliseconds, so fast pages never flash.
+- Accessible: every colour pair meets WCAG AA, tap areas are at least 44px, focus is always visible, status never relies on colour alone, and reduced-motion settings are respected.
+- Beyond the happy path: empty, loading and unusual states are designed for every screen.
+
+[Dark mode grid: 15-dark-home.png · 16-dark-work-examples.png · 17-dark-report.png]
+[Phone row: 19-phone-work-examples.png · 20-phone-report.png · 21-phone-growth.png]
+[Image: 33-ds-states-covered.png, full width] Caption: Every screen designed in light, dark and phone, plus its empty, loading and edge-case states.
+
+SECTION: Where it is now
+- [Outcome, e.g. "The founder adopted the redesign" / "Now in development"]
+- 22 core screens and a full design system, linked into one clickable prototype
+- [Optional founder quote, with permission]
+Next: design the plan-limit, error and payment states, then test the new flow with real users to see whether the weekly habit sticks.
+
+SECTION: What I learned
+In a product about people's own work, calm and clarity matter more than features. Kioni already did the right things. The redesign made them feel trustworthy and easy enough to do every week.
+
+Honesty is cheap to design and expensive to skip. An honest delete message costs one sentence, and it earns trust a feature can't.
+
+AI sped up the work, but the decisions were mine. I used AI tools to explore options and build the prototype quickly, which gave me more time for the small details that build trust.
+
+Buttons side by side: View the design system → kioni-design-system.html · Next project: EcoSmart AI → ecosmart.html
+
+==================================================
+kioni-design-system.html
+==================================================
+Keep this page exactly as I specified before. Only change: under the principles image, also list the five principles as text (the same five as on kioni.html), so they can be read without the image. The "Next project" button links to ecosmart.html.

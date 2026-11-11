@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kioni Design System & Tokens — Maryam Abdulkarim</title>
+    <meta name="description" content="A calm, tactile design system crafted for a private career journal — 100% WCAG AA contrast, light & dark token parity, and comprehensive component states." />
+
+    <!-- Google Fonts: Fraunces (Headings), Inter (Body), Caveat (Handwriting) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="theme-kioni">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-bar" aria-hidden="true"></div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-fade-overlay" aria-hidden="true"></div>
+
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
+    <div class="custom-cursor-ring" aria-hidden="true"></div>
+
+    <!-- Top Navigation -->
+    <header class="site-nav">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
+
+        <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          ☰
+        </button>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="kioni.html">← Kioni Case Study</a></li>
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="/Maryam-Abdulkarim-CV.pdf" download class="btn-cv-nav">Download CV</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Design System Header -->
+      <section class="cs-header">
+        <div class="container">
+          <a href="kioni.html" class="text-link" style="margin-bottom: 1.5rem; display: inline-flex;">
+            ← Back to Kioni Case Study
+          </a>
+
+          <h1 class="cs-title reveal-fade-up">Kioni Design System</h1>
+          <p class="cs-subtitle reveal-fade-up delay-1">
+            A calm, tactile design system crafted for a private career journal — 100% WCAG AA contrast, light & dark token parity, and comprehensive component states.
+          </p>
+
+          <!-- Info Row -->
+          <div class="cs-info-row reveal-fade-up delay-2">
+            <div class="cs-info-item">
+              <h4>System Scope</h4>
+              <p>Design tokens, typography scales, tactile paper surfaces, component anatomy, light/dark themes, and accessibility contrast matrices.</p>
+            </div>
+            <div class="cs-info-item">
+              <h4>Scale & Coverage</h4>
+              <p>66 artboards, 22 core screens, 7 interaction states per component, 11/11 WCAG AA passing color pairs.</p>
+            </div>
+            <div class="cs-info-item">
+              <h4>Tactile Metaphor</h4>
+              <p>White cards hold interactive controls; warm cream paper holds what you wrote about yourself. Gold signals wins and items needing a look.</p>
+            </div>
+            <div class="cs-info-item">
+              <h4>Tools Used</h4>
+              <p>Figma (design tokens, component variants, auto layout), Claude (design exploration, copywriting, accessibility audits).</p>
+            </div>
+          </div>
+
+          <!-- Big Stat Numbers (Count-Up) -->
+          <div class="cs-stats-row reveal-fade-up delay-3">
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="66">0</span>
+              <span class="stat-label">Artboards (light, dark, mobile)</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="11" data-suffix="/11">0</span>
+              <span class="stat-label">Color pairs passing WCAG AA</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="5">0</span>
+              <span class="stat-label">Core design principles</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="7">0</span>
+              <span class="stat-label">Component interaction states</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Overview & Token Foundations -->
+      <section class="cs-section" style="border-top: none; padding-top: 3.5rem;">
+        <div class="container">
+          <span class="category-tag">Design System Cover</span>
+          <h2 class="cs-section-heading reveal-fade-up">"Tactile foundations for private reflection"</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              The Kioni design system was built from the ground up to support thoughtful, stress-free reflection. Instead of aggressive notifications or gamified streaks, every component, card, and surface conveys permanence and trust.
+            </p>
+          </div>
+
+          <div class="cs-image-card reveal-fade-up" style="margin-top: 2rem;">
+            <div class="cs-img-frame desktop-frame" data-title="Kioni Design System Cover" data-desc="Token architecture, component boards, paper surfaces, and typography tokens across light and dark modes.">
+              <img
+                src="/images/kioni/23-ds-cover.png"
+                alt="Kioni Design System cover and token library"
+                loading="lazy"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption">
+              <strong>Cover & Architecture:</strong> Core component library, color tokens, and layout guidelines
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Five Principles in Practice -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">System Principles</span>
+          <h2 class="cs-section-heading reveal-fade-up">"Five principles decided every token"</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              Every token, radius, padding, and interactive state in the system was derived from our five core product principles:
+            </p>
+          </div>
+
+          <div class="cs-image-card reveal-fade-up" style="margin-top: 1.5rem; margin-bottom: 2.5rem;">
+            <div class="cs-img-frame desktop-frame" data-title="System Principles in Action" data-desc="Five product principles formalized into actionable UI design patterns and component constraints.">
+              <img
+                src="/images/kioni/24-ds-principles.png"
+                alt="Kioni design system principles board"
+                loading="lazy"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption">
+              <strong>Principles Board:</strong> Direct mapping from product ethos to concrete UI constraints
+            </p>
+          </div>
+
+          <!-- Five principles as text under the principles image -->
+          <div class="cs-card-grid reveal-fade-up">
+            <div class="cs-card">
+              <span class="card-number">01</span>
+              <h4>Private by default</h4>
+              <p>Nothing leaves Kioni unless you copy, print or download it. Every screen says who can see what.</p>
+            </div>
+            <div class="cs-card">
+              <span class="card-number">02</span>
+              <h4>Your words, kept as you wrote them</h4>
+              <p>Anything you write about yourself sits on cream "paper". Kioni never rewrites it, and edits keep a history.</p>
+            </div>
+            <div class="cs-card">
+              <span class="card-number">03</span>
+              <h4>Calm, not gamified</h4>
+              <p>No scores, no streak shaming, no red badges. Every result counts, including "Not yet".</p>
+            </div>
+            <div class="cs-card">
+              <span class="card-number">04</span>
+              <h4>Small steps, real work</h4>
+              <p>Thirty seconds on a Friday is enough. One question at a time, and anything extra is marked optional.</p>
+            </div>
+            <div class="cs-card">
+              <span class="card-number">05</span>
+              <h4>Honest by design</h4>
+              <p>Limits, prices and consequences are shown before you act, never after.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Brand Palette & Paper Surfaces -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Color Architecture</span>
+          <h2 class="cs-section-heading reveal-fade-up">"Brand palette & paper surfaces"</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              The palette separates human expression from system chrome. Interactive buttons use deep forest green, wins and highlights use warm gold, while notes and journal entries reside on cream paper.
+            </p>
+          </div>
+
+          <!-- Interactive Palette Swatches -->
+          <div class="cs-palette-block reveal-fade-up">
+            <span class="category-tag" style="margin-bottom: 1rem; display: block;">Design System · Brand Palette & Type Spec</span>
+            <div class="palette-swatches">
+              <div class="swatch-item">
+                <div class="swatch-color" style="background-color: #1F5C45;"></div>
+                <span class="swatch-code">#1F5C45</span>
+                <span class="swatch-name">Forest Primary</span>
+              </div>
+              <div class="swatch-item">
+                <div class="swatch-color" style="background-color: #1E3A2F;"></div>
+                <span class="swatch-code">#1E3A2F</span>
+                <span class="swatch-name">Deep Forest</span>
+              </div>
+              <div class="swatch-item">
+                <div class="swatch-color" style="background-color: #86D6B2;"></div>
+                <span class="swatch-code">#86D6B2</span>
+                <span class="swatch-name">Mint Accent</span>
+              </div>
+              <div class="swatch-item">
+                <div class="swatch-color" style="background-color: #E3B661;"></div>
+                <span class="swatch-code">#E3B661</span>
+                <span class="swatch-name">Warm Gold</span>
+              </div>
+              <div class="swatch-item">
+                <div class="swatch-color" style="background-color: #F7F3EC;"></div>
+                <span class="swatch-code">#F7F3EC</span>
+                <span class="swatch-name">Cream Box</span>
+              </div>
+              <div class="swatch-item">
+                <div class="swatch-color" style="background-color: #FFFDF6; border-color: #EAE3D3;"></div>
+                <span class="swatch-code">#FFFDF6</span>
+                <span class="swatch-name">Paper Surface</span>
+              </div>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
+              <strong>Typography:</strong> <em>Fraunces</em> for headings and user stories; <em>Inter</em> for system chrome; <em>Caveat</em> for intimate margin notes.
+            </p>
+          </div>
+
+          <div class="cs-image-card reveal-fade-up" style="margin-top: 2.5rem;">
+            <div class="cs-img-frame desktop-frame" data-title="Brand Palette & Color Tokens" data-desc="Complete brand color token spec with semantic aliases for background, surface, text, and interactive elements.">
+              <img
+                src="/images/kioni/25-ds-colour-brand.png"
+                alt="Kioni color tokens and brand palette"
+                loading="lazy"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption">
+              <strong>Color Tokens:</strong> Semantic token hierarchy with light and dark mode mappings
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Accessibility & Contrast -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Accessibility Standards</span>
+          <h2 class="cs-section-heading reveal-fade-up">"100% WCAG AA contrast compliance"</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              We rigorously tested every text, border, and background pairing across both light and dark modes. All 11 primary and secondary color combinations comfortably exceed the 4.5:1 WCAG AA minimum threshold for normal text and 3:1 for large text and interactive components.
+            </p>
+          </div>
+
+          <div class="cs-image-card reveal-fade-up" style="margin-top: 2rem;">
+            <div class="cs-img-frame desktop-frame" data-title="WCAG AA Contrast Matrix" data-desc="11 out of 11 color pairs verified against Web Content Accessibility Guidelines AA standard.">
+              <img
+                src="/images/kioni/26-ds-contrast.png"
+                alt="WCAG AA contrast validation table"
+                loading="lazy"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption">
+              <strong>Contrast Matrix:</strong> 11/11 color combinations verified for WCAG AA compliance in light and dark mode
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Component Library (Light & Dark Parity) -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Component Library</span>
+          <h2 class="cs-section-heading reveal-fade-up">"Light & dark component parity"</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              Each component was crafted in parallel for both light and dark themes, ensuring equal hierarchy and readability in any environment.
+            </p>
+          </div>
+
+          <!-- Pair 1: Buttons -->
+          <div class="reveal-fade-up" style="margin-top: 3rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">
+              Button Components
+            </h3>
+            <p style="font-size: 0.95rem; color: #6B6B6B; margin-bottom: 1.5rem;">
+              Primary forest green action buttons, secondary border buttons, subtle ghost links, and high-visibility destructive buttons.
+            </p>
+
+            <div class="before-after-grid">
+              <div class="cs-image-card ba-before">
+                <span class="ba-col-label">LIGHT MODE</span>
+                <div class="cs-img-frame desktop-frame" style="height: 480px;" data-title="Buttons: Light Mode" data-desc="Primary, secondary, ghost, and destructive button variants in light mode.">
+                  <img
+                    src="/images/kioni/27-ds-buttons-light.png"
+                    alt="Buttons light mode component spec"
+                    loading="lazy"
+                  />
+                  <span class="fullscreen-badge">⛶ View full screen</span>
+                </div>
+                <p class="cs-image-caption">Light mode buttons</p>
+              </div>
+
+              <div class="cs-image-card ba-after">
+                <span class="ba-col-label">DARK MODE</span>
+                <div class="cs-img-frame desktop-frame" style="height: 480px;" data-title="Buttons: Dark Mode" data-desc="Primary, secondary, ghost, and destructive button variants adapted for dark mode with maintained contrast.">
+                  <img
+                    src="/images/kioni/30-ds-buttons-dark.png"
+                    alt="Buttons dark mode component spec"
+                    loading="lazy"
+                  />
+                  <span class="fullscreen-badge">⛶ View full screen</span>
+                </div>
+                <p class="cs-image-caption">Dark mode buttons</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pair 2: Inputs & Fields -->
+          <div class="reveal-fade-up" style="margin-top: 3.5rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">
+              Form Inputs & Textareas
+            </h3>
+            <p style="font-size: 0.95rem; color: #6B6B6B; margin-bottom: 1.5rem;">
+              Text input fields, date pickers, multi-line reflection textareas, and active focus rings that meet accessibility standards.
+            </p>
+
+            <div class="before-after-grid">
+              <div class="cs-image-card ba-before">
+                <span class="ba-col-label">LIGHT MODE</span>
+                <div class="cs-img-frame desktop-frame" style="height: 480px;" data-title="Inputs: Light Mode" data-desc="Single-line inputs, textareas, and helper error text in light mode.">
+                  <img
+                    src="/images/kioni/28-ds-inputs-light.png"
+                    alt="Form inputs light mode component spec"
+                    loading="lazy"
+                  />
+                  <span class="fullscreen-badge">⛶ View full screen</span>
+                </div>
+                <p class="cs-image-caption">Light mode inputs and textareas</p>
+              </div>
+
+              <div class="cs-image-card ba-after">
+                <span class="ba-col-label">DARK MODE</span>
+                <div class="cs-img-frame desktop-frame" style="height: 480px;" data-title="Inputs: Dark Mode" data-desc="Single-line inputs, textareas, and helper error text in dark mode.">
+                  <img
+                    src="/images/kioni/31-ds-inputs-dark.png"
+                    alt="Form inputs dark mode component spec"
+                    loading="lazy"
+                  />
+                  <span class="fullscreen-badge">⛶ View full screen</span>
+                </div>
+                <p class="cs-image-caption">Dark mode inputs and textareas</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pair 3: Selection Controls & Chips -->
+          <div class="reveal-fade-up" style="margin-top: 3.5rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">
+              Selection Controls & Chips
+            </h3>
+            <p style="font-size: 0.95rem; color: #6B6B6B; margin-bottom: 1.5rem;">
+              Checkbox toggles, radio buttons, and category chips for filtering achievements without cluttering screen real estate.
+            </p>
+
+            <div class="before-after-grid">
+              <div class="cs-image-card ba-before">
+                <span class="ba-col-label">LIGHT MODE</span>
+                <div class="cs-img-frame desktop-frame" style="height: 480px;" data-title="Selection: Light Mode" data-desc="Checkboxes, radios, and filtering chips in light mode.">
+                  <img
+                    src="/images/kioni/29-ds-selection-light.png"
+                    alt="Selection controls light mode spec"
+                    loading="lazy"
+                  />
+                  <span class="fullscreen-badge">⛶ View full screen</span>
+                </div>
+                <p class="cs-image-caption">Light mode selection controls</p>
+              </div>
+
+              <div class="cs-image-card ba-after">
+                <span class="ba-col-label">DARK MODE</span>
+                <div class="cs-img-frame desktop-frame" style="height: 480px;" data-title="Selection: Dark Mode" data-desc="Checkboxes, radios, and filtering chips in dark mode.">
+                  <img
+                    src="/images/kioni/32-ds-selection-dark.png"
+                    alt="Selection controls dark mode spec"
+                    loading="lazy"
+                  />
+                  <span class="fullscreen-badge">⛶ View full screen</span>
+                </div>
+                <p class="cs-image-caption">Dark mode selection controls</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Interactive States Matrix -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">State Completeness</span>
+          <h2 class="cs-section-heading reveal-fade-up">"Zero edge cases left to chance"</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              To ensure seamless developer handoff, all interactive components are fully specified across seven distinct interaction states: Default, Hover, Active, Focus, Disabled, Error, and Loading.
+            </p>
+          </div>
+
+          <div class="cs-image-card reveal-fade-up" style="margin-top: 2rem;">
+            <div class="cs-img-frame desktop-frame" style="height: 560px;" data-title="Interactive States Matrix" data-desc="Every component documented across Default, Hover, Active, Focus, Disabled, Error, and Loading states.">
+              <img
+                src="/images/kioni/33-ds-states-covered.png"
+                alt="Interactive states covered matrix"
+                loading="lazy"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption">
+              <strong>Interactive State Matrix:</strong> Complete 7-state specification for bulletproof engineering handoff
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Navigation Bar to Return to Case Study or Next Project -->
+      <section class="next-project-bar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 2rem;">
+          <div>
+            <span class="category-tag">Case Study</span>
+            <br />
+            <a href="kioni.html" class="next-project-link">
+              <span>← Back to Kioni Case Study</span>
+            </a>
+          </div>
+
+          <div>
+            <span class="category-tag">Next Project</span>
+            <br />
+            <a href="ecosmart.html" class="next-project-link">
+              <span>Next project: EcoSmart AI →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Maryam Abdulkarim</span>
+        <a href="mailto:maryamabdulkarim06@gmail.com">maryamabdulkarim06@gmail.com</a>
+        <a href="/Maryam-Abdulkarim-CV.pdf" download>Download CV</a>
+      </div>
+    </footer>
+
+    <!-- Shared Lightbox Modal -->
+    <div id="portfolioLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+      <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="" alt="" />
+        <p class="lightbox-caption-text"></p>
+      </div>
+      <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <!-- Interactive JavaScript Engine -->
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

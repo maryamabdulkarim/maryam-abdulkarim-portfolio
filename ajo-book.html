@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajo Book Case Study — Maryam Abdulkarim</title>
+    <meta name="description" content="A savings group ledger designed to beat the notebook, not other apps." />
+
+    <!-- Google Fonts: Fraunces (Headings), Atkinson Hyperlegible (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="theme-ajobook">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-bar" aria-hidden="true"></div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-fade-overlay" aria-hidden="true"></div>
+
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
+    <div class="custom-cursor-ring" aria-hidden="true"></div>
+
+    <!-- Top Navigation -->
+    <header class="site-nav">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
+
+        <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          ☰
+        </button>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li>
+              <a href="Maryam-Abdulkarim-CV.pdf" download class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Case Study Header -->
+      <section class="cs-header">
+        <div class="container">
+          <a href="index.html#work" class="text-link" style="margin-bottom: 1.5rem; display: inline-flex;">
+            ← Back to all work
+          </a>
+
+          <h1 class="cs-title reveal-fade-up">Ajo Book</h1>
+          <p class="cs-subtitle reveal-fade-up delay-1">
+            A savings group ledger designed to beat the notebook, not other apps
+          </p>
+
+          <!-- AT A GLANCE (Table) -->
+          <div class="reveal-fade-up delay-2">
+            <h3 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-top: 2rem; margin-bottom: 0.5rem;">
+              At a glance
+            </h3>
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 20%;">Focus</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Focus"><strong>My role</strong></td>
+                  <td data-label="Details">Product Designer (solo)</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>What I did</strong></td>
+                  <td data-label="Details">User research, UX and UI, design system, directing the AI build, testing</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Tools</strong></td>
+                  <td data-label="Details">FigJam, Figma, Bolt (AI app builder), paper sketches</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Platform</strong></td>
+                  <td data-label="Details">Web app, designed for low-cost Android phones</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Timeline</strong></td>
+                  <td data-label="Details">About one month, from first build through rounds of improvements</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Status</strong></td>
+                  <td data-label="Details">Live, with a real group holder shaping Version 2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- STATS (count up) -->
+          <div class="cs-stats-row reveal-fade-up delay-3">
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="12">0</span>
+              <span class="stat-label">In-person interviews</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="7">0</span>
+              <span class="stat-label">Usability fixes</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="1">0</span>
+              <span class="stat-label">Live holder using it</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IN SHORT -->
+      <section class="cs-section" style="border-top: none; padding-top: 1rem;">
+        <div class="container">
+          <div class="in-short-box reveal-fade-up">
+            <h3>Summary</h3>
+            <p>
+              An ajo is a rotating savings group, common across West Africa. Members pay in a fixed amount each round, and one member takes the whole pot in turn. One person, the holder, keeps the record, usually in a notebook and a WhatsApp list of ticks. I designed Ajo Book to make her job easier without changing how the group works. One insight shaped everything: the competitor isn't another app. It's her notebook.
+            </p>
+          </div>
+
+          <!-- [Image: Cover illustration] -->
+          <div class="cs-placeholder-box reveal-fade-up">
+            <span class="cs-placeholder-tag">[Image: Cover illustration]</span>
+            <p class="cs-placeholder-desc">
+              Hero cover illustration of the traditional market ledger book rendered alongside low-cost Android mobile record interface.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: The problem -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Problem Definition</span>
+          <h2 class="cs-section-heading reveal-fade-up">
+            The problem: one person carries the whole group's trust in a notebook
+          </h2>
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              The holder marks every payment by hand, posts the list on WhatsApp, calls late payers one by one, and settles arguments about who paid and whose turn it is. When the notebook is wrong, she's the one people blame.
+            </p>
+          </div>
+
+          <!-- [Illustration: Notebook and WhatsApp list] -->
+          <div class="cs-placeholder-box reveal-fade-up">
+            <span class="cs-placeholder-tag">[Illustration: Notebook and WhatsApp list]</span>
+            <p class="cs-placeholder-desc">
+              Illustration comparing the physical handwritten ruled ledger notebook with the messy WhatsApp checkmark status broadcast.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Research -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Field Research</span>
+          <h2 class="cs-section-heading reveal-fade-up">
+            Research: the notebook works, and that's the problem
+          </h2>
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              I interviewed 12 people in person, holders and members of ajo groups, and watched how holders keep their records. Holders didn't want their notebooks photographed, so I took notes on what I saw instead. That alone said a lot about how private and personal this record is.
+            </p>
+            <p style="margin-top: 1.5rem; font-weight: 600; color: var(--text-main);">What I found:</p>
+            <ol style="margin-left: 1.5rem; line-height: 1.8; margin-top: 0.5rem; margin-bottom: 2rem;">
+              <li><strong>The notebook is fast, familiar and trusted.</strong> Any app has to be quicker than drawing a tick, or it loses.</li>
+              <li><strong>Members want to see the record themselves.</strong> The holder gets called constantly by people asking if their payment was recorded.</li>
+              <li><strong>Sharing updates again and again wears holders out.</strong> Re-posting the list after every payment is a hidden job.</li>
+              <li><strong>When a member goes silent, there's no backup.</strong> Holders have no way to reach someone close to a member who stops answering.</li>
+              <li><strong>Swapped turns get forgotten.</strong> When two members swap, it's easy to lose track of who's next.</li>
+            </ol>
+          </div>
+
+          <!-- Pull quotes -->
+          <div class="pull-quote reveal-fade-up">
+            <p>"If the group can have a link that's only for the members, instead of calling all the time, it will be more transparent."</p>
+            <cite>— Ajo member</cite>
+          </div>
+
+          <div class="pull-quote reveal-fade-up">
+            <p>"Having to keep sharing will be stressful."</p>
+            <cite>— Ajo holder</cite>
+          </div>
+
+          <div class="pull-quote reveal-fade-up">
+            <p>"We wish the app could have a guarantor's phone number, so we can reach close family when we can't reach a member."</p>
+            <cite>— Ajo holder</cite>
+          </div>
+
+          <div class="in-short-box reveal-fade-up" style="background: #FFFFFF;">
+            <p style="font-weight: 500;">
+              <strong>The insight:</strong> most savings apps ask people to move their money into the app. Holders didn't want that. They wanted a better notebook that the whole group could see.
+            </p>
+          </div>
+
+          <!-- [Image: Competitor comparison] -->
+          <div class="cs-placeholder-box reveal-fade-up">
+            <span class="cs-placeholder-tag">[Image: Competitor comparison]</span>
+            <p class="cs-placeholder-desc">
+              Competitor landscape comparing physical notebooks, bank-like financial apps, and Ajo Book's record-only zero-custody model.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Who I designed for -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Persona & Context</span>
+          <h2 class="cs-section-heading reveal-fade-up">Who I designed for</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              <strong>Mama Bisi, 48, market trader and ajo holder.</strong> Busy and respected, not very confident with technology, and her eyesight isn't what it used to be. She uses her Android phone mostly for WhatsApp and calls.
+            </p>
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-top: 0.5rem;">
+              <li>She needs to know instantly who has paid, and to pay the right person on time.</li>
+              <li>She worries about being accused of cheating or losing someone's money.</li>
+              <li>She won't learn a complicated app or hand the group's money to a company.</li>
+            </ul>
+          </div>
+
+          <!-- [Illustration: Mama Bisi · Empathy map] -->
+          <div class="cs-placeholder-box reveal-fade-up">
+            <span class="cs-placeholder-tag">[Illustration: Mama Bisi · Empathy map]</span>
+            <p class="cs-placeholder-desc">
+              Empathy map and character study of Mama Bisi: busy market environment, phone glare in sunlight, high communal responsibility, and fear of disputes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Key decisions -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Product Principles & Iterations</span>
+          <h2 class="cs-section-heading reveal-fade-up">Key decisions</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <h3>Design principles: faster than a pen, kinder than a notebook</h3>
+            <ol style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+              <li><strong>One tap to mark someone paid.</strong> If it's slower than a tick, it fails.</li>
+              <li><strong>Easy to read in sunlight, on a cheap phone.</strong> At least 18px text and 56px buttons.</li>
+              <li><strong>Words beside every icon.</strong> Colour is never the only signal.</li>
+              <li><strong>Undo instead of "Are you sure?"</strong> Mistakes should be easy to fix, not scary to make.</li>
+              <li><strong>Fit the habits she already has.</strong> Share to WhatsApp, and call or text from the app.</li>
+            </ol>
+          </div>
+
+          <!-- What I changed, and why Table -->
+          <div class="reveal-fade-up" style="margin-top: 2rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 1rem;">What I changed, and why</h3>
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 30%;">Before</th>
+                  <th style="width: 35%;">After</th>
+                  <th style="width: 35%;">Why</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Before">Drag and drop to reorder turns</td>
+                  <td data-label="After">A simple Swap button</td>
+                  <td data-label="Why">Dragging is hard on a small screen and easy to get wrong</td>
+                </tr>
+                <tr>
+                  <td data-label="Before">"Are you sure?" pop-ups</td>
+                  <td data-label="After">Undo</td>
+                  <td data-label="Why">Pop-ups slow her down; undo makes mistakes safe</td>
+                </tr>
+                <tr>
+                  <td data-label="Before">WhatsApp-only reminders</td>
+                  <td data-label="After">Call, WhatsApp or SMS for each member</td>
+                  <td data-label="Why">Not every member uses WhatsApp</td>
+                </tr>
+                <tr>
+                  <td data-label="Before">Pay-out button always ready</td>
+                  <td data-label="After">Faded until everyone has paid, with "2 people still owe"</td>
+                  <td data-label="Why">Stops her paying out too early by mistake</td>
+                </tr>
+                <tr>
+                  <td data-label="Before">Different reminder options in different places</td>
+                  <td data-label="After">The same options everywhere</td>
+                  <td data-label="Why">She wondered where options had gone</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- [Image: 3 before-and-after pairs] -->
+          <div class="cs-placeholder-box reveal-fade-up">
+            <span class="cs-placeholder-tag">[Image: 3 before-and-after pairs]</span>
+            <p class="cs-placeholder-desc">
+              Visual comparisons of the 3 key interaction iterations: swap picker vs drag gestures, undo toasts vs modal alerts, and adaptive contact channels.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: The design -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Design Execution</span>
+          <h2 class="cs-section-heading reveal-fade-up">The design</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <h3>From paper to flows</h3>
+            <p>
+              I sketched the 8 main screens on paper first, then mapped two flows in FigJam: setting up a group, and a payment round.
+            </p>
+          </div>
+
+          <!-- [Image: Paper sketches · FigJam flows] -->
+          <div class="reveal-fade-up" style="margin: 2rem 0;">
+            <div class="cs-placeholder-box" style="margin-bottom: 1.5rem;">
+              <span class="cs-placeholder-tag">[Image: Paper sketches · FigJam flows]</span>
+              <p class="cs-placeholder-desc">
+                Low-fidelity paper wireframe sketches of the 8 screens and digital FigJam user journeys mapping group setup and collection day.
+              </p>
+            </div>
+            <!-- Display actual paper wireframe asset from project files -->
+            <div class="cs-image-card">
+              <div class="cs-img-frame desktop-frame" style="height: 500px;" data-title="Ajo Book Paper Wireframes & Core Flow" data-desc="Paper wireframes exploring single-tap mark paid, swap turns with reasons, and WhatsApp shared list.">
+                <img
+                  src="/public/assets/aistudio/WhatsApp_Image_2026-11-04_at_10.46.25__2__7cac69c2.jpeg"
+                  alt="Ajo Book paper wireframes and core flow"
+                  loading="lazy"
+                />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption">
+                <strong>Paper wireframes:</strong> Early screen sketches testing single-tap checkoffs and turn swap logic
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-prose reveal-fade-up" style="margin-top: 3rem;">
+            <h3>Key features</h3>
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+              <li>Mark paid in one tap, with paid and owes shown in words, not just colour</li>
+              <li>A members-only link, so members can check their own status, and the holder stops getting calls and re-sharing the list. This came straight from what members asked for.</li>
+              <li>Reminders by call, WhatsApp or SMS, depending on each member</li>
+              <li>Share the paid list to the WhatsApp group when she wants to</li>
+              <li>Swap turns and see the new order instantly</li>
+              <li>Undo any mistake in one tap</li>
+              <li>Try it with example groups before adding real names</li>
+            </ul>
+          </div>
+
+          <!-- [Image: Key screens] -->
+          <div class="cs-placeholder-box reveal-fade-up">
+            <span class="cs-placeholder-tag">[Image: Key screens]</span>
+            <p class="cs-placeholder-desc">
+              Final responsive mobile web app screens: Welcome onboarding, ledger home, members view-only link, turn order matrix, and WhatsApp list format.
+            </p>
+          </div>
+
+          <div class="cs-prose reveal-fade-up" style="margin-top: 3rem;">
+            <h3>Market Ledger: a design system with roots</h3>
+            <p>
+              I based the look on the markets where these groups live: adire indigo (#23356B, from the traditional Yoruba dyed cloth) for trust and actions, marigold (#E8A33D) for highlights, and a warm paper background (#FAF6EE) that echoes the notebook. For body text, I chose Atkinson Hyperlegible, a typeface designed for people with low vision, and Fraunces for headings. It feels familiar, not like a bank, which matters for someone who doesn't trust financial apps.
+            </p>
+          </div>
+
+          <!-- [Image: Design system] -->
+          <div class="cs-placeholder-box reveal-fade-up">
+            <span class="cs-placeholder-tag">[Image: Design system]</span>
+            <p class="cs-placeholder-desc">
+              Market Ledger design tokens: Adire Indigo (#23356B), Marigold (#E8A33D), Warm Paper (#FAF6EE), Atkinson Hyperlegible type scale, and ledger row components.
+            </p>
+          </div>
+
+          <div class="cs-prose reveal-fade-up" style="margin-top: 3rem;">
+            <h3>Building with AI, directed by design</h3>
+            <p>
+              I used Bolt, an AI app builder, to turn my designs into a working app quickly, so I could test with a real holder early. Then I spent about a month improving it based on feedback. The AI wrote the code; I made the decisions. I wrote each change as a clear instruction, checked every result against my principles, and kept a log of what changed and why.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Testing -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Field Testing</span>
+          <h2 class="cs-section-heading reveal-fade-up">Testing</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              I put the live app in front of a real ajo holder and ran a full screen-by-screen review against Mama Bisi's needs. This produced 7 prioritised fixes, which shaped the changes above.
+            </p>
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-top: 1rem; margin-bottom: 1.5rem;">
+              <li>Speed: marking 10 people as paid took <span class="gap-highlight">[X]</span> in the notebook and <span class="gap-highlight">[Y]</span> in Ajo Book</li>
+              <li>Readability: <span class="gap-highlight">[result of asking holders to read ₦40,000 aloud]</span></li>
+            </ul>
+          </div>
+
+          <!-- Pull quote -->
+          <div class="pull-quote reveal-fade-up">
+            <p><span class="gap-highlight">[Holder's quote, with her permission]</span></p>
+            <cite>— Ajo group holder</cite>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Where it is now -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Current Status</span>
+          <h2 class="cs-section-heading reveal-fade-up">Where it is now</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              <li>Live, with a real holder whose feedback is shaping Version 2</li>
+            </ul>
+            <p><strong>Next:</strong></p>
+            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+              <li>Guarantor contacts. Holders asked to add a guarantor's number for each member. The challenge is consent: the guarantor must agree, and only the holder should see the number.</li>
+              <li>Privacy choices for the members' link: should names be visible to everyone? Should links expire? Should amounts show?</li>
+              <li>Working offline, for markets with weak signal</li>
+              <li>A dashboard for holders who run several groups</li>
+              <li>Testing in Yoruba, Hausa and Pidgin</li>
+            </ul>
+          </div>
+
+          <!-- Demo Video Section: See it in action -->
+          <div class="demo-presentation-panel theme-ajobook-panel reveal-fade-up">
+            <div class="demo-layout-grid">
+              <div class="demo-phone-col">
+                <div class="modern-phone-wrapper">
+                  <span class="phone-btn phone-btn-vol-up" aria-hidden="true"></span>
+                  <span class="phone-btn phone-btn-vol-down" aria-hidden="true"></span>
+                  <span class="phone-btn phone-btn-power" aria-hidden="true"></span>
+                  <div class="modern-phone-body">
+                    <div class="modern-phone-screen">
+                      <div class="phone-camera-pill" aria-hidden="true"></div>
+                      <video
+                        class="modern-phone-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                        poster="/images/ajobook/ajo-demo-poster.jpg"
+                        aria-label="Demo of Ajo Book group setup and member payment tracking"
+                      >
+                        <source src="/videos/ajo-demo.mp4" type="video/mp4" />
+                        <source src="/assets/aistudio/WhatsApp_Video_2026-11-09_at_16.24.17_8c8ae429.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <button class="phone-playback-btn" aria-label="Pause demo video" type="button">
+                        <svg class="phone-icon-play" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true" style="display: none;">
+                          <polygon points="6 4 20 12 6 20 6 4"></polygon>
+                        </svg>
+                        <svg class="phone-icon-pause" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+                          <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+                          <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-text-col">
+                <h3 class="demo-heading">See it in action</h3>
+                <p class="demo-text">
+                  A walkthrough of setting up a group, recording contributions, and tracking rotating savings turns directly on mobile.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: What I learned -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Retrospective</span>
+          <h2 class="cs-section-heading reveal-fade-up">What I learned</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              <strong>Never assume while building a product.</strong> The only way to understand a problem is to talk to the people you're solving it for. My 12 interviews changed what I built. The members' link, for example, came straight from members asking for it.
+            </p>
+            <p>
+              <strong>Building is only half the work.</strong> After you build, put it in front of real users. Watching a holder use Ajo Book showed me problems I would never have found on my own, and drove a month of improvements.
+            </p>
+            <p>
+              <strong>Sometimes the best design fits into a habit instead of replacing it.</strong> I didn't need to move the group's money into an app. I needed to make the holder's job easier, and let the whole group see the record.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project Link: Kioni → kioni.html -->
+      <section class="next-project-bar">
+        <div class="container">
+          <div>
+            <span class="category-tag">Next Project</span>
+            <br />
+            <a href="kioni.html" class="next-project-link">
+              <span>Kioni</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Maryam Abdulkarim</span>
+        <a href="mailto:maryamabdulkarim06@gmail.com" style="color: var(--text-muted); text-decoration: none;">maryamabdulkarim06@gmail.com</a>
+        <a href="Maryam-Abdulkarim-CV.pdf" download class="text-link" style="font-weight: 500;">Download CV</a>
+      </div>
+    </footer>
+
+    <!-- Shared Lightbox Modal -->
+    <div id="portfolioLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+      <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="" alt="" />
+        <p class="lightbox-caption-text"></p>
+      </div>
+      <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <!-- Interactive JavaScript Engine -->
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
