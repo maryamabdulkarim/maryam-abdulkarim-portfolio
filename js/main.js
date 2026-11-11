@@ -769,6 +769,148 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 11. Case Study Walkthrough Video Controller (Kioni, etc.)
+  const walkthroughVideos = document.querySelectorAll('.cs-video-element');
+  if (walkthroughVideos.length > 0) {
+    const isDataSaver = navigator.connection?.saveData === true;
+    const shouldAvoidAutoplay = isReducedMotion || isDataSaver;
+
+    walkthroughVideos.forEach((video) => {
+      const frame = video.closest('.cs-video-frame');
+      const toggleBtn = frame?.querySelector('.cs-video-toggle');
+      const playIcon = toggleBtn?.querySelector('.icon-play');
+      const pauseIcon = toggleBtn?.querySelector('.icon-pause');
+      const label = toggleBtn?.querySelector('.toggle-label');
+      let userManuallyPaused = false;
+
+      const updateState = (isPlaying) => {
+        if (!toggleBtn) return;
+        if (isPlaying) {
+          toggleBtn.setAttribute('aria-label', 'Pause video');
+          if (label) label.textContent = 'Pause';
+          if (playIcon) playIcon.style.display = 'none';
+          if (pauseIcon) pauseIcon.style.display = 'block';
+        } else {
+          toggleBtn.setAttribute('aria-label', 'Play video');
+          if (label) label.textContent = 'Play';
+          if (playIcon) playIcon.style.display = 'block';
+          if (pauseIcon) pauseIcon.style.display = 'none';
+        }
+      };
+
+      const togglePlay = (e) => {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        if (video.paused) {
+          userManuallyPaused = false;
+          video.play().then(() => updateState(true)).catch(() => {});
+        } else {
+          userManuallyPaused = true;
+          video.pause();
+          updateState(false);
+        }
+      };
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', togglePlay);
+      }
+
+      if (video) {
+        video.addEventListener('click', togglePlay);
+        video.addEventListener('play', () => updateState(true));
+        video.addEventListener('pause', () => updateState(false));
+      }
+
+      if (shouldAvoidAutoplay) {
+        video.pause();
+        updateState(false);
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !userManuallyPaused) {
+                video.play().then(() => updateState(true)).catch(() => {});
+              } else {
+                video.pause();
+                updateState(false);
+              }
+            });
+          },
+          { threshold: 0.25 }
+        );
+        observer.observe(video);
+      }
+    });
+  }
+
+  // 13. Hero Toolkit Strip Tooltips (Edge detection & Mobile tap support)
+  const toolWrappers = document.querySelectorAll('.tool-pill-wrapper');
+  if (toolWrappers.length > 0) {
+    const adjustTooltipPosition = (wrapper) => {
+      const tooltip = wrapper.querySelector('.tool-tooltip');
+      const pill = wrapper.querySelector('.tool-pill');
+      const arrow = wrapper.querySelector('.tool-tooltip-arrow');
+      if (!tooltip || !pill) return;
+
+      // Reset first to measure natural position
+      tooltip.style.left = '50%';
+      tooltip.style.transform = '';
+      if (arrow) arrow.style.left = '50%';
+
+      const tipRect = tooltip.getBoundingClientRect();
+      const padding = 12;
+      const screenWidth = window.innerWidth;
+
+      let shiftX = 0;
+      if (tipRect.left < padding) {
+        shiftX = padding - tipRect.left;
+      } else if (tipRect.right > screenWidth - padding) {
+        shiftX = (screenWidth - padding) - tipRect.right;
+      }
+
+      if (shiftX !== 0) {
+        tooltip.style.transform = `translateX(calc(-50% + ${shiftX}px)) translateY(0)`;
+        if (arrow) {
+          arrow.style.left = `calc(50% - ${shiftX}px)`;
+        }
+      }
+    };
+
+    toolWrappers.forEach((wrapper) => {
+      const pill = wrapper.querySelector('.tool-pill');
+      if (!pill) return;
+
+      // Desktop hover / focus edge adjustment
+      wrapper.addEventListener('mouseenter', () => adjustTooltipPosition(wrapper));
+      pill.addEventListener('focus', () => adjustTooltipPosition(wrapper));
+
+      // Mobile tap support
+      pill.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const wasActive = wrapper.classList.contains('active');
+        toolWrappers.forEach((w) => w.classList.remove('active'));
+        if (!wasActive) {
+          wrapper.classList.add('active');
+          adjustTooltipPosition(wrapper);
+        }
+      });
+    });
+
+    // Tap outside to close tooltips on mobile
+    document.addEventListener('click', () => {
+      toolWrappers.forEach((w) => w.classList.remove('active'));
+    });
+
+    // Escape closes tooltips
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        toolWrappers.forEach((w) => w.classList.remove('active'));
+      }
+    });
+  }
 });
 
 

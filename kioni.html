@@ -81,7 +81,7 @@
                 </tr>
                 <tr>
                   <td data-label="Focus"><strong>Worked with</strong></td>
-                  <td data-label="Details">Kioni's founder <span class="gap-highlight">[add "and the development team" if true]</span></td>
+                  <td data-label="Details">Kioni's founder</td>
                 </tr>
                 <tr>
                   <td data-label="Focus"><strong>What I did</strong></td>
@@ -89,15 +89,15 @@
                 </tr>
                 <tr>
                   <td data-label="Focus"><strong>Tools</strong></td>
-                  <td data-label="Details"><span class="gap-highlight">[Figma, if used]</span> · Claude (design exploration, prototyping, writing support)</td>
+                  <td data-label="Details">Figma (UI and design system) · FigJam (audit and flows) · Claude (design exploration, prototyping, writing support)</td>
                 </tr>
                 <tr>
                   <td data-label="Focus"><strong>Timeline</strong></td>
-                  <td data-label="Details">November 2026 · <span class="gap-highlight">[duration]</span></td>
+                  <td data-label="Details">November 2026 · about 1 week</td>
                 </tr>
                 <tr>
                   <td data-label="Focus"><strong>Status</strong></td>
-                  <td data-label="Details"><span class="gap-highlight">[e.g. Adopted by the founder / In development]</span></td>
+                  <td data-label="Details">Adopted by the founder · parts are live</td>
                 </tr>
               </tbody>
             </table>
@@ -168,22 +168,65 @@
         </div>
       </section>
 
-      <!-- Section: The problem: the product worked, but it felt like a form -->
+      <!-- Section: The product worked. It just felt like a form. -->
       <section class="cs-section">
         <div class="container">
           <span class="category-tag">Audit & Research</span>
-          <h2 class="cs-section-heading reveal-fade-up">The problem: the product worked, but it felt like a form</h2>
+          <h2 class="cs-section-heading reveal-fade-up">The product worked. It just felt like a form.</h2>
 
           <div class="cs-prose reveal-fade-up">
             <p>
-              I started with the live product, not a blank page. I went through every screen, studied how each feature behaves, and reviewed five competitors: <span class="gap-highlight">[names]</span>.
+              I started with the live product, not a blank page. I went through every screen, studied how each feature behaves, and reviewed five competitors in two groups.
             </p>
-            <p style="font-weight: 600; color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.5rem;">What I found:</p>
-            <ol style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
-              <li><strong>The idea was strong.</strong> Saving small examples of real work, turning some into a report, and a weekly growth routine are genuinely useful. It didn't need new features.</li>
-              <li><strong>The experience was flat.</strong> Long pages, generic styling, and a settings page with seven separate Save buttons made it feel like admin, not a personal notebook.</li>
-              <li><strong>Good rules were hidden.</strong> Free plan limits, what happens when you edit an example already in a report, and how private everything is were all real features. People only found out after they acted.</li>
+          </div>
+
+          <!-- Competitor block (two columns) -->
+          <div class="competitor-grid reveal-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="cs-card" style="background-color: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem 1.75rem;">
+              <span style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.65rem;">
+                PERSONAL WIN TRACKERS
+              </span>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0;">
+                <strong>BragLog, BragBook.</strong> Help you note wins and turn them into review documents, but they're for you alone, with no link to your manager.
+              </p>
+            </div>
+
+            <div class="cs-card" style="background-color: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem 1.75rem;">
+              <span style="display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.65rem;">
+                COMPANY PERFORMANCE TOOLS
+              </span>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0;">
+                <strong>Lattice, 15Five, Leapsome.</strong> Powerful for goals and reviews, but owned by the company, not the employee.
+              </p>
+            </div>
+          </div>
+
+          <!-- Highlight box (cream #F7F3EC) -->
+          <div class="reveal-fade-up" style="background-color: #F7F3EC; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;">
+            <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-main); margin: 0;">
+              The biggest rival is free: a Google Doc or Notion template. Kioni has to feel better than a blank document.
+            </p>
+          </div>
+
+          <!-- One line in Kioni green -->
+          <p class="reveal-fade-up" style="color: var(--accent-color); font-weight: 600; font-size: 1.05rem; line-height: 1.6; margin-bottom: 2.5rem;">
+            Where Kioni fits: private like a personal diary, but it can still connect to your manager, and you choose exactly what they see.
+          </p>
+
+          <!-- Three findings (numbered) -->
+          <div class="cs-prose reveal-fade-up">
+            <ol style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2.5rem;">
+              <li><strong>The idea was strong.</strong> Saving small examples of real work, turning chosen ones into a report, and a weekly growth loop (choose an area, try an action, record the result, look back) are genuinely useful.</li>
+              <li><strong>The experience was flat.</strong> Long single-column pages, generic styling, and a settings page with seven separate Save buttons made it feel like admin, not a personal notebook.</li>
+              <li><strong>The rules were good but hidden.</strong> Free plan limits, what happens when you edit an example that's already in a report, and how private everything is were all real features, but users only found out after they acted.</li>
             </ol>
+          </div>
+
+          <!-- Insight line (large, Fraunces) -->
+          <div class="reveal-fade-up" style="margin: 2.5rem 0 3.5rem 0; padding: 1.5rem 0 1.5rem 1.75rem; border-left: 3px solid var(--accent-color);">
+            <p style="font-family: var(--font-heading); font-size: clamp(1.2rem, 2.2vw, 1.5rem); line-height: 1.5; color: var(--text-main); margin: 0; font-style: italic;">
+              "The hardest part of this kind of product is remembering to log your wins. So the redesign makes the Friday check-in a core part of Home, not a setting hidden away."
+            </p>
           </div>
 
           <!-- Before & After Comparison: Audit of Live Product -->
@@ -515,11 +558,38 @@
             </div>
           </div>
 
-          <!-- Video placeholder: prototype walkthrough -->
-          <div class="cs-placeholder-box reveal-fade-up" style="background: #141414; border-color: #333; color: #FAF8F5; margin-bottom: 4rem;">
-            <span class="cs-placeholder-tag" style="background: rgba(255, 255, 255, 0.15); color: #FFF;">[Video: prototype walkthrough, muted, autoplay, loop]</span>
-            <p class="cs-placeholder-desc" style="color: #D6D6D2;">
-              Interactive prototype walkthrough recording navigating from the homepage win entry to generating the private review report.
+          <!-- Prototype Walkthrough Video -->
+          <div class="cs-video-card reveal-fade-up">
+            <div class="cs-video-frame">
+              <video
+                id="kioniWalkthroughVideo"
+                class="cs-video-element"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="/images/kioni/kioni-walkthrough-poster.jpg"
+                aria-label="Prototype walkthrough of Kioni: from saving a win to a finished report"
+              >
+                <source src="/videos/kioni-walkthrough.mp4" type="video/mp4" />
+                <source src="/assets/aistudio/Screen_Recording_2026-11-11_105516_c14f5153.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <button class="cs-video-toggle" type="button" aria-label="Pause video">
+                <span class="toggle-icon">
+                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+                    <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+                  </svg>
+                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true" style="display: none;">
+                    <polygon points="6 4 20 12 6 20 6 4"></polygon>
+                  </svg>
+                </span>
+                <span class="toggle-label">Pause</span>
+              </button>
+            </div>
+            <p class="cs-video-caption">
+              Prototype walkthrough: from saving a win to a finished report.
             </p>
           </div>
 
@@ -695,10 +765,18 @@
 
           <div class="cs-prose reveal-fade-up">
             <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
-              <li><span class="gap-highlight">[Outcome, e.g. "The founder adopted the redesign" / "Now in development"]</span></li>
-              <li>22 core screens and a full design system, linked into one clickable prototype</li>
-              <li><span class="gap-highlight">[Optional founder quote, with permission]</span></li>
+              <li>The founder adopted the redesign, and parts of it are now live.</li>
+              <li>22 core screens and a full design system, linked into one clickable prototype, designed in about a week.</li>
             </ul>
+          </div>
+
+          <!-- Pull quote -->
+          <div class="pull-quote reveal-fade-up">
+            <p>"The design is clean and clear."</p>
+            <cite>— Founder, Kioni</cite>
+          </div>
+
+          <div class="cs-prose reveal-fade-up">
             <p>
               <strong>Next:</strong> design the plan-limit, error and payment states, then test the new flow with real users to see whether the weekly habit sticks.
             </p>
