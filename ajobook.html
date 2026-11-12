@@ -6,7 +6,7 @@
     <title>Ajo Book Case Study — Maryam Abdulkarim</title>
     <meta name="description" content="A savings group ledger designed to beat the notebook, not other apps." />
 
-    <!-- Google Fonts: Fraunces (Headings), Atkinson Hyperlegible (Body) -->
+    <!-- Google Fonts: Fraunces (Headings), Atkinson Hyperlegible (Body/Numbers), Inter (UI) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -106,15 +106,15 @@
           <!-- STATS (count up) -->
           <div class="cs-stats-row reveal-fade-up delay-3">
             <div class="cs-stat-item">
-              <span class="stat-num" data-count-to="12">0</span>
-              <span class="stat-label">In-person interviews</span>
+              <span class="stat-num" data-count-to="12">12</span>
+              <span class="stat-label">People interviewed in person</span>
             </div>
             <div class="cs-stat-item">
-              <span class="stat-num" data-count-to="7">0</span>
+              <span class="stat-num" data-count-to="7">7</span>
               <span class="stat-label">Usability fixes</span>
             </div>
             <div class="cs-stat-item">
-              <span class="stat-num" data-count-to="1">0</span>
+              <span class="stat-num" data-count-to="1">1</span>
               <span class="stat-label">Live holder using it</span>
             </div>
           </div>
@@ -129,13 +129,24 @@
             <p>
               An ajo is a rotating savings group, common across West Africa. Members pay in a fixed amount each round, and one member takes the whole pot in turn. One person, the holder, keeps the record, usually in a notebook and a WhatsApp list of ticks. I designed Ajo Book to make her job easier without changing how the group works. One insight shaped everything: the competitor isn't another app. It's her notebook.
             </p>
+            <div style="margin-top: 1rem;">
+              <a href="#demo" class="text-link" style="font-weight: 500; font-size: 0.95rem;">Watch the demo ↓</a>
+            </div>
           </div>
 
-          <!-- [Image: Cover illustration] -->
-          <div class="cs-placeholder-box reveal-fade-up">
-            <span class="cs-placeholder-tag">[Image: Cover illustration]</span>
-            <p class="cs-placeholder-desc">
-              Hero cover illustration of the traditional market ledger book rendered alongside low-cost Android mobile record interface.
+          <!-- Cover Image: ajo-cover.png -->
+          <div class="cs-image-card reveal-fade-up" style="margin-bottom: 2.5rem;">
+            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E6DED0; background: #FAF6EE; cursor: zoom-in;" data-title="Ajo Book: Welcome, Home and Add Person" data-desc="Welcome, Home and adding a person. Sample data from the app's example groups.">
+              <img
+                src="/images/ajobook/ajo-cover.png"
+                alt="Three Ajo Book phone screens lying on a linen table between a handwritten ajo notebook and indigo adire fabric: the Welcome screen, Home with the Balogun Ajo group (₦120,000 of ₦200,000, 3 paid, 2 not paid yet), and the Add person form."
+                loading="lazy"
+                style="width: 100%; height: auto; display: block; border-radius: 16px;"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption" style="text-align: center; margin-top: 0.75rem; color: #8A8A85; font-size: 0.85rem;">
+              Welcome, Home and adding a person. Sample data from the app's example groups.
             </p>
           </div>
         </div>
@@ -154,11 +165,18 @@
             </p>
           </div>
 
-          <!-- [Illustration: Notebook and WhatsApp list] -->
-          <div class="cs-placeholder-box reveal-fade-up">
-            <span class="cs-placeholder-tag">[Illustration: Notebook and WhatsApp list]</span>
-            <p class="cs-placeholder-desc">
-              Illustration comparing the physical handwritten ruled ledger notebook with the messy WhatsApp checkmark status broadcast.
+          <!-- Coded WhatsApp-style message bubble -->
+          <div class="reveal-fade-up" style="margin: 2rem 0;">
+            <div style="background-color: #DCF8C6; border-radius: 12px; padding: 1rem 1.25rem; max-width: 360px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.95rem; line-height: 1.6; color: #111827; border: 1px solid rgba(0,0,0,0.05);">
+              <div style="font-weight: 700; margin-bottom: 0.35rem; color: #075E54;">Balogun Ajo – November (₦40,000)</div>
+              <div>1. Mama Chinedu ✅</div>
+              <div>2. Sisi Blessing ✅</div>
+              <div>3. Brother Femi ✅</div>
+              <div>4. Iya Bose</div>
+              <div>5. Baba Segun</div>
+            </div>
+            <p class="cs-image-caption" style="margin-top: 0.65rem; color: #8A8A85; font-size: 0.85rem;">
+              The list holders post by hand after payments (example names)
             </p>
           </div>
         </div>
@@ -207,12 +225,44 @@
             </p>
           </div>
 
-          <!-- [Image: Competitor comparison] -->
-          <div class="cs-placeholder-box reveal-fade-up">
-            <span class="cs-placeholder-tag">[Image: Competitor comparison]</span>
-            <p class="cs-placeholder-desc">
-              Competitor landscape comparing physical notebooks, bank-like financial apps, and Ajo Book's record-only zero-custody model.
-            </p>
+          <!-- Competitor comparison Table -->
+          <div class="reveal-fade-up" style="margin: 2rem 0;">
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 32%;">Option</th>
+                  <th style="width: 26%;">Who uses it</th>
+                  <th style="width: 21%;">Holds the money?</th>
+                  <th style="width: 21%;">Members must sign up?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Option">Notebook + WhatsApp</td>
+                  <td data-label="Who uses it">Holder</td>
+                  <td data-label="Holds the money?">No</td>
+                  <td data-label="Members must sign up?">No</td>
+                </tr>
+                <tr>
+                  <td data-label="Option">Savings and contribution apps</td>
+                  <td data-label="Who uses it">Members</td>
+                  <td data-label="Holds the money?">Often yes</td>
+                  <td data-label="Members must sign up?">Yes</td>
+                </tr>
+                <tr>
+                  <td data-label="Option">Collector tools</td>
+                  <td data-label="Who uses it">Professional collectors</td>
+                  <td data-label="Holds the money?">No</td>
+                  <td data-label="Members must sign up?">No (monthly fee)</td>
+                </tr>
+                <tr style="background-color: #E7EAF3; font-weight: 700;">
+                  <td data-label="Option"><strong>Ajo Book</strong></td>
+                  <td data-label="Who uses it"><strong>Holder only</strong></td>
+                  <td data-label="Holds the money?"><strong>No</strong></td>
+                  <td data-label="Members must sign up?"><strong>No</strong></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -234,12 +284,40 @@
             </ul>
           </div>
 
-          <!-- [Illustration: Mama Bisi · Empathy map] -->
-          <div class="cs-placeholder-box reveal-fade-up">
-            <span class="cs-placeholder-tag">[Illustration: Mama Bisi · Empathy map]</span>
-            <p class="cs-placeholder-desc">
-              Empathy map and character study of Mama Bisi: busy market environment, phone glare in sunlight, high communal responsibility, and fear of disputes.
-            </p>
+          <!-- Mama Bisi Empathy Map (4-box 2x2 grid) -->
+          <div class="reveal-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 2rem 0;">
+            <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.5rem;">
+                SAYS
+              </span>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0; font-style: italic;">
+                “I just need to know who has paid.”
+              </p>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.5rem;">
+                THINKS
+              </span>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0; font-style: italic;">
+                “If the record is wrong, they will blame me.”
+              </p>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.5rem;">
+                DOES
+              </span>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0;">
+                Writes ticks in a notebook, posts the list on WhatsApp, calls late payers.
+              </p>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.5rem;">
+                FEELS
+              </span>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0;">
+                Respected, but tired of being called and worried about disputes.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -289,25 +367,12 @@
                   <td data-label="Why">Not every member uses WhatsApp</td>
                 </tr>
                 <tr>
-                  <td data-label="Before">Pay-out button always ready</td>
-                  <td data-label="After">Faded until everyone has paid, with "2 people still owe"</td>
-                  <td data-label="Why">Stops her paying out too early by mistake</td>
-                </tr>
-                <tr>
                   <td data-label="Before">Different reminder options in different places</td>
                   <td data-label="After">The same options everywhere</td>
                   <td data-label="Why">She wondered where options had gone</td>
                 </tr>
               </tbody>
             </table>
-          </div>
-
-          <!-- [Image: 3 before-and-after pairs] -->
-          <div class="cs-placeholder-box reveal-fade-up">
-            <span class="cs-placeholder-tag">[Image: 3 before-and-after pairs]</span>
-            <p class="cs-placeholder-desc">
-              Visual comparisons of the 3 key interaction iterations: swap picker vs drag gestures, undo toasts vs modal alerts, and adaptive contact channels.
-            </p>
           </div>
         </div>
       </section>
@@ -321,19 +386,12 @@
           <div class="cs-prose reveal-fade-up">
             <h3>From paper to flows</h3>
             <p>
-              I sketched the 8 main screens on paper first, then mapped two flows in FigJam: setting up a group, and a payment round.
+              I sketched the 8 main screens on paper first, then mapped two flows in FigJam: first open and a payment round.
             </p>
           </div>
 
-          <!-- [Image: Paper sketches · FigJam flows] -->
+          <!-- Paper wireframes image -->
           <div class="reveal-fade-up" style="margin: 2rem 0;">
-            <div class="cs-placeholder-box" style="margin-bottom: 1.5rem;">
-              <span class="cs-placeholder-tag">[Image: Paper sketches · FigJam flows]</span>
-              <p class="cs-placeholder-desc">
-                Low-fidelity paper wireframe sketches of the 8 screens and digital FigJam user journeys mapping group setup and collection day.
-              </p>
-            </div>
-            <!-- Display actual paper wireframe asset from project files -->
             <div class="cs-image-card">
               <div class="cs-img-frame desktop-frame" style="height: 500px;" data-title="Ajo Book Paper Wireframes & Core Flow" data-desc="Paper wireframes exploring single-tap mark paid, swap turns with reasons, and WhatsApp shared list.">
                 <img
@@ -349,25 +407,99 @@
             </div>
           </div>
 
+          <!-- Two User Flow Images -->
+          <div class="reveal-fade-up" style="margin: 2.5rem 0;">
+            <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--text-main);">
+              I mapped the two journeys a holder repeats most: getting started once, and collection day every round.
+            </p>
+
+            <!-- Flow 1: userflow-1.png -->
+            <div class="cs-image-card" style="margin-bottom: 2rem;">
+              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E6DED0; background: #FFFFFF; cursor: zoom-in;" data-title="User Flow 1: First Open" data-desc="User flow 1: First open, from Welcome to Home, by trying the example groups or entering a name. Sign-in is optional.">
+                <img
+                  src="/images/ajobook/userflow-1.png"
+                  alt="Onboarding flowchart: Open app, first time?, Welcome, try examples or enter name, optional sign in, Home."
+                  loading="lazy"
+                  style="width: 100%; height: auto; display: block; border-radius: 16px;"
+                />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="text-align: center; margin-top: 0.75rem;">
+                User flow 1: First open, from Welcome to Home, by trying the example groups or entering a name. Sign-in is optional.
+              </p>
+            </div>
+
+            <!-- Flow 2: userflow-2.png -->
+            <div class="cs-image-card">
+              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E6DED0; background: #FFFFFF; cursor: zoom-in;" data-title="User Flow 2: Collection Day" data-desc="User flow 2: Collection day, from marking payments to sharing the list, reminding people and paying out.">
+                <img
+                  src="/images/ajobook/userflow-2.png"
+                  alt="Payment round flowchart: from the group page, mark paid and share the list, or remind by WhatsApp, SMS or call, then pay out and start a new round."
+                  loading="lazy"
+                  style="width: 100%; height: auto; display: block; border-radius: 16px;"
+                />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="text-align: center; margin-top: 0.75rem; margin-bottom: 0.25rem;">
+                User flow 2: Collection day, from marking payments to sharing the list, reminding people and paying out.
+              </p>
+              <p style="text-align: center; font-size: 0.85rem; color: #8A8A85; margin-top: 0.25rem;">
+                In testing, holders sometimes paid out before everyone had paid, so the built app allows it and shows who hasn't paid first.
+              </p>
+            </div>
+          </div>
+
           <div class="cs-prose reveal-fade-up" style="margin-top: 3rem;">
             <h3>Key features</h3>
             <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
               <li>Mark paid in one tap, with paid and owes shown in words, not just colour</li>
-              <li>A members-only link, so members can check their own status, and the holder stops getting calls and re-sharing the list. This came straight from what members asked for.</li>
+              <li><span class="category-tag" style="font-size: 0.7rem; padding: 0.15rem 0.5rem; margin-right: 0.4rem; vertical-align: middle;">Version 2</span>Designed for Version 2: a members-only link, so members can check their own status and the holder stops getting calls. This came straight from what members asked for.</li>
               <li>Reminders by call, WhatsApp or SMS, depending on each member</li>
               <li>Share the paid list to the WhatsApp group when she wants to</li>
               <li>Swap turns and see the new order instantly</li>
               <li>Undo any mistake in one tap</li>
               <li>Try it with example groups before adding real names</li>
+              <li>Works offline once opened, for markets with weak signal</li>
             </ul>
           </div>
 
-          <!-- [Image: Key screens] -->
-          <div class="cs-placeholder-box reveal-fade-up">
-            <span class="cs-placeholder-tag">[Image: Key screens]</span>
-            <p class="cs-placeholder-desc">
-              Final responsive mobile web app screens: Welcome onboarding, ledger home, members view-only link, turn order matrix, and WhatsApp list format.
-            </p>
+          <!-- Key screens: ajo-screens-1.png & ajo-screens-2.png -->
+          <div class="reveal-fade-up" style="display: flex; flex-direction: column; gap: 2rem; margin: 2rem 0;">
+            <div class="cs-image-card">
+              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E6DED0; background: #FAF6EE; cursor: zoom-in;" data-title="Key screens: Welcome, Home and adding a person" data-desc="Welcome, Home and adding a person, using the app's example groups.">
+                <img
+                  src="/images/ajobook/ajo-screens-1.png"
+                  alt="Three phone screens: the Ajo Book welcome screen, Home with two example groups, and the Add person form on the Balogun Ajo group page."
+                  loading="lazy"
+                  style="width: 100%; height: auto; display: block; border-radius: 16px;"
+                />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="text-align: center; margin-top: 0.75rem;">
+                Welcome, Home and adding a person, using the app's example groups.
+              </p>
+            </div>
+
+            <div class="cs-image-card">
+              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E6DED0; background: #FAF6EE; cursor: zoom-in;" data-title="Key screens: Share list, Swap turns, Pay out" data-desc="Sharing the ✅ list, swapping turns with a preview of who moves, and paying out with a clear warning.">
+                <img
+                  src="/images/ajobook/ajo-screens-2.png"
+                  alt="Three phone screens: the Share list sheet with ticks and crosses, the Swap turns sheet showing who moves to which month, and the Pay out sheet warning that 2 people have not paid yet."
+                  loading="lazy"
+                  style="width: 100%; height: auto; display: block; border-radius: 16px;"
+                />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="text-align: center; margin-top: 0.75rem;">
+                Sharing the ✅ list, swapping turns with a preview of who moves, and paying out with a clear warning.
+              </p>
+            </div>
+
+            <div style="margin-top: 0.5rem;">
+              <a href="#demo" class="text-link" style="font-weight: 500; font-size: 0.95rem;">
+                Watch the app in action ↓
+              </a>
+            </div>
           </div>
 
           <div class="cs-prose reveal-fade-up" style="margin-top: 3rem;">
@@ -377,11 +509,119 @@
             </p>
           </div>
 
-          <!-- [Image: Design system] -->
-          <div class="cs-placeholder-box reveal-fade-up">
-            <span class="cs-placeholder-tag">[Image: Design system]</span>
-            <p class="cs-placeholder-desc">
-              Market Ledger design tokens: Adire Indigo (#23356B), Marigold (#E8A33D), Warm Paper (#FAF6EE), Atkinson Hyperlegible type scale, and ledger row components.
+          <!-- PART 3: Coded Design System Block (no image) -->
+          <div class="reveal-fade-up" style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem; margin: 2rem 0;">
+            <!-- Colour Swatches Grid (3 per row, 2 on phones) -->
+            <h4 style="font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 1.25rem; color: var(--text-main);">Colour Palette</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
+              <!-- Warm paper -->
+              <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #FAF6EE; border: 1px solid #E6DED0; flex-shrink: 0;"></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Warm paper</div>
+                  <div style="font-size: 0.8rem; color: #8A8A85; font-family: monospace;">#FAF6EE</div>
+                  <div style="font-size: 0.8rem; color: #6B6B6B;">Background</div>
+                </div>
+              </div>
+
+              <!-- Ink -->
+              <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #1C1A17; flex-shrink: 0;"></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Ink</div>
+                  <div style="font-size: 0.8rem; color: #8A8A85; font-family: monospace;">#1C1A17</div>
+                  <div style="font-size: 0.8rem; color: #6B6B6B;">Main text</div>
+                </div>
+              </div>
+
+              <!-- Adire indigo -->
+              <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #23356B; flex-shrink: 0;"></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Adire indigo</div>
+                  <div style="font-size: 0.8rem; color: #8A8A85; font-family: monospace;">#23356B</div>
+                  <div style="font-size: 0.8rem; color: #6B6B6B;">Actions and trust</div>
+                </div>
+              </div>
+
+              <!-- Paid green -->
+              <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #1F7A4D; flex-shrink: 0;"></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Paid green</div>
+                  <div style="font-size: 0.8rem; color: #8A8A85; font-family: monospace;">#1F7A4D</div>
+                  <div style="font-size: 0.8rem; color: #6B6B6B;">Paid</div>
+                </div>
+              </div>
+
+              <!-- Owes red -->
+              <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #B5442B; flex-shrink: 0;"></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Owes red</div>
+                  <div style="font-size: 0.8rem; color: #8A8A85; font-family: monospace;">#B5442B</div>
+                  <div style="font-size: 0.8rem; color: #6B6B6B;">Not paid yet</div>
+                </div>
+              </div>
+
+              <!-- Marigold -->
+              <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #E8A33D; flex-shrink: 0;"></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Marigold</div>
+                  <div style="font-size: 0.8rem; color: #8A8A85; font-family: monospace;">#E8A33D</div>
+                  <div style="font-size: 0.8rem; color: #6B6B6B;">Whose turn</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Type Samples -->
+            <h4 style="font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 1rem; color: var(--text-main);">Typography</h4>
+            <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1.25rem; background: #FAF6EE; border-radius: 12px; border: 1px solid #E6DED0; margin-bottom: 2rem;">
+              <div>
+                <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #8A8A85;">Fraunces</span>
+                <div style="font-family: 'Fraunces', Georgia, serif; font-size: 32px; font-weight: 600; color: #1C1A17; line-height: 1.2; margin-top: 0.25rem;">
+                  Balogun Ajo
+                </div>
+              </div>
+              <div style="border-top: 1px solid #E6DED0; padding-top: 0.85rem;">
+                <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #8A8A85;">Atkinson Hyperlegible</span>
+                <div style="font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 18px; font-weight: 700; color: #1C1A17; line-height: 1.4; margin-top: 0.25rem;">
+                  ₦40,000 · 0 and O never look alike
+                </div>
+              </div>
+            </div>
+
+            <!-- Components Row -->
+            <h4 style="font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 1rem; color: var(--text-main);">Touch Controls & Status Signals</h4>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 1.5rem;">
+              <!-- Solid button "Pay out" -->
+              <button type="button" tabindex="-1" style="background-color: #23356B; color: #FFFFFF; height: 56px; border-radius: 12px; padding: 0 1.75rem; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 18px; font-weight: 700; border: none; cursor: default;">
+                Pay out
+              </button>
+
+              <!-- Outline button "Mark paid" -->
+              <button type="button" tabindex="-1" style="background-color: transparent; color: #23356B; height: 56px; border-radius: 12px; padding: 0 1.75rem; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 18px; font-weight: 700; border: 2px solid #23356B; cursor: default;">
+                Mark paid
+              </button>
+
+              <!-- Status pills with words -->
+              <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; align-items: center;">
+                <span style="background-color: #E3F1E8; color: #1F7A4D; padding: 0.45rem 0.95rem; border-radius: 9999px; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 16px; font-weight: 700;">
+                  Paid
+                </span>
+                <span style="background-color: #F7E6E1; color: #B5442B; padding: 0.45rem 0.95rem; border-radius: 9999px; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 16px; font-weight: 700;">
+                  Not paid yet
+                </span>
+                <span style="background-color: #FBEFD9; color: #1C1A17; padding: 0.45rem 0.95rem; border-radius: 9999px; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 16px; font-weight: 700;">
+                  Turn
+                </span>
+              </div>
+            </div>
+
+            <!-- Short rules line -->
+            <p style="font-size: 0.85rem; color: #8A8A85; margin: 0;">
+              18px minimum text · 56px buttons · words beside every icon · colour never used alone
             </p>
           </div>
 
@@ -404,16 +644,6 @@
             <p>
               I put the live app in front of a real ajo holder and ran a full screen-by-screen review against Mama Bisi's needs. This produced 7 prioritised fixes, which shaped the changes above.
             </p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-top: 1rem; margin-bottom: 1.5rem;">
-              <li>Speed: marking 10 people as paid took <span class="gap-highlight">[X]</span> in the notebook and <span class="gap-highlight">[Y]</span> in Ajo Book</li>
-              <li>Readability: <span class="gap-highlight">[result of asking holders to read ₦40,000 aloud]</span></li>
-            </ul>
-          </div>
-
-          <!-- Pull quote -->
-          <div class="pull-quote reveal-fade-up">
-            <p><span class="gap-highlight">[Holder's quote, with her permission]</span></p>
-            <cite>— Ajo group holder</cite>
           </div>
         </div>
       </section>
@@ -432,14 +662,13 @@
             <ul style="margin-left: 1.5rem; line-height: 1.8;">
               <li>Guarantor contacts. Holders asked to add a guarantor's number for each member. The challenge is consent: the guarantor must agree, and only the holder should see the number.</li>
               <li>Privacy choices for the members' link: should names be visible to everyone? Should links expire? Should amounts show?</li>
-              <li>Working offline, for markets with weak signal</li>
               <li>A dashboard for holders who run several groups</li>
               <li>Testing in Yoruba, Hausa and Pidgin</li>
             </ul>
           </div>
 
           <!-- Demo Video Section: See it in action -->
-          <div class="demo-presentation-panel theme-ajobook-panel reveal-fade-up">
+          <div id="demo" class="demo-presentation-panel theme-ajobook-panel reveal-fade-up">
             <div class="demo-layout-grid">
               <div class="demo-phone-col">
                 <div class="modern-phone-wrapper">
