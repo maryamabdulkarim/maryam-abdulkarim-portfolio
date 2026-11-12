@@ -15,6 +15,7 @@ export default defineConfig(() => {
       rollupOptions: {
         input: {
           main: path.resolve(__dirname, 'index.html'),
+          mimk: path.resolve(__dirname, 'mimk.html'),
           ecosmart: path.resolve(__dirname, 'ecosmart.html'),
           kioni: path.resolve(__dirname, 'kioni.html'),
           kioniDesignSystem: path.resolve(__dirname, 'kioni-design-system.html'),

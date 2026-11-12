@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mimk Case Study — Maryam Abdulkarim</title>
+    <meta name="description" content="Redesigning a Nigerian booking platform around trust: verified stays, one honest price and money held until check-in, for guests, hosts and admins on desktop and mobile." />
+
+    <!-- Google Fonts: Nunito (Headings/Body), Inter (Body), Fraunces (Italic for Quotes) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400&family=Inter:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="theme-mimk">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-bar" aria-hidden="true"></div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-fade-overlay" aria-hidden="true"></div>
+
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
+    <div class="custom-cursor-ring" aria-hidden="true"></div>
+
+    <!-- Top Navigation -->
+    <header class="site-nav">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
+
+        <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          ☰
+        </button>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li>
+              <a href="Maryam-Abdulkarim-CV.pdf" download class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Case Study Header -->
+      <section class="cs-header">
+        <div class="container">
+          <a href="index.html#work" class="text-link" style="margin-bottom: 1.5rem; display: inline-flex;">
+            ← Back to all work
+          </a>
+
+          <h1 class="cs-title reveal-fade-up">Mimk</h1>
+          <p class="cs-subtitle reveal-fade-up delay-1">
+            Redesigning a Nigerian booking platform around trust, so guests can book a stay they believe in, at a price they know up front
+          </p>
+
+          <!-- AT A GLANCE (Table) -->
+          <div class="reveal-fade-up delay-2">
+            <h3 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-top: 2rem; margin-bottom: 0.5rem;">
+              At a glance
+            </h3>
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 20%;">Focus</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Focus"><strong>My role</strong></td>
+                  <td data-label="Details">Product and UI/UX Designer (solo)</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Worked with</strong></td>
+                  <td data-label="Details">Mimk’s project owner</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>What I did</strong></td>
+                  <td data-label="Details">Product brief and user stories, business rules, research plan, design system, guest, host and admin screens, user flows, clickable prototype</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Tools</strong></td>
+                  <td data-label="Details">Figma (design system, UI and prototype) · Claude (desk research, synthetic survey data, writing support)</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Timeline</strong></td>
+                  <td data-label="Details">November 2026</td>
+                </tr>
+                <tr>
+                  <td data-label="Focus"><strong>Status</strong></td>
+                  <td data-label="Details">Concept project · handed over to the project owner</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- STATS (count up) -->
+          <div class="cs-stats-row reveal-fade-up delay-3">
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="122">0</span>
+              <span class="stat-label">Connected prototype screens</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="3">0</span>
+              <span class="stat-label">Roles: guest, host, admin</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="9">0</span>
+              <span class="stat-label">End-to-end user flows</span>
+            </div>
+            <div class="cs-stat-item">
+              <span class="stat-num" data-count-to="37">0</span>
+              <span class="stat-label">User stories with acceptance criteria</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUMMARY & HERO IMAGE -->
+      <section class="cs-section" style="border-top: none; padding-top: 1rem;">
+        <div class="container">
+          <div class="in-short-box reveal-fade-up" style="background-color: var(--cream-box); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2rem; margin-bottom: 2.5rem;">
+            <h3 style="font-family: var(--font-heading); margin-bottom: 0.75rem;">Summary</h3>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-main);">
+              Booking a short stay in Nigeria often means trusting a stranger with a bank transfer, then discovering a caution fee, a diesel charge or a flat that doesn’t match its photos. Mimk lists verified hotels, apartments and shortlets. I redesigned it around three promises: every listing is inspected in person, every price includes all fees, and the host is only paid after the guest checks in. I designed the guest, host and admin sides, and although the brief asked for desktop, I designed every flow on mobile too.
+            </p>
+          </div>
+
+          <!-- Hero Image: 40-mockup-hero.png -->
+          <div class="reveal-fade-up" style="margin-bottom: 3.5rem;">
+            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mimk Platform Overview" data-desc="Verified stays, one honest price, and money held until check-in.">
+              <img
+                src="/images/mimk/40-mockup-hero.png"
+                alt="Mimk booking platform landing page with search over a photo of Lagos"
+                loading="lazy"
+                style="width: 100%; height: auto; display: block; border-radius: 16px;"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption" style="text-align: center; margin-top: 0.85rem;">
+              Verified stays, one honest price, and money held until check-in.
+              <br />
+              <span style="font-size: 0.8rem; color: #8C8C8C;">All names, prices and bookings shown are sample data.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Problem -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Problem</span>
+          <h2 class="cs-section-heading reveal-fade-up">A trust problem before it’s a search problem</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              I started with desk research, about 20 sources on fraud, fees, payments and power. Four facts shaped everything that followed.
+            </p>
+          </div>
+
+          <!-- Four Fact Cards (2x2 grid) -->
+          <div class="reveal-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+            <div class="cs-card" style="background-color: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
+              <span style="display: block; font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 800; font-family: var(--font-heading); color: var(--accent-color); line-height: 1.1; margin-bottom: 0.5rem;">
+                ₦1.3m
+              </span>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0 0 0.75rem 0;">
+                lost by a diaspora family to a shortlet agent who vanished after payment.
+              </p>
+              <span style="font-size: 0.75rem; color: #8C8C8C; font-style: italic;">News Express, Oct 2025</span>
+            </div>
+
+            <div class="cs-card" style="background-color: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
+              <span style="display: block; font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 800; font-family: var(--font-heading); color: var(--accent-color); line-height: 1.1; margin-bottom: 0.5rem;">
+                2%
+              </span>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0 0 0.75rem 0;">
+                of Lagos rental listings say the caution fee is refundable.
+              </p>
+              <span style="font-size: 0.75rem; color: #8C8C8C; font-style: italic;">The Nigeria Lawyer</span>
+            </div>
+
+            <div class="cs-card" style="background-color: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
+              <span style="display: block; font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 800; font-family: var(--font-heading); color: var(--accent-color); line-height: 1.1; margin-bottom: 0.5rem;">
+                6.6 hours
+              </span>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0 0 0.75rem 0;">
+                of grid power a day for connected households, so power is a real booking decision.
+              </p>
+              <span style="font-size: 0.75rem; color: #8C8C8C; font-style: italic;">NBS 2024, via Nairametrics</span>
+            </div>
+
+            <div class="cs-card" style="background-color: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
+              <span style="display: block; font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 800; font-family: var(--font-heading); color: var(--accent-color); line-height: 1.1; margin-bottom: 0.5rem;">
+                51%+
+              </span>
+              <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0 0 0.75rem 0;">
+                of online payments are web bank transfers, which is also the main scam route.
+              </p>
+              <span style="font-size: 0.75rem; color: #8C8C8C; font-style: italic;">CBN data, via TechCabal</span>
+            </div>
+          </div>
+
+          <!-- Cream highlight box -->
+          <div class="reveal-fade-up" style="background-color: var(--cream-box); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;">
+            <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-main); margin: 0;">
+              Airbnb listings in Nigeria grew 47% in 2025 while revenue per listing fell. Guests have too many unverified choices, and 75% of Nigerian web traffic is on phones.
+            </p>
+          </div>
+
+          <!-- Accent line -->
+          <p class="reveal-fade-up" style="color: var(--accent-color); font-weight: 600; font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
+            Problem statement: travellers in Nigeria need a way to book stays they can trust, at a price they know up front.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION: Research -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Research</span>
+          <h2 class="cs-section-heading reveal-fade-up">Testing six assumptions</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              I turned the desk research into six guest hypotheses, then wrote a 22-question guest survey and a 10-question host survey, each question tied to a hypothesis or a business rule. The project owner asked for synthetic data for this concept, so I generated <strong>8 simulated guests and 2 simulated hosts</strong> from the personas and desk research. They show what the personas suggest, not what the market measures.
+            </p>
+          </div>
+
+          <!-- Hypotheses Table -->
+          <div class="reveal-fade-up" style="margin: 2rem 0;">
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 30%;">Hypothesis</th>
+                  <th style="width: 40%;">Result (synthetic, 8 guests)</th>
+                  <th style="width: 30%;">Verdict</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Hypothesis"><strong>Listings are often misleading</strong></td>
+                  <td data-label="Result (synthetic, 8 guests)">4 of 8 had a mismatch or a scam attempt</td>
+                  <td data-label="Verdict"><span style="color: #15803D; font-weight: 600;">Supported</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Hypothesis"><strong>Hidden fees appear late</strong></td>
+                  <td data-label="Result (synthetic, 8 guests)">4 of 8 had unexpected costs</td>
+                  <td data-label="Verdict"><span style="color: #15803D; font-weight: 600;">Supported</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Hypothesis"><strong>Power drives the choice</strong></td>
+                  <td data-label="Result (synthetic, 8 guests)">5 of 8 put 24-hour power in their top 3</td>
+                  <td data-label="Verdict"><span style="color: #15803D; font-weight: 600;">Supported</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Hypothesis"><strong>Paying a stranger feels risky</strong></td>
+                  <td data-label="Result (synthetic, 8 guests)">Only 3 of 8 would pay more for protection</td>
+                  <td data-label="Verdict">Partly: build protection into the price</td>
+                </tr>
+                <tr>
+                  <td data-label="Hypothesis"><strong>Verification builds trust</strong></td>
+                  <td data-label="Result (synthetic, 8 guests)">Inspection tied with real reviews, 4 each</td>
+                  <td data-label="Verdict">Partly: show both together</td>
+                </tr>
+                <tr>
+                  <td data-label="Hypothesis"><strong>Finding the place is hard</strong></td>
+                  <td data-label="Result (synthetic, 8 guests)">2 of 8 rated arrival 1–2 out of 5</td>
+                  <td data-label="Verdict"><span style="color: #B5442B; font-weight: 600;">Not supported: lower priority</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Quote (Fraunces italic, left accent border) -->
+          <div class="reveal-fade-up" style="margin: 2.5rem 0; padding: 1.5rem 0 1.5rem 1.75rem; border-left: 3px solid var(--accent-color); background: rgba(51, 73, 196, 0.03); border-radius: 0 var(--radius) var(--radius) 0;">
+            <p style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.15rem, 2.2vw, 1.45rem); line-height: 1.5; color: var(--text-main); margin: 0; font-style: italic;">
+              “The photos showed a big living room; it was half the size, and they added ₦15,000 a day for diesel when we arrived.”
+            </p>
+            <p style="font-size: 0.82rem; color: #8C8C8C; margin-top: 0.75rem; margin-bottom: 0;">
+              Synthetic respondent G-03 · family planner, Abuja
+            </p>
+          </div>
+
+          <div class="cs-prose reveal-fade-up">
+            <h3>The finding that changed who Mimk is for</h3>
+            <p>
+              The counter-voices mattered most. A happy Airbnb user and a traveller whose company books their hotels didn’t need Mimk at all. Mimk’s strongest audience is people booking through Instagram or WhatsApp agents, and diaspora travellers booking from abroad. With real users, this is the first finding I’d check.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Before and after -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Before & After</span>
+          <h2 class="cs-section-heading reveal-fade-up">Good photos and a strong idea, hidden behind the wrong details</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              The first version already had clean visuals and the right promise, “verified stays”. But prices changed at checkout, nothing explained what “Verified” meant, and the main search button failed contrast at 2.3:1.
+            </p>
+          </div>
+
+          <!-- Pair 1: Landing -->
+          <div class="ba-pair reveal-fade-up">
+            <div class="ba-before">
+              <div class="ba-label">Before</div>
+              <div class="ba-browser">
+                <div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen" data-title="Before: Landing Page" data-desc="Search button with contrast issues and ambiguous verified promise.">
+                  <img src="/images/mimk/old-landing.png" alt="Mimk original landing page" loading="lazy" />
+                </div>
+              </div>
+            </div>
+            <div class="ba-after">
+              <div class="ba-label">After</div>
+              <div class="ba-browser">
+                <div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen" data-title="After: Landing Page" data-desc="Search, dates and guests in one bar, with a strip that says what 'Verified' promises.">
+                  <img src="/images/mimk/01-landing-desktop.png" alt="Mimk redesigned landing page" loading="lazy" />
+                </div>
+              </div>
+            </div>
+            <p class="ba-caption">Search, dates and guests in one bar, with a strip that says what “Verified” promises.</p>
+          </div>
+
+          <!-- Pair 2: Explore -->
+          <div class="ba-pair reveal-fade-up">
+            <div class="ba-before">
+              <div class="ba-label">Before</div>
+              <div class="ba-browser">
+                <div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen" data-title="Before: Explore Stays" data-desc="Complex inputs with prices that did not reflect checkout fees.">
+                  <img src="/images/mimk/old-explore.png" alt="Mimk original explore stays page" loading="lazy" />
+                </div>
+              </div>
+            </div>
+            <div class="ba-after">
+              <div class="ba-label">After</div>
+              <div class="ba-browser">
+                <div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen" data-title="After: Explore Stays" data-desc="Filters became chips, results sit next to a map, and every card shows the total with fees.">
+                  <img src="/images/mimk/04-explore-desktop.png" alt="Mimk redesigned explore stays page" loading="lazy" />
+                </div>
+              </div>
+            </div>
+            <p class="ba-caption">Filters became chips, results sit next to a map, and every card shows the total with fees.</p>
+          </div>
+
+          <!-- Pair 3: Bookings -->
+          <div class="ba-pair reveal-fade-up">
+            <div class="ba-before">
+              <div class="ba-label">Before</div>
+              <div class="ba-browser">
+                <div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen" data-title="Before: My Bookings" data-desc="Vanity stats like average rating in place of actionable booking status.">
+                  <img src="/images/mimk/old-bookings.png" alt="Mimk original my bookings page" loading="lazy" />
+                </div>
+              </div>
+            </div>
+            <div class="ba-after">
+              <div class="ba-label">After</div>
+              <div class="ba-browser">
+                <div class="ba-bar"><span></span><span></span><span></span></div>
+                <div class="ba-screen" data-title="After: My Bookings" data-desc="Status you can act on, 'Paid · held until check-in', in place of vanity stats like average rating.">
+                  <img src="/images/mimk/05-bookings-desktop.png" alt="Mimk redesigned my bookings page" loading="lazy" />
+                </div>
+              </div>
+            </div>
+            <p class="ba-caption">Status you can act on, “Paid · held until check-in”, in place of vanity stats like average rating.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Key decisions -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Key Decisions</span>
+          <h2 class="cs-section-heading reveal-fade-up">Key decisions</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <h3>Six principles decided every screen</h3>
+            <ol style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2.5rem;">
+              <li><strong>Show the full price.</strong> Fees are included from the first search, never added at checkout.</li>
+              <li><strong>Explain the trust.</strong> Say what “Verified” checked, when, and when the host gets paid.</li>
+              <li><strong>Hold the money.</strong> Mimk pays the host 24 hours after check-in, not before.</li>
+              <li><strong>WhatsApp first.</strong> Codes, receipts and door codes arrive where guests already are.</li>
+              <li><strong>Design every state.</strong> Pending, failed, empty, cancelled and disputed, not just the happy path.</li>
+              <li><strong>One consistent story.</strong> The same people, prices and dates across guest, host and admin.</li>
+            </ol>
+          </div>
+
+          <!-- 4 Decision Cards (2x2 grid) -->
+          <div class="reveal-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin: 2rem 0;">
+            <!-- Decision 01 -->
+            <div class="cs-image-card">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
+                DECISION 01 · PROOF, NOT A BADGE
+              </span>
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Decision 01: Proof, not a badge" data-desc="Verified, explained: a dated inspection report with power measured at 22 hours a day.">
+                <img src="/images/mimk/03-property-desktop.png" alt="Mimk property page with verified inspection report" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="margin-top: 0.65rem;">
+                <strong>Verified, explained:</strong> a dated inspection report with power measured at 22 hours a day.
+              </p>
+            </div>
+
+            <!-- Decision 02 -->
+            <div class="cs-image-card">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
+                DECISION 02 · PAY THE NIGERIAN WAY
+              </span>
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Decision 02: Pay the Nigerian way" data-desc="Transfer first: how most people pay, made safe because Mimk holds the money.">
+                <img src="/images/mimk/06-checkout-desktop.png" alt="Mimk checkout page with bank transfer as default" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="margin-top: 0.65rem;">
+                <strong>Transfer first:</strong> how most people pay, made safe because Mimk holds the money.
+              </p>
+            </div>
+
+            <!-- Decision 03 -->
+            <div class="cs-image-card">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
+                DECISION 03 · ARRIVAL ON ONE SCREEN
+              </span>
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Decision 03: Arrival on one screen" data-desc="Check-in day: code, directions and Wi-Fi together, with Call as the one main action.">
+                <img src="/images/mimk/07-checkin-desktop.png" alt="Mimk check-in day screen with smart lock code and directions" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="margin-top: 0.65rem;">
+                <strong>Check-in day:</strong> code, directions and Wi-Fi together, with Call as the one main action.
+              </p>
+            </div>
+
+            <!-- Decision 04 -->
+            <div class="cs-image-card">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
+                DECISION 04 · THE REFUND, BEFORE YOU CANCEL
+              </span>
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Decision 04: The refund, before you cancel" data-desc="Refunds you can track: a reference, a date and a WhatsApp alert.">
+                <img src="/images/mimk/08-refund-desktop.png" alt="Mimk transparent cancellation refund progress tracker" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="margin-top: 0.65rem;">
+                <strong>Refunds you can track:</strong> a reference, a date and a WhatsApp alert.
+              </p>
+            </div>
+          </div>
+
+          <!-- Trade-offs table -->
+          <div class="reveal-fade-up" style="margin-top: 3.5rem;">
+            <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;">Trade-offs I made</h3>
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th style="width: 32%;">I chose</th>
+                  <th style="width: 25%;">Over</th>
+                  <th style="width: 43%;">Because</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="I chose"><strong>Bank transfer as the default</strong></td>
+                  <td data-label="Over">Card first</td>
+                  <td data-label="Because">Transfer is how most Nigerians pay online. The risk was paying a stranger, so Mimk sits in the middle</td>
+                </tr>
+                <tr>
+                  <td data-label="I chose"><strong>Phone number and a WhatsApp code</strong></td>
+                  <td data-label="Over">Email and password</td>
+                  <td data-label="Because">Five fields became three short steps, on the app guests already use</td>
+                </tr>
+                <tr>
+                  <td data-label="I chose"><strong>Protection built into the 5% fee</strong></td>
+                  <td data-label="Over">Selling it as an extra</td>
+                  <td data-label="Because">Most respondents wouldn’t pay more for protection, but all of them wanted it</td>
+                </tr>
+                <tr>
+                  <td data-label="I chose"><strong>Refunds only for broken listed promises</strong></td>
+                  <td data-label="Over">Refunding any complaint</td>
+                  <td data-label="Because">Hosts need rules they can trust too, and guests still get a clear answer</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: One clear action per screen -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Design Execution</span>
+          <h2 class="cs-section-heading reveal-fade-up">One clear action per screen</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              In review, some screens had four buttons competing for attention. I wrote button rules into the product brief, then rebuilt every page around them:
+            </p>
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              <li><strong>Solid blue</strong> for the one thing the person came to do. At most one per screen.</li>
+              <li><strong>Outlined</strong> for a real alternative beside it, like Message next to Call.</li>
+              <li><strong>Text links</strong> for actions repeated on every row, like “Book again”.</li>
+              <li><strong>Red outline</strong> for anything that cancels, never solid.</li>
+            </ul>
+            <p>
+              On Past stays, the one review with a deadline moved out of the list into its own card, with the page’s only solid button.
+            </p>
+          </div>
+
+          <!-- Desktop and phone side by side -->
+          <div class="report-side-by-side reveal-fade-up" style="margin-top: 2rem;">
+            <div class="cs-image-card report-desktop-col">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Past stays (Desktop)" data-desc="Past stays: one urgent task on top, a calm list underneath">
+                <img
+                  src="/images/mimk/09-past-stays-desktop.png"
+                  alt="Past stays desktop view: one urgent review task on top, calm list underneath"
+                  loading="lazy"
+                  style="width: 100%; height: auto; display: block;"
+                />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption">Past stays: one urgent task on top, a calm list underneath</p>
+            </div>
+            <div class="cs-image-card report-phone-col">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Past stays (Phone)" data-desc="Past stays on mobile screen">
+                <img
+                  src="/images/mimk/14-past-phone.png"
+                  alt="Past stays mobile view"
+                  loading="lazy"
+                  style="width: 100%; height: auto; display: block;"
+                />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="text-align: center;">On phone</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Host and admin -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Two-sided Marketplace</span>
+          <h2 class="cs-section-heading reveal-fade-up">Hosts and admins keep the promise real</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              A booking platform is only as trustworthy as the people behind it. Hosts see the one request that needs them today, their earnings, and exactly when they’ll be paid. They pay 10% commission, less than Airbnb’s 15.5% host fee. Admins approve inspected listings and settle disputes.
+            </p>
+            <h3>Refunds follow listed promises</h3>
+            <p>
+              The first dispute I designed was about hot water, which the listing never promised. I changed it. A refund should only follow a broken promise the listing made: power, water, security or accuracy. So the case became “backup power failed”, and the policy suggests refunding one night if the problem is fixed within 24 hours. The admin sees the split before confirming: ₦18,667 back to the guest, and the host still receives ₦33,600.
+            </p>
+          </div>
+
+          <!-- Two images side by side: Host & Admin -->
+          <div class="reveal-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin: 2rem 0;">
+            <div class="cs-image-card">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
+                HOST · TODAY
+              </span>
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Host: Today Dashboard" data-desc="One actionable booking request today, next payout breakdown, and re-inspection status.">
+                <img src="/images/mimk/10-host-today-desktop.png" alt="Host Today dashboard" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="margin-top: 0.65rem;">Host dashboard: one urgent request today, clear payout timeline.</p>
+            </div>
+
+            <div class="cs-image-card">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
+                ADMIN · DISPUTE
+              </span>
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Admin: Dispute Resolution" data-desc="Admin dispute settlement with split breakdown: guest refund vs host payment.">
+                <img src="/images/mimk/11-admin-dispute-desktop.png" alt="Admin dispute resolution view" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="margin-top: 0.65rem;">Admin dispute interface: transparent splits for power failure policy.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Account settings -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Edge Cases</span>
+          <h2 class="cs-section-heading reveal-fade-up">Leaving can’t cost a guest a stay</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              Settings used to appear in two places, the sidebar and Profile. I removed the duplicate, so Profile is the one home for personal info, payments, preferences and help. Preferences let guests choose a language and see prices in another currency, shown as an estimate, because they always pay in naira.
+            </p>
+            <h3>Blocked, not just warned</h3>
+            <p>
+              My first version let a guest delete their account with a warning that their upcoming stay would be cancelled. That put a paid booking, the host’s income and the refund at risk in one tap. Now, if a stay is coming up, deletion waits: the dialog shows the booking and the date they can delete, with “View upcoming booking” as the main action and no red button. Guests with nothing booked get a normal red confirmation.
+            </p>
+          </div>
+
+          <!-- Lead Mockup: 42-mockup-account.png -->
+          <div class="reveal-fade-up" style="margin: 2rem 0;">
+            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Account Deletion Safeguards" data-desc="With a stay coming up, deletion waits until check-out, on desktop and phone.">
+              <img
+                src="/images/mimk/42-mockup-account.png"
+                alt="Account deletion guard dialog preventing accidental cancellation"
+                loading="lazy"
+                style="width: 100%; height: auto; display: block; border-radius: 16px;"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption" style="text-align: center; margin-top: 0.65rem;">
+              With a stay coming up, deletion waits until check-out, on desktop and phone
+            </p>
+          </div>
+
+          <!-- Two images side by side: Preferences & Help -->
+          <div class="reveal-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin: 2rem 0;">
+            <div class="cs-image-card">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
+                PREFERENCES
+              </span>
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Preferences" data-desc="Language and currency preferences with naira payment reminder.">
+                <img src="/images/mimk/15-preferences-desktop.png" alt="Preferences screen" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="margin-top: 0.65rem;">Preferences: language and currency estimation.</p>
+            </div>
+
+            <div class="cs-image-card">
+              <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
+                HELP & SUPPORT
+              </span>
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Help & Support" data-desc="WhatsApp support 7am to 11pm.">
+                <img src="/images/mimk/18-help-desktop.png" alt="Help and support screen" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption" style="margin-top: 0.65rem;">WhatsApp is the main way to reach a person, 7am to 11pm.</p>
+            </div>
+          </div>
+
+          <!-- Full-width Flow Diagram: 22-flow-leave.png (full width, height: auto, no crop) -->
+          <div class="reveal-fade-up" style="margin: 2.5rem 0;">
+            <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Guest: Leave Mimk Safely Flow" data-desc="Flowchart showing conditional safeguards when deleting account with active stays.">
+              <img
+                src="/images/mimk/22-flow-leave.png"
+                alt="Flow diagram: Guest leave Mimk safely"
+                loading="lazy"
+                style="width: 100%; height: auto; display: block;"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption" style="text-align: center; margin-top: 0.65rem;">
+              Guest: leave Mimk safely
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: User flows -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">User Flows</span>
+          <h2 class="cs-section-heading reveal-fade-up">Nine flows across three roles</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              Each flow separates the screens people see from what Mimk does automatically, like holding money or sending a WhatsApp alert. A failed card never costs the guest their room: the stay is held for 15 minutes, and they can switch to transfer.
+            </p>
+          </div>
+
+          <!-- Flow 1: 20-flow-book.png (full width, height: auto, no crop) -->
+          <div class="reveal-fade-up" style="margin: 2rem 0 3rem 0;">
+            <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Flow: Find and Book a Stay" data-desc="Guest flow from landing page to confirmed booking with transfer pending states.">
+              <img
+                src="/images/mimk/20-flow-book.png"
+                alt="Flow diagram: Guest find and book a stay"
+                loading="lazy"
+                style="width: 100%; height: auto; display: block;"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption" style="text-align: center; margin-top: 0.65rem;">
+              Guest: find and book a stay
+            </p>
+          </div>
+
+          <!-- Flow 2: 21-flow-refund.png (full width, height: auto, no crop) -->
+          <div class="reveal-fade-up" style="margin: 2rem 0;">
+            <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Flow: Cancel and Get a Refund" data-desc="Guest cancellation flow showing transparent timeline and WhatsApp alerts.">
+              <img
+                src="/images/mimk/21-flow-refund.png"
+                alt="Flow diagram: Guest cancel and get a refund"
+                loading="lazy"
+                style="width: 100%; height: auto; display: block;"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption" style="text-align: center; margin-top: 0.65rem;">
+              Guest: cancel and get a refund
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Mobile -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Mobile First</span>
+          <h2 class="cs-section-heading reveal-fade-up">The brief asked for desktop. I designed both.</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              75% of Nigerian web traffic is on phones, so I recommended designing every flow on mobile too, and the project owner agreed. Every screen starts at 390px with a tab bar, actions within thumb reach and a sticky booking bar, then scales to 1440px.
+            </p>
+          </div>
+
+          <!-- Lead Mockup: 41-mockup-phones.png -->
+          <div class="reveal-fade-up" style="margin: 2rem 0;">
+            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mobile Stays Overview" data-desc="Home, property, check-in day and past stays across phone viewport.">
+              <img
+                src="/images/mimk/41-mockup-phones.png"
+                alt="Four phone mockups displaying Mimk mobile screens"
+                loading="lazy"
+                style="width: 100%; height: auto; display: block; border-radius: 16px;"
+              />
+              <span class="fullscreen-badge">⛶ View full screen</span>
+            </div>
+            <p class="cs-image-caption" style="text-align: center; margin-top: 0.65rem;">
+              Home, property, check-in day and past stays
+            </p>
+          </div>
+
+          <!-- Four Phones in a phone-swipe-row -->
+          <div class="reveal-fade-up" style="margin-top: 2.5rem;">
+            <div class="phone-swipe-row">
+              <div class="cs-image-card">
+                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mobile: Home" data-desc="Mimk home screen with search and upcoming trip card.">
+                  <img src="/images/mimk/02-home-phone.png" alt="Mimk home screen on phone" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                  <span class="fullscreen-badge">⛶ View full screen</span>
+                </div>
+                <p class="cs-image-caption" style="text-align: center;">Home</p>
+              </div>
+
+              <div class="cs-image-card">
+                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mobile: Property" data-desc="Property details, verified inspection highlights and sticky reserve bar.">
+                  <img src="/images/mimk/12-property-phone.png" alt="Mimk property page on phone" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                  <span class="fullscreen-badge">⛶ View full screen</span>
+                </div>
+                <p class="cs-image-caption" style="text-align: center;">Property</p>
+              </div>
+
+              <div class="cs-image-card">
+                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mobile: Check-in Day" data-desc="Check-in day details with smart lock code and call button.">
+                  <img src="/images/mimk/13-checkin-phone.png" alt="Mimk check-in day screen on phone" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                  <span class="fullscreen-badge">⛶ View full screen</span>
+                </div>
+                <p class="cs-image-caption" style="text-align: center;">Check-in day</p>
+              </div>
+
+              <div class="cs-image-card">
+                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mobile: Past Stays" data-desc="Past stays screen with urgent review card.">
+                  <img src="/images/mimk/14-past-phone.png" alt="Mimk past stays screen on phone" loading="lazy" style="width: 100%; height: auto; display: block;" />
+                  <span class="fullscreen-badge">⛶ View full screen</span>
+                </div>
+                <p class="cs-image-caption" style="text-align: center;">Past stays</p>
+              </div>
+            </div>
+            <p class="cs-image-caption" style="text-align: center; margin-top: 0.5rem; color: #8C8C8C;">
+              Swipe to see each screen. 02-home-phone.png (Home) · 12-property-phone.png (Property) · 13-checkin-phone.png (Check-in day) · 14-past-phone.png (Past stays)
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Design system -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Design System</span>
+          <h2 class="cs-section-heading reveal-fade-up">One library behind every screen</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              <li>Blue for every main action. Orange only for deals and deadlines. Green for money that’s safe.</li>
+              <li>Nunito type scale, 4-point spacing, and 48px controls.</li>
+              <li>Components for property cards, search, price breakdowns, status pills, toasts and navigation, published as a Figma library.</li>
+            </ul>
+            <p style="margin-top: 1rem;">
+              <strong>Colours:</strong> Brand #4361EE · Ink #111827 · Accent #F7921B · Success #15803D · Surface #F8F9FB
+            </p>
+            <p>
+              <strong>Font:</strong> Nunito for everything, from 48px display to 12px captions
+            </p>
+          </div>
+
+          <!-- Two images side by side: Foundations & Components (wide, height: auto, no crop) -->
+          <div class="reveal-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; margin: 2rem 0; align-items: start;">
+            <div class="cs-image-card">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Design System: Foundations" data-desc="Color tokens, typography scale, 4-point spacing and radius foundations.">
+                <img
+                  src="/images/mimk/30-ds-foundations.png"
+                  alt="Mimk design system foundations: color and typography"
+                  loading="lazy"
+                  style="width: 100%; height: auto; display: block;"
+                />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption">Foundations: Nunito type scale and brand color tokens.</p>
+            </div>
+
+            <div class="cs-image-card">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Design System: Components" data-desc="Buttons, cards, pills, banners, and price breakdown components without cropping.">
+                <img
+                  src="/images/mimk/31-ds-components.png"
+                  alt="Mimk design system components: buttons, cards, status badges"
+                  loading="lazy"
+                  style="width: 100%; height: auto; display: block;"
+                />
+                <span class="fullscreen-badge">⛶ View full screen</span>
+              </div>
+              <p class="cs-image-caption">Components: 48px touch targets, property cards, and price breakdown.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Prototype -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Prototype</span>
+          <h2 class="cs-section-heading reveal-fade-up">Try it yourself</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              Every flow is linked in Figma. Each button opens a different starting point.
+            </p>
+          </div>
+
+          <!-- Six Prototype Buttons -->
+          <div class="reveal-fade-up" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-top: 2rem;">
+            <a
+              href="https://www.figma.com/proto/SLFJi7Vsrqoo3keolaWGG2/Mimk-%E2%80%94-App-v2?node-id=92-1018&page-id=80%3A1017&starting-point-node-id=92%3A1018&scaling=scale-down-width&content-scaling=fixed&show-proto-sidebar=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Guest · desktop ↗
+            </a>
+            <a
+              href="https://www.figma.com/proto/SLFJi7Vsrqoo3keolaWGG2/Mimk-%E2%80%94-App-v2?node-id=92-4581&page-id=80%3A1017&starting-point-node-id=92%3A4581&scaling=scale-down-width&content-scaling=fixed&show-proto-sidebar=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              Guest · mobile ↗
+            </a>
+            <a
+              href="https://www.figma.com/proto/SLFJi7Vsrqoo3keolaWGG2/Mimk-%E2%80%94-App-v2?node-id=92-7361&page-id=80%3A1017&starting-point-node-id=92%3A7361&scaling=scale-down-width&content-scaling=fixed&show-proto-sidebar=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              Host · desktop ↗
+            </a>
+            <a
+              href="https://www.figma.com/proto/SLFJi7Vsrqoo3keolaWGG2/Mimk-%E2%80%94-App-v2?node-id=92-8002&page-id=80%3A1017&starting-point-node-id=92%3A8002&scaling=min-zoom&content-scaling=fixed&show-proto-sidebar=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              Host · mobile ↗
+            </a>
+            <a
+              href="https://www.figma.com/proto/SLFJi7Vsrqoo3keolaWGG2/Mimk-%E2%80%94-App-v2?node-id=92-8598&page-id=80%3A1017&starting-point-node-id=92%3A8598&scaling=scale-down-width&content-scaling=fixed&show-proto-sidebar=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              Admin · desktop ↗
+            </a>
+            <a
+              href="https://www.figma.com/proto/SLFJi7Vsrqoo3keolaWGG2/Mimk-%E2%80%94-App-v2?node-id=92-9668&page-id=80%3A1017&starting-point-node-id=92%3A9668&scaling=min-zoom&content-scaling=fixed&show-proto-sidebar=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              Admin · mobile ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Where it is now -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Project Status</span>
+          <h2 class="cs-section-heading reveal-fade-up">Where it is now</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
+              <li>Handed over to the project owner: the brief, design system library, 122 connected prototype screens and 9 user flows.</li>
+              <li>Every guest, host and admin flow is designed on desktop and on mobile.</li>
+            </ul>
+          </div>
+
+          <!-- Pull quote -->
+          <div class="pull-quote reveal-fade-up">
+            <p>“The design is sleek and clear. I only asked for desktop, but she recommended designing every flow for mobile too, and she was right. It made the whole product feel complete.”</p>
+            <cite>— Project owner, Mimk</cite>
+          </div>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              <strong>Next:</strong> run the survey and 6–8 interviews with real guests and hosts, test the booking flow with five users, then design changing dates on a booking, the second instalment of Pay in 2 parts, and loading and offline states.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: What I learned -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Retrospective</span>
+          <h2 class="cs-section-heading reveal-fade-up">What I learned</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              <strong>Trust lives in the details.</strong> A date, an amount and a name do more than a badge or a slogan. “Inspected on 4 Nov by Tobi A.” says more than “Verified”.
+            </p>
+            <p>
+              <strong>Rules before screens.</strong> I wrote down fees, refunds and payouts before drawing them, so the guest, host and admin sides all tell the same story with the same numbers.
+            </p>
+            <p>
+              <strong>Recommend, don’t just deliver.</strong> The brief asked for desktop. Explaining why mobile mattered, with one number, turned a request into a better product.
+            </p>
+          </div>
+
+          <!-- Buttons side by side -->
+          <div class="reveal-fade-up" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-top: 2.5rem;">
+            <a
+              href="https://www.figma.com/proto/SLFJi7Vsrqoo3keolaWGG2/Mimk-%E2%80%94-App-v2?node-id=92-1018&page-id=80%3A1017&starting-point-node-id=92%3A1018&scaling=scale-down-width&content-scaling=fixed&show-proto-sidebar=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Open the prototype →
+            </a>
+            <a href="ecosmart.html" class="btn btn-secondary">
+              Next project: EcoSmart AI →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project Link: EcoSmart AI → ecosmart.html -->
+      <section class="next-project-bar">
+        <div class="container">
+          <div>
+            <span class="category-tag">Next Project</span>
+            <br />
+            <a href="ecosmart.html" class="next-project-link">
+              <span>EcoSmart AI</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Maryam Abdulkarim</span>
+        <a href="mailto:maryamabdulkarim06@gmail.com" style="color: var(--text-muted); text-decoration: none;">maryamabdulkarim06@gmail.com</a>
+        <a href="Maryam-Abdulkarim-CV.pdf" download class="text-link" style="font-weight: 500;">Download CV</a>
+      </div>
+    </footer>
+
+    <!-- Shared Lightbox Modal -->
+    <div id="portfolioLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+      <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="" alt="" />
+        <p class="lightbox-caption-text"></p>
+      </div>
+      <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <!-- Interactive JavaScript Engine -->
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
