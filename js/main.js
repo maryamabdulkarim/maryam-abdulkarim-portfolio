@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(() => {
       overlay.classList.add('loaded');
     });
+    window.addEventListener('pageshow', () => {
+      overlay.classList.add('loaded');
+    });
   }
 
   // Intercept local page links for smooth page exit transition
@@ -22,8 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!href) return;
     const isAnchor = href.startsWith('#');
     const isExternal = href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || link.target === '_blank';
-    
-    if (!isAnchor && !isExternal && !isReducedMotion) {
+    const isDownload = link.hasAttribute('download') || /\.pdf(\?|$)/i.test(href);
+
+    if (!isAnchor && !isExternal && !isDownload && !isReducedMotion) {
       link.addEventListener('click', (e) => {
         if (e.metaKey || e.ctrlKey) return;
         e.preventDefault();
