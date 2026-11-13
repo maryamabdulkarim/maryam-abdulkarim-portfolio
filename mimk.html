@@ -90,7 +90,7 @@
                 </tr>
                 <tr>
                   <td data-label="Focus"><strong>Tools</strong></td>
-                  <td data-label="Details">Figma (design system, UI and prototype) · Claude (desk research, synthetic survey data, writing support)</td>
+                  <td data-label="Details">Figma (design system, UI and prototype) · Claude (desk research, writing support)</td>
                 </tr>
                 <tr>
                   <td data-label="Focus"><strong>Timeline</strong></td>
@@ -107,19 +107,19 @@
           <!-- STATS (count up) -->
           <div class="cs-stats-row reveal-fade-up delay-3">
             <div class="cs-stat-item">
-              <span class="stat-num" data-count-to="122">0</span>
+              <span class="stat-num" data-count-to="122">122</span>
               <span class="stat-label">Connected prototype screens</span>
             </div>
             <div class="cs-stat-item">
-              <span class="stat-num" data-count-to="3">0</span>
+              <span class="stat-num" data-count-to="3">3</span>
               <span class="stat-label">Roles: guest, host, admin</span>
             </div>
             <div class="cs-stat-item">
-              <span class="stat-num" data-count-to="9">0</span>
+              <span class="stat-num" data-count-to="9">9</span>
               <span class="stat-label">End-to-end user flows</span>
             </div>
             <div class="cs-stat-item">
-              <span class="stat-num" data-count-to="37">0</span>
+              <span class="stat-num" data-count-to="37">37</span>
               <span class="stat-label">User stories with acceptance criteria</span>
             </div>
           </div>
@@ -229,11 +229,11 @@
       <section class="cs-section">
         <div class="container">
           <span class="category-tag">Research</span>
-          <h2 class="cs-section-heading reveal-fade-up">Testing six assumptions</h2>
+          <h2 class="cs-section-heading reveal-fade-up">Six hypotheses to test</h2>
 
           <div class="cs-prose reveal-fade-up">
             <p>
-              I turned the desk research into six guest hypotheses, then wrote a 22-question guest survey and a 10-question host survey, each question tied to a hypothesis or a business rule. The project owner asked for synthetic data for this concept, so I generated <strong>8 simulated guests and 2 simulated hosts</strong> from the personas and desk research. They show what the personas suggest, not what the market measures.
+              I turned the desk research into six guest hypotheses, then wrote a 22-question guest survey and a 10-question host survey, each question tied to a hypothesis or a business rule. This is a concept project, so the surveys haven't been run yet. Each hypothesis shaped a design decision I can test later.
             </p>
           </div>
 
@@ -242,60 +242,43 @@
             <table class="responsive-table">
               <thead>
                 <tr>
-                  <th style="width: 30%;">Hypothesis</th>
-                  <th style="width: 40%;">Result (synthetic, 8 guests)</th>
-                  <th style="width: 30%;">Verdict</th>
+                  <th style="width: 35%;">Hypothesis</th>
+                  <th style="width: 65%;">How the design responds</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td data-label="Hypothesis"><strong>Listings are often misleading</strong></td>
-                  <td data-label="Result (synthetic, 8 guests)">4 of 8 had a mismatch or a scam attempt</td>
-                  <td data-label="Verdict"><span style="color: #15803D; font-weight: 600;">Supported</span></td>
+                  <td data-label="How the design responds">Every listing shows a dated inspection report.</td>
                 </tr>
                 <tr>
                   <td data-label="Hypothesis"><strong>Hidden fees appear late</strong></td>
-                  <td data-label="Result (synthetic, 8 guests)">4 of 8 had unexpected costs</td>
-                  <td data-label="Verdict"><span style="color: #15803D; font-weight: 600;">Supported</span></td>
+                  <td data-label="How the design responds">The full price, including all fees, shows from the first search.</td>
                 </tr>
                 <tr>
                   <td data-label="Hypothesis"><strong>Power drives the choice</strong></td>
-                  <td data-label="Result (synthetic, 8 guests)">5 of 8 put 24-hour power in their top 3</td>
-                  <td data-label="Verdict"><span style="color: #15803D; font-weight: 600;">Supported</span></td>
+                  <td data-label="How the design responds">Measured power hours appear on every listing.</td>
                 </tr>
                 <tr>
                   <td data-label="Hypothesis"><strong>Paying a stranger feels risky</strong></td>
-                  <td data-label="Result (synthetic, 8 guests)">Only 3 of 8 would pay more for protection</td>
-                  <td data-label="Verdict">Partly: build protection into the price</td>
+                  <td data-label="How the design responds">Mimk holds the money until 24 hours after check-in.</td>
                 </tr>
                 <tr>
                   <td data-label="Hypothesis"><strong>Verification builds trust</strong></td>
-                  <td data-label="Result (synthetic, 8 guests)">Inspection tied with real reviews, 4 each</td>
-                  <td data-label="Verdict">Partly: show both together</td>
+                  <td data-label="How the design responds">Inspection details sit next to real reviews.</td>
                 </tr>
                 <tr>
                   <td data-label="Hypothesis"><strong>Finding the place is hard</strong></td>
-                  <td data-label="Result (synthetic, 8 guests)">2 of 8 rated arrival 1–2 out of 5</td>
-                  <td data-label="Verdict"><span style="color: #B5442B; font-weight: 600;">Not supported: lower priority</span></td>
+                  <td data-label="How the design responds">Directions and codes arrive together on check-in day. Lower priority until tested.</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <!-- Quote (Fraunces italic, left accent border) -->
-          <div class="reveal-fade-up" style="margin: 2.5rem 0; padding: 1.5rem 0 1.5rem 1.75rem; border-left: 3px solid var(--accent-color); background: rgba(51, 73, 196, 0.03); border-radius: 0 var(--radius) var(--radius) 0;">
-            <p style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.15rem, 2.2vw, 1.45rem); line-height: 1.5; color: var(--text-main); margin: 0; font-style: italic;">
-              “The photos showed a big living room; it was half the size, and they added ₦15,000 a day for diesel when we arrived.”
-            </p>
-            <p style="font-size: 0.82rem; color: #8C8C8C; margin-top: 0.75rem; margin-bottom: 0;">
-              Synthetic respondent G-03 · family planner, Abuja
-            </p>
-          </div>
-
           <div class="cs-prose reveal-fade-up">
-            <h3>The finding that changed who Mimk is for</h3>
+            <h3>Who Mimk is for, and what I'd check first</h3>
             <p>
-              The counter-voices mattered most. A happy Airbnb user and a traveller whose company books their hotels didn’t need Mimk at all. Mimk’s strongest audience is people booking through Instagram or WhatsApp agents, and diaspora travellers booking from abroad. With real users, this is the first finding I’d check.
+              Mimk's strongest audience looks like people booking through Instagram or WhatsApp agents, and diaspora travellers booking from abroad. A happy Airbnb user, or someone whose company books their hotels, probably doesn't need it. With real users, this is the first thing I'd check.
             </p>
           </div>
         </div>
@@ -486,7 +469,7 @@
                 <tr>
                   <td data-label="I chose"><strong>Protection built into the 5% fee</strong></td>
                   <td data-label="Over">Selling it as an extra</td>
-                  <td data-label="Because">Most respondents wouldn’t pay more for protection, but all of them wanted it</td>
+                  <td data-label="Because">Guests shouldn't have to pay extra to be safe, and optional protection is easy to skip</td>
                 </tr>
                 <tr>
                   <td data-label="I chose"><strong>Refunds only for broken listed promises</strong></td>
@@ -778,7 +761,7 @@
               </div>
             </div>
             <p class="cs-image-caption" style="text-align: center; margin-top: 0.5rem; color: #8C8C8C;">
-              Swipe to see each screen. 02-home-phone.png (Home) · 12-property-phone.png (Property) · 13-checkin-phone.png (Check-in day) · 14-past-phone.png (Past stays)
+              Swipe to see each screen: Home, Property, Check-in day and Past stays.
             </p>
           </div>
         </div>
@@ -956,21 +939,21 @@
             >
               Open the prototype →
             </a>
-            <a href="ecosmart.html" class="btn btn-secondary">
-              Next project: EcoSmart AI →
+            <a href="kioni.html" class="btn btn-secondary">
+              Next project: Kioni →
             </a>
           </div>
         </div>
       </section>
 
-      <!-- Next Project Link: EcoSmart AI → ecosmart.html -->
+      <!-- Next Project Link: Kioni → kioni.html -->
       <section class="next-project-bar">
         <div class="container">
           <div>
             <span class="category-tag">Next Project</span>
             <br />
-            <a href="ecosmart.html" class="next-project-link">
-              <span>EcoSmart AI</span>
+            <a href="kioni.html" class="next-project-link">
+              <span>Kioni</span>
               <span>→</span>
             </a>
           </div>
