@@ -15,17 +15,14 @@
     <link rel="stylesheet" href="/css/style.css" />
     <script>
       try {
-        if (
-          sessionStorage.getItem('ma_intro_played') === '1' ||
-          window.matchMedia('(prefers-reduced-motion: reduce)').matches
-        ) {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           document.documentElement.classList.add('skip-intro');
         }
       } catch (e) {}
     </script>
   </head>
   <body>
-    <!-- First-Visit Intro Screen -->
+    <!-- Intro Screen -->
     <div id="introScreen" class="intro-screen" role="dialog" aria-modal="true" aria-label="Welcome intro">
       <p class="intro-text-wrap" aria-label="Hi, I'm Maryam Abdulkarim">
         <span id="introTypedText" aria-hidden="true"></span><span class="intro-cursor" aria-hidden="true"></span>
@@ -783,26 +780,17 @@
         if (!intro || !typedEl) return;
 
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        let alreadyPlayed = false;
-        try {
-          alreadyPlayed = sessionStorage.getItem('ma_intro_played') === '1';
-        } catch (e) {}
-
-        if (prefersReduced || alreadyPlayed || document.documentElement.classList.contains('skip-intro')) {
+        if (prefersReduced || document.documentElement.classList.contains('skip-intro')) {
           intro.remove();
           return;
         }
 
-        try {
-          sessionStorage.setItem('ma_intro_played', '1');
-        } catch (e) {}
-
         document.body.classList.add('intro-locked');
 
         const message = "Hi, I'm Maryam Abdulkarim";
-        const charDelay = 1500 / message.length; // ~1.5s total typing
-        const holdDuration = 500; // 0.5s hold after typing completes
-        const fadeDuration = 450; // <= 2.5s total runtime
+        const charDelay = 120; // ~120ms per letter
+        const holdDuration = 1000; // 1s hold after typing completes
+        const fadeDuration = 1000; // 1s slide-up/fade-out
 
         let index = 0;
         let typingTimer = null;
