@@ -338,19 +338,20 @@
             <article class="project-card reveal-fade-up">
               <div
                 class="project-media-wrap"
-                data-lightbox
-                data-title="EcoSmart AI and Innovation Ltd: company website"
-                data-desc="Brand and marketing website for EcoSmart AI and Innovation Ltd. Designed using the product's design system, so the company and the app feel like one brand."
+                data-gallery-trigger="ecosmart-web"
+                role="button"
+                tabindex="0"
+                aria-label="View 3 screens of the EcoSmart AI company website"
                 style="cursor: pointer;"
               >
                 <img
-                  src="/images/ecosmart-website-desktop.png"
-                  alt="EcoSmart AI and Innovation Ltd: company website"
+                  src="/images/ecosmart/ecosmart-web-hero.webp"
+                  alt="The EcoSmart AI homepage in a desktop browser and on a phone, showing the headline 'Turning waste into value'."
                   loading="lazy"
-                  style="object-fit: cover; object-position: top center; width: 100%; height: 100%;"
+                  style="object-fit: cover; object-position: center; width: 100%; height: 100%;"
                 />
                 <div class="project-hover-label" aria-hidden="true">
-                  <span>View in lightbox</span>
+                  <span>View 3 screens</span>
                   <span>⛶</span>
                 </div>
               </div>
@@ -373,7 +374,7 @@
                   </a>
                 </h3>
                 <p class="project-desc">
-                  Brand and marketing website for EcoSmart AI and Innovation Ltd. I designed it using the product's design system, so the company and the app feel like one brand.
+                  Alongside the app, I designed the company website, ecosmartapp.com. It's often the first place partners, investors and pitch judges meet EcoSmart AI, so it explains the idea in one scroll and earns trust before anyone downloads the app. It uses the app's design system and real app screens, so the company and the product feel like one brand.
                 </p>
                 <div style="margin-top: 0.5rem;">
                   <a
@@ -579,5 +580,135 @@
 
     <!-- Interactive JavaScript Engine -->
     <script type="module" src="/js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const trigger = document.querySelector('[data-gallery-trigger="ecosmart-web"]');
+        const lightbox = document.getElementById('portfolioLightbox');
+        if (!trigger || !lightbox) return;
+
+        const lightboxImg = lightbox.querySelector('.lightbox-image');
+        const lightboxCaption = lightbox.querySelector('.lightbox-caption-text');
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+        const prevBtn = lightbox.querySelector('.lightbox-prev');
+        const nextBtn = lightbox.querySelector('.lightbox-next');
+
+        const slides = [
+          {
+            src: '/images/ecosmart/ecosmart-web-hero.webp',
+            alt: "The EcoSmart AI homepage in a desktop browser and on a phone, showing the headline 'Turning waste into value'.",
+            caption: 'The homepage on desktop and mobile: one clear promise, two clear actions.'
+          },
+          {
+            src: '/images/ecosmart/ecosmart-web-sections.webp',
+            alt: 'Four desktop browser views of ecosmartapp.com: the How it works steps with app screens, six feature cards, the milestones carousel with event photos, and the team cards.',
+            caption: 'Key sections: how it works, why EcoSmart AI, our journey and the team.'
+          },
+          {
+            src: '/images/ecosmart/ecosmart-web-mobile.webp',
+            alt: 'Three phone views of ecosmartapp.com: the green hero, the How it works section with an app screen, and a team card.',
+            caption: 'The same story on a phone, designed for small screens first.'
+          }
+        ];
+
+        let active = false;
+        let index = 0;
+
+        const renderSlide = (idx) => {
+          index = (idx + slides.length) % slides.length;
+          const slide = slides[index];
+          if (lightboxImg) {
+            lightboxImg.src = slide.src;
+            lightboxImg.alt = slide.alt;
+          }
+          if (lightboxCaption) {
+            lightboxCaption.innerHTML = '<strong>EcoSmart AI and Innovation Ltd: company website</strong> — ' + slide.caption;
+          }
+        };
+
+        const openGallery = () => {
+          active = true;
+          renderSlide(0);
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          if (window.PortfolioAnalytics && window.PortfolioAnalytics.trackLightboxOpen) {
+            window.PortfolioAnalytics.trackLightboxOpen('EcoSmart AI and Innovation Ltd: company website');
+          }
+        };
+
+        const closeGallery = () => {
+          active = false;
+          lightbox.classList.remove('active');
+          document.body.style.overflow = '';
+        };
+
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openGallery();
+        });
+
+        trigger.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openGallery();
+          }
+        });
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            if (!active) return;
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            renderSlide(index - 1);
+          }, true);
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', (e) => {
+            if (!active) return;
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            renderSlide(index + 1);
+          }, true);
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', (e) => {
+            if (!active) return;
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            closeGallery();
+          }, true);
+        }
+
+        lightbox.addEventListener('click', (e) => {
+          if (!active) return;
+          if (e.target === lightbox) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            closeGallery();
+          }
+        }, true);
+
+        window.addEventListener('keydown', (e) => {
+          if (!active || !lightbox.classList.contains('active')) return;
+          if (e.key === 'Escape') {
+            e.stopImmediatePropagation();
+            closeGallery();
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            renderSlide(index - 1);
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            renderSlide(index + 1);
+          }
+        }, true);
+      });
+    </script>
   </body>
 </html>
