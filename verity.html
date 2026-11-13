@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verity Case Study — Maryam Abdulkarim</title>
+    <meta name="description" content="AI content verification that shows its working, not just a verdict." />
+
+    <!-- Google Fonts: Fraunces (Headings), Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="theme-verity">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-bar" aria-hidden="true"></div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-fade-overlay" aria-hidden="true"></div>
+
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
+    <div class="custom-cursor-ring" aria-hidden="true"></div>
+
+    <!-- Top Navigation -->
+    <header class="site-nav">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
+
+        <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          ☰
+        </button>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li>
+              <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. Hero & 2. Overview -->
+      <section class="cs-header">
+        <div class="container">
+          <a href="index.html#work" class="text-link" style="margin-bottom: 1.75rem; display: inline-flex;">
+            ← Back to all work
+          </a>
+
+          <div class="verity-hero-banner reveal-fade-up">
+            <img
+              src="/images/verity/verity-logo-reversed.png"
+              alt="Verity logo"
+              class="verity-hero-logo"
+            />
+            <h1 class="cs-title">Know what's real before you trust it.</h1>
+            <a
+              href="https://verity-core-blocks.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="verity-hero-cta"
+            >
+              <span>View live site</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="cs-info-row reveal-fade-up delay-1" style="border-bottom: none; padding-bottom: 0;">
+            <div class="cs-info-item">
+              <h4>Role</h4>
+              <p>Product &amp; UI/UX design, design system</p>
+            </div>
+            <div class="cs-info-item">
+              <h4>Platform</h4>
+              <p>Responsive web, light &amp; dark mode</p>
+            </div>
+            <div class="cs-info-item">
+              <h4>Tools</h4>
+              <p>Lovable</p>
+            </div>
+            <div class="cs-info-item">
+              <h4>Year</h4>
+              <p>2026</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. The idea -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">The Idea</span>
+          <h2 class="cs-section-heading reveal-fade-up">The idea</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              Most AI detectors give one unclear verdict. Verity splits it in two: a Trust Score (how credible the content is) and a Confidence Score (how sure the AI is), always with the evidence behind them.
+            </p>
+          </div>
+
+          <div class="cs-card-grid reveal-fade-up" style="margin-top: 1.5rem;">
+            <div class="cs-card">
+              <span class="card-number">01</span>
+              <h4>Trust Score</h4>
+              <p>Shows how credible the image, text, or document is on a 0–100 scale paired with one of five clear trust levels.</p>
+            </div>
+            <div class="cs-card">
+              <span class="card-number">02</span>
+              <h4>Confidence Score + Evidence</h4>
+              <p>Separates how certain the model is from the credibility rating itself, and lists the exact checks behind the result.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Screens -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Screens</span>
+          <h2 class="cs-section-heading reveal-fade-up">Screens</h2>
+
+          <div class="ecosmart-image-card reveal-fade-up" style="margin-top: 1.5rem;">
+            <div
+              class="ecosmart-img-frame"
+              data-lightbox
+              data-title="Verity — Content Verification Interface"
+              data-desc="Hero screen showing the verification entry point alongside a live sample report with Trust Score, Confidence Score, and supporting evidence."
+            >
+              <img
+                src="/images/verity/verity-cover.png"
+                alt="Verity desktop interface showing 'Know what's real before you trust it.' alongside a live sample report with Trust Score 92, Very High Trust, Analysis confidence 89%, and supporting evidence checks"
+                loading="lazy"
+              />
+              <span class="fullscreen-badge">View full screen</span>
+            </div>
+            <p class="ecosmart-img-caption">
+              Main screen: pairing a clear entry flow with a live verification report showing Trust Score, Confidence Score, and evidence.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Design system -->
+      <section class="cs-section">
+        <div class="container">
+          <span class="category-tag">Design System</span>
+          <h2 class="cs-section-heading reveal-fade-up">Design system</h2>
+
+          <div class="cs-prose reveal-fade-up">
+            <p>
+              Two brand greens (#063F25 and #5EBB46) anchor the interface across light and dark mode, paired with five colour-coded trust levels—every foreground and background pair checked for WCAG contrast.
+            </p>
+          </div>
+
+          <h3 class="reveal-fade-up" style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.75rem;">Brand greens</h3>
+          <div class="verity-swatches-grid reveal-fade-up" style="max-width: 440px; margin-bottom: 2.5rem;">
+            <div class="verity-swatch-card">
+              <div class="verity-swatch-chip" style="background-color: #063F25; color: #FFFFFF;">
+                <span>#063F25</span>
+                <span>AAA</span>
+              </div>
+              <div class="verity-swatch-meta">
+                <strong>Primary Forest</strong>
+                <span>Hero surfaces &amp; primary actions</span>
+              </div>
+            </div>
+            <div class="verity-swatch-card">
+              <div class="verity-swatch-chip" style="background-color: #5EBB46; color: #063F25;">
+                <span>#5EBB46</span>
+                <span>AA</span>
+              </div>
+              <div class="verity-swatch-meta">
+                <strong>Verity Green</strong>
+                <span>Verified accent &amp; highlights</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="reveal-fade-up" style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.75rem;">Five colour-coded trust levels</h3>
+          <div class="verity-swatches-grid reveal-fade-up">
+            <div class="verity-swatch-card">
+              <div class="verity-swatch-chip" style="background-color: #15803D; color: #FFFFFF;">
+                <span>80–100</span>
+                <span>AA+</span>
+              </div>
+              <div class="verity-swatch-meta">
+                <strong>Very High Trust</strong>
+                <span>Strong provenance &amp; integrity</span>
+              </div>
+            </div>
+            <div class="verity-swatch-card">
+              <div class="verity-swatch-chip" style="background-color: #EAF7E6; color: #063F25;">
+                <span>60–79</span>
+                <span>AAA</span>
+              </div>
+              <div class="verity-swatch-meta">
+                <strong>High Trust</strong>
+                <span>Credible with minor caveats</span>
+              </div>
+            </div>
+            <div class="verity-swatch-card">
+              <div class="verity-swatch-chip" style="background-color: #FEF3C7; color: #78350F;">
+                <span>40–59</span>
+                <span>AAA</span>
+              </div>
+              <div class="verity-swatch-meta">
+                <strong>Moderate Trust</strong>
+                <span>Mixed signals, check evidence</span>
+              </div>
+            </div>
+            <div class="verity-swatch-card">
+              <div class="verity-swatch-chip" style="background-color: #FFEDD5; color: #7C2D12;">
+                <span>20–39</span>
+                <span>AAA</span>
+              </div>
+              <div class="verity-swatch-meta">
+                <strong>Low Trust</strong>
+                <span>Suspicious indicators found</span>
+              </div>
+            </div>
+            <div class="verity-swatch-card">
+              <div class="verity-swatch-chip" style="background-color: #B91C1C; color: #FFFFFF;">
+                <span>0–19</span>
+                <span>AA+</span>
+              </div>
+              <div class="verity-swatch-meta">
+                <strong>Very Low Trust</strong>
+                <span>Likely manipulated or synthetic</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Back to all work -->
+          <div class="reveal-fade-up" style="margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <a href="index.html#work" class="text-link">← Back to all work</a>
+            <a
+              href="https://verity-core-blocks.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              View live site ↗
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Maryam Abdulkarim</span>
+        <a href="mailto:maryamabdulkarim06@gmail.com" style="color: var(--text-muted); text-decoration: none;">maryamabdulkarim06@gmail.com</a>
+        <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" class="text-link" style="font-weight: 500;">Download CV</a>
+      </div>
+    </footer>
+
+    <!-- Shared Lightbox Modal -->
+    <div id="portfolioLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+      <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="" alt="" />
+        <p class="lightbox-caption-text"></p>
+      </div>
+      <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <!-- Interactive JavaScript Engine -->
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

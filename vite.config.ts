@@ -21,6 +21,7 @@ export default defineConfig(() => {
           kioniDesignSystem: path.resolve(__dirname, 'kioni-design-system.html'),
           ajobook: path.resolve(__dirname, 'ajobook.html'),
           ajoBook: path.resolve(__dirname, 'ajo-book.html'),
+          verity: path.resolve(__dirname, 'verity.html'),
         },
       },
     },

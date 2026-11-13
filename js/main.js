@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cursorRing = document.querySelector('.custom-cursor-ring');
 
   if (!isTouchDevice && !isReducedMotion && cursorDot && cursorRing) {
+    document.body.classList.add('has-custom-cursor');
     let mouseX = -100;
     let mouseY = -100;
     let ringX = -100;
@@ -76,9 +77,23 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     requestAnimationFrame(updateRing);
 
-    // Expand cursor over interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .project-card, .gallery-item, input, textarea');
+    // 72px "View" cursor on project cards (desktop only)
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card) => {
+      card.addEventListener('mouseenter', () => {
+        cursorRing.classList.add('cursor-view');
+        cursorDot.classList.add('cursor-hidden');
+      });
+      card.addEventListener('mouseleave', () => {
+        cursorRing.classList.remove('cursor-view');
+        cursorDot.classList.remove('cursor-hidden');
+      });
+    });
+
+    // Expand cursor over other interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .gallery-item, input, textarea');
     interactiveElements.forEach((el) => {
+      if (el.closest('.project-card')) return;
       el.addEventListener('mouseenter', () => cursorRing.classList.add('cursor-active'));
       el.addEventListener('mouseleave', () => cursorRing.classList.remove('cursor-active'));
     });
@@ -127,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
       progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
     };
     window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress, { passive: true });
     updateProgress();
   }
 
