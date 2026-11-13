@@ -13,6 +13,7 @@
 
     <!-- Master Stylesheet -->
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preload" as="image" href="/images/ecosmart/ecosmart-web-hero.webp" />
     <script>
       try {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -50,7 +51,7 @@
           <ul class="nav-links">
             <li><a href="#work">Work</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="/illustrations">Illustrations</a></li>
+            <li><a href="illustrations.html">Illustrations</a></li>
             <li><a href="#contact">Contact</a></li>
             <li>
               <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
@@ -358,12 +359,14 @@
                 role="button"
                 tabindex="0"
                 aria-label="View 3 screens of the EcoSmart AI company website"
-                style="cursor: pointer;"
+                style="cursor: pointer; background-color: #F3F6F0;"
               >
                 <img
                   src="/images/ecosmart/ecosmart-web-hero.webp"
                   alt="The EcoSmart AI homepage in a desktop browser and on a phone, showing the headline 'Turning waste into value'."
-                  loading="lazy"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="sync"
                   style="object-fit: cover; object-position: center; width: 100%; height: 100%;"
                 />
                 <div class="project-hover-label" aria-hidden="true">

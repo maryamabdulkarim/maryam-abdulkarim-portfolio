@@ -35,7 +35,7 @@
           <ul class="nav-links">
             <li><a href="index.html#work">Work</a></li>
             <li><a href="index.html#about">About</a></li>
-            <li><a href="/illustrations" class="active" aria-current="page">Illustrations</a></li>
+            <li><a href="illustrations.html" class="active" aria-current="page">Illustrations</a></li>
             <li><a href="index.html#contact">Contact</a></li>
             <li>
               <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
@@ -68,7 +68,7 @@
 
       <!-- 3. Featured Curved Carousel (5 illustrations) -->
       <section class="illus-carousel-section" aria-label="Featured illustrations carousel">
-        <div class="container">
+        <div class="container" style="max-width: 1280px;">
           <div class="illus-carousel-shell" id="illusCarouselShell" tabindex="0" aria-roledescription="carousel" aria-label="Featured illustrations">
             <div class="illus-carousel-viewport" id="illusCarouselViewport">
               <div class="illus-cylinder-stage" id="illusCylinderStage"></div>
@@ -322,13 +322,31 @@
 
           const getMetrics = () => {
             const w = viewport.clientWidth || window.innerWidth;
-            if (w <= 520) {
-              return { radius: Math.max(210, Math.min(270, w * 0.68)), angleStep: 34 };
+            if (w <= 600) {
+              return { baseSize: 152, maxW: 192, maxH: 180, step1X: 196, step2X: 360, z1: -55, z2: -165, angle1: 26, angle2: 44, scale1: 0.88, scale2: 0.78 };
             }
-            if (w <= 860) {
-              return { radius: 370, angleStep: 28 };
+            if (w <= 900) {
+              return { baseSize: 184, maxW: 236, maxH: 214, step1X: 256, step2X: 488, z1: -60, z2: -180, angle1: 23, angle2: 40, scale1: 0.90, scale2: 0.80 };
             }
-            return { radius: 520, angleStep: 26 };
+            return { baseSize: 210, maxW: 268, maxH: 242, step1X: 288, step2X: 552, z1: -58, z2: -178, angle1: 22, angle2: 40, scale1: 0.91, scale2: 0.80 };
+          };
+
+          const updateCardSizes = (m) => {
+            cardEls.forEach((card, i) => {
+              const ratio = featured[i].ratio || 1.5;
+              let w = Math.round(m.baseSize * Math.sqrt(ratio));
+              let h = Math.round(w / ratio);
+              if (w > m.maxW) {
+                w = m.maxW;
+                h = Math.round(w / ratio);
+              }
+              if (h > m.maxH) {
+                h = m.maxH;
+                w = Math.round(h * ratio);
+              }
+              card.style.width = `${w}px`;
+              card.style.height = `${h}px`;
+            });
           };
 
           const updateMeta = (centerIdx) => {
@@ -340,25 +358,44 @@
           };
 
           const renderCylinder = () => {
-            const { radius, angleStep } = getMetrics();
+            const m = getMetrics();
+            updateCardSizes(m);
             const nearestIdx = wrapIndex(Math.round(currentPos));
             updateMeta(nearestIdx);
 
             cardEls.forEach((card, i) => {
               const diff = wrapDiff(i - currentPos);
               const absDiff = Math.abs(diff);
-              const angleDeg = diff * angleStep;
-              const angleRad = (angleDeg * Math.PI) / 180;
+              const sign = diff < 0 ? -1 : 1;
 
-              const x = Math.sin(angleRad) * radius;
-              const z = (Math.cos(angleRad) - 1) * radius;
-              const scale = Math.max(0.76, 1 - absDiff * 0.055);
-              const opacity = Math.max(0.28, 1 - absDiff * 0.16);
+              // Smooth piecewise 3D curve guaranteeing clear horizontal gaps between cards
+              let absX = 0;
+              let z = 0;
+              let absAngle = 0;
+              let scale = 1;
+              if (absDiff <= 1) {
+                const t = absDiff;
+                absX = m.step1X * t;
+                z = m.z1 * (t * t);
+                absAngle = m.angle1 * t;
+                scale = 1 - (1 - m.scale1) * t;
+              } else {
+                const t = Math.min(absDiff - 1, 1.5);
+                absX = m.step1X + (m.step2X - m.step1X) * t;
+                z = m.z1 + (m.z2 - m.z1) * t;
+                absAngle = m.angle1 + (m.angle2 - m.angle1) * t;
+                scale = m.scale1 - (m.scale1 - m.scale2) * t;
+              }
+
+              const x = sign * absX;
+              const angleDeg = sign * absAngle;
+              let opacity = absDiff <= 2.0 ? Math.max(0.7, 1 - absDiff * 0.14) : Math.max(0, 0.72 * (1 - (absDiff - 2.0) / 0.35));
               const zIndex = Math.round(100 - absDiff * 20);
 
               card.style.transform = `translate(-50%, -50%) translate3d(${x.toFixed(2)}px, 0px, ${z.toFixed(2)}px) rotateY(${angleDeg.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
               card.style.opacity = opacity.toFixed(3);
               card.style.zIndex = String(zIndex);
+              card.style.pointerEvents = absDiff > 2.05 ? 'none' : 'auto';
 
               if (absDiff < 0.25) {
                 card.classList.add('is-center');
