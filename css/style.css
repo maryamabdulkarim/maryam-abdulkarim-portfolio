@@ -3306,3 +3306,426 @@ body.intro-locked {
   }
 }
 
+/* 12. Illustrations Page (/illustrations) */
+.illus-main {
+  padding-top: 6.25rem;
+  flex: 1 0 auto;
+}
+
+.illus-sticky-bar {
+  position: sticky;
+  top: 5.25rem;
+  z-index: 900;
+  pointer-events: none;
+  margin-bottom: 0.75rem;
+}
+
+.illus-back-pill {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.48rem 1rem;
+  border-radius: 9999px;
+  background-color: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 20px rgba(20, 20, 20, 0.08);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.illus-back-pill:hover {
+  background-color: #EFECE6;
+  border-color: rgba(20, 20, 20, 0.28);
+  box-shadow: 0 8px 24px rgba(20, 20, 20, 0.12);
+  transform: translateY(-1px);
+}
+
+.illus-back-pill:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+.illus-header-section {
+  padding: 1.5rem 0 2.5rem;
+}
+
+.illus-title {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  margin-bottom: 0.75rem;
+}
+
+.illus-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--text-muted);
+  max-width: 580px;
+}
+
+/* Featured 3D Curved Cylinder Carousel */
+.illus-carousel-section {
+  padding: 1rem 0 4rem;
+}
+
+.illus-carousel-shell {
+  position: relative;
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.illus-carousel-viewport {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.illus-carousel-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.illus-cylinder-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.illus-cyl-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 340px;
+  height: 256px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 18px 40px rgba(20, 20, 20, 0.1);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.illus-cyl-card.is-center {
+  border-color: rgba(20, 20, 20, 0.22);
+  box-shadow: 0 24px 54px rgba(20, 20, 20, 0.16);
+  cursor: zoom-in;
+}
+
+.illus-cyl-card:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+.illus-cyl-card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #F4F0EA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.illus-cyl-card-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+  draggable: false;
+}
+
+.illus-carousel-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.illus-carousel-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.illus-carousel-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.illus-carousel-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.illus-carousel-counter {
+  font-family: var(--font-body);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  min-width: 56px;
+}
+
+.illus-carousel-counter strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.illus-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: #FFFFFF;
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.illus-arrow-btn:hover {
+  background-color: var(--text-main);
+  border-color: var(--text-main);
+  color: #FFFFFF;
+}
+
+.illus-arrow-btn:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+/* Full Illustrations Vertical Masonry Gallery */
+.illus-gallery-section {
+  padding: 2.5rem 0 6rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.illus-gallery-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.illus-gallery-heading {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.illus-gallery-count {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.illus-masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.illus-masonry-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.illus-masonry-col.col-active {
+  z-index: 25;
+}
+
+.illus-reveal-slot {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.illus-reveal-slot.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.illus-masonry-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  cursor: zoom-in;
+  text-align: left;
+  z-index: 1;
+  transform: translateY(0) scale(1);
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.illus-masonry-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.illus-masonry-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.25rem 1rem 0.9rem;
+  background: linear-gradient(to top, rgba(20, 20, 20, 0.78), rgba(20, 20, 20, 0.25) 60%, transparent);
+  color: #FFFFFF;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.illus-masonry-overlay-title {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 1.35;
+}
+
+.illus-masonry-grid.has-hovered-item .illus-masonry-item:not(.is-hovered) {
+  opacity: 0.55;
+}
+
+.illus-masonry-item.is-hovered,
+.illus-masonry-item:hover,
+.illus-masonry-item:focus-visible {
+  z-index: 30;
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 24px 48px rgba(20, 20, 20, 0.18);
+  border-color: rgba(20, 20, 20, 0.22);
+  opacity: 1 !important;
+}
+
+.illus-masonry-item.is-hovered .illus-masonry-overlay,
+.illus-masonry-item:hover .illus-masonry-overlay,
+.illus-masonry-item:focus-visible .illus-masonry-overlay {
+  opacity: 1;
+}
+
+.illus-masonry-item:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+.illus-bottom-back {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .illus-carousel-viewport {
+    height: 310px;
+  }
+  .illus-cyl-card {
+    width: 270px;
+    height: 204px;
+  }
+  .illus-masonry-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .illus-main {
+    padding-top: 5.5rem;
+  }
+  .illus-sticky-bar {
+    top: 4.65rem;
+  }
+  .illus-carousel-viewport {
+    height: 250px;
+    perspective: 950px;
+  }
+  .illus-cyl-card {
+    width: 210px;
+    height: 162px;
+    border-radius: 14px;
+    padding: 7px;
+  }
+  .illus-carousel-section {
+    padding: 0.5rem 0 2.75rem;
+  }
+  .illus-masonry-grid {
+    grid-template-columns: 1fr;
+  }
+  .illus-masonry-item.is-hovered,
+  .illus-masonry-item:hover,
+  .illus-masonry-item:focus-visible {
+    transform: translateY(-4px) scale(1.03);
+  }
+  .illus-gallery-section {
+    padding: 2rem 0 4.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .illus-reveal-slot {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .illus-masonry-item {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+  .illus-masonry-grid.has-hovered-item .illus-masonry-item:not(.is-hovered) {
+    opacity: 1 !important;
+  }
+  .illus-masonry-item.is-hovered,
+  .illus-masonry-item:hover,
+  .illus-masonry-item:focus-visible {
+    transform: none !important;
+  }
+  .illus-back-pill:hover {
+    transform: none !important;
+  }
+}
+
+

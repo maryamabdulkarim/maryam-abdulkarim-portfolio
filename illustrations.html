@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Illustrations — Maryam Abdulkarim</title>
+    <meta name="description" content="Personal illustrations and visual explorations by Maryam Abdulkarim." />
+
+    <!-- Google Fonts: Fraunces (Headings), Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- Page Transition Overlay -->
+    <div class="page-fade-overlay" aria-hidden="true"></div>
+
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
+    <div class="custom-cursor-ring" aria-hidden="true"></div>
+
+    <!-- Top Navigation -->
+    <header class="site-nav">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
+
+        <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          ☰
+        </button>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="/illustrations" class="active" aria-current="page">Illustrations</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li>
+              <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="illus-main">
+      <!-- 1. Sticky Back Button -->
+      <div class="illus-sticky-bar container">
+        <a href="index.html" class="illus-back-pill" aria-label="Back to homepage">
+          <span aria-hidden="true">←</span>
+          <span>Back</span>
+        </a>
+      </div>
+
+      <!-- 2. Header -->
+      <section class="illus-header-section">
+        <div class="container">
+          <h1 class="illus-title reveal-fade-up">Illustrations</h1>
+          <p class="illus-subtitle reveal-fade-up delay-1">
+            Personal illustrations and visual explorations.
+          </p>
+        </div>
+      </section>
+
+      <!-- 3. Featured Curved Carousel (5 illustrations) -->
+      <section class="illus-carousel-section" aria-label="Featured illustrations carousel">
+        <div class="container">
+          <div class="illus-carousel-shell" id="illusCarouselShell" tabindex="0" aria-roledescription="carousel" aria-label="Featured illustrations">
+            <div class="illus-carousel-viewport" id="illusCarouselViewport">
+              <div class="illus-cylinder-stage" id="illusCylinderStage"></div>
+            </div>
+
+            <div class="illus-carousel-meta">
+              <div class="illus-carousel-caption">
+                <h2 class="illus-carousel-title" id="illusCarouselTitle">Croissant Character</h2>
+              </div>
+
+              <div class="illus-carousel-controls">
+                <button type="button" class="illus-arrow-btn" id="illusCarouselPrev" aria-label="Previous featured illustration">←</button>
+                <span class="illus-carousel-counter" aria-live="polite">
+                  <strong id="illusCarouselCurrent">01</strong> / <span id="illusCarouselTotal">05</span>
+                </span>
+                <button type="button" class="illus-arrow-btn" id="illusCarouselNext" aria-label="Next featured illustration">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Full Masonry Gallery -->
+      <section class="illus-gallery-section" aria-label="All illustrations">
+        <div class="container">
+          <div class="illus-gallery-header">
+            <h2 class="illus-gallery-heading">All works</h2>
+            <span class="illus-gallery-count" id="illusGalleryCount">15 pieces</span>
+          </div>
+
+          <div class="illus-masonry-grid" id="illusMasonryGrid"></div>
+
+          <!-- 6. Bottom Back to Home Link -->
+          <div class="illus-bottom-back">
+            <a href="index.html" class="text-link">← Back to home</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Maryam Abdulkarim</span>
+        <a href="mailto:maryamabdulkarim06@gmail.com" style="color: var(--text-muted); text-decoration: none;">maryamabdulkarim06@gmail.com</a>
+        <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" class="text-link" style="font-weight: 500;">Download CV</a>
+      </div>
+    </footer>
+
+    <!-- Shared Lightbox Modal -->
+    <div id="portfolioLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+      <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="" alt="" />
+        <p class="lightbox-caption-text"></p>
+      </div>
+      <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <!-- Interactive JavaScript Engine -->
+    <script type="module" src="/js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const illustrations = [
+          {
+            id: 1,
+            plate: "01",
+            title: "Croissant Character",
+            src: "/assets/aistudio/Snack__7__779a4eca.png",
+            desc: "Playful vector mascot illustration of a smiling croissant with crisp colour blocking.",
+            ratio: 6843 / 8965,
+            featured: true
+          },
+          {
+            id: 2,
+            plate: "02",
+            title: "Casting the Ballot",
+            src: "/assets/aistudio/FIFTH_SCENE_c1d7b4c3.png",
+            desc: "Polling unit scene capturing voters queued under the canopy alongside INEC officials and observers.",
+            ratio: 3600 / 2025,
+            featured: true
+          },
+          {
+            id: 3,
+            plate: "03",
+            title: "Strawberry Boba Character",
+            src: "/assets/aistudio/Drink__5__85867869.png",
+            desc: "Cheerful vector drink character with layered pink tones and glossy highlights.",
+            ratio: 6843 / 8965,
+            featured: true
+          },
+          {
+            id: 4,
+            plate: "04",
+            title: "Artisan Coffee Cup & Heart Sleeve",
+            src: "/assets/aistudio/With_Effect__2__5f1fe495.png",
+            desc: "Minimalist takeaway coffee cup vector study with embossed sleeve and subtle shading.",
+            ratio: 8346 / 6167,
+            featured: true
+          },
+          {
+            id: 5,
+            plate: "05",
+            title: "Morning at GMS Alimosho (PU 003)",
+            src: "/assets/aistudio/First_frame__1__cf2e54bc.png",
+            desc: "Establishing shot of the community school courtyard prepared as an election polling unit.",
+            ratio: 1201 / 675,
+            featured: true
+          },
+          {
+            id: 6,
+            plate: "06",
+            title: "Setting Up the Polling Canopy",
+            src: "/assets/aistudio/SECOND_SCENE_57a6e2f1.png",
+            desc: "Early morning canopy setup at Polling Unit 003 before accredited voters arrive.",
+            ratio: 3600 / 2025
+          },
+          {
+            id: 7,
+            plate: "07",
+            title: "Urban Street & Building Line Art",
+            src: "/assets/aistudio/Illustrations_744de593.png",
+            desc: "Clean vector line-art sheet of street lamps, vehicles, trees, and architectural facades.",
+            ratio: 32768 / 22864
+          },
+          {
+            id: 8,
+            plate: "08",
+            title: "Voters Arrive at Polling Unit 003",
+            src: "/assets/aistudio/THIRD_SCENE_d5ce0582.png",
+            desc: "Accreditation desk opens under the green canopy as community members arrive to vote.",
+            ratio: 3600 / 2025
+          },
+          {
+            id: 9,
+            plate: "09",
+            title: "Accreditation Queue & Security Presence",
+            src: "/assets/aistudio/FOURTH_SCENE_4b5852eb.png",
+            desc: "Character-rich crowd scene illustrating voters waiting in line and polling staff at work.",
+            ratio: 3600 / 2025
+          },
+          {
+            id: 10,
+            plate: "10",
+            title: "Party Agent Dialogue & Civic Resolve",
+            src: "/assets/aistudio/SIXTH_SCENE_c06109cd.png",
+            desc: "Narrative dialogue beat showing accredited observers and officials during voting hours.",
+            ratio: 3600 / 2025
+          },
+          {
+            id: 11,
+            plate: "11",
+            title: "Coloured Scenario Ideation Sheet",
+            src: "/assets/aistudio/Coloured_Scenerio_Ideation_4f0b8887.png",
+            desc: "Full visual development sheet exploring colour keys and scene progression.",
+            ratio: 32768 / 21836
+          },
+          {
+            id: 12,
+            plate: "12",
+            title: "Tensions & Election Day Realities",
+            src: "/assets/aistudio/SEVENTH_SCENE_069ff787.png",
+            desc: "High-detail crowd illustration capturing competing conversations across the polling ground.",
+            ratio: 3600 / 2025
+          },
+          {
+            id: 13,
+            plate: "13",
+            title: "Line Art & Colour Mask Study",
+            src: "/assets/aistudio/SEVENTH_SCENE__1__35dedb7f.png",
+            desc: "Underlying linework and selective colour pass for Scene 7.",
+            ratio: 3600 / 2025
+          },
+          {
+            id: 14,
+            plate: "14",
+            title: "Final Colour Scene (PU 003)",
+            src: "/assets/aistudio/EIGHT_fa92f8c9.png",
+            desc: "Completed full-colour environmental frame with layered characters and props.",
+            ratio: 3600 / 2025
+          },
+          {
+            id: 15,
+            plate: "15",
+            title: "Full Scene Colour Harmony",
+            src: "/assets/aistudio/COLOR__3__92367bfe.png",
+            desc: "Warm ochre ground tones balanced against cool courtyard shade and vibrant wardrobe accents.",
+            ratio: 3600 / 2025
+          }
+        ];
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Open shared lightbox for full gallery at matching index
+        const openInLightbox = (idx) => {
+          if (window.PortfolioLightbox && typeof window.PortfolioLightbox.open === 'function') {
+            window.PortfolioLightbox.open(illustrations, idx);
+          }
+        };
+
+        // ------------------------------------------------------------------
+        // A. Featured 3D Curved Cylinder Carousel (5 featured items)
+        // ------------------------------------------------------------------
+        const featured = illustrations.filter((item) => item.featured).slice(0, 5);
+        const shell = document.getElementById('illusCarouselShell');
+        const viewport = document.getElementById('illusCarouselViewport');
+        const stage = document.getElementById('illusCylinderStage');
+        const titleEl = document.getElementById('illusCarouselTitle');
+        const currentEl = document.getElementById('illusCarouselCurrent');
+        const totalEl = document.getElementById('illusCarouselTotal');
+        const prevBtn = document.getElementById('illusCarouselPrev');
+        const nextBtn = document.getElementById('illusCarouselNext');
+
+        if (stage && viewport && featured.length === 5) {
+          const N = featured.length;
+          if (totalEl) totalEl.textContent = String(N).padStart(2, '0');
+
+          const cardEls = featured.map((item, idx) => {
+            const card = document.createElement('div');
+            card.className = 'illus-cyl-card';
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('aria-label', `${item.title} — click to inspect`);
+            card.innerHTML = `
+              <div class="illus-cyl-card-inner">
+                <img src="${item.src}" alt="${item.title}" draggable="false" />
+              </div>
+            `;
+            stage.appendChild(card);
+            return card;
+          });
+
+          let targetPos = 0;
+          let currentPos = 0;
+          let isHovered = false;
+          let isFocused = false;
+          let isDragging = false;
+          let didDrag = false;
+          let dragStartX = 0;
+          let dragStartPos = 0;
+          let lastCenteredIdx = -1;
+          let autoTimer = null;
+
+          const wrapIndex = (val) => ((val % N) + N) % N;
+          const wrapDiff = (diff) => {
+            let d = ((diff % N) + N) % N;
+            if (d > N / 2) d -= N;
+            return d;
+          };
+
+          const getMetrics = () => {
+            const w = viewport.clientWidth || window.innerWidth;
+            if (w <= 520) {
+              return { radius: Math.max(210, Math.min(270, w * 0.68)), angleStep: 34 };
+            }
+            if (w <= 860) {
+              return { radius: 370, angleStep: 28 };
+            }
+            return { radius: 520, angleStep: 26 };
+          };
+
+          const updateMeta = (centerIdx) => {
+            if (centerIdx === lastCenteredIdx) return;
+            lastCenteredIdx = centerIdx;
+            const item = featured[centerIdx];
+            if (titleEl) titleEl.textContent = item.title;
+            if (currentEl) currentEl.textContent = String(centerIdx + 1).padStart(2, '0');
+          };
+
+          const renderCylinder = () => {
+            const { radius, angleStep } = getMetrics();
+            const nearestIdx = wrapIndex(Math.round(currentPos));
+            updateMeta(nearestIdx);
+
+            cardEls.forEach((card, i) => {
+              const diff = wrapDiff(i - currentPos);
+              const absDiff = Math.abs(diff);
+              const angleDeg = diff * angleStep;
+              const angleRad = (angleDeg * Math.PI) / 180;
+
+              const x = Math.sin(angleRad) * radius;
+              const z = (Math.cos(angleRad) - 1) * radius;
+              const scale = Math.max(0.76, 1 - absDiff * 0.055);
+              const opacity = Math.max(0.28, 1 - absDiff * 0.16);
+              const zIndex = Math.round(100 - absDiff * 20);
+
+              card.style.transform = `translate(-50%, -50%) translate3d(${x.toFixed(2)}px, 0px, ${z.toFixed(2)}px) rotateY(${angleDeg.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
+              card.style.opacity = opacity.toFixed(3);
+              card.style.zIndex = String(zIndex);
+
+              if (absDiff < 0.25) {
+                card.classList.add('is-center');
+              } else {
+                card.classList.remove('is-center');
+              }
+            });
+          };
+
+          const animate = () => {
+            if (prefersReducedMotion || isDragging) {
+              currentPos = targetPos;
+            } else {
+              const delta = targetPos - currentPos;
+              if (Math.abs(delta) > 0.0005) {
+                currentPos += delta * 0.14;
+              } else {
+                currentPos = targetPos;
+              }
+            }
+            renderCylinder();
+            requestAnimationFrame(animate);
+          };
+
+          const stepBy = (delta) => {
+            targetPos = Math.round(targetPos) + delta;
+            if (prefersReducedMotion) {
+              currentPos = targetPos;
+              renderCylinder();
+            }
+          };
+
+          const startAutoRotate = () => {
+            if (prefersReducedMotion || autoTimer) return;
+            autoTimer = setInterval(() => {
+              const lbOpen = window.PortfolioLightbox && window.PortfolioLightbox.isActive();
+              if (!isHovered && !isFocused && !isDragging && !lbOpen && !document.hidden) {
+                stepBy(1);
+              }
+            }, 3800);
+          };
+
+          const restartAutoRotate = () => {
+            if (autoTimer) {
+              clearInterval(autoTimer);
+              autoTimer = null;
+            }
+            startAutoRotate();
+          };
+
+          if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+              stepBy(-1);
+              restartAutoRotate();
+            });
+          }
+          if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+              stepBy(1);
+              restartAutoRotate();
+            });
+          }
+
+          // Card click: center card opens lightbox; side card rotates into center
+          cardEls.forEach((card, i) => {
+            const handleActivate = () => {
+              const centerIdx = wrapIndex(Math.round(targetPos));
+              if (i === centerIdx) {
+                const fullIdx = illustrations.findIndex((it) => it.id === featured[i].id);
+                openInLightbox(fullIdx >= 0 ? fullIdx : 0);
+              } else {
+                const diff = wrapDiff(i - Math.round(targetPos));
+                targetPos = Math.round(targetPos) + diff;
+                restartAutoRotate();
+              }
+            };
+
+            card.addEventListener('click', () => {
+              if (didDrag) return;
+              handleActivate();
+            });
+
+            card.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleActivate();
+              }
+            });
+          });
+
+          // Pointer drag (mouse + touch swipe)
+          viewport.addEventListener('pointerdown', (e) => {
+            if (e.button !== 0 && e.pointerType === 'mouse') return;
+            isDragging = true;
+            didDrag = false;
+            dragStartX = e.clientX;
+            dragStartPos = targetPos;
+            viewport.classList.add('is-dragging');
+            try { viewport.setPointerCapture(e.pointerId); } catch (err) {}
+          });
+
+          viewport.addEventListener('pointermove', (e) => {
+            if (!isDragging) return;
+            const dx = e.clientX - dragStartX;
+            if (Math.abs(dx) > 6) didDrag = true;
+            const sensitivity = (viewport.clientWidth || 360) < 520 ? 155 : 220;
+            targetPos = dragStartPos - dx / sensitivity;
+            currentPos = targetPos;
+          });
+
+          const finishDrag = (e) => {
+            if (!isDragging) return;
+            const dx = e.clientX - dragStartX;
+            isDragging = false;
+            viewport.classList.remove('is-dragging');
+            try { viewport.releasePointerCapture(e.pointerId); } catch (err) {}
+
+            if (Math.abs(dx) > 35 && Math.abs(targetPos - dragStartPos) < 0.5) {
+              targetPos = Math.round(dragStartPos) + (dx < 0 ? 1 : -1);
+            } else {
+              targetPos = Math.round(targetPos);
+            }
+            restartAutoRotate();
+            setTimeout(() => { didDrag = false; }, 40);
+          };
+
+          viewport.addEventListener('pointerup', finishDrag);
+          viewport.addEventListener('pointercancel', finishDrag);
+
+          // Pause on hover & focus
+          if (shell) {
+            shell.addEventListener('mouseenter', () => { isHovered = true; });
+            shell.addEventListener('mouseleave', () => { isHovered = false; });
+            shell.addEventListener('focusin', () => { isFocused = true; });
+            shell.addEventListener('focusout', () => { isFocused = false; });
+            shell.addEventListener('keydown', (e) => {
+              if (window.PortfolioLightbox && window.PortfolioLightbox.isActive()) return;
+              if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                stepBy(-1);
+                restartAutoRotate();
+              } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                stepBy(1);
+                restartAutoRotate();
+              }
+            });
+          }
+
+          window.addEventListener('resize', renderCylinder);
+          renderCylinder();
+          requestAnimationFrame(animate);
+          startAutoRotate();
+        }
+
+        // ------------------------------------------------------------------
+        // B. Full Vertical Masonry Grid (3 cols desktop, 2 tablet, 1 mobile)
+        // ------------------------------------------------------------------
+        const masonryGrid = document.getElementById('illusMasonryGrid');
+        const galleryCountEl = document.getElementById('illusGalleryCount');
+
+        if (masonryGrid) {
+          if (galleryCountEl) {
+            galleryCountEl.textContent = `${illustrations.length} pieces`;
+          }
+
+          let activeColCount = 0;
+
+          const getColCount = () => {
+            const w = window.innerWidth;
+            if (w <= 600) return 1;
+            if (w <= 900) return 2;
+            return 3;
+          };
+
+          // Build card DOM nodes once so revealed visibility & event listeners persist cleanly
+          const slotCards = illustrations.map((item, idx) => {
+            const slot = document.createElement('div');
+            slot.className = prefersReducedMotion ? 'illus-reveal-slot is-visible' : 'illus-reveal-slot';
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'illus-masonry-item';
+            btn.setAttribute('aria-label', `View ${item.title} in fullscreen`);
+            btn.innerHTML = `
+              <img src="${item.src}" alt="${item.title}" loading="${idx < 6 ? 'eager' : 'lazy'}" decoding="async" />
+              <div class="illus-masonry-overlay" aria-hidden="true">
+                <span class="illus-masonry-overlay-title">${item.title}</span>
+              </div>
+            `;
+
+            btn.addEventListener('click', () => openInLightbox(idx));
+
+            const setHoverState = (active) => {
+              const parentCol = slot.closest('.illus-masonry-col');
+              if (active) {
+                masonryGrid.classList.add('has-hovered-item');
+                btn.classList.add('is-hovered');
+                if (parentCol) parentCol.classList.add('col-active');
+              } else {
+                btn.classList.remove('is-hovered');
+                if (parentCol) parentCol.classList.remove('col-active');
+                if (!masonryGrid.querySelector('.illus-masonry-item.is-hovered')) {
+                  masonryGrid.classList.remove('has-hovered-item');
+                }
+              }
+            };
+
+            btn.addEventListener('mouseenter', () => setHoverState(true));
+            btn.addEventListener('mouseleave', () => setHoverState(false));
+            btn.addEventListener('focus', () => setHoverState(true));
+            btn.addEventListener('blur', () => setHoverState(false));
+
+            slot.appendChild(btn);
+            return { slot, item };
+          });
+
+          const layoutMasonry = () => {
+            const colsNeeded = getColCount();
+            if (colsNeeded === activeColCount) return;
+            activeColCount = colsNeeded;
+
+            masonryGrid.innerHTML = '';
+            const cols = [];
+            const colHeights = [];
+
+            for (let c = 0; c < colsNeeded; c++) {
+              const colEl = document.createElement('div');
+              colEl.className = 'illus-masonry-col';
+              masonryGrid.appendChild(colEl);
+              cols.push(colEl);
+              colHeights.push(0);
+            }
+
+            slotCards.forEach(({ slot, item }) => {
+              let shortestIdx = 0;
+              for (let c = 1; c < colsNeeded; c++) {
+                if (colHeights[c] < colHeights[shortestIdx]) {
+                  shortestIdx = c;
+                }
+              }
+              cols[shortestIdx].appendChild(slot);
+              // Estimate relative height from natural aspect ratio (1 / ratio) + gap
+              colHeights[shortestIdx] += (1 / (item.ratio || 1.5)) + 0.08;
+            });
+          };
+
+          layoutMasonry();
+          window.addEventListener('resize', layoutMasonry);
+
+          // Scroll reveal (fade in & move up gently once as user scrolls)
+          if (!prefersReducedMotion) {
+            const revealObs = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObs.unobserve(entry.target);
+                  }
+                });
+              },
+              { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+            );
+            slotCards.forEach(({ slot }) => revealObs.observe(slot));
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

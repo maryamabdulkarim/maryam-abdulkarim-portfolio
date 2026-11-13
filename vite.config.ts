@@ -22,6 +22,7 @@ export default defineConfig(() => {
           ajobook: path.resolve(__dirname, 'ajobook.html'),
           ajoBook: path.resolve(__dirname, 'ajo-book.html'),
           verity: path.resolve(__dirname, 'verity.html'),
+          illustrations: path.resolve(__dirname, 'illustrations.html'),
         },
       },
     },

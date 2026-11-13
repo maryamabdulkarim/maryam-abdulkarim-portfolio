@@ -333,6 +333,34 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowLeft') showPrev();
       if (e.key === 'ArrowRight') showNext();
     });
+
+    // Mobile swipe support inside Lightbox
+    let lbTouchStartX = 0;
+    let lbTouchStartY = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+      if (!lightbox.classList.contains('active') || !e.changedTouches.length) return;
+      lbTouchStartX = e.changedTouches[0].clientX;
+      lbTouchStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (e) => {
+      if (!lightbox.classList.contains('active') || !e.changedTouches.length) return;
+      const dx = e.changedTouches[0].clientX - lbTouchStartX;
+      const dy = e.changedTouches[0].clientY - lbTouchStartY;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        if (dx > 0) {
+          showPrev();
+        } else {
+          showNext();
+        }
+      }
+    }, { passive: true });
+
+    window.PortfolioLightbox = {
+      open: openLightbox,
+      close: closeLightbox,
+      isActive: () => lightbox.classList.contains('active')
+    };
   }
 
   // 9. Interactive Illustrations Catalogue Slider Engine
