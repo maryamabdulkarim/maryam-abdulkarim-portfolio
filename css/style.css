@@ -390,13 +390,37 @@ a:focus-visible {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
   color: var(--text-main);
+  border-radius: 8px;
+}
+
+.nav-mobile-toggle svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.nav-mobile-toggle .nav-icon-close {
+  display: none;
+}
+
+.nav-mobile-toggle[aria-expanded="true"] .nav-icon-menu {
+  display: none;
+}
+
+.nav-mobile-toggle[aria-expanded="true"] .nav-icon-close {
+  display: block;
 }
 
 @media (max-width: 768px) {
   .nav-mobile-toggle {
-    display: block;
+    display: inline-flex;
   }
   .nav-links {
     position: fixed;
@@ -1280,12 +1304,86 @@ a:focus-visible .link-arrow {
   margin-bottom: 1rem;
 }
 
+.contact-email-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
 .contact-email-link {
   font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   color: var(--accent-color);
   display: inline-block;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+}
+
+.copy-email-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.copy-email-btn:hover {
+  background-color: #F2EFE9;
+  border-color: #D2CCC2;
+}
+
+.copy-email-btn:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.copy-email-btn.is-copied {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.contact-socials {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.contact-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  color: var(--text-main);
+  transition: color var(--transition-fast);
+}
+
+.contact-social-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.contact-social-icon:hover,
+.contact-social-icon:focus-visible {
+  color: var(--accent-color);
+}
+
+.contact-social-icon:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .social-links {
@@ -2497,6 +2595,12 @@ body, p, li, td, th {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
   margin-top: 2rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.community-photos-row::-webkit-scrollbar {
+  display: none;
 }
 
 .community-photo-card {
@@ -2572,13 +2676,19 @@ body, p, li, td, th {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     padding-bottom: 0.75rem;
     margin-top: 1.5rem;
+  }
+  .community-photos-row::-webkit-scrollbar {
+    display: none;
   }
   .community-photos-row .community-photo-card {
     flex: 0 0 82%;
     max-width: 320px;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 }
 

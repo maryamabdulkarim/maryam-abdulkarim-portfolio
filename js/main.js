@@ -168,15 +168,44 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
       mobileToggle.setAttribute('aria-expanded', String(isOpen));
-      mobileToggle.textContent = isOpen ? '✕' : '☰';
     });
 
     navLinks.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
         mobileToggle.setAttribute('aria-expanded', 'false');
-        mobileToggle.textContent = '☰';
       });
+    });
+  }
+
+  // 4b. Copy Email Button
+  const copyEmailBtn = document.getElementById('copyEmailBtn');
+  if (copyEmailBtn) {
+    let copyTimer = null;
+    copyEmailBtn.addEventListener('click', async () => {
+      const email = copyEmailBtn.getAttribute('data-copy-email') || 'maryamabdulkarim06@gmail.com';
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          const tempInput = document.createElement('textarea');
+          tempInput.value = email;
+          tempInput.setAttribute('readonly', '');
+          tempInput.style.position = 'fixed';
+          tempInput.style.opacity = '0';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+        }
+        copyEmailBtn.textContent = 'Copied';
+        copyEmailBtn.classList.add('is-copied');
+        if (copyTimer) clearTimeout(copyTimer);
+        copyTimer = setTimeout(() => {
+          copyEmailBtn.textContent = 'Copy';
+          copyEmailBtn.classList.remove('is-copied');
+        }, 2000);
+      } catch (err) {}
     });
   }
 
