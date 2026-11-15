@@ -8,7 +8,7 @@
 :root {
   --bg-color: #FAF8F5;
   --text-main: #141414;
-  --text-muted: #6B6B6B;
+  --text-muted: #4A4A4A;
   --border-color: #E7E3DD;
   --accent-color: #1A6739;
   --accent-hover: #134E2B;
@@ -214,7 +214,7 @@ strong, b {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 600;
-  color: var(--text-muted);
+  color: #5A5A5A;
 }
 
 .handwritten {
@@ -316,6 +316,19 @@ a:focus-visible {
 }
 
 /* Top Navigation Bar */
+.site-nav,
+.site-footer {
+  --accent-color: #1A6739;
+  --accent-hover: #134E2B;
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --text-main: #141414;
+  --text-muted: #4A4A4A;
+  --border-color: #E7E3DD;
+  --bg-color: #FAF8F5;
+  font-family: var(--font-body);
+}
+
 .site-nav {
   position: fixed;
   top: 0;
@@ -341,10 +354,10 @@ a:focus-visible {
 }
 
 .nav-brand {
-  font-family: var(--font-heading);
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 1.35rem;
   font-weight: 600;
-  color: var(--text-main);
+  color: #141414;
   letter-spacing: -0.01em;
 }
 
@@ -469,13 +482,9 @@ a:focus-visible {
   flex-wrap: wrap;
 }
 
-/* Hero Toolkit Strip & Auto-scrolling Marquee */
-.hero-toolkit-strip {
-  margin-top: 3.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-color);
-  width: 100%;
-  max-width: 100%;
+/* Static Tools Strip Section */
+.tools-section {
+  padding: 3.5rem 0;
 }
 
 .hero-toolkit-eyebrow {
@@ -483,8 +492,15 @@ a:focus-visible {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #8C8C8C;
-  margin-bottom: 1.25rem;
+  color: #5A5A5A;
+  margin-bottom: 1rem;
+}
+
+.tools-static-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
 }
 
 .toolkit-marquee-container {
@@ -743,6 +759,7 @@ a:focus-visible .link-arrow {
   align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
+  color: #5A5A5A;
 }
 
 .project-title {
@@ -752,6 +769,28 @@ a:focus-visible .link-arrow {
 .project-desc {
   font-size: 1.05rem;
   max-width: 640px;
+  color: #4A4A4A;
+}
+
+.project-stats {
+  font-size: 0.95rem;
+  color: #333333;
+  margin-top: 0.35rem;
+  font-weight: 500;
+}
+
+.project-card-cta-wrap {
+  margin-top: 0.35rem;
+}
+
+.project-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--accent-color);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
 }
 
 /* Masonry Galleries (Graphic Design & Illustrations) */
@@ -1810,7 +1849,7 @@ a:focus-visible .link-arrow {
 
 .cs-image-caption {
   font-size: 14px;
-  color: #6B6B6B;
+  color: #4A4A4A;
   margin-top: 0.65rem;
   line-height: 1.5;
   font-family: var(--font-body);
@@ -2007,7 +2046,7 @@ a:focus-visible .link-arrow {
 }
 
 .ba-before .ba-col-label {
-  color: #6B6B6B;
+  color: #5A5A5A;
 }
 
 .ba-after .ba-col-label {
@@ -2026,7 +2065,7 @@ a:focus-visible .link-arrow {
    ========================================================================== */
 
 .ba-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; margin-bottom: 80px; }
-.ba-label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; color: #8A8A85; }
+.ba-label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; color: #5A5A5A; }
 .ba-after .ba-label { color: var(--accent-color); }
 .ba-browser { border-radius: 12px; border: 1px solid #E2E2DE; background: #F4F4F2; box-shadow: 0 12px 32px rgba(0,0,0,.08); overflow: hidden; }
 .ba-bar { height: 28px; display: flex; gap: 6px; align-items: center; padding: 0 12px; background: #FFFFFF; border-bottom: 1px solid #E2E2DE; }
@@ -2357,8 +2396,8 @@ a:focus-visible .link-arrow {
 
 .reveal-fade-up {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(12px);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-fade-up.visible {
@@ -2381,6 +2420,7 @@ a:focus-visible .link-arrow {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
     scroll-behavior: auto !important;
   }
   .reveal-fade-up {
@@ -3671,8 +3711,8 @@ body.intro-locked {
 
 .illus-reveal-slot {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(12px);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .illus-reveal-slot.is-visible {
