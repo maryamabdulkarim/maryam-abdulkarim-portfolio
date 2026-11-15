@@ -24,6 +24,26 @@
 
     <!-- Master Stylesheet -->
     <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      @media (prefers-reduced-motion: no-preference) {
+        @view-transition {
+          navigation: auto;
+        }
+      }
+    </style>
+    <script>
+      try {
+        if (sessionStorage.getItem('vtSelectedWork') === '1' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('vt-active');
+        }
+      } catch (e) {}
+      window.addEventListener('pagereveal', function (e) {
+        if (e.viewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('vt-active');
+        }
+        try { sessionStorage.removeItem('vtSelectedWork'); } catch (err) {}
+      });
+    </script>
   </head>
   <body class="theme-kioni">
     <!-- Reading Progress Bar -->
@@ -152,9 +172,10 @@
             <div class="cs-image-card kioni-hero-desktop">
               <div class="cs-img-frame desktop-frame" data-title="Home: Private Workspace" data-desc="Desktop view of Kioni workspace with recent achievements, fast Friday capture, and private career report preview.">
                 <img
+                  class="vt-hero-img vt-project-kioni"
                   src="/images/kioni/01-home-desktop.png"
                   alt="Kioni private workspace desktop view"
-                  loading="lazy"
+                  loading="eager"
                 />
                 <span class="fullscreen-badge">⛶ View full screen</span>
               </div>

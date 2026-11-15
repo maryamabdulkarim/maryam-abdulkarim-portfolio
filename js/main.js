@@ -8,28 +8,76 @@ import './analytics.js';
 document.addEventListener('DOMContentLoaded', () => {
   const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // 1. Page Fade Transition
+  // 1. Page Fade Transition & Selected Work View Transitions
   const overlay = document.querySelector('.page-fade-overlay');
+  const supportsCrossDocVT =
+    'onpageswap' in window &&
+    'onpagereveal' in window &&
+    typeof CSS !== 'undefined' &&
+    CSS.supports('view-transition-name', 'none');
+
+  const cleanupDoorState = () => {
+    window.__vtSelectedWork = false;
+    try {
+      sessionStorage.removeItem('vtSelectedWork');
+    } catch (e) {}
+    document.documentElement.classList.remove('vt-active');
+    document.querySelectorAll('#work .project-card.door-transitioning').forEach((card) => {
+      card.classList.remove('door-transitioning');
+    });
+    if (overlay) {
+      overlay.classList.add('loaded');
+    }
+  };
+
   if (overlay) {
     requestAnimationFrame(() => {
       overlay.classList.add('loaded');
     });
-    window.addEventListener('pageshow', () => {
-      overlay.classList.add('loaded');
+  }
+
+  window.addEventListener('pageshow', cleanupDoorState);
+
+  if (supportsCrossDocVT) {
+    window.addEventListener('pageswap', (e) => {
+      if (!e.viewTransition) return;
+      if (isReducedMotion || !window.__vtSelectedWork) {
+        e.viewTransition.skipTransition();
+      }
+    });
+
+    document.querySelectorAll('#work .project-card a[href]').forEach((cardLink) => {
+      cardLink.addEventListener('click', (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        if (isReducedMotion) return;
+
+        window.__vtSelectedWork = true;
+        try {
+          sessionStorage.setItem('vtSelectedWork', '1');
+        } catch (err) {}
+
+        if (window.innerWidth >= 768) {
+          const card = cardLink.closest('.project-card');
+          if (card) {
+            card.classList.add('door-transitioning');
+          }
+        }
+      });
     });
   }
 
-  // Intercept local page links for smooth page exit transition
+  // Intercept local page links (excluding Selected Work when cross-doc VT is supported) for smooth page exit transition
   document.querySelectorAll('a[href]').forEach((link) => {
     const href = link.getAttribute('href');
     if (!href) return;
+    if (supportsCrossDocVT && link.closest('#work .project-card')) return;
     const isAnchor = href.startsWith('#');
     const isExternal = href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || link.target === '_blank';
     const isDownload = link.hasAttribute('download') || /\.pdf(\?|$)/i.test(href);
 
     if (!isAnchor && !isExternal && !isDownload && !isReducedMotion) {
       link.addEventListener('click', (e) => {
-        if (e.metaKey || e.ctrlKey) return;
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
         e.preventDefault();
         if (overlay) {
           overlay.classList.remove('loaded');

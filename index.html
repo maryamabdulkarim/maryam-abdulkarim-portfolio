@@ -25,12 +25,27 @@
     <!-- Master Stylesheet -->
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="preload" as="image" href="/images/ecosmart/ecosmart-web-hero.webp" />
+    <style>
+      @media (prefers-reduced-motion: no-preference) {
+        @view-transition {
+          navigation: auto;
+        }
+      }
+    </style>
     <script>
       try {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           document.documentElement.classList.add('skip-intro');
+        } else if (sessionStorage.getItem('vtSelectedWork') === '1') {
+          document.documentElement.classList.add('vt-active');
         }
       } catch (e) {}
+      window.addEventListener('pagereveal', function (e) {
+        if (e.viewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('vt-active');
+        }
+        try { sessionStorage.removeItem('vtSelectedWork'); } catch (err) {}
+      });
     </script>
   </head>
   <body>
@@ -217,10 +232,17 @@
               <a href="ecosmart.html">
                 <div class="project-media-wrap">
                   <img
+                    class="project-cover-img vt-project-ecosmart"
                     src="/images/ecosmart/ecosmart_hero_mockup.jpg"
                     alt="EcoSmart AI waste marketplace mobile application on desk stand"
                     loading="lazy"
                   />
+                  <div class="project-door project-door-left" aria-hidden="true">
+                    <img src="/images/ecosmart/ecosmart_hero_mockup.jpg" alt="" loading="eager" />
+                  </div>
+                  <div class="project-door project-door-right" aria-hidden="true">
+                    <img src="/images/ecosmart/ecosmart_hero_mockup.jpg" alt="" loading="eager" />
+                  </div>
                   <div class="project-hover-label">
                     <span>View case study</span>
                     <span>→</span>
@@ -236,7 +258,7 @@
                   </div>
                   <h3 class="project-title">Project 1 · EcoSmart AI</h3>
                   <p class="project-desc">
-                    An AI recycling marketplace that tells Nigerian households what their waste is worth and connects them with verified recyclers.
+                    An AI recycling marketplace that tells Nigerian households and small businesses what their waste is worth and connects them with verified recyclers.
                   </p>
                   <p style="font-size: 0.85rem; color: #6B6B6B; margin-top: 0.5rem; font-weight: 500;">
                     50+ testers · 130+ waitlist · ₦1M funding (about $650)
@@ -250,10 +272,17 @@
               <a href="ajobook.html">
                 <div class="project-media-wrap">
                   <img
+                    class="project-cover-img vt-project-ajobook"
                     src="/src/assets/images/project_cover_ajobook_1793990306922.jpg"
                     alt="Ajo Book rotating savings ledger"
                     loading="lazy"
                   />
+                  <div class="project-door project-door-left" aria-hidden="true">
+                    <img src="/src/assets/images/project_cover_ajobook_1793990306922.jpg" alt="" loading="eager" />
+                  </div>
+                  <div class="project-door project-door-right" aria-hidden="true">
+                    <img src="/src/assets/images/project_cover_ajobook_1793990306922.jpg" alt="" loading="eager" />
+                  </div>
                   <div class="project-hover-label">
                     <span>View case study</span>
                     <span>→</span>
@@ -285,10 +314,17 @@
               <a href="mimk.html">
                 <div class="project-media-wrap">
                   <img
+                    class="project-cover-img vt-project-mimk"
                     src="/images/mimk/40-mockup-hero.png"
                     alt="Mimk booking platform landing page with search over a photo of Lagos"
                     loading="lazy"
                   />
+                  <div class="project-door project-door-left" aria-hidden="true">
+                    <img src="/images/mimk/40-mockup-hero.png" alt="" loading="eager" />
+                  </div>
+                  <div class="project-door project-door-right" aria-hidden="true">
+                    <img src="/images/mimk/40-mockup-hero.png" alt="" loading="eager" />
+                  </div>
                   <div class="project-hover-label">
                     <span>View case study</span>
                     <span>→</span>
@@ -318,10 +354,17 @@
               <a href="kioni.html">
                 <div class="project-media-wrap">
                   <img
+                    class="project-cover-img vt-project-kioni"
                     src="/images/kioni/01-home-desktop.png"
                     alt="Kioni work notebook editorial interface"
                     loading="lazy"
                   />
+                  <div class="project-door project-door-left" aria-hidden="true">
+                    <img src="/images/kioni/01-home-desktop.png" alt="" loading="eager" />
+                  </div>
+                  <div class="project-door project-door-right" aria-hidden="true">
+                    <img src="/images/kioni/01-home-desktop.png" alt="" loading="eager" />
+                  </div>
                   <div class="project-hover-label">
                     <span>View case study</span>
                     <span>→</span>

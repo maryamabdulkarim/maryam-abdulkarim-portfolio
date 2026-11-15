@@ -3713,4 +3713,241 @@ body.intro-locked {
   }
 }
 
+/* ==========================================================================
+   SELECTED WORK: DOUBLE-DOORS CROSS-DOCUMENT VIEW TRANSITIONS
+   ========================================================================== */
+
+html.vt-active .page-fade-overlay {
+  opacity: 0 !important;
+  transition: none !important;
+  display: none !important;
+}
+
+html.vt-active .reveal-fade-up:has(.vt-hero-img) {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+#work .project-door {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 4;
+}
+
+#work .project-door-left {
+  left: 0;
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+#work .project-door-right {
+  right: 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+#work .project-media-wrap .project-door img {
+  position: relative;
+  display: block;
+  width: 200% !important;
+  max-width: none !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 0 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+#work .project-media-wrap .project-door-right img {
+  margin-left: -100%;
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .vt-project-ecosmart {
+    view-transition-name: project-ecosmart;
+  }
+  .vt-project-ajobook {
+    view-transition-name: project-ajobook;
+  }
+  .vt-project-mimk {
+    view-transition-name: project-mimk;
+  }
+  .vt-project-kioni {
+    view-transition-name: project-kioni;
+  }
+
+  #work .project-card.door-transitioning {
+    transform: none !important;
+  }
+
+  #work .project-card.door-transitioning .project-hover-label {
+    opacity: 0 !important;
+    transition: none !important;
+  }
+
+  #work .project-card.door-transitioning .project-cover-img {
+    opacity: 0 !important;
+    transition: none !important;
+  }
+
+  #work .project-card.door-transitioning .project-door {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #work .project-card.door-transitioning .project-door-left {
+    view-transition-name: project-door-left;
+  }
+
+  #work .project-card.door-transitioning .project-door-right {
+    view-transition-name: project-door-right;
+  }
+
+  ::view-transition-group(root) {
+    animation-duration: 450ms;
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  ::view-transition-old(root) {
+    animation: vt-root-fade-out 260ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  ::view-transition-new(root) {
+    animation: vt-root-fade-in 340ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  ::view-transition-group(project-ecosmart),
+  ::view-transition-group(project-ajobook),
+  ::view-transition-group(project-mimk),
+  ::view-transition-group(project-kioni) {
+    z-index: 20;
+    animation-duration: 450ms;
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  ::view-transition-old(project-ecosmart),
+  ::view-transition-old(project-ajobook),
+  ::view-transition-old(project-mimk),
+  ::view-transition-old(project-kioni) {
+    animation: vt-root-fade-out 260ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  ::view-transition-new(project-ecosmart),
+  ::view-transition-new(project-ajobook),
+  ::view-transition-new(project-mimk),
+  ::view-transition-new(project-kioni) {
+    animation: vt-root-fade-in 450ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  ::view-transition-group(project-door-left),
+  ::view-transition-group(project-door-right) {
+    z-index: 50;
+    animation: none;
+  }
+
+  ::view-transition-image-pair(project-door-left),
+  ::view-transition-image-pair(project-door-right) {
+    isolation: auto;
+    overflow: visible;
+  }
+
+  ::view-transition-old(project-door-left) {
+    transform-origin: left center;
+    backface-visibility: hidden;
+    animation: vt-door-open-left 450ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  ::view-transition-old(project-door-right) {
+    transform-origin: right center;
+    backface-visibility: hidden;
+    animation: vt-door-open-right 450ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+}
+
+@media (max-width: 767.98px) and (prefers-reduced-motion: no-preference) {
+  #work .project-door {
+    display: none !important;
+    view-transition-name: none !important;
+  }
+
+  .vt-project-ecosmart,
+  .vt-project-ajobook,
+  .vt-project-mimk,
+  .vt-project-kioni {
+    view-transition-name: none !important;
+  }
+
+  ::view-transition-old(root) {
+    animation: vt-root-fade-out 200ms ease forwards;
+  }
+
+  ::view-transition-new(root) {
+    animation: vt-root-fade-in 200ms ease forwards;
+  }
+}
+
+@keyframes vt-door-open-left {
+  0% {
+    transform: perspective(1200px) rotateY(0deg);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(1200px) rotateY(-75deg);
+    opacity: 0;
+  }
+}
+
+@keyframes vt-door-open-right {
+  0% {
+    transform: perspective(1200px) rotateY(0deg);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(1200px) rotateY(75deg);
+    opacity: 0;
+  }
+}
+
+@keyframes vt-root-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes vt-root-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #work .project-door {
+    display: none !important;
+    view-transition-name: none !important;
+  }
+  .vt-project-ecosmart,
+  .vt-project-ajobook,
+  .vt-project-mimk,
+  .vt-project-kioni {
+    view-transition-name: none !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
 

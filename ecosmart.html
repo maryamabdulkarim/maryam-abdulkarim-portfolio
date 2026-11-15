@@ -24,6 +24,26 @@
 
     <!-- Master Stylesheet -->
     <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      @media (prefers-reduced-motion: no-preference) {
+        @view-transition {
+          navigation: auto;
+        }
+      }
+    </style>
+    <script>
+      try {
+        if (sessionStorage.getItem('vtSelectedWork') === '1' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('vt-active');
+        }
+      } catch (e) {}
+      window.addEventListener('pagereveal', function (e) {
+        if (e.viewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('vt-active');
+        }
+        try { sessionStorage.removeItem('vtSelectedWork'); } catch (err) {}
+      });
+    </script>
   </head>
   <body class="theme-ecosmart">
     <!-- Reading Progress Bar -->
@@ -105,7 +125,7 @@
                 </tr>
                 <tr>
                   <td data-label="Focus"><strong>Platform</strong></td>
-                  <td data-label="Details">Android-first mobile app, for households and recyclers</td>
+                  <td data-label="Details">Android-first mobile app, for households, small businesses and recyclers</td>
                 </tr>
                 <tr>
                   <td data-label="Focus"><strong>Status</strong></td>
@@ -147,7 +167,7 @@
           <div class="in-short-box reveal-fade-up">
             <h3>Summary</h3>
             <p>
-              In Nigeria, recyclable waste is often dumped or burned. Households don't know it's worth money, and recyclers struggle to find enough material. EcoSmart AI lets people take a photo of an item, find out what it is and what it's worth, and connect with a verified recycler nearby. The hardest design problem wasn't the AI. It was getting two groups who didn't trust each other to do a deal.
+              In Nigeria, recyclable waste is often dumped or burned. Households and small businesses don't know it's worth money, and recyclers struggle to find enough material. EcoSmart AI lets people take a photo of an item, find out what it is and what it's worth, and connect with a verified recycler nearby. The hardest design problem wasn't the AI. It was getting two groups who didn't trust each other to do a deal.
             </p>
           </div>
         </div>
@@ -162,7 +182,7 @@
           </h2>
           <div class="cs-prose reveal-fade-up">
             <p>
-              Households saw waste as something to throw away. Recyclers spent time and money chasing material through middlemen. Both sides would have benefited from dealing directly, but there was no easy way to find each other, and no reason to trust each other.
+              Households and small businesses saw waste as something to throw away. Recyclers spent time and money chasing material through middlemen. Both sides would have benefited from dealing directly, but there was no easy way to find each other, and no reason to trust each other.
             </p>
           </div>
         </div>
@@ -177,7 +197,7 @@
           </h2>
           <div class="cs-prose reveal-fade-up">
             <p>
-              I surveyed 157 households, individuals, and small and medium businesses, and spoke with 57 recyclers working with metal, plastic and paper.
+              I researched both sides through in-person interviews, phone interviews and surveys: 157 households, individuals, and small and medium businesses, and 57 recyclers working with metal, plastic and paper.
             </p>
           </div>
 
@@ -185,7 +205,7 @@
             <div class="cs-card">
               <span class="card-number">01</span>
               <h4>1. People didn't know their waste had value.</h4>
-              <p>Households weren't against recycling. They didn't know what was recyclable, what it was worth, or where to take it.</p>
+              <p>Households and small businesses weren't against recycling. They didn't know what was recyclable, what it was worth, or where to take it.</p>
               <p style="margin-top: 0.75rem; font-weight: 500; color: var(--accent-color);">
                 So the app shows what an item is and what it's worth first, before asking for anything.
               </p>
@@ -203,7 +223,7 @@
             <div class="cs-card">
               <span class="card-number">03</span>
               <h4>3. Trust was the biggest barrier.</h4>
-              <p>One recycler had lost millions of naira to a fraudulent deal. Households worried about being underpaid.</p>
+              <p>One recycler had lost millions of naira to a fraudulent deal. Households and small businesses worried about being underpaid.</p>
               <p style="margin-top: 0.75rem; font-weight: 500; color: var(--accent-color);">
                 So every step of a deal had to be visible, fair and traceable.
               </p>
@@ -311,7 +331,7 @@
             </h3>
             <div class="cs-prose" style="margin-bottom: 2rem;">
               <p>
-                I mapped both sides of the marketplace using a survey of 157 waste generators and an interview with a recycler. The 'Says' lines are representative statements drawn from that research, not verbatim quotes.
+                I mapped both sides of the marketplace using in-person interviews, phone interviews and surveys with 157 households, individuals and small businesses, and 57 recyclers. The 'Says' lines are representative statements drawn from that research, not verbatim quotes.
               </p>
             </div>
 
@@ -320,9 +340,10 @@
               <div class="ecosmart-image-card">
                 <div class="ecosmart-img-frame" data-lightbox data-title="Empathy Map: Musa, Waste Generator" data-desc="Musa, waste generator: what he says, thinks, does and feels, with his pains and gains.">
                   <img
+                    class="vt-hero-img vt-project-ecosmart"
                     src="/images/ecosmart/empathy-map-waste-generator.png"
                     alt="Empathy map for Musa, a 34-year-old waste generator in Kubwa, Abuja."
-                    loading="lazy"
+                    loading="eager"
                   />
                   <span class="fullscreen-badge">View full screen</span>
                 </div>
@@ -353,25 +374,25 @@
             <table class="responsive-table">
               <thead>
                 <tr>
-                  <th style="width: 50%;">Households</th>
+                  <th style="width: 50%;">Households & small businesses</th>
                   <th style="width: 50%;">Recyclers</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td data-label="Households">Scan an item and see what it's worth</td>
+                  <td data-label="Households & small businesses">Scan an item and see what it's worth</td>
                   <td data-label="Recyclers">A dashboard with their wallet and pending payments</td>
                 </tr>
                 <tr>
-                  <td data-label="Households">Compare nearby verified recyclers by rating, distance, materials and price</td>
+                  <td data-label="Households & small businesses">Compare nearby verified recyclers by rating, distance, materials and price</td>
                   <td data-label="Recyclers">Incoming requests showing area, material and estimated weight</td>
                 </tr>
                 <tr>
-                  <td data-label="Households">Request a pickup or drop-off, and track it</td>
+                  <td data-label="Households & small businesses">Request a pickup or drop-off, and track it</td>
                   <td data-label="Recyclers">Accept or decline, then enter the final weight</td>
                 </tr>
                 <tr>
-                  <td data-label="Households">Accept or flag the final amount</td>
+                  <td data-label="Households & small businesses">Accept or flag the final amount</td>
                   <td data-label="Recyclers">Publish their own price ranges</td>
                 </tr>
               </tbody>

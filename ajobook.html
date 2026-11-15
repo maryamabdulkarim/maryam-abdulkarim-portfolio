@@ -24,6 +24,26 @@
 
     <!-- Master Stylesheet -->
     <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      @media (prefers-reduced-motion: no-preference) {
+        @view-transition {
+          navigation: auto;
+        }
+      }
+    </style>
+    <script>
+      try {
+        if (sessionStorage.getItem('vtSelectedWork') === '1' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('vt-active');
+        }
+      } catch (e) {}
+      window.addEventListener('pagereveal', function (e) {
+        if (e.viewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('vt-active');
+        }
+        try { sessionStorage.removeItem('vtSelectedWork'); } catch (err) {}
+      });
+    </script>
   </head>
   <body class="theme-ajobook">
     <!-- Reading Progress Bar -->
@@ -150,9 +170,10 @@
           <div class="cs-image-card reveal-fade-up" style="margin-bottom: 2.5rem;">
             <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E6DED0; background: #FAF6EE; cursor: zoom-in;" data-title="Ajo Book: Welcome, Home and Add Person" data-desc="Welcome, Home and adding a person. Sample data from the app's example groups.">
               <img
+                class="vt-hero-img vt-project-ajobook"
                 src="/images/ajobook/ajo-cover.png"
                 alt="Three Ajo Book phone screens lying on a linen table between a handwritten ajo notebook and indigo adire fabric: the Welcome screen, Home with the Balogun Ajo group (₦120,000 of ₦200,000, 3 paid, 2 not paid yet), and the Add person form."
-                loading="lazy"
+                loading="eager"
                 style="width: 100%; height: auto; display: block; border-radius: 16px;"
               />
               <span class="fullscreen-badge">⛶ View full screen</span>
