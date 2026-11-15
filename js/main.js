@@ -1082,6 +1082,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateTocState = () => {
       if (tocSections.length === 0) return;
+      if (window.innerWidth < 1200) {
+        csToc.style.transform = '';
+        return;
+      }
 
       const triggerOffset = 150;
       let activeIndex = 0;
@@ -1133,6 +1137,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', scheduleTocUpdate, { passive: true });
     window.addEventListener('resize', scheduleTocUpdate, { passive: true });
+    window.addEventListener('load', updateTocState);
+    window.addEventListener('hashchange', updateTocState);
     updateTocState();
 
     tocSections.forEach(({ link, target }) => {
