@@ -16,12 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
     typeof CSS !== 'undefined' &&
     CSS.supports('view-transition-name', 'none');
 
-  const cleanupDoorState = () => {
+  const cleanupDoorState = (event) => {
     window.__vtSelectedWork = false;
     try {
       sessionStorage.removeItem('vtSelectedWork');
     } catch (e) {}
-    document.documentElement.classList.remove('vt-active');
+    const isPersistedRestore = Boolean(event && event.persisted);
+    if (isPersistedRestore || !document.documentElement.classList.contains('vt-active')) {
+      const optIn = document.getElementById('vt-opt-in');
+      if (optIn) optIn.remove();
+      document.documentElement.classList.remove('vt-active');
+    }
     document.querySelectorAll('#work .project-card.door-transitioning').forEach((card) => {
       card.classList.remove('door-transitioning');
     });
@@ -41,8 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (supportsCrossDocVT) {
     window.addEventListener('pageswap', (e) => {
       if (!e.viewTransition) return;
+      try {
+        e.viewTransition.ready?.catch?.(() => {});
+        e.viewTransition.finished?.catch?.(() => {});
+        e.viewTransition.updateCallbackDone?.catch?.(() => {});
+      } catch (err) {}
+
       if (isReducedMotion || !window.__vtSelectedWork) {
-        e.viewTransition.skipTransition();
+        try {
+          e.viewTransition.skipTransition();
+        } catch (err) {}
       }
     });
 
@@ -55,6 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
           sessionStorage.setItem('vtSelectedWork', '1');
         } catch (err) {}
+
+        if (!document.getElementById('vt-opt-in')) {
+          const st = document.createElement('style');
+          st.id = 'vt-opt-in';
+          st.textContent = '@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }';
+          document.head.appendChild(st);
+        }
 
         if (window.innerWidth >= 768) {
           const card = cardLink.closest('.project-card');
@@ -198,11 +218,20 @@ document.addEventListener('DOMContentLoaded', () => {
           document.execCommand('copy');
           document.body.removeChild(tempInput);
         }
-        copyEmailBtn.textContent = 'Copied';
+        const copyLabel = copyEmailBtn.querySelector('.copy-email-label');
+        if (copyLabel) {
+          copyLabel.textContent = 'Copied ✓';
+        } else {
+          copyEmailBtn.textContent = 'Copied ✓';
+        }
         copyEmailBtn.classList.add('is-copied');
         if (copyTimer) clearTimeout(copyTimer);
         copyTimer = setTimeout(() => {
-          copyEmailBtn.textContent = 'Copy';
+          if (copyLabel) {
+            copyLabel.textContent = 'Copy';
+          } else {
+            copyEmailBtn.textContent = 'Copy';
+          }
           copyEmailBtn.classList.remove('is-copied');
         }, 2000);
       } catch (err) {}
@@ -1036,6 +1065,98 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 14. Case Study "On this page" Sticky TOC Scrollspy
+  const csToc = document.querySelector('.cs-toc');
+  if (csToc) {
+    const tocLinks = Array.from(csToc.querySelectorAll('.cs-toc-link[href^="#"]'));
+    const tocSections = tocLinks
+      .map((link) => {
+        const id = link.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        return target ? { link, target } : null;
+      })
+      .filter(Boolean);
+
+    const footerEl = document.querySelector('.site-footer');
+
+    const updateTocState = () => {
+      if (tocSections.length === 0) return;
+
+      const triggerOffset = 150;
+      let activeIndex = 0;
+
+      for (let i = 0; i < tocSections.length; i++) {
+        const rect = tocSections[i].target.getBoundingClientRect();
+        if (rect.top <= triggerOffset) {
+          activeIndex = i;
+        }
+      }
+
+      const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40;
+      if (nearBottom) {
+        activeIndex = tocSections.length - 1;
+      }
+
+      tocSections.forEach(({ link }, idx) => {
+        const isActive = idx === activeIndex;
+        link.classList.toggle('is-active', isActive);
+        if (isActive) {
+          link.setAttribute('aria-current', 'location');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+
+      if (footerEl) {
+        const footerRect = footerEl.getBoundingClientRect();
+        const tocHeight = csToc.offsetHeight;
+        const tocTopPx = 116; // ~7.25rem
+        const overlap = tocTopPx + tocHeight + 24 - footerRect.top;
+        if (overlap > 0) {
+          csToc.style.transform = `translateY(-${overlap}px)`;
+        } else {
+          csToc.style.transform = '';
+        }
+      }
+    };
+
+    let tocRafPending = false;
+    const scheduleTocUpdate = () => {
+      if (tocRafPending) return;
+      tocRafPending = true;
+      requestAnimationFrame(() => {
+        tocRafPending = false;
+        updateTocState();
+      });
+    };
+
+    window.addEventListener('scroll', scheduleTocUpdate, { passive: true });
+    window.addEventListener('resize', scheduleTocUpdate, { passive: true });
+    updateTocState();
+
+    tocSections.forEach(({ link, target }) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: isReducedMotion ? 'auto' : 'smooth',
+          block: 'start',
+        });
+      });
+    });
+  }
+
+  // 15. Footer Back to Top
+  document.querySelectorAll('.footer-back-top').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: isReducedMotion ? 'auto' : 'smooth',
+      });
+    });
+  });
 });
+
 
 
