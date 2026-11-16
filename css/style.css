@@ -183,7 +183,7 @@ strong, b {
 a {
   color: var(--text-main);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color 200ms ease-out;
 }
 
 a.text-link {
@@ -204,13 +204,18 @@ a.text-link::after {
   height: 1px;
   background-color: currentColor;
   transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform var(--transition-fast);
+  transform-origin: left center;
+  transition: transform 200ms ease-out;
 }
 
-a.text-link:hover::after {
+@media (hover: hover) and (pointer: fine) {
+  a.text-link:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+a.text-link:focus-visible::after {
   transform: scaleX(1);
-  transform-origin: bottom left;
 }
 
 /* Buttons */
@@ -225,7 +230,7 @@ a.text-link:hover::after {
   font-weight: 500;
   border-radius: 9999px;
   cursor: pointer;
-  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+  transition: background-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out, border-color 150ms ease-out;
   text-decoration: none;
   border: 1px solid transparent;
 }
@@ -235,28 +240,39 @@ a.text-link:hover::after {
   color: #FFFFFF;
 }
 
-.btn-primary:hover {
-  background-color: var(--accent-hover);
-  color: #FFFFFF;
-}
-
 .btn-secondary {
   background-color: transparent;
   color: var(--text-main);
   border-color: var(--border-color);
 }
 
-.btn-secondary:hover {
-  background-color: #EAE6DF;
-  border-color: var(--text-main);
-}
-
 .btn-nav-cv {
-  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  transition: background-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out, border-color 150ms ease-out;
 }
 
-.btn-nav-cv:hover {
-  background-color: rgba(26, 103, 57, 0.08);
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--accent-hover);
+    color: #FFFFFF;
+  }
+
+  .btn-secondary:hover {
+    background-color: #EAE6DF;
+    border-color: var(--text-main);
+  }
+
+  .btn-nav-cv:hover {
+    background-color: rgba(26, 103, 57, 0.1);
+  }
+}
+
+.btn:active,
+.btn-nav-cv:active {
+  transform: scale(0.98);
 }
 
 .btn:focus-visible,
@@ -346,12 +362,18 @@ a:focus-visible {
   background-color: var(--text-main);
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 200ms ease-out;
 }
 
-.nav-links a:not(.btn):not(.btn-cv-nav):hover::after,
-.nav-links a:not(.btn):not(.btn-cv-nav).active::after {
+.nav-links a:not(.btn):not(.btn-cv-nav).active::after,
+.nav-links a:not(.btn):not(.btn-cv-nav):focus-visible::after {
   transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:not(.btn):not(.btn-cv-nav):hover::after {
+    transform: scaleX(1);
+  }
 }
 
 .nav-mobile-toggle {
@@ -685,11 +707,7 @@ a:focus-visible {
   display: block;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
+  transition: transform 250ms ease-out;
 }
 
 .project-media-wrap {
@@ -701,7 +719,7 @@ a:focus-visible {
   margin-bottom: 1.5rem;
   position: relative;
   border: 1px solid var(--border-color);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: box-shadow 250ms ease-out, border-color 250ms ease-out;
 }
 
 .project-media-ecosmart {
@@ -720,21 +738,13 @@ a:focus-visible {
   background-color: #EFF3EE;
 }
 
-.project-card:hover .project-media-wrap {
-  box-shadow: 0 14px 32px rgba(20, 20, 20, 0.08);
-}
-
 .project-media-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 250ms ease-out;
   border-radius: var(--radius);
-}
-
-.project-card:hover .project-media-wrap img {
-  transform: scale(1.03);
 }
 
 #work .project-media-wrap {
@@ -772,25 +782,43 @@ a:focus-visible {
   gap: 0.35rem;
   transform: translateY(0.75rem);
   opacity: 0;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  transition: transform 250ms ease-out, opacity 250ms ease-out;
   border: 1px solid var(--border-color);
 }
 
 .project-hover-label span:last-child,
 .link-arrow {
   display: inline-block;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 250ms ease-out;
 }
 
-.project-card:hover a .project-hover-label span:last-child,
-a:hover .link-arrow,
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .project-card:hover .project-media-wrap {
+    box-shadow: 0 14px 32px rgba(20, 20, 20, 0.08);
+  }
+
+  .project-card:hover .project-media-wrap img {
+    transform: scale(1.03);
+  }
+
+  .project-card:hover a .project-hover-label span:last-child,
+  .project-card:hover .link-arrow,
+  a:hover .link-arrow {
+    transform: translateX(4px);
+  }
+
+  .project-card:hover .project-hover-label {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 a:focus-visible .link-arrow {
   transform: translateX(4px);
-}
-
-.project-card:hover .project-hover-label {
-  transform: translateY(0);
-  opacity: 1;
 }
 
 .project-info {
@@ -1271,7 +1299,7 @@ a:focus-visible .link-arrow {
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease-out;
+  transition: opacity 200ms ease-out;
   padding: 2rem;
 }
 
@@ -1296,6 +1324,14 @@ a:focus-visible .link-arrow {
   object-fit: contain;
   border-radius: var(--radius);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+.lightbox.active .lightbox-image {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .lightbox-caption-text {
@@ -1421,7 +1457,7 @@ a:focus-visible .link-arrow {
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  transition: background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out;
 }
 
 .copy-email-btn .copy-email-icon {
@@ -1429,9 +1465,16 @@ a:focus-visible .link-arrow {
   flex-shrink: 0;
 }
 
-.copy-email-btn:hover {
-  background-color: #F2EFE9;
-  border-color: #D2CCC2;
+@media (hover: hover) and (pointer: fine) {
+  .copy-email-btn:hover {
+    background-color: #EAE6DF;
+    border-color: #D2CCC2;
+    transform: translateY(-1px);
+  }
+}
+
+.copy-email-btn:active {
+  transform: scale(0.98);
 }
 
 .copy-email-btn:focus-visible {
@@ -1470,7 +1513,7 @@ a:focus-visible .link-arrow {
   height: 44px;
   border-radius: 10px;
   color: var(--text-main);
-  transition: color var(--transition-fast);
+  transition: color 150ms ease-out, transform 150ms ease-out;
 }
 
 .contact-social-icon svg {
@@ -1479,12 +1522,15 @@ a:focus-visible .link-arrow {
   display: block;
 }
 
-.contact-social-icon:hover,
-.contact-social-icon:focus-visible {
-  color: var(--accent-color);
+@media (hover: hover) and (pointer: fine) {
+  .contact-social-icon:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+  }
 }
 
 .contact-social-icon:focus-visible {
+  color: var(--accent-color);
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
 }
@@ -2616,11 +2662,23 @@ a.footer-back-top:focus-visible {
   .project-card:hover .project-media-wrap img,
   .project-card:hover .project-hover-label,
   .project-card:hover a .project-hover-label span:last-child,
+  .project-card:hover .link-arrow,
   a:hover .link-arrow,
   a:focus-visible .link-arrow,
+  .btn:hover,
+  .btn:active,
+  .btn-nav-cv:hover,
+  .btn-nav-cv:active,
+  .copy-email-btn:hover,
+  .copy-email-btn:active,
+  .contact-social-icon:hover,
   .gallery-item:hover,
-  .verity-hero-cta:hover {
+  .verity-hero-cta:hover,
+  .verity-hero-cta:active,
+  .lightbox-image,
+  .lightbox.active .lightbox-image {
     transform: none !important;
+    transition: none !important;
   }
   .page-fade-overlay {
     display: none !important;
@@ -3480,13 +3538,19 @@ img, video, iframe {
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  transition: background-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out;
 }
 
-.verity-hero-cta:hover {
-  background-color: #72CE5A;
-  color: #063F25;
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  .verity-hero-cta:hover {
+    background-color: #4EA738;
+    color: #063F25;
+    transform: translateY(-1px);
+  }
+}
+
+.verity-hero-cta:active {
+  transform: scale(0.98);
 }
 
 .verity-swatches-grid {
