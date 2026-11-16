@@ -27,11 +27,7 @@
     <link rel="preload" as="image" href="/images/ecosmart/ecosmart-web-hero.webp" />
     <script>
       (function () {
-        var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         try {
-          if (reduced) {
-            document.documentElement.classList.add('skip-intro');
-          }
           sessionStorage.removeItem('vtSelectedWork');
         } catch (e) {}
         window.addEventListener('pagereveal', function (e) {
@@ -50,20 +46,8 @@
     </script>
   </head>
   <body>
-    <!-- Intro Screen -->
-    <div id="introScreen" class="intro-screen" role="dialog" aria-modal="true" aria-label="Welcome intro">
-      <p class="intro-text-wrap" aria-label="Hi, I'm Maryam Abdulkarim">
-        <span id="introTypedText" aria-hidden="true"></span><span class="intro-cursor" aria-hidden="true"></span>
-      </p>
-      <button type="button" id="introSkipBtn" class="intro-skip-btn" aria-label="Skip intro">Skip</button>
-    </div>
-
     <!-- Page Transition Overlay -->
     <div class="page-fade-overlay" aria-hidden="true"></div>
-
-    <!-- Custom Cursor (Desktop Only) -->
-    <div class="custom-cursor-dot" aria-hidden="true"></div>
-    <div class="custom-cursor-ring" aria-hidden="true"></div>
 
     <!-- Top Navigation -->
     <header class="site-nav">
@@ -102,7 +86,69 @@
       <!-- Hero Section -->
       <section class="hero-section">
         <div class="container">
-          <span class="hero-greeting">Hi, I'm Maryam.</span>
+          <span class="hero-greeting" id="heroGreeting" aria-label="Hi, I'm Maryam.">
+            <span class="hero-greeting-sizer" aria-hidden="true">Hi, I'm Maryam.<span class="hero-greeting-cursor hero-greeting-cursor-spacer"></span></span>
+            <span class="hero-greeting-typed" aria-hidden="true"><span id="heroGreetingText">Hi, I'm Maryam.</span><span id="heroGreetingCursor" class="hero-greeting-cursor is-hidden"></span></span>
+          </span>
+          <script>
+            (function () {
+              var textEl = document.getElementById('heroGreetingText');
+              var cursorEl = document.getElementById('heroGreetingCursor');
+              if (!textEl || !cursorEl) return;
+
+              var message = "Hi, I'm Maryam.";
+              var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              var played = false;
+              try {
+                played = sessionStorage.getItem('heroGreetingPlayed') === '1';
+              } catch (e) {}
+
+              if (reduced || played) {
+                textEl.textContent = message;
+                cursorEl.className = 'hero-greeting-cursor is-hidden';
+                return;
+              }
+
+              try {
+                sessionStorage.setItem('heroGreetingPlayed', '1');
+              } catch (e) {}
+
+              textEl.textContent = '';
+              cursorEl.className = 'hero-greeting-cursor is-blinking';
+
+              var index = 0;
+              var charDelay = 65;
+              var typeTimer = null;
+              var holdTimer = null;
+
+              var finishImmediately = function () {
+                clearTimeout(typeTimer);
+                clearTimeout(holdTimer);
+                textEl.textContent = message;
+                cursorEl.className = 'hero-greeting-cursor is-hidden';
+              };
+
+              window.addEventListener('pageshow', function (ev) {
+                if (ev.persisted) finishImmediately();
+              });
+
+              var step = function () {
+                if (index < message.length) {
+                  index += 1;
+                  textEl.textContent = message.slice(0, index);
+                  typeTimer = setTimeout(step, charDelay);
+                } else {
+                  holdTimer = setTimeout(function () {
+                    cursorEl.classList.remove('is-blinking');
+                    void cursorEl.offsetWidth;
+                    cursorEl.classList.add('is-fading');
+                  }, 1000);
+                }
+              };
+
+              typeTimer = setTimeout(step, charDelay);
+            })();
+          </script>
           <h1 class="hero-title">
             I design products people can trust.
           </h1>
@@ -843,78 +889,6 @@
           }
         }, true);
       });
-    </script>
-    <script>
-      (function () {
-        const intro = document.getElementById('introScreen');
-        const typedEl = document.getElementById('introTypedText');
-        const skipBtn = document.getElementById('introSkipBtn');
-        if (!intro || !typedEl) return;
-
-        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (prefersReduced || document.documentElement.classList.contains('skip-intro')) {
-          intro.remove();
-          return;
-        }
-
-        document.body.classList.add('intro-locked');
-
-        const message = "Hi, I'm Maryam Abdulkarim";
-        const charDelay = 120; // ~120ms per letter
-        const holdDuration = 1000; // 1s hold after typing completes
-        const fadeDuration = 1000; // 1s slide-up/fade-out
-
-        let index = 0;
-        let typingTimer = null;
-        let holdTimer = null;
-        let cleanupTimer = null;
-        let dismissed = false;
-
-        const dismiss = (immediate) => {
-          if (dismissed) return;
-          dismissed = true;
-          clearTimeout(typingTimer);
-          clearTimeout(holdTimer);
-          window.removeEventListener('keydown', onKeyDown, true);
-          document.body.classList.remove('intro-locked');
-
-          if (immediate) {
-            intro.remove();
-            return;
-          }
-
-          intro.classList.add('is-leaving');
-          cleanupTimer = setTimeout(() => {
-            intro.remove();
-          }, fadeDuration);
-        };
-
-        const onKeyDown = () => {
-          dismiss(false);
-        };
-
-        intro.addEventListener('click', () => dismiss(false));
-        if (skipBtn) {
-          skipBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dismiss(false);
-          });
-        }
-        window.addEventListener('keydown', onKeyDown, true);
-
-        const typeNext = () => {
-          if (dismissed) return;
-          if (index < message.length) {
-            index += 1;
-            typedEl.textContent = message.slice(0, index);
-            typingTimer = setTimeout(typeNext, charDelay);
-          } else {
-            holdTimer = setTimeout(() => dismiss(false), holdDuration);
-          }
-        };
-
-        typingTimer = setTimeout(typeNext, charDelay);
-      })();
     </script>
   </body>
 </html>

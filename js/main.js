@@ -111,63 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 2. Custom Cursor (Desktop Only)
-  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 1024;
-  const cursorDot = document.querySelector('.custom-cursor-dot');
-  const cursorRing = document.querySelector('.custom-cursor-ring');
-
-  if (!isTouchDevice && !isReducedMotion && cursorDot && cursorRing) {
-    document.body.classList.add('has-custom-cursor');
-    let mouseX = -100;
-    let mouseY = -100;
-    let ringX = -100;
-    let ringY = -100;
-    let hasMoved = false;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      if (!hasMoved) {
-        hasMoved = true;
-        cursorDot.style.opacity = '1';
-        cursorRing.style.opacity = '1';
-        ringX = mouseX;
-        ringY = mouseY;
-      }
-      cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-    });
-
-    const updateRing = () => {
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
-      cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-      requestAnimationFrame(updateRing);
-    };
-    requestAnimationFrame(updateRing);
-
-    // 72px "View" cursor on project cards (desktop only)
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach((card) => {
-      card.addEventListener('mouseenter', () => {
-        cursorRing.classList.add('cursor-view');
-        cursorDot.classList.add('cursor-hidden');
-      });
-      card.addEventListener('mouseleave', () => {
-        cursorRing.classList.remove('cursor-view');
-        cursorDot.classList.remove('cursor-hidden');
-      });
-    });
-
-    // Expand cursor over other interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .gallery-item, input, textarea');
-    interactiveElements.forEach((el) => {
-      if (el.closest('.project-card')) return;
-      el.addEventListener('mouseenter', () => cursorRing.classList.add('cursor-active'));
-      el.addEventListener('mouseleave', () => cursorRing.classList.remove('cursor-active'));
-    });
-  }
-
-  // 3. Navigation Scroll Styling
+  // 2. Navigation Scroll Styling
   const nav = document.querySelector('.site-nav');
   if (nav) {
     const handleNavScroll = () => {
