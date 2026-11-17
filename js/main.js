@@ -1430,6 +1430,298 @@ document.addEventListener('DOMContentLoaded', () => {
       startCycling();
     }
   }
+
+  // 18. Homepage Hero Interactive Pixel-Grid Canvas
+  const heroPixelCanvas = document.getElementById('heroPixelCanvas');
+  if (heroSection && heroPixelCanvas && window.matchMedia) {
+    const hoverCapableQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const ctx = heroPixelCanvas.getContext('2d');
+
+    if (ctx) {
+      const SQUARE_SIZE = 8;
+      const GAP = 3;
+      const PITCH = SQUARE_SIZE + GAP;
+      const HOVER_RADIUS = 75;
+      const FADE_DURATION = 1500;
+      const MAX_GLOW_ALPHA = 0.55;
+
+      const LIGHT_GREENS = [
+        '26, 103, 57',
+        '34, 120, 68',
+        '48, 138, 82',
+        '19, 78, 43'
+      ];
+      const DARK_GREENS = [
+        '95, 178, 124',
+        '116, 196, 144',
+        '76, 156, 104',
+        '136, 206, 158'
+      ];
+
+      let width = 0;
+      let height = 0;
+      let cols = 0;
+      let rows = 0;
+      let offsetX = 0;
+      let offsetY = 6;
+      let dpr = 1;
+      let rafId = null;
+      let isHeroInViewport = true;
+      let lastPointerX = null;
+      let lastPointerY = null;
+      let lastSpawnTime = 0;
+      const activeCells = new Map();
+
+      const isEnabled = () => hoverCapableQuery.matches && !reducedMotionQuery.matches;
+
+      const clearCanvas = () => {
+        if (!width || !height) return;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, width, height);
+      };
+
+      const stopAnimation = () => {
+        if (rafId !== null) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+      };
+
+      const resizeCanvas = () => {
+        const rect = heroSection.getBoundingClientRect();
+        width = Math.max(0, Math.floor(rect.width));
+        height = Math.max(0, Math.floor(rect.height));
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+        heroPixelCanvas.width = Math.floor(width * dpr);
+        heroPixelCanvas.height = Math.floor(height * dpr);
+
+        cols = Math.ceil(width / PITCH) + 1;
+        rows = Math.ceil(height / PITCH) + 1;
+        const totalGridW = cols * PITCH - GAP;
+        offsetX = Math.floor((width - totalGridW) / 2);
+        offsetY = 6;
+      };
+
+      const drawFrame = (now) => {
+        if (!isEnabled() || !width || !height) {
+          stopAnimation();
+          clearCanvas();
+          return;
+        }
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, width, height);
+
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const palette = isDark ? DARK_GREENS : LIGHT_GREENS;
+
+        // Resting faint grid (~2.5-2.8% opacity)
+        ctx.fillStyle = isDark ? 'rgba(237, 234, 228, 0.028)' : 'rgba(20, 20, 20, 0.025)';
+        for (let r = 0; r < rows; r++) {
+          const y = offsetY + r * PITCH;
+          if (y > height || y + SQUARE_SIZE < 0) continue;
+          for (let c = 0; c < cols; c++) {
+            const x = offsetX + c * PITCH;
+            if (x > width || x + SQUARE_SIZE < 0) continue;
+            ctx.fillRect(x, y, SQUARE_SIZE, SQUARE_SIZE);
+          }
+        }
+
+        // Lit squares fading smoothly over 1.5s
+        activeCells.forEach((cell, key) => {
+          const elapsed = now - cell.bornAt;
+          if (elapsed >= FADE_DURATION) {
+            activeCells.delete(key);
+            return;
+          }
+          const progress = Math.max(0, elapsed / FADE_DURATION);
+          const fade = (1 - progress) * (1 - progress);
+          const alpha = cell.peakAlpha * fade;
+          if (alpha <= 0.004) {
+            activeCells.delete(key);
+            return;
+          }
+          const x = offsetX + cell.col * PITCH;
+          const y = offsetY + cell.row * PITCH;
+          ctx.fillStyle = `rgba(${palette[cell.colorIdx]}, ${alpha.toFixed(3)})`;
+          ctx.fillRect(x, y, SQUARE_SIZE, SQUARE_SIZE);
+        });
+      };
+
+      const startLoop = () => {
+        if (rafId !== null || !isEnabled() || !isHeroInViewport) return;
+        const tick = (now) => {
+          if (!isEnabled() || !isHeroInViewport) {
+            stopAnimation();
+            return;
+          }
+          drawFrame(now);
+          if (activeCells.size > 0) {
+            rafId = requestAnimationFrame(tick);
+          } else {
+            rafId = null;
+          }
+        };
+        rafId = requestAnimationFrame(tick);
+      };
+
+      const renderStaticRestingGrid = () => {
+        if (!isEnabled()) {
+          stopAnimation();
+          activeCells.clear();
+          clearCanvas();
+          return;
+        }
+        drawFrame(performance.now());
+      };
+
+      const lightSquaresNearCursor = (clientX, clientY) => {
+        if (!isEnabled() || !isHeroInViewport) return;
+        const rect = heroSection.getBoundingClientRect();
+        const mx = clientX - rect.left;
+        const my = clientY - rect.top;
+
+        const now = performance.now();
+        if (lastPointerX !== null && lastPointerY !== null) {
+          const distMove = Math.hypot(mx - lastPointerX, my - lastPointerY);
+          if (distMove < 10 && now - lastSpawnTime < 45) {
+            return;
+          }
+        }
+        lastPointerX = mx;
+        lastPointerY = my;
+        lastSpawnTime = now;
+
+        const minCol = Math.max(0, Math.floor((mx - HOVER_RADIUS - offsetX) / PITCH));
+        const maxCol = Math.min(cols - 1, Math.ceil((mx + HOVER_RADIUS - offsetX) / PITCH));
+        const minRow = Math.max(0, Math.floor((my - HOVER_RADIUS - offsetY) / PITCH));
+        const maxRow = Math.min(rows - 1, Math.ceil((my + HOVER_RADIUS - offsetY) / PITCH));
+
+        const candidates = [];
+        for (let r = minRow; r <= maxRow; r++) {
+          const cy = offsetY + r * PITCH + SQUARE_SIZE * 0.5;
+          for (let c = minCol; c <= maxCol; c++) {
+            const cx = offsetX + c * PITCH + SQUARE_SIZE * 0.5;
+            const dist = Math.hypot(cx - mx, cy - my);
+            if (dist <= HOVER_RADIUS) {
+              candidates.push({ col: c, row: r, dist });
+            }
+          }
+        }
+
+        if (candidates.length === 0) return;
+
+        // Calmly ignite 2-3 squares within 75px, favoring closer squares
+        const count = Math.min(candidates.length, Math.random() < 0.45 ? 3 : 2);
+        for (let i = 0; i < count; i++) {
+          const a = candidates[Math.floor(Math.random() * candidates.length)];
+          const b = candidates[Math.floor(Math.random() * candidates.length)];
+          const pick = a.dist <= b.dist ? a : b;
+
+          const proximity = Math.max(0, 1 - pick.dist / HOVER_RADIUS);
+          const targetPeak = Math.min(
+            MAX_GLOW_ALPHA,
+            0.12 + 0.43 * Math.pow(proximity, 0.9) * (0.72 + 0.28 * Math.random())
+          );
+
+          const key = `${pick.col},${pick.row}`;
+          const existing = activeCells.get(key);
+          if (existing) {
+            const existingAlpha = existing.peakAlpha * Math.pow(Math.max(0, 1 - (now - existing.bornAt) / FADE_DURATION), 2);
+            existing.peakAlpha = Math.max(existingAlpha, targetPeak);
+            existing.bornAt = now;
+          } else {
+            activeCells.set(key, {
+              col: pick.col,
+              row: pick.row,
+              colorIdx: Math.floor(Math.random() * 4),
+              peakAlpha: targetPeak,
+              bornAt: now
+            });
+          }
+        }
+
+        startLoop();
+      };
+
+      const handleHeroPointerMove = (e) => {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
+        lightSquaresNearCursor(e.clientX, e.clientY);
+      };
+
+      heroSection.addEventListener('mousemove', handleHeroPointerMove, { passive: true });
+      heroSection.addEventListener('mouseleave', () => {
+        lastPointerX = null;
+        lastPointerY = null;
+      });
+
+      if ('IntersectionObserver' in window) {
+        const heroCanvasObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              isHeroInViewport = entry.isIntersecting;
+              if (!isHeroInViewport) {
+                stopAnimation();
+              } else if (activeCells.size > 0) {
+                startLoop();
+              } else {
+                renderStaticRestingGrid();
+              }
+            });
+          },
+          { threshold: 0 }
+        );
+        heroCanvasObserver.observe(heroSection);
+      }
+
+      const handleResize = () => {
+        resizeCanvas();
+        if (activeCells.size > 0 && isHeroInViewport && isEnabled()) {
+          drawFrame(performance.now());
+        } else {
+          renderStaticRestingGrid();
+        }
+      };
+
+      if ('ResizeObserver' in window) {
+        const heroResizeObserver = new ResizeObserver(handleResize);
+        heroResizeObserver.observe(heroSection);
+      } else {
+        window.addEventListener('resize', handleResize, { passive: true });
+      }
+
+      if ('MutationObserver' in window) {
+        const themeObserver = new MutationObserver(() => {
+          if (!isHeroInViewport) return;
+          if (activeCells.size > 0) {
+            drawFrame(performance.now());
+          } else {
+            renderStaticRestingGrid();
+          }
+        });
+        themeObserver.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ['data-theme']
+        });
+      }
+
+      const handleEnvironmentChange = () => {
+        resizeCanvas();
+        renderStaticRestingGrid();
+      };
+
+      if (reducedMotionQuery.addEventListener) {
+        reducedMotionQuery.addEventListener('change', handleEnvironmentChange);
+      }
+      if (hoverCapableQuery.addEventListener) {
+        hoverCapableQuery.addEventListener('change', handleEnvironmentChange);
+      }
+
+      resizeCanvas();
+      renderStaticRestingGrid();
+    }
+  }
 });
 
 

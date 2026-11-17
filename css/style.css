@@ -634,8 +634,31 @@ html[data-theme="dark"] .theme-toggle-btn .theme-icon-moon {
 /* Hero Section */
 .hero-section {
   position: relative;
+  overflow: hidden;
   padding-top: 11.25rem;
   padding-bottom: 3rem;
+}
+
+.hero-pixel-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 36px), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 36px), transparent 100%);
+}
+
+.hero-section > .container {
+  position: relative;
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .hero-pixel-canvas {
+    display: none;
+  }
 }
 
 .hero-layout {
@@ -848,47 +871,69 @@ html[data-theme="dark"] .theme-toggle-btn .theme-icon-moon {
   overflow: hidden;
   background: transparent;
   border: none;
+  mix-blend-mode: multiply;
   -webkit-mask-image: radial-gradient(
-    ellipse 47% 49% at 50% 48%,
+    ellipse 50% 50% at 50% 44%,
     #000 0%,
-    #000 66%,
-    rgba(0, 0, 0, 0.92) 78%,
-    rgba(0, 0, 0, 0.48) 90%,
-    rgba(0, 0, 0, 0.1) 96%,
+    #000 74%,
+    rgba(0, 0, 0, 0.72) 86%,
+    rgba(0, 0, 0, 0.24) 94%,
     transparent 100%
   );
   mask-image: radial-gradient(
-    ellipse 47% 49% at 50% 48%,
+    ellipse 50% 50% at 50% 44%,
     #000 0%,
-    #000 66%,
-    rgba(0, 0, 0, 0.92) 78%,
-    rgba(0, 0, 0, 0.48) 90%,
-    rgba(0, 0, 0, 0.1) 96%,
+    #000 74%,
+    rgba(0, 0, 0, 0.72) 86%,
+    rgba(0, 0, 0, 0.24) 94%,
     transparent 100%
   );
 }
 
-.hero-portrait-vignette::after {
+html[data-theme="dark"] .hero-portrait-vignette {
+  mix-blend-mode: normal;
+  -webkit-mask-image: radial-gradient(
+    ellipse 48% 49% at 50% 44%,
+    #000 0%,
+    #000 72%,
+    rgba(0, 0, 0, 0.78) 84%,
+    rgba(0, 0, 0, 0.3) 94%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 48% 49% at 50% 44%,
+    #000 0%,
+    #000 72%,
+    rgba(0, 0, 0, 0.78) 84%,
+    rgba(0, 0, 0, 0.3) 94%,
+    transparent 100%
+  );
+}
+
+html[data-theme="dark"] .hero-portrait-vignette::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 0;
   pointer-events: none;
   background: radial-gradient(
-    ellipse 47% 49% at 50% 48%,
-    transparent 68%,
-    rgba(250, 248, 245, 0.45) 84%,
-    rgba(250, 248, 245, 0.9) 95%,
-    #FAF8F5 100%
+    ellipse 26% 10% at 45% 35%,
+    #E6E3DF 0%,
+    #E6E3DF 68%,
+    transparent 100%
   );
 }
 
 html[data-theme="dark"] .hero-portrait-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
   background: radial-gradient(
-    ellipse 47% 49% at 50% 48%,
-    transparent 66%,
-    rgba(20, 20, 18, 0.5) 84%,
-    rgba(20, 20, 18, 0.92) 94%,
+    ellipse 48% 49% at 50% 44%,
+    transparent 76%,
+    rgba(20, 20, 18, 0.55) 89%,
     #141412 100%
   );
 }
@@ -900,17 +945,28 @@ html[data-theme="dark"] .hero-portrait-vignette::after {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  filter: brightness(1.02) contrast(1.02);
   user-select: none;
   -webkit-user-drag: none;
+}
+
+.hero-portrait-img {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-portrait-video {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   opacity: 0;
   pointer-events: none;
   transition: opacity 220ms ease;
+}
+
+html[data-theme="dark"] .hero-portrait-img,
+html[data-theme="dark"] .hero-portrait-video {
+  filter: url(#hero-dark-key);
 }
 
 .hero-portrait-video.is-ready {
@@ -1202,8 +1258,9 @@ html[data-theme="dark"] .hero-portrait-vignette::after {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
+  border-radius: var(--radius);
 }
 
 .project-hover-label {
@@ -4538,7 +4595,7 @@ html.vt-active .reveal-fade-up:has(.vt-hero-img) {
   width: 200% !important;
   max-width: none !important;
   height: 100% !important;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   border-radius: 0 !important;
   transform: none !important;
