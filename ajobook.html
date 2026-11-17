@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t !== 'dark' && t !== 'light') {
+          t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.style.colorScheme = t;
+      })();
+    </script>
     <title>Ajo Book Case Study — Maryam Abdulkarim</title>
     <meta name="description" content="A savings group ledger designed to beat the notebook, not other apps." />
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -77,7 +88,7 @@
       })();
     </script>
   </head>
-  <body class="theme-ajobook">
+  <body id="top" class="theme-ajobook">
     <!-- Reading Progress Bar -->
     <div class="reading-progress-bar" aria-hidden="true"></div>
 
@@ -89,31 +100,50 @@
       <div class="container nav-container">
         <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
 
-        <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <svg class="nav-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-          <svg class="nav-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="5" y1="5" x2="19" y2="19" />
-            <line x1="19" y1="5" x2="5" y2="19" />
-          </svg>
-        </button>
+        <div class="nav-right-controls">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html#work">Work</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="illustrations.html">Illustrations</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li>
+                <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                  Download CV
+                </a>
+              </li>
+            </ul>
+          </nav>
 
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html#work">Work</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="illustrations.html">Illustrations</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li>
-              <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
-                Download CV
-              </a>
-            </li>
-          </ul>
-        </nav>
+          <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch to dark mode" title="Switch to dark mode">
+            <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+
+          <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg class="nav-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <svg class="nav-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="5" y1="5" x2="19" y2="19" />
+              <line x1="19" y1="5" x2="5" y2="19" />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -217,7 +247,7 @@
 
           <!-- Cover Image: ajo-cover.png -->
           <div class="cs-image-card reveal-fade-up" style="margin-bottom: 2.5rem;">
-            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E6DED0; background: #FAF6EE; cursor: zoom-in;" data-title="Ajo Book: Welcome, Home and Add Person" data-desc="Welcome, Home and adding a person. Sample data from the app's example groups.">
+            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Ajo Book: Welcome, Home and Add Person" data-desc="Welcome, Home and adding a person. Sample data from the app's example groups.">
               <img
                 class="vt-hero-img vt-project-ajobook"
                 src="/images/ajobook/ajo-cover.png"
@@ -227,7 +257,7 @@
               />
               <span class="fullscreen-badge">⛶ View full screen</span>
             </div>
-            <p class="cs-image-caption" style="text-align: center; margin-top: 0.75rem; color: #5A5A5A; font-size: 0.85rem;">
+            <p class="cs-image-caption" style="text-align: center; margin-top: 0.75rem; color: var(--text-meta); font-size: 0.85rem;">
               Welcome, Home and adding a person. Sample data from the app's example groups.
             </p>
           </div>
@@ -257,7 +287,7 @@
               <div>4. Iya Bose</div>
               <div>5. Baba Segun</div>
             </div>
-            <p class="cs-image-caption" style="margin-top: 0.65rem; color: #5A5A5A; font-size: 0.85rem;">
+            <p class="cs-image-caption" style="margin-top: 0.65rem; color: var(--text-meta); font-size: 0.85rem;">
               The list holders post by hand after payments (example names)
             </p>
           </div>
@@ -301,7 +331,7 @@
             <cite>— Ajo holder</cite>
           </div>
 
-          <div class="in-short-box" style="background: #FFFFFF;">
+          <div class="in-short-box" style="background: var(--card-bg);">
             <p style="font-weight: 500;">
               <strong>The insight:</strong> most savings apps ask people to move their money into the app. Holders didn't want that. They wanted a better notebook that the whole group could see.
             </p>
@@ -337,7 +367,7 @@
                   <td data-label="Holds the money?">No</td>
                   <td data-label="Members must sign up?">No (monthly fee)</td>
                 </tr>
-                <tr style="background-color: #E7EAF3; font-weight: 700;">
+                <tr class="table-row-highlight">
                   <td data-label="Option"><strong>Ajo Book</strong></td>
                   <td data-label="Who uses it"><strong>Holder only</strong></td>
                   <td data-label="Holds the money?"><strong>No</strong></td>
@@ -368,7 +398,7 @@
 
           <!-- Mama Bisi Empathy Map (4-box 2x2 grid) -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 2rem 0;">
-            <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
+            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.5rem;">
                 SAYS
               </span>
@@ -376,7 +406,7 @@
                 “I just need to know who has paid.”
               </p>
             </div>
-            <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
+            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.5rem;">
                 THINKS
               </span>
@@ -384,7 +414,7 @@
                 “If the record is wrong, they will blame me.”
               </p>
             </div>
-            <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
+            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.5rem;">
                 DOES
               </span>
@@ -392,7 +422,7 @@
                 Writes ticks in a notebook, posts the list on WhatsApp, calls late payers.
               </p>
             </div>
-            <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
+            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.5rem;">
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.5rem;">
                 FEELS
               </span>
@@ -477,7 +507,7 @@
             <div class="cs-image-card reveal-fade-up">
               <div class="cs-img-frame desktop-frame" style="height: 500px;" data-title="Ajo Book Paper Wireframes & Core Flow" data-desc="Paper wireframes exploring single-tap mark paid, swap turns with reasons, and WhatsApp shared list.">
                 <img
-                  src="/public/assets/aistudio/WhatsApp_Image_2026-11-04_at_10.46.25__2__7cac69c2.jpeg"
+                  src="/assets/aistudio/WhatsApp_Image_2026-11-04_at_10.46.25__2__7cac69c2.jpeg"
                   alt="Ajo Book paper wireframes and core flow"
                   loading="lazy"
                 />
@@ -497,7 +527,7 @@
 
             <!-- Flow 1: userflow-1.png -->
             <div class="cs-image-card reveal-fade-up" style="margin-bottom: 2rem;">
-              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E6DED0; background: #FFFFFF; cursor: zoom-in;" data-title="User Flow 1: First Open" data-desc="User flow 1: First open, from Welcome to Home, by trying the example groups or entering a name. Sign-in is optional.">
+              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="User Flow 1: First Open" data-desc="User flow 1: First open, from Welcome to Home, by trying the example groups or entering a name. Sign-in is optional.">
                 <img
                   src="/images/ajobook/userflow-1.png"
                   alt="Onboarding flowchart: Open app, first time?, Welcome, try examples or enter name, optional sign in, Home."
@@ -513,7 +543,7 @@
 
             <!-- Flow 2: userflow-2.png -->
             <div class="cs-image-card reveal-fade-up">
-              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E6DED0; background: #FFFFFF; cursor: zoom-in;" data-title="User Flow 2: Collection Day" data-desc="User flow 2: Collection day, from marking payments to sharing the list, reminding people and paying out.">
+              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="User Flow 2: Collection Day" data-desc="User flow 2: Collection day, from marking payments to sharing the list, reminding people and paying out.">
                 <img
                   src="/images/ajobook/userflow-2.png"
                   alt="Payment round flowchart: from the group page, mark paid and share the list, or remind by WhatsApp, SMS or call, then pay out and start a new round."
@@ -525,7 +555,7 @@
               <p class="cs-image-caption" style="text-align: center; margin-top: 0.75rem; margin-bottom: 0.25rem;">
                 User flow 2: Collection day, from marking payments to sharing the list, reminding people and paying out.
               </p>
-              <p style="text-align: center; font-size: 0.85rem; color: #5A5A5A; margin-top: 0.25rem;">
+              <p style="text-align: center; font-size: 0.85rem; color: var(--text-meta); margin-top: 0.25rem;">
                 In testing, holders sometimes paid out before everyone had paid, so the built app allows it and shows who hasn't paid first.
               </p>
             </div>
@@ -548,7 +578,7 @@
           <!-- Key screens: ajo-screens-1.png & ajo-screens-2.png -->
           <div style="display: flex; flex-direction: column; gap: 2rem; margin: 2rem 0;">
             <div class="cs-image-card reveal-fade-up">
-              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E6DED0; background: #FAF6EE; cursor: zoom-in;" data-title="Key screens: Welcome, Home and adding a person" data-desc="Welcome, Home and adding a person, using the app's example groups.">
+              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Key screens: Welcome, Home and adding a person" data-desc="Welcome, Home and adding a person, using the app's example groups.">
                 <img
                   src="/images/ajobook/ajo-screens-1.png"
                   alt="Three phone screens: the Ajo Book welcome screen, Home with two example groups, and the Add person form on the Balogun Ajo group page."
@@ -563,7 +593,7 @@
             </div>
 
             <div class="cs-image-card reveal-fade-up">
-              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E6DED0; background: #FAF6EE; cursor: zoom-in;" data-title="Key screens: Share list, Swap turns, Pay out" data-desc="Sharing the ✅ list, swapping turns with a preview of who moves, and paying out with a clear warning.">
+              <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Key screens: Share list, Swap turns, Pay out" data-desc="Sharing the ✅ list, swapping turns with a preview of who moves, and paying out with a clear warning.">
                 <img
                   src="/images/ajobook/ajo-screens-2.png"
                   alt="Three phone screens: the Share list sheet with ticks and crosses, the Swap turns sheet showing who moves to which month, and the Pay out sheet warning that 2 people have not paid yet."
@@ -592,27 +622,27 @@
           </div>
 
           <!-- PART 3: Coded Design System Block (no image) -->
-          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem; margin: 2rem 0;">
+          <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem; margin: 2rem 0;">
             <!-- Colour Swatches Grid (3 per row, 2 on phones) -->
             <h4 style="font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 1.25rem; color: var(--text-main);">Colour Palette</h4>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
               <!-- Warm paper -->
               <div style="display: flex; align-items: center; gap: 0.85rem;">
-                <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #FAF6EE; border: 1px solid #E6DED0; flex-shrink: 0;"></div>
+                <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #FAF6EE; border: 1px solid var(--border-color); flex-shrink: 0;"></div>
                 <div>
-                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Warm paper</div>
-                  <div style="font-size: 0.8rem; color: #5A5A5A; font-family: monospace;">#FAF6EE</div>
-                  <div style="font-size: 0.8rem; color: #4A4A4A;">Background</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">Warm paper</div>
+                  <div style="font-size: 0.8rem; color: var(--text-meta); font-family: monospace;">#FAF6EE</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Background</div>
                 </div>
               </div>
 
               <!-- Ink -->
               <div style="display: flex; align-items: center; gap: 0.85rem;">
-                <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #1C1A17; flex-shrink: 0;"></div>
+                <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #1C1A17; border: 1px solid var(--border-color); flex-shrink: 0;"></div>
                 <div>
-                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Ink</div>
-                  <div style="font-size: 0.8rem; color: #5A5A5A; font-family: monospace;">#1C1A17</div>
-                  <div style="font-size: 0.8rem; color: #4A4A4A;">Main text</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">Ink</div>
+                  <div style="font-size: 0.8rem; color: var(--text-meta); font-family: monospace;">#1C1A17</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Main text</div>
                 </div>
               </div>
 
@@ -620,9 +650,9 @@
               <div style="display: flex; align-items: center; gap: 0.85rem;">
                 <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #23356B; flex-shrink: 0;"></div>
                 <div>
-                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Adire indigo</div>
-                  <div style="font-size: 0.8rem; color: #5A5A5A; font-family: monospace;">#23356B</div>
-                  <div style="font-size: 0.8rem; color: #4A4A4A;">Actions and trust</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">Adire indigo</div>
+                  <div style="font-size: 0.8rem; color: var(--text-meta); font-family: monospace;">#23356B</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Actions and trust</div>
                 </div>
               </div>
 
@@ -630,9 +660,9 @@
               <div style="display: flex; align-items: center; gap: 0.85rem;">
                 <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #1F7A4D; flex-shrink: 0;"></div>
                 <div>
-                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Paid green</div>
-                  <div style="font-size: 0.8rem; color: #5A5A5A; font-family: monospace;">#1F7A4D</div>
-                  <div style="font-size: 0.8rem; color: #4A4A4A;">Paid</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">Paid green</div>
+                  <div style="font-size: 0.8rem; color: var(--text-meta); font-family: monospace;">#1F7A4D</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Paid</div>
                 </div>
               </div>
 
@@ -640,9 +670,9 @@
               <div style="display: flex; align-items: center; gap: 0.85rem;">
                 <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #B5442B; flex-shrink: 0;"></div>
                 <div>
-                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Owes red</div>
-                  <div style="font-size: 0.8rem; color: #5A5A5A; font-family: monospace;">#B5442B</div>
-                  <div style="font-size: 0.8rem; color: #4A4A4A;">Not paid yet</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">Owes red</div>
+                  <div style="font-size: 0.8rem; color: var(--text-meta); font-family: monospace;">#B5442B</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Not paid yet</div>
                 </div>
               </div>
 
@@ -650,16 +680,16 @@
               <div style="display: flex; align-items: center; gap: 0.85rem;">
                 <div style="width: 64px; height: 64px; border-radius: 12px; background-color: #E8A33D; flex-shrink: 0;"></div>
                 <div>
-                  <div style="font-weight: 700; font-size: 0.95rem; color: #1C1A17;">Marigold</div>
-                  <div style="font-size: 0.8rem; color: #5A5A5A; font-family: monospace;">#E8A33D</div>
-                  <div style="font-size: 0.8rem; color: #4A4A4A;">Whose turn</div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">Marigold</div>
+                  <div style="font-size: 0.8rem; color: var(--text-meta); font-family: monospace;">#E8A33D</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Whose turn</div>
                 </div>
               </div>
             </div>
 
             <!-- Type Samples -->
             <h4 style="font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 1rem; color: var(--text-main);">Typography</h4>
-            <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1.25rem; background: #FAF6EE; border-radius: 12px; border: 1px solid #E6DED0; margin-bottom: 2rem;">
+            <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1.25rem; background: #FAF6EE; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 2rem;">
               <div>
                 <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #5A5A5A;">Fraunces</span>
                 <div style="font-family: 'Fraunces', Georgia, serif; font-size: 32px; font-weight: 600; color: #1C1A17; line-height: 1.2; margin-top: 0.25rem;">
@@ -683,26 +713,26 @@
               </button>
 
               <!-- Outline button "Mark paid" -->
-              <button type="button" tabindex="-1" style="background-color: transparent; color: #23356B; height: 56px; border-radius: 12px; padding: 0 1.75rem; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 18px; font-weight: 700; border: 2px solid #23356B; cursor: default;">
+              <button type="button" tabindex="-1" class="ajo-specimen-outline-btn" style="background-color: transparent; color: #23356B; height: 56px; border-radius: 12px; padding: 0 1.75rem; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 18px; font-weight: 700; border: 2px solid #23356B; cursor: default;">
                 Mark paid
               </button>
 
               <!-- Status pills with words -->
               <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; align-items: center;">
-                <span style="background-color: #E3F1E8; color: #1F7A4D; padding: 0.45rem 0.95rem; border-radius: 9999px; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 16px; font-weight: 700;">
+                <span class="ajo-specimen-badge-paid" style="background-color: #E3F1E8; color: #1F7A4D; padding: 0.45rem 0.95rem; border-radius: 9999px; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 16px; font-weight: 700;">
                   Paid
                 </span>
-                <span style="background-color: #F7E6E1; color: #B5442B; padding: 0.45rem 0.95rem; border-radius: 9999px; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 16px; font-weight: 700;">
+                <span class="ajo-specimen-badge-owes" style="background-color: #F7E6E1; color: #B5442B; padding: 0.45rem 0.95rem; border-radius: 9999px; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 16px; font-weight: 700;">
                   Not paid yet
                 </span>
-                <span style="background-color: #FBEFD9; color: #1C1A17; padding: 0.45rem 0.95rem; border-radius: 9999px; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 16px; font-weight: 700;">
+                <span class="ajo-specimen-badge-turn" style="background-color: #FBEFD9; color: #1C1A17; padding: 0.45rem 0.95rem; border-radius: 9999px; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 16px; font-weight: 700;">
                   Turn
                 </span>
               </div>
             </div>
 
             <!-- Short rules line -->
-            <p style="font-size: 0.85rem; color: #5A5A5A; margin: 0;">
+            <p style="font-size: 0.85rem; color: var(--text-meta); margin: 0;">
               18px minimum text · 56px buttons · words beside every icon · colour never used alone
             </p>
           </div>
@@ -871,7 +901,7 @@
       <button class="lightbox-close" aria-label="Close lightbox">✕</button>
       <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
       <div class="lightbox-content">
-        <img class="lightbox-image" src="" alt="" />
+        <img class="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
         <p class="lightbox-caption-text"></p>
       </div>
       <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>

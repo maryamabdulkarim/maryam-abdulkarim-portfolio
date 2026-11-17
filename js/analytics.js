@@ -41,6 +41,7 @@
       'index.html': { views: 0, avgTimeSeconds: 0, totalSeconds: 0, maxScrollAvg: 0 },
       'kioni.html': { views: 0, avgTimeSeconds: 0, totalSeconds: 0, maxScrollAvg: 0, lightboxOpens: 0 },
       'kioni-design-system.html': { views: 0, avgTimeSeconds: 0, totalSeconds: 0, maxScrollAvg: 0, lightboxOpens: 0 },
+      'ajobook.html': { views: 0, avgTimeSeconds: 0, totalSeconds: 0, maxScrollAvg: 0, lightboxOpens: 0 },
       'ajo-book.html': { views: 0, avgTimeSeconds: 0, totalSeconds: 0, maxScrollAvg: 0, lightboxOpens: 0 },
       'ecosmart.html': { views: 0, avgTimeSeconds: 0, totalSeconds: 0, maxScrollAvg: 0, lightboxOpens: 0 },
     },
@@ -228,10 +229,10 @@
         <div class="analytics-modal-header">
           <div>
             <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span class="category-tag" style="color: #1F5C45; font-size: 0.75rem;">Privacy Analytics</span>
-              <span style="font-size: 0.75rem; background: #E6F4D7; color: #1F5C45; padding: 2px 8px; border-radius: 12px; font-weight: 600;">Zero Cookies · 100% On-Device</span>
+              <span class="category-tag" style="color: var(--accent-color); font-size: 0.75rem;">Privacy Analytics</span>
+              <span style="font-size: 0.75rem; background: var(--tint-ecosmart); color: var(--accent-color); padding: 2px 8px; border-radius: 12px; font-weight: 600;">Zero Cookies · 100% On-Device</span>
             </div>
-            <h3 id="analyticsTitle" style="font-family: var(--font-heading, Georgia, serif); font-size: 1.6rem; color: #141414; margin-top: 0.35rem;">
+            <h3 id="analyticsTitle" style="font-family: var(--font-heading, Georgia, serif); font-size: 1.6rem; color: var(--text-main); margin-top: 0.35rem;">
               Portfolio Engagement
             </h3>
           </div>
@@ -260,7 +261,7 @@
 
         <!-- Page Engagement Table -->
         <div class="analytics-section-box">
-          <h4 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; color: #141414;">Case Study Engagement</h4>
+          <h4 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--text-main);">Case Study Engagement</h4>
           <div class="analytics-table-wrap">
             <table class="analytics-table">
               <thead>
@@ -292,9 +293,9 @@
                 </tr>
                 <tr>
                   <td><strong>Ajo Book</strong></td>
-                  <td>${data.pages['ajo-book.html']?.views || 0}</td>
-                  <td>${formatSeconds(data.pages['ajo-book.html']?.avgTimeSeconds || 0)}</td>
-                  <td>${data.pages['ajo-book.html']?.lightboxOpens || 0}</td>
+                  <td>${(data.pages['ajobook.html']?.views || 0) + (data.pages['ajo-book.html']?.views || 0)}</td>
+                  <td>${formatSeconds(data.pages['ajobook.html']?.avgTimeSeconds || data.pages['ajo-book.html']?.avgTimeSeconds || 0)}</td>
+                  <td>${(data.pages['ajobook.html']?.lightboxOpens || 0) + (data.pages['ajo-book.html']?.lightboxOpens || 0)}</td>
                 </tr>
                 <tr>
                   <td><strong>EcoSmart AI</strong></td>
@@ -310,8 +311,8 @@
         <!-- Two Columns: Top Screenshots & Outbound Clicks -->
         <div class="analytics-split-grid">
           <div class="analytics-section-box">
-            <h4 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.65rem; color: #141414;">Most Examined Screens</h4>
-            ${topScreens.length === 0 ? '<p style="font-size: 0.85rem; color: #6B6B6B;">Click any screenshot to zoom in lightbox to log interactions.</p>' : `
+            <h4 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.65rem; color: var(--text-main);">Most Examined Screens</h4>
+            ${topScreens.length === 0 ? '<p style="font-size: 0.85rem; color: var(--text-muted);">Click any screenshot to zoom in lightbox to log interactions.</p>' : `
               <ul class="analytics-list">
                 ${topScreens.map(([title, count]) => `
                   <li>
@@ -324,8 +325,8 @@
           </div>
 
           <div class="analytics-section-box">
-            <h4 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.65rem; color: #141414;">External Link Engagement</h4>
-            ${outboundLinks.length === 0 ? '<p style="font-size: 0.85rem; color: #6B6B6B;">Clicks on live apps, prototypes, and contact links will appear here.</p>' : `
+            <h4 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.65rem; color: var(--text-main);">External Link Engagement</h4>
+            ${outboundLinks.length === 0 ? '<p style="font-size: 0.85rem; color: var(--text-muted);">Clicks on live apps, prototypes, and contact links will appear here.</p>' : `
               <ul class="analytics-list">
                 ${outboundLinks.map(([link, count]) => `
                   <li>
@@ -340,7 +341,7 @@
 
         <!-- Privacy & Actions Footer -->
         <div class="analytics-modal-footer">
-          <p style="font-size: 0.8rem; color: #6B6B6B;">
+          <p style="font-size: 0.8rem; color: var(--text-muted);">
             🔒 <strong>Strictly Private:</strong> Stored locally in your browser. No external telemetry servers, cookies, or personal tracking.
           </p>
           <div style="display: flex; gap: 0.75rem;">

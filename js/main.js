@@ -6,7 +6,67 @@
 import './analytics.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const isReducedMotion = reducedMotionQuery.matches;
+
+  // 0. Theme Toggle & Preference Sync
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const getSavedTheme = () => {
+    try {
+      const saved = localStorage.getItem('theme');
+      return saved === 'dark' || saved === 'light' ? saved : null;
+    } catch (e) {
+      return null;
+    }
+  };
+  const applyThemeState = (theme, animate) => {
+    const resolved = theme === 'dark' ? 'dark' : 'light';
+    if (animate && !reducedMotionQuery.matches) {
+      document.documentElement.classList.add('theme-transitioning');
+      window.clearTimeout(window.__themeTransitionTimer);
+      window.__themeTransitionTimer = window.setTimeout(() => {
+        document.documentElement.classList.remove('theme-transitioning');
+      }, 220);
+    } else {
+      document.documentElement.classList.remove('theme-transitioning');
+    }
+    document.documentElement.setAttribute('data-theme', resolved);
+    document.documentElement.style.colorScheme = resolved;
+    if (themeToggleBtn) {
+      const nextLabel = resolved === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+      themeToggleBtn.setAttribute('aria-label', nextLabel);
+      themeToggleBtn.setAttribute('title', nextLabel);
+      themeToggleBtn.setAttribute('aria-pressed', String(resolved === 'dark'));
+    }
+  };
+
+  const initialTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  applyThemeState(initialTheme, false);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      try {
+        localStorage.setItem('theme', next);
+      } catch (e) {}
+      applyThemeState(next, true);
+    });
+  }
+
+  if (window.matchMedia) {
+    const darkSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleSchemeChange = (e) => {
+      if (!getSavedTheme()) {
+        applyThemeState(e.matches ? 'dark' : 'light', true);
+      }
+    };
+    if (darkSchemeQuery.addEventListener) {
+      darkSchemeQuery.addEventListener('change', handleSchemeChange);
+    } else if (darkSchemeQuery.addListener) {
+      darkSchemeQuery.addListener(handleSchemeChange);
+    }
+  }
 
   // 1. Page Fade Transition & Selected Work View Transitions
   const overlay = document.querySelector('.page-fade-overlay');
@@ -202,6 +262,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isReducedMotion) {
       revealElements.forEach((el) => el.classList.add('visible'));
     } else {
+      const revealVisibleOrPassed = () => {
+        const vh = window.innerHeight || document.documentElement.clientHeight || 800;
+        revealElements.forEach((el) => {
+          if (el.classList.contains('visible')) return;
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= vh + 60) {
+            el.classList.add('visible');
+          }
+        });
+      };
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -211,9 +282,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           });
         },
-        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        { threshold: 0.01, rootMargin: '80px 0px' }
       );
       revealElements.forEach((el) => observer.observe(el));
+      window.addEventListener('scroll', revealVisibleOrPassed, { passive: true });
+      window.addEventListener('load', revealVisibleOrPassed, { once: true });
+      requestAnimationFrame(revealVisibleOrPassed);
     }
   }
 
@@ -1106,6 +1180,256 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // 16. Homepage Hero Portrait Video (Whole-hero hover trigger on desktop, auto-play once on touch load)
+  const heroSection = document.getElementById('heroSection') || document.querySelector('.hero-section');
+  const heroTurnVideo = document.getElementById('heroTurnVideo');
+
+  if (heroSection && heroTurnVideo && window.matchMedia) {
+    const hoverCapableQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    let isPointerInsideHero = false;
+    let hasStartedHoverPlay = false;
+    let touchPlayedOnce = false;
+    let isHeroVisible = false;
+    let rewindRafId = null;
+
+    const cancelRewind = () => {
+      if (rewindRafId !== null) {
+        cancelAnimationFrame(rewindRafId);
+        rewindRafId = null;
+      }
+    };
+
+    const rewindToStartSmoothly = () => {
+      cancelRewind();
+      heroTurnVideo.pause();
+      if (reducedMotionQuery.matches || heroTurnVideo.readyState < 1 || heroTurnVideo.currentTime <= 0.02) {
+        try { heroTurnVideo.currentTime = 0; } catch (err) {}
+        return;
+      }
+
+      const startTime = heroTurnVideo.currentTime;
+      const durationMs = Math.max(220, Math.min(600, startTime * 180));
+      let startedAt = null;
+
+      const stepRewind = (timestamp) => {
+        if (reducedMotionQuery.matches) {
+          cancelRewind();
+          try { heroTurnVideo.currentTime = 0; } catch (err) {}
+          return;
+        }
+        if (startedAt === null) startedAt = timestamp;
+        const t = Math.min(1, (timestamp - startedAt) / durationMs);
+        // Ease-out quad
+        const eased = 1 - Math.pow(1 - t, 2);
+        const nextVideoTime = Math.max(0, startTime * (1 - eased));
+        if (!heroTurnVideo.seeking) {
+          try { heroTurnVideo.currentTime = nextVideoTime; } catch (err) {}
+        }
+        if (t < 1) {
+          rewindRafId = requestAnimationFrame(stepRewind);
+        } else {
+          try { heroTurnVideo.currentTime = 0; } catch (err) {}
+          rewindRafId = null;
+        }
+      };
+
+      rewindRafId = requestAnimationFrame(stepRewind);
+    };
+
+    const playVideoOnce = () => {
+      if (reducedMotionQuery.matches || heroTurnVideo.readyState < 2) return;
+      cancelRewind();
+      try { heroTurnVideo.currentTime = 0; } catch (err) {}
+      const playPromise = heroTurnVideo.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {});
+      }
+    };
+
+    const maybeTriggerTouchPlayback = () => {
+      if (reducedMotionQuery.matches || hoverCapableQuery.matches || touchPlayedOnce) return;
+      if (!isHeroVisible || heroTurnVideo.readyState < 2) return;
+      touchPlayedOnce = true;
+      playVideoOnce();
+    };
+
+    const onVideoReady = () => {
+      heroTurnVideo.pause();
+      if (reducedMotionQuery.matches) {
+        heroTurnVideo.classList.remove('is-ready');
+        return;
+      }
+      heroTurnVideo.classList.add('is-ready');
+      if (hoverCapableQuery.matches) {
+        if ((isPointerInsideHero || heroSection.matches(':hover')) && !hasStartedHoverPlay) {
+          isPointerInsideHero = true;
+          hasStartedHoverPlay = true;
+          playVideoOnce();
+        }
+      } else {
+        maybeTriggerTouchPlayback();
+      }
+    };
+
+    heroTurnVideo.pause();
+    heroTurnVideo.addEventListener('error', () => {
+      heroTurnVideo.classList.remove('is-ready');
+    });
+
+    if (heroTurnVideo.readyState >= 2) {
+      onVideoReady();
+    } else {
+      heroTurnVideo.addEventListener('loadeddata', onVideoReady, { once: true });
+      heroTurnVideo.addEventListener('canplay', onVideoReady, { once: true });
+    }
+
+    heroTurnVideo.addEventListener('ended', () => {
+      // On touch devices, stay on the first frame after playing once automatically
+      if (!hoverCapableQuery.matches) {
+        rewindToStartSmoothly();
+      }
+    });
+
+    heroSection.addEventListener('mouseenter', () => {
+      if (reducedMotionQuery.matches || !hoverCapableQuery.matches) return;
+      isPointerInsideHero = true;
+      if (hasStartedHoverPlay) return;
+      hasStartedHoverPlay = true;
+      playVideoOnce();
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      if (!hoverCapableQuery.matches) return;
+      isPointerInsideHero = false;
+      hasStartedHoverPlay = false;
+      rewindToStartSmoothly();
+    });
+
+    if ('IntersectionObserver' in window) {
+      const heroVisibilityObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              isHeroVisible = true;
+              maybeTriggerTouchPlayback();
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      heroVisibilityObserver.observe(heroSection);
+    } else {
+      isHeroVisible = true;
+      maybeTriggerTouchPlayback();
+    }
+
+    const handleVideoMotionChange = () => {
+      if (reducedMotionQuery.matches) {
+        cancelRewind();
+        heroTurnVideo.pause();
+        try { heroTurnVideo.currentTime = 0; } catch (err) {}
+        heroTurnVideo.classList.remove('is-ready');
+      } else if (heroTurnVideo.readyState >= 2) {
+        heroTurnVideo.classList.add('is-ready');
+      }
+    };
+
+    if (reducedMotionQuery.addEventListener) {
+      reducedMotionQuery.addEventListener('change', handleVideoMotionChange);
+    }
+  }
+
+  // 17. Homepage Hero Auto-Rotating 3-Step Subtext (cycles every 3.5s, pauses on line hover)
+  const heroSubtitleStage = document.getElementById('heroSubtitleStage');
+  const heroStepLines = document.querySelectorAll('#heroSubtitleStage .hero-step-line');
+  const heroStepBars = document.querySelectorAll('#heroStepProgress .hero-step-bar');
+
+  if (heroSubtitleStage && heroStepLines.length > 0) {
+    let activeStep = 0;
+    let cycleTimer = null;
+    let isHovered = false;
+
+    const showStep = (nextIndex, animate = true) => {
+      if (nextIndex === activeStep) return;
+      const prevLine = heroStepLines[activeStep];
+      const nextLine = heroStepLines[nextIndex];
+      activeStep = nextIndex;
+
+      if (prevLine) {
+        prevLine.classList.remove('is-active');
+        if (animate) {
+          prevLine.classList.add('is-exiting');
+        } else {
+          prevLine.classList.remove('is-exiting');
+        }
+        prevLine.setAttribute('aria-hidden', 'true');
+      }
+
+      if (nextLine) {
+        if (animate) {
+          nextLine.classList.add('is-no-transition');
+          nextLine.classList.remove('is-active', 'is-exiting');
+          void nextLine.offsetWidth;
+          nextLine.classList.remove('is-no-transition');
+          nextLine.classList.add('is-active');
+        } else {
+          nextLine.classList.remove('is-exiting', 'is-no-transition');
+          nextLine.classList.add('is-active');
+        }
+        nextLine.removeAttribute('aria-hidden');
+      }
+
+      heroStepBars.forEach((bar, idx) => {
+        bar.classList.toggle('is-active', idx === activeStep);
+      });
+    };
+
+    const stopCycling = () => {
+      if (cycleTimer !== null) {
+        window.clearInterval(cycleTimer);
+        cycleTimer = null;
+      }
+    };
+
+    const startCycling = () => {
+      stopCycling();
+      if (reducedMotionQuery.matches || isHovered || heroStepLines.length <= 1) return;
+      cycleTimer = window.setInterval(() => {
+        const nextIndex = (activeStep + 1) % heroStepLines.length;
+        showStep(nextIndex, true);
+      }, 3500);
+    };
+
+    heroSubtitleStage.addEventListener('mouseenter', () => {
+      isHovered = true;
+      stopCycling();
+    });
+
+    heroSubtitleStage.addEventListener('mouseleave', () => {
+      isHovered = false;
+      startCycling();
+    });
+
+    const handleCycleMotionChange = () => {
+      if (reducedMotionQuery.matches) {
+        stopCycling();
+        showStep(0, false);
+      } else {
+        startCycling();
+      }
+    };
+
+    if (reducedMotionQuery.addEventListener) {
+      reducedMotionQuery.addEventListener('change', handleCycleMotionChange);
+    }
+
+    if (reducedMotionQuery.matches) {
+      showStep(0, false);
+    } else {
+      startCycling();
+    }
+  }
 });
 
 

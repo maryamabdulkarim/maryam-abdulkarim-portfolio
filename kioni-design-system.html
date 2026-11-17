@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t !== 'dark' && t !== 'light') {
+          t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.style.colorScheme = t;
+      })();
+    </script>
     <title>Kioni Design System & Tokens — Maryam Abdulkarim</title>
     <meta name="description" content="A calm, tactile design system crafted for a private career journal — 100% WCAG AA contrast, light & dark token parity, and comprehensive component states." />
 
@@ -14,7 +25,7 @@
     <!-- Master Stylesheet -->
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <body class="theme-kioni">
+  <body id="top" class="theme-kioni">
     <!-- Reading Progress Bar -->
     <div class="reading-progress-bar" aria-hidden="true"></div>
 
@@ -26,32 +37,51 @@
       <div class="container nav-container">
         <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
 
-        <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <svg class="nav-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-          <svg class="nav-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="5" y1="5" x2="19" y2="19" />
-            <line x1="19" y1="5" x2="5" y2="19" />
-          </svg>
-        </button>
+        <div class="nav-right-controls">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="kioni.html">← Kioni Case Study</a></li>
+              <li><a href="index.html#work">Work</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="illustrations.html">Illustrations</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li>
+                <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                  Download CV
+                </a>
+              </li>
+            </ul>
+          </nav>
 
-        <nav>
-          <ul class="nav-links">
-            <li><a href="kioni.html">← Kioni Case Study</a></li>
-            <li><a href="index.html#work">Work</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="illustrations.html">Illustrations</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li>
-              <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
-                Download CV
-              </a>
-            </li>
-          </ul>
-        </nav>
+          <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch to dark mode" title="Switch to dark mode">
+            <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+
+          <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg class="nav-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <svg class="nav-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="5" y1="5" x2="19" y2="19" />
+              <line x1="19" y1="5" x2="5" y2="19" />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -308,7 +338,7 @@
             <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">
               Button Components
             </h3>
-            <p style="font-size: 0.95rem; color: #4A4A4A; margin-bottom: 1.5rem;">
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem;">
               Primary forest green action buttons, secondary border buttons, subtle ghost links, and high-visibility destructive buttons.
             </p>
 
@@ -346,7 +376,7 @@
             <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">
               Form Inputs & Textareas
             </h3>
-            <p style="font-size: 0.95rem; color: #4A4A4A; margin-bottom: 1.5rem;">
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem;">
               Text input fields, date pickers, multi-line reflection textareas, and active focus rings that meet accessibility standards.
             </p>
 
@@ -384,7 +414,7 @@
             <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">
               Selection Controls & Chips
             </h3>
-            <p style="font-size: 0.95rem; color: #4A4A4A; margin-bottom: 1.5rem;">
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem;">
               Checkbox toggles, radio buttons, and category chips for filtering achievements without cluttering screen real estate.
             </p>
 
@@ -506,7 +536,7 @@
       <button class="lightbox-close" aria-label="Close lightbox">✕</button>
       <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
       <div class="lightbox-content">
-        <img class="lightbox-image" src="" alt="" />
+        <img class="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
         <p class="lightbox-caption-text"></p>
       </div>
       <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>

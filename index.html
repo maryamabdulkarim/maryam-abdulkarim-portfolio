@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t !== 'dark' && t !== 'light') {
+          t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.style.colorScheme = t;
+      })();
+    </script>
     <title>Maryam Abdulkarim — Product Designer</title>
     <meta name="description" content="I design products people can trust. Honest AI, fair prices, private data, and design that works on any screen, any network." />
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -45,7 +56,7 @@
       })();
     </script>
   </head>
-  <body>
+  <body id="top">
     <!-- Page Transition Overlay -->
     <div class="page-fade-overlay" aria-hidden="true"></div>
 
@@ -54,113 +65,202 @@
       <div class="container nav-container">
         <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
 
-        <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <svg class="nav-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-          <svg class="nav-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="5" y1="5" x2="19" y2="19" />
-            <line x1="19" y1="5" x2="5" y2="19" />
-          </svg>
-        </button>
+        <div class="nav-right-controls">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="#work">Work</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="illustrations.html">Illustrations</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li>
+                <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                  Download CV
+                </a>
+              </li>
+            </ul>
+          </nav>
 
-        <nav>
-          <ul class="nav-links">
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="illustrations.html">Illustrations</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li>
-              <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
-                Download CV
-              </a>
-            </li>
-          </ul>
-        </nav>
+          <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch to dark mode" title="Switch to dark mode">
+            <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+
+          <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg class="nav-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <svg class="nav-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="5" y1="5" x2="19" y2="19" />
+              <line x1="19" y1="5" x2="5" y2="19" />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
     <main>
       <!-- Hero Section -->
-      <section class="hero-section">
+      <section class="hero-section" id="heroSection">
         <div class="container">
-          <span class="hero-greeting" id="heroGreeting" aria-label="Hi, I'm Maryam.">
-            <span class="hero-greeting-sizer" aria-hidden="true">Hi, I'm Maryam.<span class="hero-greeting-cursor hero-greeting-cursor-spacer"></span></span>
-            <span class="hero-greeting-typed" aria-hidden="true"><span id="heroGreetingText">Hi, I'm Maryam.</span><span id="heroGreetingCursor" class="hero-greeting-cursor is-hidden"></span></span>
-          </span>
-          <script>
-            (function () {
-              var textEl = document.getElementById('heroGreetingText');
-              var cursorEl = document.getElementById('heroGreetingCursor');
-              if (!textEl || !cursorEl) return;
+          <div class="hero-layout">
+            <div class="hero-content">
+              <span class="hero-greeting" id="heroGreeting" aria-label="Hi, I'm Maryam · Product Designer in Abuja, open to remote">
+                <span class="hero-greeting-sizer" aria-hidden="true">Hi, I'm Maryam · Product Designer in Abuja, open to remote<span class="hero-greeting-cursor hero-greeting-cursor-spacer"></span></span>
+                <span class="hero-greeting-typed" aria-hidden="true"><span id="heroGreetingText">Hi, I'm Maryam · Product Designer in Abuja, open to remote</span><span id="heroGreetingCursor" class="hero-greeting-cursor is-hidden"></span></span>
+              </span>
 
-              var message = "Hi, I'm Maryam.";
-              var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-              var played = false;
-              try {
-                played = sessionStorage.getItem('heroGreetingPlayed') === '1';
-              } catch (e) {}
+              <h1 class="hero-title">
+                I design products people can <span class="hero-trust-word">trust<svg class="hero-trust-underline" id="heroTrustUnderline" viewBox="0 0 120 16" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M4 11.5C32 5 64 12.5 96 7C106 5.3 113 6 116 7.5" pathLength="1" /></svg></span>.
+              </h1>
+              <script>
+                (function () {
+                  var textEl = document.getElementById('heroGreetingText');
+                  var cursorEl = document.getElementById('heroGreetingCursor');
+                  var underlineEl = document.getElementById('heroTrustUnderline');
+                  if (!textEl || !cursorEl) return;
 
-              if (reduced || played) {
-                textEl.textContent = message;
-                cursorEl.className = 'hero-greeting-cursor is-hidden';
-                return;
-              }
+                  var message = "Hi, I'm Maryam · Product Designer in Abuja, open to remote";
+                  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                  var played = false;
+                  try {
+                    played = sessionStorage.getItem('heroGreetingPlayed') === '1';
+                  } catch (e) {}
 
-              try {
-                sessionStorage.setItem('heroGreetingPlayed', '1');
-              } catch (e) {}
+                  var showUnderlineDrawnImmediately = function () {
+                    if (underlineEl) {
+                      underlineEl.classList.remove('is-drawing');
+                      underlineEl.classList.add('is-drawn');
+                    }
+                  };
 
-              textEl.textContent = '';
-              cursorEl.className = 'hero-greeting-cursor is-blinking';
+                  var drawUnderline = function () {
+                    if (!underlineEl || underlineEl.classList.contains('is-drawn') || underlineEl.classList.contains('is-drawing')) {
+                      return;
+                    }
+                    void underlineEl.getBoundingClientRect();
+                    underlineEl.classList.add('is-drawing');
+                  };
 
-              var index = 0;
-              var charDelay = 65;
-              var typeTimer = null;
-              var holdTimer = null;
+                  if (reduced) {
+                    textEl.textContent = message;
+                    cursorEl.className = 'hero-greeting-cursor is-hidden';
+                    showUnderlineDrawnImmediately();
+                    return;
+                  }
 
-              var finishImmediately = function () {
-                clearTimeout(typeTimer);
-                clearTimeout(holdTimer);
-                textEl.textContent = message;
-                cursorEl.className = 'hero-greeting-cursor is-hidden';
-              };
+                  if (played) {
+                    textEl.textContent = message;
+                    cursorEl.className = 'hero-greeting-cursor is-hidden';
+                    requestAnimationFrame(drawUnderline);
+                    return;
+                  }
 
-              window.addEventListener('pageshow', function (ev) {
-                if (ev.persisted) finishImmediately();
-              });
+                  try {
+                    sessionStorage.setItem('heroGreetingPlayed', '1');
+                  } catch (e) {}
 
-              var step = function () {
-                if (index < message.length) {
-                  index += 1;
-                  textEl.textContent = message.slice(0, index);
+                  textEl.textContent = '';
+                  cursorEl.className = 'hero-greeting-cursor is-blinking';
+
+                  var index = 0;
+                  var charDelay = 20;
+                  var typeTimer = null;
+                  var holdTimer = null;
+
+                  var finishImmediately = function () {
+                    clearTimeout(typeTimer);
+                    clearTimeout(holdTimer);
+                    textEl.textContent = message;
+                    cursorEl.className = 'hero-greeting-cursor is-hidden';
+                    showUnderlineDrawnImmediately();
+                  };
+
+                  window.addEventListener('pageshow', function (ev) {
+                    if (ev.persisted) finishImmediately();
+                  });
+
+                  var step = function () {
+                    if (index < message.length) {
+                      index += 1;
+                      textEl.textContent = message.slice(0, index);
+                      typeTimer = setTimeout(step, charDelay);
+                    } else {
+                      drawUnderline();
+                      holdTimer = setTimeout(function () {
+                        cursorEl.classList.remove('is-blinking');
+                        void cursorEl.offsetWidth;
+                        cursorEl.classList.add('is-fading');
+                      }, 1000);
+                    }
+                  };
+
                   typeTimer = setTimeout(step, charDelay);
-                } else {
-                  holdTimer = setTimeout(function () {
-                    cursorEl.classList.remove('is-blinking');
-                    void cursorEl.offsetWidth;
-                    cursorEl.classList.add('is-fading');
-                  }, 1000);
-                }
-              };
+                })();
+              </script>
 
-              typeTimer = setTimeout(step, charDelay);
-            })();
-          </script>
-          <h1 class="hero-title">
-            I design products people can trust.
-          </h1>
-          <p class="hero-subtitle">
-            Honest AI, fair prices, private data, and design that works on any screen, any network.
-          </p>
-          <p style="font-size: 0.95rem; color: #5A5A5A; margin-top: 1rem; margin-bottom: 2rem;">
-            Product Designer (UI/UX) · Based in Nigeria (GMT+1) · Open to remote and relocation
-          </p>
-          <div class="hero-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-            <a href="#work" class="btn btn-primary">See my work</a>
-            <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download CV</a>
+              <div class="hero-subtitle-wrap">
+                <div class="hero-subtitle-dynamic" id="heroSubtitleDynamic" aria-live="polite">
+                  <div class="hero-subtitle-stage" id="heroSubtitleStage">
+                    <p class="hero-subtitle hero-step-line is-active" data-step="0">
+                      Honest AI that admits when it's unsure.
+                    </p>
+                    <p class="hero-subtitle hero-step-line" data-step="1" aria-hidden="true">
+                      Fair prices and private data, by design.
+                    </p>
+                    <p class="hero-subtitle hero-step-line" data-step="2" aria-hidden="true">
+                      Design that works on any screen, any network.
+                    </p>
+                  </div>
+                  <div class="hero-step-progress" id="heroStepProgress" aria-hidden="true">
+                    <span class="hero-step-bar is-active" data-step="0"></span>
+                    <span class="hero-step-bar" data-step="1"></span>
+                    <span class="hero-step-bar" data-step="2"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <a href="#work" class="btn btn-primary">See my work</a>
+                <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download CV</a>
+              </div>
+            </div>
+
+            <div class="hero-portrait-stage">
+              <div class="hero-portrait-vignette" id="heroPortraitMedia">
+                <img
+                  src="/images/maryam-headshot.jpg"
+                  alt="Portrait of Maryam Abdulkarim, Product Designer"
+                  class="hero-portrait-img"
+                  loading="eager"
+                  decoding="async"
+                />
+                <video
+                  id="heroTurnVideo"
+                  class="hero-portrait-video"
+                  src="/videos/maryam-turn.mp4"
+                  poster="/images/maryam-headshot.jpg"
+                  muted
+                  playsinline
+                  preload="auto"
+                  disablepictureinpicture
+                  aria-hidden="true"
+                ></video>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -392,12 +492,12 @@
           <div class="project-grid" style="margin-top: 2rem; margin-bottom: 3.5rem;">
             <article class="project-card">
               <div
-                class="project-media-wrap reveal-fade-up"
+                class="project-media-wrap project-media-ecosmart-web reveal-fade-up"
                 data-gallery-trigger="ecosmart-web"
                 role="button"
                 tabindex="0"
                 aria-label="View 3 screens of the EcoSmart AI company website"
-                style="cursor: pointer; background-color: #F3F6F0;"
+                style="cursor: pointer;"
               >
                 <img
                   src="/images/ecosmart/ecosmart-web-hero.webp"
@@ -629,7 +729,7 @@
               <!-- About Portrait -->
               <div class="about-portrait-frame reveal-fade-up">
                 <img
-                  src="/images/maryam-portrait.jpg"
+                  src="/assets/aistudio/WhatsApp_Image_2026-11-17_at_09.53.35_d47c075f.jpeg"
                   alt="Maryam Abdulkarim portrait"
                   loading="lazy"
                   class="about-portrait-img"
@@ -752,7 +852,7 @@
       <button class="lightbox-close" aria-label="Close lightbox">✕</button>
       <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
       <div class="lightbox-content">
-        <img class="lightbox-image" src="" alt="" />
+        <img class="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
         <p class="lightbox-caption-text"></p>
       </div>
       <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>

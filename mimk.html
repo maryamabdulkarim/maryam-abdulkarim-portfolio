@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t !== 'dark' && t !== 'light') {
+          t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.style.colorScheme = t;
+      })();
+    </script>
     <title>Mimk Case Study — Maryam Abdulkarim</title>
     <meta name="description" content="Redesigning a Nigerian booking platform around trust: verified stays, one honest price and money held until check-in, for guests, hosts and admins on desktop and mobile." />
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -77,7 +88,7 @@
       })();
     </script>
   </head>
-  <body class="theme-mimk">
+  <body id="top" class="theme-mimk">
     <!-- Reading Progress Bar -->
     <div class="reading-progress-bar" aria-hidden="true"></div>
 
@@ -89,31 +100,50 @@
       <div class="container nav-container">
         <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
 
-        <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <svg class="nav-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-          <svg class="nav-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="5" y1="5" x2="19" y2="19" />
-            <line x1="19" y1="5" x2="5" y2="19" />
-          </svg>
-        </button>
+        <div class="nav-right-controls">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html#work">Work</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="illustrations.html">Illustrations</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li>
+                <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                  Download CV
+                </a>
+              </li>
+            </ul>
+          </nav>
 
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html#work">Work</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="illustrations.html">Illustrations</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li>
-              <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
-                Download CV
-              </a>
-            </li>
-          </ul>
-        </nav>
+          <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch to dark mode" title="Switch to dark mode">
+            <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+
+          <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg class="nav-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <svg class="nav-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="5" y1="5" x2="19" y2="19" />
+              <line x1="19" y1="5" x2="5" y2="19" />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -223,7 +253,7 @@
 
           <!-- Hero Image: 40-mockup-hero.png -->
           <div class="reveal-fade-up" style="margin-bottom: 3.5rem;">
-            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mimk Platform Overview" data-desc="Verified stays, one honest price, and money held until check-in.">
+            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Mimk Platform Overview" data-desc="Verified stays, one honest price, and money held until check-in.">
               <img
                 class="vt-hero-img vt-project-mimk"
                 src="/images/mimk/40-mockup-hero.png"
@@ -236,7 +266,7 @@
             <p class="cs-image-caption" style="text-align: center; margin-top: 0.85rem;">
               Verified stays, one honest price, and money held until check-in.
               <br />
-              <span style="font-size: 0.8rem; color: #5A5A5A;">All names, prices and bookings shown are sample data.</span>
+              <span style="font-size: 0.8rem; color: var(--text-meta);">All names, prices and bookings shown are sample data.</span>
             </p>
           </div>
         </div>
@@ -256,44 +286,44 @@
 
           <!-- Four Fact Cards (2x2 grid) -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-            <div class="cs-card" style="background-color: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
+            <div class="cs-card" style="background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
               <span style="display: block; font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 800; font-family: var(--font-heading); color: var(--accent-color); line-height: 1.1; margin-bottom: 0.5rem;">
                 ₦1.3m
               </span>
               <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0 0 0.75rem 0;">
                 lost by a diaspora family to a shortlet agent who vanished after payment.
               </p>
-              <span style="font-size: 0.75rem; color: #5A5A5A; font-style: italic;">News Express, Oct 2025</span>
+              <span style="font-size: 0.75rem; color: var(--text-meta); font-style: italic;">News Express, Oct 2025</span>
             </div>
 
-            <div class="cs-card" style="background-color: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
+            <div class="cs-card" style="background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
               <span style="display: block; font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 800; font-family: var(--font-heading); color: var(--accent-color); line-height: 1.1; margin-bottom: 0.5rem;">
                 2%
               </span>
               <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0 0 0.75rem 0;">
                 of Lagos rental listings say the caution fee is refundable.
               </p>
-              <span style="font-size: 0.75rem; color: #5A5A5A; font-style: italic;">The Nigeria Lawyer</span>
+              <span style="font-size: 0.75rem; color: var(--text-meta); font-style: italic;">The Nigeria Lawyer</span>
             </div>
 
-            <div class="cs-card" style="background-color: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
+            <div class="cs-card" style="background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
               <span style="display: block; font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 800; font-family: var(--font-heading); color: var(--accent-color); line-height: 1.1; margin-bottom: 0.5rem;">
                 6.6 hours
               </span>
               <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0 0 0.75rem 0;">
                 of grid power a day for connected households, so power is a real booking decision.
               </p>
-              <span style="font-size: 0.75rem; color: #5A5A5A; font-style: italic;">NBS 2024, via Nairametrics</span>
+              <span style="font-size: 0.75rem; color: var(--text-meta); font-style: italic;">NBS 2024, via Nairametrics</span>
             </div>
 
-            <div class="cs-card" style="background-color: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
+            <div class="cs-card" style="background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.75rem;">
               <span style="display: block; font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 800; font-family: var(--font-heading); color: var(--accent-color); line-height: 1.1; margin-bottom: 0.5rem;">
                 51%+
               </span>
               <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main); margin: 0 0 0.75rem 0;">
                 of online payments are web bank transfers, which is also the main scam route.
               </p>
-              <span style="font-size: 0.75rem; color: #5A5A5A; font-style: italic;">CBN data, via TechCabal</span>
+              <span style="font-size: 0.75rem; color: var(--text-meta); font-style: italic;">CBN data, via TechCabal</span>
             </div>
           </div>
 
@@ -478,7 +508,7 @@
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
                 DECISION 01 · PROOF, NOT A BADGE
               </span>
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Decision 01: Proof, not a badge" data-desc="Verified, explained: a dated inspection report with power measured at 22 hours a day.">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Decision 01: Proof, not a badge" data-desc="Verified, explained: a dated inspection report with power measured at 22 hours a day.">
                 <img src="/images/mimk/03-property-desktop.png" alt="Mimk property page with verified inspection report" loading="lazy" style="width: 100%; height: auto; display: block;" />
                 <span class="fullscreen-badge">⛶ View full screen</span>
               </div>
@@ -492,7 +522,7 @@
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
                 DECISION 02 · PAY THE NIGERIAN WAY
               </span>
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Decision 02: Pay the Nigerian way" data-desc="Transfer first: how most people pay, made safe because Mimk holds the money.">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Decision 02: Pay the Nigerian way" data-desc="Transfer first: how most people pay, made safe because Mimk holds the money.">
                 <img src="/images/mimk/06-checkout-desktop.png" alt="Mimk checkout page with bank transfer as default" loading="lazy" style="width: 100%; height: auto; display: block;" />
                 <span class="fullscreen-badge">⛶ View full screen</span>
               </div>
@@ -506,7 +536,7 @@
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
                 DECISION 03 · ARRIVAL ON ONE SCREEN
               </span>
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Decision 03: Arrival on one screen" data-desc="Check-in day: code, directions and Wi-Fi together, with Call as the one main action.">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Decision 03: Arrival on one screen" data-desc="Check-in day: code, directions and Wi-Fi together, with Call as the one main action.">
                 <img src="/images/mimk/07-checkin-desktop.png" alt="Mimk check-in day screen with smart lock code and directions" loading="lazy" style="width: 100%; height: auto; display: block;" />
                 <span class="fullscreen-badge">⛶ View full screen</span>
               </div>
@@ -520,7 +550,7 @@
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
                 DECISION 04 · THE REFUND, BEFORE YOU CANCEL
               </span>
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Decision 04: The refund, before you cancel" data-desc="Refunds you can track: a reference, a date and a WhatsApp alert.">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Decision 04: The refund, before you cancel" data-desc="Refunds you can track: a reference, a date and a WhatsApp alert.">
                 <img src="/images/mimk/08-refund-desktop.png" alt="Mimk transparent cancellation refund progress tracker" loading="lazy" style="width: 100%; height: auto; display: block;" />
                 <span class="fullscreen-badge">⛶ View full screen</span>
               </div>
@@ -592,7 +622,7 @@
           <!-- Desktop and phone side by side -->
           <div class="report-side-by-side reveal-fade-up" style="margin-top: 2rem;">
             <div class="cs-image-card report-desktop-col">
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Past stays (Desktop)" data-desc="Past stays: one urgent task on top, a calm list underneath">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Past stays (Desktop)" data-desc="Past stays: one urgent task on top, a calm list underneath">
                 <img
                   src="/images/mimk/09-past-stays-desktop.png"
                   alt="Past stays desktop view: one urgent review task on top, calm list underneath"
@@ -604,7 +634,7 @@
               <p class="cs-image-caption">Past stays: one urgent task on top, a calm list underneath</p>
             </div>
             <div class="cs-image-card report-phone-col">
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Past stays (Phone)" data-desc="Past stays on mobile screen">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Past stays (Phone)" data-desc="Past stays on mobile screen">
                 <img
                   src="/images/mimk/14-past-phone.png"
                   alt="Past stays mobile view"
@@ -641,7 +671,7 @@
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
                 HOST · TODAY
               </span>
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Host: Today Dashboard" data-desc="One actionable booking request today, next payout breakdown, and re-inspection status.">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Host: Today Dashboard" data-desc="One actionable booking request today, next payout breakdown, and re-inspection status.">
                 <img src="/images/mimk/10-host-today-desktop.png" alt="Host Today dashboard" loading="lazy" style="width: 100%; height: auto; display: block;" />
                 <span class="fullscreen-badge">⛶ View full screen</span>
               </div>
@@ -652,7 +682,7 @@
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
                 ADMIN · DISPUTE
               </span>
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Admin: Dispute Resolution" data-desc="Admin dispute settlement with split breakdown: guest refund vs host payment.">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Admin: Dispute Resolution" data-desc="Admin dispute settlement with split breakdown: guest refund vs host payment.">
                 <img src="/images/mimk/11-admin-dispute-desktop.png" alt="Admin dispute resolution view" loading="lazy" style="width: 100%; height: auto; display: block;" />
                 <span class="fullscreen-badge">⛶ View full screen</span>
               </div>
@@ -680,7 +710,7 @@
 
           <!-- Lead Mockup: 42-mockup-account.png -->
           <div class="reveal-fade-up" style="margin: 2rem 0;">
-            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Account Deletion Safeguards" data-desc="With a stay coming up, deletion waits until check-out, on desktop and phone.">
+            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Account Deletion Safeguards" data-desc="With a stay coming up, deletion waits until check-out, on desktop and phone.">
               <img
                 src="/images/mimk/42-mockup-account.png"
                 alt="Account deletion guard dialog preventing accidental cancellation"
@@ -700,7 +730,7 @@
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
                 PREFERENCES
               </span>
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Preferences" data-desc="Language and currency preferences with naira payment reminder.">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Preferences" data-desc="Language and currency preferences with naira payment reminder.">
                 <img src="/images/mimk/15-preferences-desktop.png" alt="Preferences screen" loading="lazy" style="width: 100%; height: auto; display: block;" />
                 <span class="fullscreen-badge">⛶ View full screen</span>
               </div>
@@ -711,7 +741,7 @@
               <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 0.65rem;">
                 HELP & SUPPORT
               </span>
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Help & Support" data-desc="WhatsApp support 7am to 11pm.">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Help & Support" data-desc="WhatsApp support 7am to 11pm.">
                 <img src="/images/mimk/18-help-desktop.png" alt="Help and support screen" loading="lazy" style="width: 100%; height: auto; display: block;" />
                 <span class="fullscreen-badge">⛶ View full screen</span>
               </div>
@@ -721,7 +751,7 @@
 
           <!-- Full-width Flow Diagram: 22-flow-leave.png (full width, height: auto, no crop) -->
           <div class="reveal-fade-up" style="margin: 2.5rem 0;">
-            <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Guest: Leave Mimk Safely Flow" data-desc="Flowchart showing conditional safeguards when deleting account with active stays.">
+            <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Guest: Leave Mimk Safely Flow" data-desc="Flowchart showing conditional safeguards when deleting account with active stays.">
               <img
                 src="/images/mimk/22-flow-leave.png"
                 alt="Flow diagram: Guest leave Mimk safely"
@@ -751,7 +781,7 @@
 
           <!-- Flow 1: 20-flow-book.png (full width, height: auto, no crop) -->
           <div class="reveal-fade-up" style="margin: 2rem 0 3rem 0;">
-            <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Flow: Find and Book a Stay" data-desc="Guest flow from landing page to confirmed booking with transfer pending states.">
+            <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Flow: Find and Book a Stay" data-desc="Guest flow from landing page to confirmed booking with transfer pending states.">
               <img
                 src="/images/mimk/20-flow-book.png"
                 alt="Flow diagram: Guest find and book a stay"
@@ -767,7 +797,7 @@
 
           <!-- Flow 2: 21-flow-refund.png (full width, height: auto, no crop) -->
           <div class="reveal-fade-up" style="margin: 2rem 0;">
-            <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Flow: Cancel and Get a Refund" data-desc="Guest cancellation flow showing transparent timeline and WhatsApp alerts.">
+            <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Flow: Cancel and Get a Refund" data-desc="Guest cancellation flow showing transparent timeline and WhatsApp alerts.">
               <img
                 src="/images/mimk/21-flow-refund.png"
                 alt="Flow diagram: Guest cancel and get a refund"
@@ -797,7 +827,7 @@
 
           <!-- Lead Mockup: 41-mockup-phones.png -->
           <div class="reveal-fade-up" style="margin: 2rem 0;">
-            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mobile Stays Overview" data-desc="Home, property, check-in day and past stays across phone viewport.">
+            <div class="cs-img-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Mobile Stays Overview" data-desc="Home, property, check-in day and past stays across phone viewport.">
               <img
                 src="/images/mimk/41-mockup-phones.png"
                 alt="Four phone mockups displaying Mimk mobile screens"
@@ -815,7 +845,7 @@
           <div style="margin-top: 2.5rem;">
             <div class="phone-swipe-row reveal-fade-up">
               <div class="cs-image-card">
-                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mobile: Home" data-desc="Mimk home screen with search and upcoming trip card.">
+                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Mobile: Home" data-desc="Mimk home screen with search and upcoming trip card.">
                   <img src="/images/mimk/02-home-phone.png" alt="Mimk home screen on phone" loading="lazy" style="width: 100%; height: auto; display: block;" />
                   <span class="fullscreen-badge">⛶ View full screen</span>
                 </div>
@@ -823,7 +853,7 @@
               </div>
 
               <div class="cs-image-card">
-                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mobile: Property" data-desc="Property details, verified inspection highlights and sticky reserve bar.">
+                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Mobile: Property" data-desc="Property details, verified inspection highlights and sticky reserve bar.">
                   <img src="/images/mimk/12-property-phone.png" alt="Mimk property page on phone" loading="lazy" style="width: 100%; height: auto; display: block;" />
                   <span class="fullscreen-badge">⛶ View full screen</span>
                 </div>
@@ -831,7 +861,7 @@
               </div>
 
               <div class="cs-image-card">
-                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mobile: Check-in Day" data-desc="Check-in day details with smart lock code and call button.">
+                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Mobile: Check-in Day" data-desc="Check-in day details with smart lock code and call button.">
                   <img src="/images/mimk/13-checkin-phone.png" alt="Mimk check-in day screen on phone" loading="lazy" style="width: 100%; height: auto; display: block;" />
                   <span class="fullscreen-badge">⛶ View full screen</span>
                 </div>
@@ -839,14 +869,14 @@
               </div>
 
               <div class="cs-image-card">
-                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Mobile: Past Stays" data-desc="Past stays screen with urgent review card.">
+                <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Mobile: Past Stays" data-desc="Past stays screen with urgent review card.">
                   <img src="/images/mimk/14-past-phone.png" alt="Mimk past stays screen on phone" loading="lazy" style="width: 100%; height: auto; display: block;" />
                   <span class="fullscreen-badge">⛶ View full screen</span>
                 </div>
                 <p class="cs-image-caption" style="text-align: center;">Past stays</p>
               </div>
             </div>
-            <p class="cs-image-caption" style="text-align: center; margin-top: 0.5rem; color: #4A4A4A;">
+            <p class="cs-image-caption" style="text-align: center; margin-top: 0.5rem; color: var(--text-muted);">
               Swipe to see each screen: Home, Property, Check-in day and Past stays.
             </p>
           </div>
@@ -876,7 +906,7 @@
           <!-- Two images side by side: Foundations & Components (wide, height: auto, no crop) -->
           <div class="reveal-fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; margin: 2rem 0; align-items: start;">
             <div class="cs-image-card">
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Design System: Foundations" data-desc="Color tokens, typography scale, 4-point spacing and radius foundations.">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Design System: Foundations" data-desc="Color tokens, typography scale, 4-point spacing and radius foundations.">
                 <img
                   src="/images/mimk/30-ds-foundations.png"
                   alt="Mimk design system foundations: color and typography"
@@ -889,7 +919,7 @@
             </div>
 
             <div class="cs-image-card">
-              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid #E7E3DD; background: #FFFFFF; cursor: zoom-in;" data-title="Design System: Components" data-desc="Buttons, cards, pills, banners, and price breakdown components without cropping.">
+              <div class="cs-img-frame" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--image-frame-border); background: var(--card-bg); cursor: zoom-in;" data-title="Design System: Components" data-desc="Buttons, cards, pills, banners, and price breakdown components without cropping.">
                 <img
                   src="/images/mimk/31-ds-components.png"
                   alt="Mimk design system components: buttons, cards, status badges"
@@ -1084,7 +1114,7 @@
       <button class="lightbox-close" aria-label="Close lightbox">✕</button>
       <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
       <div class="lightbox-content">
-        <img class="lightbox-image" src="" alt="" />
+        <img class="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
         <p class="lightbox-caption-text"></p>
       </div>
       <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>
