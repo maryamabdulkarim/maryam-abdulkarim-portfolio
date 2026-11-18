@@ -125,72 +125,120 @@
               </span>
 
               <h1 class="hero-title">
-                I design products people can trust.
+                I design products people can <span class="hero-trust-word">trust<svg class="hero-trust-underline" id="heroTrustUnderline" viewBox="0 0 120 16" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M4 11.5C32 5 64 12.5 96 7C106 5.3 113 6 116 7.5" pathLength="1" /></svg></span>.
               </h1>
               <script>
                 (function () {
                   var textEl = document.getElementById('heroGreetingText');
                   var cursorEl = document.getElementById('heroGreetingCursor');
+                  var underlineEl = document.getElementById('heroTrustUnderline');
                   if (!textEl || !cursorEl) return;
 
                   var message = "Hi, I'm Maryam · Product Designer in Abuja, open to remote";
-                  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                  var played = false;
-                  try {
-                    played = sessionStorage.getItem('heroGreetingPlayed') === '1';
-                  } catch (e) {}
+                  var motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+                  var timer = null;
 
-                  if (reduced || played) {
-                    textEl.textContent = message;
-                    cursorEl.className = 'hero-greeting-cursor is-hidden';
-                    return;
-                  }
-
-                  try {
-                    sessionStorage.setItem('heroGreetingPlayed', '1');
-                  } catch (e) {}
-
-                  textEl.textContent = '';
-                  cursorEl.className = 'hero-greeting-cursor is-blinking';
-
-                  var index = 0;
-                  var charDelay = 20;
-                  var typeTimer = null;
-                  var holdTimer = null;
-
-                  var finishImmediately = function () {
-                    clearTimeout(typeTimer);
-                    clearTimeout(holdTimer);
-                    textEl.textContent = message;
-                    cursorEl.className = 'hero-greeting-cursor is-hidden';
-                  };
-
-                  window.addEventListener('pageshow', function (ev) {
-                    if (ev.persisted) finishImmediately();
-                  });
-
-                  var step = function () {
-                    if (index < message.length) {
-                      index += 1;
-                      textEl.textContent = message.slice(0, index);
-                      typeTimer = setTimeout(step, charDelay);
-                    } else {
-                      holdTimer = setTimeout(function () {
-                        cursorEl.classList.remove('is-blinking');
-                        void cursorEl.offsetWidth;
-                        cursorEl.classList.add('is-fading');
-                      }, 1000);
+                  var showUnderlineDrawnImmediately = function () {
+                    if (underlineEl) {
+                      underlineEl.classList.remove('is-drawing');
+                      underlineEl.classList.add('is-drawn');
                     }
                   };
 
-                  typeTimer = setTimeout(step, charDelay);
+                  var drawUnderline = function () {
+                    if (!underlineEl || underlineEl.classList.contains('is-drawn') || underlineEl.classList.contains('is-drawing')) {
+                      return;
+                    }
+                    void underlineEl.getBoundingClientRect();
+                    underlineEl.classList.add('is-drawing');
+                  };
+
+                  var stopTypewriter = function () {
+                    if (timer !== null) {
+                      clearTimeout(timer);
+                      timer = null;
+                    }
+                  };
+
+                  var startLoop = function () {
+                    stopTypewriter();
+                    if (motionQuery && motionQuery.matches) {
+                      textEl.textContent = message;
+                      cursorEl.className = 'hero-greeting-cursor is-hidden';
+                      showUnderlineDrawnImmediately();
+                      return;
+                    }
+
+                    requestAnimationFrame(drawUnderline);
+
+                    var index = 0;
+                    var isDeleting = false;
+                    textEl.textContent = '';
+                    cursorEl.className = 'hero-greeting-cursor is-blinking';
+
+                    var tick = function () {
+                      if (motionQuery && motionQuery.matches) {
+                        textEl.textContent = message;
+                        cursorEl.className = 'hero-greeting-cursor is-hidden';
+                        showUnderlineDrawnImmediately();
+                        return;
+                      }
+
+                      if (!isDeleting) {
+                        if (index < message.length) {
+                          index += 1;
+                          textEl.textContent = message.slice(0, index);
+                          timer = setTimeout(tick, 60);
+                        } else {
+                          isDeleting = true;
+                          timer = setTimeout(tick, 3000);
+                        }
+                      } else {
+                        if (index > 0) {
+                          index -= 1;
+                          textEl.textContent = message.slice(0, index);
+                          timer = setTimeout(tick, 30);
+                        } else {
+                          isDeleting = false;
+                          timer = setTimeout(tick, 500);
+                        }
+                      }
+                    };
+
+                    timer = setTimeout(tick, 60);
+                  };
+
+                  if (motionQuery && motionQuery.addEventListener) {
+                    motionQuery.addEventListener('change', startLoop);
+                  }
+
+                  window.addEventListener('pageshow', function (ev) {
+                    if (ev.persisted) startLoop();
+                  });
+
+                  startLoop();
                 })();
               </script>
 
               <div class="hero-subtitle-wrap">
-                <p class="hero-subtitle">
-                  Honest AI, fair prices, private data, and design that works on any screen, any network.
-                </p>
+                <div class="hero-subtitle-dynamic" id="heroSubtitleDynamic" aria-live="polite">
+                  <div class="hero-subtitle-stage" id="heroSubtitleStage">
+                    <p class="hero-subtitle hero-step-line is-active" data-step="0">
+                      Honest AI that admits when it's unsure.
+                    </p>
+                    <p class="hero-subtitle hero-step-line" data-step="1" aria-hidden="true">
+                      Fair prices and private data, by design.
+                    </p>
+                    <p class="hero-subtitle hero-step-line" data-step="2" aria-hidden="true">
+                      Design that works on any screen, any network.
+                    </p>
+                  </div>
+                  <div class="hero-step-progress" id="heroStepProgress" aria-hidden="true">
+                    <span class="hero-step-bar is-active" data-step="0"></span>
+                    <span class="hero-step-bar" data-step="1"></span>
+                    <span class="hero-step-bar" data-step="2"></span>
+                  </div>
+                </div>
               </div>
 
               <div class="hero-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
@@ -200,7 +248,23 @@
             </div>
 
             <div class="hero-portrait-stage">
-              <div class="hero-portrait-card" id="heroPortraitMedia">
+              <svg width="0" height="0" aria-hidden="true" focusable="false" style="position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none;">
+                <defs>
+                  <filter id="hero-dark-key" color-interpolation-filters="sRGB">
+                    <feColorMatrix
+                      type="matrix"
+                      values="1 0 0 0 0
+                              0 1 0 0 0
+                              0 0 1 0 0
+                              4.167 -0.833 -7.5 0 3.48"
+                    />
+                    <feComponentTransfer>
+                      <feFuncA type="gamma" amplitude="1" exponent="2.2" offset="0" />
+                    </feComponentTransfer>
+                  </filter>
+                </defs>
+              </svg>
+              <div class="hero-portrait-vignette" id="heroPortraitMedia">
                 <img
                   src="/images/maryam-headshot.jpg"
                   alt="Portrait of Maryam Abdulkarim, Product Designer"
@@ -208,6 +272,17 @@
                   loading="eager"
                   decoding="async"
                 />
+                <video
+                  id="heroTurnVideo"
+                  class="hero-portrait-video"
+                  src="/videos/maryam-turn.mp4"
+                  poster="/images/maryam-headshot.jpg"
+                  muted
+                  playsinline
+                  preload="auto"
+                  disablepictureinpicture
+                  aria-hidden="true"
+                ></video>
               </div>
             </div>
           </div>
