@@ -872,22 +872,46 @@ html[data-theme="dark"] .theme-toggle-btn .theme-icon-moon {
   background: transparent;
   border: none;
   mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(
-    ellipse 50% 50% at 50% 44%,
-    #000 0%,
-    #000 74%,
-    rgba(0, 0, 0, 0.72) 86%,
-    rgba(0, 0, 0, 0.24) 94%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 50% 50% at 50% 44%,
-    #000 0%,
-    #000 74%,
-    rgba(0, 0, 0, 0.72) 86%,
-    rgba(0, 0, 0, 0.24) 94%,
-    transparent 100%
-  );
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 66%,
+      rgba(0, 0, 0, 0.58) 76%,
+      rgba(0, 0, 0, 0.22) 85%,
+      rgba(0, 0, 0, 0.05) 93%,
+      transparent 99%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.65) 4%,
+      #000 10%,
+      #000 90%,
+      rgba(0, 0, 0, 0.65) 96%,
+      transparent 100%
+    );
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 66%,
+      rgba(0, 0, 0, 0.58) 76%,
+      rgba(0, 0, 0, 0.22) 85%,
+      rgba(0, 0, 0, 0.05) 93%,
+      transparent 99%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.65) 4%,
+      #000 10%,
+      #000 90%,
+      rgba(0, 0, 0, 0.65) 96%,
+      transparent 100%
+    );
+  mask-composite: intersect;
 }
 
 html[data-theme="dark"] .hero-portrait-vignette {
@@ -900,6 +924,7 @@ html[data-theme="dark"] .hero-portrait-vignette {
     rgba(0, 0, 0, 0.3) 94%,
     transparent 100%
   );
+  -webkit-mask-composite: source-over;
   mask-image: radial-gradient(
     ellipse 48% 49% at 50% 44%,
     #000 0%,
@@ -908,6 +933,7 @@ html[data-theme="dark"] .hero-portrait-vignette {
     rgba(0, 0, 0, 0.3) 94%,
     transparent 100%
   );
+  mask-composite: add;
 }
 
 html[data-theme="dark"] .hero-portrait-vignette::before {

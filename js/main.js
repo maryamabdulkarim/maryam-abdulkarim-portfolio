@@ -1443,19 +1443,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const PITCH = SQUARE_SIZE + GAP;
       const HOVER_RADIUS = 75;
       const FADE_DURATION = 1500;
-      const MAX_GLOW_ALPHA = 0.55;
+      const MAX_LIGHT_GLOW_ALPHA = 0.45;
+      const MAX_DARK_GLOW_ALPHA = 0.55;
 
       const LIGHT_GREENS = [
-        '26, 103, 57',
-        '34, 120, 68',
-        '48, 138, 82',
-        '19, 78, 43'
+        '46, 125, 79',   // #2e7d4f
+        '39, 114, 70',
+        '56, 138, 90',
+        '32, 102, 60'
       ];
       const DARK_GREENS = [
-        '95, 178, 124',
-        '116, 196, 144',
-        '76, 156, 104',
-        '136, 206, 158'
+        '95, 191, 136',  // #5fbf88
+        '109, 202, 148',
+        '85, 180, 126',
+        '122, 210, 158'
       ];
 
       let width = 0;
@@ -1536,7 +1537,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
           }
           const progress = Math.max(0, elapsed / FADE_DURATION);
-          const fade = (1 - progress) * (1 - progress);
+          const fade = Math.pow(1 - progress, 1.35);
           const alpha = cell.peakAlpha * fade;
           if (alpha <= 0.004) {
             activeCells.delete(key);
@@ -1613,6 +1614,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (candidates.length === 0) return;
 
         // Calmly ignite 2-3 squares within 75px, favoring closer squares
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const maxAlpha = isDark ? MAX_DARK_GLOW_ALPHA : MAX_LIGHT_GLOW_ALPHA;
+        const baseAlpha = isDark ? 0.24 : 0.20;
+        const rangeAlpha = maxAlpha - baseAlpha;
         const count = Math.min(candidates.length, Math.random() < 0.45 ? 3 : 2);
         for (let i = 0; i < count; i++) {
           const a = candidates[Math.floor(Math.random() * candidates.length)];
@@ -1621,14 +1626,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const proximity = Math.max(0, 1 - pick.dist / HOVER_RADIUS);
           const targetPeak = Math.min(
-            MAX_GLOW_ALPHA,
-            0.12 + 0.43 * Math.pow(proximity, 0.9) * (0.72 + 0.28 * Math.random())
+            maxAlpha,
+            baseAlpha + rangeAlpha * Math.pow(proximity, 0.8) * (0.78 + 0.22 * Math.random())
           );
 
           const key = `${pick.col},${pick.row}`;
           const existing = activeCells.get(key);
           if (existing) {
-            const existingAlpha = existing.peakAlpha * Math.pow(Math.max(0, 1 - (now - existing.bornAt) / FADE_DURATION), 2);
+            const existingAlpha = existing.peakAlpha * Math.pow(Math.max(0, 1 - (now - existing.bornAt) / FADE_DURATION), 1.35);
             existing.peakAlpha = Math.max(existingAlpha, targetPeak);
             existing.bornAt = now;
           } else {
