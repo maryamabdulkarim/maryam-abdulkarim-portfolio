@@ -119,9 +119,9 @@
         <div class="container">
           <div class="hero-layout">
             <div class="hero-content">
-              <span class="hero-greeting" id="heroGreeting" aria-label="Hi, I'm Maryam · Product Designer in Abuja, open to remote">
-                <span class="hero-greeting-sizer" aria-hidden="true">Hi, I'm Maryam · Product Designer in Abuja, open to remote<span class="hero-greeting-cursor hero-greeting-cursor-spacer"></span></span>
-                <span class="hero-greeting-typed" aria-hidden="true"><span id="heroGreetingText">Hi, I'm Maryam · Product Designer in Abuja, open to remote</span><span id="heroGreetingCursor" class="hero-greeting-cursor is-hidden"></span></span>
+              <span class="hero-greeting" id="heroGreeting" aria-label="Hi, I'm Maryam · Product Designer in Abuja · Open to remote roles">
+                <span class="hero-greeting-sizer" aria-hidden="true">Hi, I'm Maryam · Product Designer in Abuja<span class="hero-greeting-cursor hero-greeting-cursor-spacer"></span></span>
+                <span class="hero-greeting-typed" aria-hidden="true"><span class="hero-greeting-prefix">Hi, I'm Maryam · </span><span id="heroGreetingText">Product Designer in Abuja</span><span id="heroGreetingCursor" class="hero-greeting-cursor is-hidden"></span></span>
               </span>
 
               <h1 class="hero-title">
@@ -134,7 +134,7 @@
                   var underlineEl = document.getElementById('heroTrustUnderline');
                   if (!textEl || !cursorEl) return;
 
-                  var message = "Hi, I'm Maryam · Product Designer in Abuja, open to remote";
+                  var phrases = ['Product Designer in Abuja', 'Open to remote roles'];
                   var motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
                   var timer = null;
 
@@ -163,7 +163,7 @@
                   var startLoop = function () {
                     stopTypewriter();
                     if (motionQuery && motionQuery.matches) {
-                      textEl.textContent = message;
+                      textEl.textContent = phrases[0];
                       cursorEl.className = 'hero-greeting-cursor is-hidden';
                       showUnderlineDrawnImmediately();
                       return;
@@ -171,6 +171,7 @@
 
                     requestAnimationFrame(drawUnderline);
 
+                    var phraseIndex = 0;
                     var index = 0;
                     var isDeleting = false;
                     textEl.textContent = '';
@@ -178,16 +179,18 @@
 
                     var tick = function () {
                       if (motionQuery && motionQuery.matches) {
-                        textEl.textContent = message;
+                        textEl.textContent = phrases[0];
                         cursorEl.className = 'hero-greeting-cursor is-hidden';
                         showUnderlineDrawnImmediately();
                         return;
                       }
 
+                      var current = phrases[phraseIndex];
+
                       if (!isDeleting) {
-                        if (index < message.length) {
+                        if (index < current.length) {
                           index += 1;
-                          textEl.textContent = message.slice(0, index);
+                          textEl.textContent = current.slice(0, index);
                           timer = setTimeout(tick, 60);
                         } else {
                           isDeleting = true;
@@ -196,10 +199,11 @@
                       } else {
                         if (index > 0) {
                           index -= 1;
-                          textEl.textContent = message.slice(0, index);
+                          textEl.textContent = current.slice(0, index);
                           timer = setTimeout(tick, 30);
                         } else {
                           isDeleting = false;
+                          phraseIndex = (phraseIndex + 1) % phrases.length;
                           timer = setTimeout(tick, 500);
                         }
                       }
@@ -253,14 +257,20 @@
                   <filter id="hero-dark-key" color-interpolation-filters="sRGB">
                     <feColorMatrix
                       type="matrix"
-                      values="1 0 0 0 0
-                              0 1 0 0 0
-                              0 0 1 0 0
-                              4.167 -0.833 -7.5 0 3.48"
+                      in="SourceGraphic"
+                      result="alphaRaw"
+                      values="0 0 0 0 0
+                              0 0 0 0 0
+                              0 0 0 0 0
+                              4.167 -0.833 -7.5 0 2.98"
                     />
-                    <feComponentTransfer>
-                      <feFuncA type="gamma" amplitude="1" exponent="2.2" offset="0" />
+                    <feComponentTransfer in="alphaRaw" result="alphaClipped">
+                      <feFuncA type="gamma" amplitude="1" exponent="2.6" offset="0" />
                     </feComponentTransfer>
+                    <feMorphology operator="dilate" radius="4" in="alphaClipped" result="alphaClosed" />
+                    <feMorphology operator="erode" radius="6" in="alphaClosed" result="alphaEroded" />
+                    <feGaussianBlur stdDeviation="1.15" in="alphaEroded" result="alphaSoft" />
+                    <feComposite in="SourceGraphic" in2="alphaSoft" operator="in" />
                   </filter>
                 </defs>
               </svg>
@@ -305,15 +315,15 @@
                 <div class="project-media-wrap project-media-ecosmart reveal-fade-up">
                   <img
                     class="project-cover-img vt-project-ecosmart"
-                    src="/images/ecosmart/ecosmart_hero_mockup.jpg"
-                    alt="EcoSmart AI waste marketplace mobile application on desk stand"
+                    src="/assets/aistudio/EcoSmart_Cover_v3_88e74937.png"
+                    alt="EcoSmart AI dispute resolution admin dashboard and Musa wallet mobile screen"
                     loading="lazy"
                   />
                   <div class="project-door project-door-left" aria-hidden="true">
-                    <img src="/images/ecosmart/ecosmart_hero_mockup.jpg" alt="" loading="eager" />
+                    <img src="/assets/aistudio/EcoSmart_Cover_v3_88e74937.png" alt="" loading="eager" />
                   </div>
                   <div class="project-door project-door-right" aria-hidden="true">
-                    <img src="/images/ecosmart/ecosmart_hero_mockup.jpg" alt="" loading="eager" />
+                    <img src="/assets/aistudio/EcoSmart_Cover_v3_88e74937.png" alt="" loading="eager" />
                   </div>
                   <div class="project-hover-label">
                     <span>View case study</span>
@@ -454,15 +464,15 @@
                 <div class="project-media-wrap project-media-kioni reveal-fade-up">
                   <img
                     class="project-cover-img vt-project-kioni"
-                    src="/images/kioni/01-home-desktop.png"
+                    src="/assets/aistudio/Kioni_Cover_556bc554.png"
                     alt="Kioni work notebook editorial interface"
                     loading="lazy"
                   />
                   <div class="project-door project-door-left" aria-hidden="true">
-                    <img src="/images/kioni/01-home-desktop.png" alt="" loading="eager" />
+                    <img src="/assets/aistudio/Kioni_Cover_556bc554.png" alt="" loading="eager" />
                   </div>
                   <div class="project-door project-door-right" aria-hidden="true">
-                    <img src="/images/kioni/01-home-desktop.png" alt="" loading="eager" />
+                    <img src="/assets/aistudio/Kioni_Cover_556bc554.png" alt="" loading="eager" />
                   </div>
                   <div class="project-hover-label">
                     <span>View case study</span>

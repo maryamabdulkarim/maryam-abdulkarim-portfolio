@@ -1515,19 +1515,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         const palette = isDark ? DARK_GREENS : LIGHT_GREENS;
 
-        // Resting faint grid (~2.5-2.8% opacity)
-        ctx.fillStyle = isDark ? 'rgba(237, 234, 228, 0.028)' : 'rgba(20, 20, 20, 0.025)';
-        for (let r = 0; r < rows; r++) {
-          const y = offsetY + r * PITCH;
-          if (y > height || y + SQUARE_SIZE < 0) continue;
-          for (let c = 0; c < cols; c++) {
-            const x = offsetX + c * PITCH;
-            if (x > width || x + SQUARE_SIZE < 0) continue;
-            ctx.fillRect(x, y, SQUARE_SIZE, SQUARE_SIZE);
-          }
-        }
-
-        // Lit squares fading smoothly over 1.5s
+        // Lit squares fading smoothly over 1.5s (canvas stays invisible at rest)
         activeCells.forEach((cell, key) => {
           const elapsed = now - cell.bornAt;
           if (elapsed >= FADE_DURATION) {
