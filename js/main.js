@@ -1187,11 +1187,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (heroSection && heroTurnVideo && window.matchMedia) {
     const hoverCapableQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const heroPortraitMedia = document.getElementById('heroPortraitMedia');
     let isPointerInsideHero = false;
     let hasStartedHoverPlay = false;
     let touchPlayedOnce = false;
     let isHeroVisible = false;
+    let videoInitialized = false;
     let rewindRafId = null;
+
+    heroTurnVideo.muted = true;
+    heroTurnVideo.defaultMuted = true;
+    heroTurnVideo.playsInline = true;
+    heroTurnVideo.setAttribute('muted', '');
+    heroTurnVideo.setAttribute('playsinline', '');
+    heroTurnVideo.setAttribute('webkit-playsinline', '');
 
     const cancelRewind = () => {
       if (rewindRafId !== null) {
@@ -1204,7 +1213,9 @@ document.addEventListener('DOMContentLoaded', () => {
       cancelRewind();
       heroTurnVideo.pause();
       if (reducedMotionQuery.matches || heroTurnVideo.readyState < 1 || heroTurnVideo.currentTime <= 0.02) {
-        try { heroTurnVideo.currentTime = 0; } catch (err) {}
+        if (heroTurnVideo.currentTime > 0.01) {
+          try { heroTurnVideo.currentTime = 0; } catch (err) {}
+        }
         return;
       }
 
@@ -1239,28 +1250,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const playVideoOnce = () => {
       if (reducedMotionQuery.matches || heroTurnVideo.readyState < 2) return;
       cancelRewind();
-      try { heroTurnVideo.currentTime = 0; } catch (err) {}
+      if (heroTurnVideo.currentTime > 0.05) {
+        try { heroTurnVideo.currentTime = 0; } catch (err) {}
+      }
       const playPromise = heroTurnVideo.play();
-      if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(() => {});
+      if (playPromise && typeof playPromise.then === 'function') {
+        playPromise
+          .then(() => {
+            if (!reducedMotionQuery.matches) {
+              heroTurnVideo.classList.add('is-ready');
+            }
+          })
+          .catch(() => {
+            if (!hoverCapableQuery.matches) {
+              heroTurnVideo.classList.remove('is-ready');
+            }
+          });
+      } else {
+        heroTurnVideo.classList.add('is-ready');
       }
     };
 
     const maybeTriggerTouchPlayback = () => {
       if (reducedMotionQuery.matches || hoverCapableQuery.matches || touchPlayedOnce) return;
-      if (!isHeroVisible || heroTurnVideo.readyState < 2) return;
+      if (!isHeroVisible) return;
+      if (heroTurnVideo.readyState < 2) {
+        if (heroTurnVideo.readyState === 0) {
+          try { heroTurnVideo.load(); } catch (err) {}
+        }
+        return;
+      }
       touchPlayedOnce = true;
       playVideoOnce();
     };
 
     const onVideoReady = () => {
+      if (videoInitialized) return;
+      videoInitialized = true;
       heroTurnVideo.pause();
       if (reducedMotionQuery.matches) {
         heroTurnVideo.classList.remove('is-ready');
         return;
       }
-      heroTurnVideo.classList.add('is-ready');
       if (hoverCapableQuery.matches) {
+        heroTurnVideo.classList.add('is-ready');
         if ((isPointerInsideHero || heroSection.matches(':hover')) && !hasStartedHoverPlay) {
           isPointerInsideHero = true;
           hasStartedHoverPlay = true;
@@ -1285,9 +1318,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     heroTurnVideo.addEventListener('ended', () => {
       if (!hoverCapableQuery.matches) {
-        rewindToStartSmoothly();
+        cancelRewind();
+        heroTurnVideo.pause();
+        try { heroTurnVideo.currentTime = 0; } catch (err) {}
       }
     });
+
+    if (heroPortraitMedia) {
+      heroPortraitMedia.addEventListener('click', () => {
+        if (reducedMotionQuery.matches || hoverCapableQuery.matches) return;
+        cancelRewind();
+        if (heroTurnVideo.readyState === 0) {
+          try { heroTurnVideo.load(); } catch (err) {}
+        }
+        if (heroTurnVideo.currentTime > 0.05) {
+          try { heroTurnVideo.currentTime = 0; } catch (err) {}
+        }
+        const tapPlayPromise = heroTurnVideo.play();
+        if (tapPlayPromise && typeof tapPlayPromise.then === 'function') {
+          tapPlayPromise
+            .then(() => {
+              if (!reducedMotionQuery.matches) {
+                heroTurnVideo.classList.add('is-ready');
+              }
+            })
+            .catch(() => {
+              heroTurnVideo.classList.remove('is-ready');
+            });
+        } else {
+          heroTurnVideo.classList.add('is-ready');
+        }
+      });
+    }
 
     heroSection.addEventListener('mouseenter', () => {
       if (reducedMotionQuery.matches || !hoverCapableQuery.matches) return;
@@ -1328,7 +1390,7 @@ document.addEventListener('DOMContentLoaded', () => {
         heroTurnVideo.pause();
         try { heroTurnVideo.currentTime = 0; } catch (err) {}
         heroTurnVideo.classList.remove('is-ready');
-      } else if (heroTurnVideo.readyState >= 2) {
+      } else if (hoverCapableQuery.matches && heroTurnVideo.readyState >= 2) {
         heroTurnVideo.classList.add('is-ready');
       }
     };
@@ -1399,12 +1461,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3500);
     };
 
+    const hoverCapableSubtitleQuery = window.matchMedia ? window.matchMedia('(hover: hover) and (pointer: fine)') : null;
+
     heroSubtitleStage.addEventListener('mouseenter', () => {
+      if (hoverCapableSubtitleQuery && !hoverCapableSubtitleQuery.matches) return;
       isHovered = true;
       stopCycling();
     });
 
     heroSubtitleStage.addEventListener('mouseleave', () => {
+      if (hoverCapableSubtitleQuery && !hoverCapableSubtitleQuery.matches) return;
       isHovered = false;
       startCycling();
     });
@@ -1471,7 +1537,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let lastSpawnTime = 0;
       const activeCells = new Map();
 
-      const isEnabled = () => hoverCapableQuery.matches && !reducedMotionQuery.matches;
+      const isEnabled = () => !reducedMotionQuery.matches;
 
       const clearCanvas = () => {
         if (!width || !height) return;
@@ -1641,11 +1707,30 @@ document.addEventListener('DOMContentLoaded', () => {
         lightSquaresNearCursor(e.clientX, e.clientY);
       };
 
-      heroSection.addEventListener('mousemove', handleHeroPointerMove, { passive: true });
-      heroSection.addEventListener('mouseleave', () => {
+      const resetLastPointer = () => {
         lastPointerX = null;
         lastPointerY = null;
-      });
+      };
+
+      const handleHeroTouchStart = (e) => {
+        if (!isEnabled() || !e.touches || e.touches.length === 0) return;
+        const touch = e.touches[0];
+        resetLastPointer();
+        lightSquaresNearCursor(touch.clientX, touch.clientY);
+      };
+
+      const handleHeroTouchMove = (e) => {
+        if (!isEnabled() || !e.touches || e.touches.length === 0) return;
+        const touch = e.touches[0];
+        lightSquaresNearCursor(touch.clientX, touch.clientY);
+      };
+
+      heroSection.addEventListener('mousemove', handleHeroPointerMove, { passive: true });
+      heroSection.addEventListener('mouseleave', resetLastPointer);
+      heroSection.addEventListener('touchstart', handleHeroTouchStart, { passive: true });
+      heroSection.addEventListener('touchmove', handleHeroTouchMove, { passive: true });
+      heroSection.addEventListener('touchend', resetLastPointer, { passive: true });
+      heroSection.addEventListener('touchcancel', resetLastPointer, { passive: true });
 
       if ('IntersectionObserver' in window) {
         const heroCanvasObserver = new IntersectionObserver(
