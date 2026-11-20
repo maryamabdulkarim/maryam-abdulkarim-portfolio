@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t !== 'dark' && t !== 'light') {
+          t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.style.colorScheme = t;
+      })();
+    </script>
+    <title>About — Maryam Abdulkarim</title>
+    <meta name="description" content="Product designer in Abuja, designing AI, fintech, edtech and climate products for people in emerging markets." />
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About — Maryam Abdulkarim">
+    <meta property="og:description" content="Product designer in Abuja, designing AI, fintech, edtech and climate products for people in emerging markets.">
+    <meta property="og:image" content="https://maryam-abdulkarim-portfolio.vercel.app/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://maryam-abdulkarim-portfolio.vercel.app/about.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Google Fonts: Fraunces (Headings), Inter (Body), Caveat (Handwriting) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body id="top">
+    <!-- Page Transition Overlay -->
+    <div class="page-fade-overlay" aria-hidden="true"></div>
+
+    <!-- Top Navigation -->
+    <header class="site-nav">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
+
+        <div class="nav-right-controls">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html#work">Work</a></li>
+              <li><a href="about.html" class="active" aria-current="page">About</a></li>
+              <li><a href="illustrations.html">Illustrations</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li>
+                <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                  Download CV
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch to dark mode" title="Switch to dark mode">
+            <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+
+          <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg class="nav-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <svg class="nav-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="5" y1="5" x2="19" y2="19" />
+              <line x1="19" y1="5" x2="5" y2="19" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="about-page-main">
+      <!-- Top Back Link -->
+      <div class="container about-back-top">
+        <a href="index.html" class="about-back-link">
+          <span aria-hidden="true">←</span> Back to home
+        </a>
+      </div>
+
+      <!-- 1. Intro -->
+      <section class="about-intro-section" aria-labelledby="aboutIntroHeading">
+        <div class="container">
+          <div class="about-grid">
+            <div>
+              <div class="about-portrait-frame reveal-fade-up">
+                <img
+                  src="/assets/aistudio/WhatsApp_Image_2026-11-17_at_09.53.35_d47c075f.jpeg"
+                  alt="Maryam Abdulkarim portrait"
+                  class="about-portrait-img"
+                />
+              </div>
+            </div>
+
+            <div class="about-intro-copy">
+              <span class="category-tag">ABOUT ME</span>
+              <h1 id="aboutIntroHeading" class="about-intro-title reveal-fade-up">Hi, I'm Maryam.</h1>
+              <p class="about-intro-summary">
+                Product designer in Abuja, designing AI, fintech, edtech and climate products for people in emerging markets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. My Story -->
+      <section class="section about-story-section" aria-labelledby="myStoryHeading">
+        <div class="container">
+          <div class="about-story-wrap">
+            <div class="section-header">
+              <span class="category-tag">MY STORY</span>
+              <h2 id="myStoryHeading" class="reveal-fade-up">How I think about design</h2>
+            </div>
+
+            <div class="about-story-prose">
+              <p class="about-bio">
+                Product Designer based in Nigeria. I design AI, fintech, edtech and climate products for people in emerging markets, from learning platforms to marketplaces. I'm currently the founder and product lead at EcoSmart AI. Previously, I spent two years as the product designer on Carmpus, a learning management system that grew into an AI adaptive learning platform at CodeBoulevard Systems.
+              </p>
+              <p>
+                As a founder and a designer, I fall in love with the problem before the solution. I've sat with recyclers who lost money to bad deals, and with market women keeping a whole group's savings in a notebook. Their problems shape everything I design.
+              </p>
+              <p>
+                I don't just build with AI, I design how AI behaves: when it should admit it's unsure, when it should stay out of the way, and how people can correct it. And I keep testing until people trust it.
+              </p>
+              <p>
+                I work closely with developers, from early ideas to handoff, so what I design is what ships. When I'm not designing products, I'm illustrating. See that side of me on <a href="https://www.instagram.com/uiux_maryambintkarim" target="_blank" rel="noopener noreferrer" class="about-inline-link">Instagram</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. How I Work: The Studio Wall -->
+      <section class="section studio-wall-section" aria-labelledby="studioWallHeading">
+        <div class="container">
+          <div class="section-header">
+            <span class="category-tag">HOW I WORK</span>
+            <h2 id="studioWallHeading" class="reveal-fade-up">On the studio wall</h2>
+            <p class="section-intro-copy">
+              Each step pairs AI speed with human judgement. Tap or click any note to flip it over.
+            </p>
+          </div>
+
+          <div class="studio-wall-grid reveal-fade-up">
+            <!-- Note 01: Think -->
+            <div class="studio-note-slot" style="--note-tilt: -1.6deg;">
+              <button type="button" class="studio-note" aria-pressed="false" aria-label="01 Think — tap to flip note">
+                <span class="studio-note-inner">
+                  <span class="studio-note-face studio-note-front">
+                    <span class="studio-note-tape" aria-hidden="true"></span>
+                    <span class="studio-note-num">01</span>
+                    <span class="studio-note-doodle" aria-hidden="true">
+                      <svg viewBox="0 0 80 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M27 32c-4-3-6-7.5-6-12.5C21 10.9 29.1 5 40 5s19 5.9 19 14.5c0 5-2 9.5-6 12.5-2 1.6-3 3.4-3.3 5.5H30.3c-.3-2.1-1.3-3.9-3.3-5.5Z" />
+                        <path d="M33 43h14" />
+                        <path d="M35.5 48h9" />
+                        <path d="M12 19h4" />
+                        <path d="M64 19h4" />
+                        <path d="M16 9l3 2" />
+                        <path d="M64 9l-3 2" />
+                      </svg>
+                    </span>
+                    <span class="studio-note-title">Think</span>
+                    <span class="studio-note-tools">Claude</span>
+                    <span class="studio-note-flip-cue">Tap to flip ↻</span>
+                  </span>
+
+                  <span class="studio-note-face studio-note-back">
+                    <span class="studio-note-tape" aria-hidden="true"></span>
+                    <span class="studio-note-back-head">01 · Think</span>
+                    <span class="studio-note-back-block">
+                      <span class="studio-note-back-label">AI helped with</span>
+                      <span class="studio-note-back-text">Synthesis across 137 household interviews and 57 recycler notes, stress-testing edge cases, and sharper UX copy.</span>
+                    </span>
+                    <span class="studio-note-back-block">
+                      <span class="studio-note-back-label">I decided</span>
+                      <span class="studio-note-back-text">That trust, not payout size, was the real problem — and shaped the whole product around proof and safety.</span>
+                    </span>
+                    <span class="studio-note-flip-cue">Tap to turn back ↻</span>
+                  </span>
+                </span>
+              </button>
+            </div>
+
+            <!-- Note 02: Sketch -->
+            <div class="studio-note-slot" style="--note-tilt: 1.4deg;">
+              <button type="button" class="studio-note" aria-pressed="false" aria-label="02 Sketch — tap to flip note">
+                <span class="studio-note-inner">
+                  <span class="studio-note-face studio-note-front">
+                    <span class="studio-note-tape" aria-hidden="true"></span>
+                    <span class="studio-note-num">02</span>
+                    <span class="studio-note-doodle" aria-hidden="true">
+                      <svg viewBox="0 0 80 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="14" y="10" width="34" height="34" rx="4" />
+                        <path d="M21 19h20" />
+                        <path d="M21 26h14" />
+                        <path d="M21 33h10" />
+                        <path d="M51 39l15-21 5 3.5-15 21-6.5 2Z" />
+                        <path d="M62 22l4.5 3.2" />
+                      </svg>
+                    </span>
+                    <span class="studio-note-title">Sketch</span>
+                    <span class="studio-note-tools">Pen and paper + Figma + FigJam</span>
+                    <span class="studio-note-flip-cue">Tap to flip ↻</span>
+                  </span>
+
+                  <span class="studio-note-face studio-note-back">
+                    <span class="studio-note-tape" aria-hidden="true"></span>
+                    <span class="studio-note-back-head">02 · Sketch</span>
+                    <span class="studio-note-back-block">
+                      <span class="studio-note-back-label">AI helped with</span>
+                      <span class="studio-note-back-text">Exploring alternate user flows, empty states, and failure scenarios before committing screens.</span>
+                    </span>
+                    <span class="studio-note-back-block">
+                      <span class="studio-note-back-label">I decided</span>
+                      <span class="studio-note-back-text">Everything drawn by hand first, and kept only what works cleanly on small phones and weak connections.</span>
+                    </span>
+                    <span class="studio-note-flip-cue">Tap to turn back ↻</span>
+                  </span>
+                </span>
+              </button>
+            </div>
+
+            <!-- Note 03: Build -->
+            <div class="studio-note-slot" style="--note-tilt: -1.1deg;">
+              <button type="button" class="studio-note" aria-pressed="false" aria-label="03 Build — tap to flip note">
+                <span class="studio-note-inner">
+                  <span class="studio-note-face studio-note-front">
+                    <span class="studio-note-tape" aria-hidden="true"></span>
+                    <span class="studio-note-num">03</span>
+                    <span class="studio-note-doodle" aria-hidden="true">
+                      <svg viewBox="0 0 80 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="14" y="10" width="52" height="34" rx="5" />
+                        <path d="M14 19h52" />
+                        <path d="M26 27l-5 4 5 4" />
+                        <path d="M54 27l5 4-5 4" />
+                        <path d="M43 25l-6 12" />
+                      </svg>
+                    </span>
+                    <span class="studio-note-title">Build</span>
+                    <span class="studio-note-tools">Claude Code + AI Studio + Lovable + Bolt + Figma Make</span>
+                    <span class="studio-note-flip-cue">Tap to flip ↻</span>
+                  </span>
+
+                  <span class="studio-note-face studio-note-back">
+                    <span class="studio-note-tape" aria-hidden="true"></span>
+                    <span class="studio-note-back-head">03 · Build</span>
+                    <span class="studio-note-back-block">
+                      <span class="studio-note-back-label">AI helped with</span>
+                      <span class="studio-note-back-text">Turning designs into working code, live sign-in builds like Verity, and fast prototypes for testing Ajo Book.</span>
+                    </span>
+                    <span class="studio-note-back-block">
+                      <span class="studio-note-back-label">I decided</span>
+                      <span class="studio-note-back-text">Privacy rules like in-app chat over phone numbers, and two honest scores instead of one black-box verdict.</span>
+                    </span>
+                    <span class="studio-note-flip-cue">Tap to turn back ↻</span>
+                  </span>
+                </span>
+              </button>
+            </div>
+
+            <!-- Note 04: Bring it to life -->
+            <div class="studio-note-slot" style="--note-tilt: 1.5deg;">
+              <button type="button" class="studio-note" aria-pressed="false" aria-label="04 Bring it to life — tap to flip note">
+                <span class="studio-note-inner">
+                  <span class="studio-note-face studio-note-front">
+                    <span class="studio-note-tape" aria-hidden="true"></span>
+                    <span class="studio-note-num">04</span>
+                    <span class="studio-note-doodle" aria-hidden="true">
+                      <svg viewBox="0 0 80 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="16" y="12" width="48" height="30" rx="5" />
+                        <polygon points="35,21 48,27 35,33" />
+                        <path d="M10 18l3-2" />
+                        <path d="M67 16l3-2" />
+                        <path d="M68 38l3 2" />
+                      </svg>
+                    </span>
+                    <span class="studio-note-title">Bring it to life</span>
+                    <span class="studio-note-tools">Veo</span>
+                    <span class="studio-note-flip-cue">Tap to flip ↻</span>
+                  </span>
+
+                  <span class="studio-note-face studio-note-back">
+                    <span class="studio-note-tape" aria-hidden="true"></span>
+                    <span class="studio-note-back-head">04 · Bring it to life</span>
+                    <span class="studio-note-back-block">
+                      <span class="studio-note-back-label">AI helped with</span>
+                      <span class="studio-note-back-text">Generating subtle video motion from my portrait, like the gentle head turn in my homepage hero.</span>
+                    </span>
+                    <span class="studio-note-back-block">
+                      <span class="studio-note-back-label">I decided</span>
+                      <span class="studio-note-back-text">Pacing, restraint, and fallback stills — calm and human, never flashy, with full support for reduced motion.</span>
+                    </span>
+                    <span class="studio-note-flip-cue">Tap to turn back ↻</span>
+                  </span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Community & Speaking Section -->
+      <section class="section community-section" aria-labelledby="communityHeading">
+        <div class="container">
+          <div class="section-header">
+            <span class="category-tag">Community</span>
+            <h2 id="communityHeading" class="reveal-fade-up">Community &amp; speaking</h2>
+            <p style="margin-top: 0.5rem; max-width: 640px; font-size: 1rem; color: var(--text-muted); line-height: 1.6;">
+              Women Techmakers Ambassador and lead of the Gwagwalada chapter, helping more women in Abuja build careers in tech.
+            </p>
+          </div>
+
+          <!-- Summary Strip -->
+          <div class="community-summary-strip reveal-fade-up" role="list" aria-label="Community highlights">
+            <div class="community-summary-item" role="listitem">Women Techmakers Ambassador</div>
+            <span class="community-summary-divider" aria-hidden="true"></span>
+            <div class="community-summary-item" role="listitem">Lead, Gwagwalada chapter</div>
+            <span class="community-summary-divider" aria-hidden="true"></span>
+            <div class="community-summary-item" role="listitem">4 community events since 2024</div>
+          </div>
+
+          <!-- Featured Event Card (Newest: 2026) -->
+          <article
+            class="community-event-card community-event-featured reveal-fade-up"
+            data-lightbox
+            data-title="Break the Pattern · International Women's Day"
+            data-desc="Host and speaker — Topic: Breaking the Pattern: Navigating Life, Doubt, and Growth · Women Techmakers Gwagwalada · 2026"
+            tabindex="0"
+            role="button"
+            aria-label="Break the Pattern · International Women's Day — view photo in lightbox"
+          >
+            <div class="community-card-media">
+              <img
+                src="/images/event-01.jpg"
+                alt="Break the Pattern · International Women's Day event flyer featuring Maryam Abdulkarim"
+                class="community-img-break"
+                loading="lazy"
+              />
+              <div class="community-media-scrim" aria-hidden="true"></div>
+              <span class="community-role-pill community-role-pill--filled">Host and speaker</span>
+            </div>
+
+            <div class="community-card-body">
+              <h3 class="community-card-title">Break the Pattern · International Women's Day</h3>
+              <p class="community-card-meta">Women Techmakers Gwagwalada · 2026</p>
+              <p class="community-card-topic">
+                Topic: Breaking the Pattern: Navigating Life, Doubt, and Growth
+              </p>
+            </div>
+          </article>
+
+          <!-- Three Other Events in a Row (Newest First) -->
+          <div class="community-events-grid reveal-fade-up">
+            <!-- 2025: Build with AI -->
+            <article
+              class="community-event-card"
+              data-lightbox
+              data-title="Build with AI"
+              data-desc="Host — GDG Gwagwalada · May 2025"
+              tabindex="0"
+              role="button"
+              aria-label="Build with AI — view photo in lightbox"
+            >
+              <div class="community-card-media">
+                <img
+                  src="/images/event-02.jpg"
+                  alt="Maryam Abdulkarim hosting Build with AI on stage at GDG Gwagwalada"
+                  class="community-img-build"
+                  loading="lazy"
+                />
+                <div class="community-media-scrim" aria-hidden="true"></div>
+                <span class="community-role-pill community-role-pill--outlined">Host</span>
+              </div>
+
+              <div class="community-card-body">
+                <h3 class="community-card-title">Build with AI</h3>
+                <p class="community-card-meta">GDG Gwagwalada · May 2025</p>
+              </div>
+            </article>
+
+            <!-- 2025: Redefine Possible -->
+            <article
+              class="community-event-card"
+              data-lightbox
+              data-title="Redefine Possible · International Women's Day"
+              data-desc="Host — Women Techmakers · 2025"
+              tabindex="0"
+              role="button"
+              aria-label="Redefine Possible · International Women's Day — view photo in lightbox"
+            >
+              <div class="community-card-media">
+                <img
+                  src="/images/event-03.jpg"
+                  alt="Redefine Possible · International Women's Day 2025 flyer featuring Maryam Abdulkarim"
+                  class="community-img-redefine"
+                  loading="lazy"
+                />
+                <div class="community-media-scrim" aria-hidden="true"></div>
+                <span class="community-role-pill community-role-pill--outlined">Host</span>
+              </div>
+
+              <div class="community-card-body">
+                <h3 class="community-card-title">Redefine Possible · International Women's Day</h3>
+                <p class="community-card-meta">Women Techmakers · 2025</p>
+              </div>
+            </article>
+
+            <!-- Jul 2024: I/O Extended (No Photo — Soft Green GDG Card) -->
+            <article class="community-event-card community-event-card--no-photo">
+              <div class="community-card-media community-gdg-media">
+                <div class="community-gdg-inner">
+                  <div class="community-gdg-mark" aria-hidden="true">
+                    <span class="gdg-chevron gdg-chevron-left">&lt;</span>
+                    <span class="gdg-chevron gdg-chevron-right">&gt;</span>
+                  </div>
+                  <span class="community-gdg-org">Google Developer Groups</span>
+                  <span class="community-gdg-chapter">GDG Gwagwalada</span>
+                </div>
+                <span class="community-role-pill community-role-pill--soft-outlined">Host</span>
+              </div>
+
+              <div class="community-card-body">
+                <h3 class="community-card-title">I/O Extended</h3>
+                <p class="community-card-meta">GDG Gwagwalada · Jul 2024</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Beyond UI (3 illustrations in a row) -->
+      <section class="section about-illus-section" aria-labelledby="aboutBeyondUiHeading">
+        <div class="container">
+          <div class="section-header">
+            <span class="category-tag">BEYOND UI</span>
+            <h2 id="aboutBeyondUiHeading" class="reveal-fade-up">I also illustrate</h2>
+            <p class="section-intro-copy">
+              Characters, scenes and visual stories, drawn by hand.
+            </p>
+          </div>
+
+          <div class="about-illus-grid reveal-fade-up">
+            <a href="illustrations.html" class="home-illus-card" aria-label="Croissant Character — view all illustrations">
+              <img
+                src="/assets/aistudio/Snack__7__779a4eca.png"
+                alt="Croissant Character illustration"
+                loading="lazy"
+                class="home-illus-img-character"
+              />
+              <span class="home-illus-overlay">
+                <span class="home-illus-title">Croissant Character</span>
+              </span>
+            </a>
+
+            <a href="illustrations.html" class="home-illus-card" aria-label="Casting the Ballot — view all illustrations">
+              <img
+                src="/assets/aistudio/FIFTH_SCENE_c1d7b4c3.png"
+                alt="Casting the Ballot illustration"
+                loading="lazy"
+                class="home-illus-img-scene"
+              />
+              <span class="home-illus-overlay">
+                <span class="home-illus-title">Casting the Ballot</span>
+              </span>
+            </a>
+
+            <a href="illustrations.html" class="home-illus-card home-illus-card-dark" aria-label="Strawberry Boba Character — view all illustrations">
+              <img
+                src="/assets/aistudio/Drink__5__85867869.png"
+                alt="Strawberry Boba Character illustration"
+                loading="lazy"
+                class="home-illus-img-boba"
+              />
+              <span class="home-illus-overlay">
+                <span class="home-illus-title">Strawberry Boba Character</span>
+              </span>
+            </a>
+          </div>
+
+          <div class="home-illus-footer">
+            <a href="illustrations.html" class="text-link">See all illustrations <span class="link-arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Closing Section -->
+      <section class="section about-closing-section" aria-labelledby="aboutClosingHeading">
+        <div class="container">
+          <span class="category-tag">Contact</span>
+          <h2 id="aboutClosingHeading" class="contact-heading reveal-fade-up">Let's work together</h2>
+          <p class="about-closing-copy">
+            I'm open to product design roles, remote or on-site, and freelance projects. The fastest way to reach me is email.
+          </p>
+
+          <div class="contact-email-row">
+            <a href="mailto:maryamabdulkarim06@gmail.com" class="contact-email-link">
+              maryamabdulkarim06@gmail.com
+            </a>
+            <button type="button" id="copyEmailBtn" class="copy-email-btn" data-copy-email="maryamabdulkarim06@gmail.com" aria-label="Copy email address">
+              <svg class="copy-email-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="copy-email-label">Copy</span>
+            </button>
+          </div>
+
+          <div class="about-closing-actions">
+            <a href="mailto:maryamabdulkarim06@gmail.com" class="btn btn-primary">Email me</a>
+            <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download CV</a>
+            <a href="https://linkedin.com/in/maryam-abdulkarim-a671931a3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
+          </div>
+
+          <div class="about-back-bottom">
+            <a href="index.html" class="about-back-link">
+              <span aria-hidden="true">←</span> Back to home
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span class="footer-copy">© 2026 Maryam Abdulkarim</span>
+        <div class="footer-socials" aria-label="Social links">
+          <a href="https://linkedin.com/in/maryam-abdulkarim-a671931a3" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="LinkedIn" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/uiux_maryambintkarim" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="Instagram" title="Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a href="https://x.com/MaryamBintKarim" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="X" title="X">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+          <a href="https://wa.me/2349021399802" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="WhatsApp" title="WhatsApp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.79 14.08c-.24.68-1.42 1.3-1.95 1.38-.5.08-1.13.11-1.83-.11-.42-.14-.97-.32-1.66-.62-2.92-1.26-4.82-4.2-4.96-4.39-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.27-.29.58-.36.77-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2.02.9 2.17.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.31.38-.44.51-.14.14-.3.3-.13.59.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.46.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.12.07.7-.17 1.38z" />
+            </svg>
+          </a>
+        </div>
+        <a href="#top" class="text-link footer-back-top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+
+    <!-- Shared Lightbox Modal (for Community & Speaking photos) -->
+    <div id="portfolioLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+      <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
+        <p class="lightbox-caption-text"></p>
+      </div>
+      <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <!-- Interactive JavaScript Engine -->
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

@@ -440,6 +440,13 @@ document.addEventListener('DOMContentLoaded', () => {
           e.stopPropagation();
           openLightbox(caseStudyImages, idx);
         });
+        frame.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            e.stopPropagation();
+            openLightbox(caseStudyImages, idx);
+          }
+        });
       });
     }
 
@@ -1797,6 +1804,234 @@ document.addEventListener('DOMContentLoaded', () => {
       resizeCanvas();
       renderStaticRestingGrid();
     }
+  }
+
+  // 16. How I Work: Studio Group Chat
+  const studioChatSection = document.getElementById('howIWorkSection');
+  const studioChatFeed = document.getElementById('studioChatMessages');
+  const studioReplayBtn = document.getElementById('studioReplayBtn');
+
+  if (studioChatSection && studioChatFeed) {
+    const STUDIO_MESSAGES = [
+      {
+        role: 'ai',
+        sender: 'Claude',
+        text: 'I grouped notes from 137 households and 57 recyclers. Top theme: people would recycle if it paid.'
+      },
+      {
+        role: 'me',
+        sender: 'Me',
+        text: "Look closer. They've been cheated before. It's trust, not money. We design for trust."
+      },
+      {
+        role: 'ai',
+        sender: 'Claude Code',
+        text: "Pickup screen is built. Show the recycler's phone number upfront?"
+      },
+      {
+        role: 'me',
+        sender: 'Me',
+        text: 'No. In-app chat first, and only the area until they accept. Households need to feel safe.'
+      },
+      {
+        role: 'ai',
+        sender: 'Lovable',
+        text: "Verity is live with real sign-in. One 'AI or not' verdict on the result?"
+      },
+      {
+        role: 'me',
+        sender: 'Me',
+        text: 'Two scores: Trust and Confidence. One number hides when the AI is unsure.'
+      },
+      {
+        role: 'ai',
+        sender: 'Veo',
+        text: "Here's your headshot, turning its head."
+      },
+      {
+        role: 'me',
+        sender: 'Me',
+        text: 'Slower. Calm, not flashy.'
+      }
+    ];
+
+    let playbackId = 0;
+    let activeTimers = [];
+    let hasAutoPlayed = false;
+
+    const clearChatTimers = () => {
+      activeTimers.forEach((timerId) => window.clearTimeout(timerId));
+      activeTimers = [];
+    };
+
+    const scheduleChatStep = (fn, delayMs, runId) => {
+      const id = window.setTimeout(() => {
+        if (runId !== playbackId) return;
+        fn();
+      }, delayMs);
+      activeTimers.push(id);
+    };
+
+    const scrollChatToBottom = (instant) => {
+      if (instant || reducedMotionQuery.matches) {
+        studioChatFeed.scrollTop = studioChatFeed.scrollHeight;
+      } else {
+        studioChatFeed.scrollTo({
+          top: studioChatFeed.scrollHeight,
+          behavior: 'smooth'
+        });
+      }
+    };
+
+    const createMessageNode = (msg) => {
+      const row = document.createElement('div');
+      row.className = `studio-chat-msg ${msg.role === 'me' ? 'studio-chat-msg-me' : 'studio-chat-msg-ai'} is-visible`;
+
+      if (msg.role === 'ai') {
+        const senderEl = document.createElement('span');
+        senderEl.className = 'studio-chat-sender';
+        senderEl.textContent = msg.sender;
+        row.appendChild(senderEl);
+      }
+
+      const bubbleEl = document.createElement('div');
+      bubbleEl.className = 'studio-chat-bubble';
+      bubbleEl.textContent = msg.text;
+      row.appendChild(bubbleEl);
+      return row;
+    };
+
+    const createTypingNode = (senderName) => {
+      const row = document.createElement('div');
+      row.className = 'studio-chat-msg studio-chat-msg-ai studio-chat-typing-row is-visible';
+      row.setAttribute('aria-label', `${senderName} is typing`);
+
+      const senderEl = document.createElement('span');
+      senderEl.className = 'studio-chat-sender';
+      senderEl.textContent = senderName;
+      row.appendChild(senderEl);
+
+      const typingBubble = document.createElement('div');
+      typingBubble.className = 'studio-chat-typing-bubble';
+
+      const typingText = document.createElement('span');
+      typingText.className = 'studio-chat-typing-label';
+      typingText.textContent = 'typing…';
+
+      const dotsWrap = document.createElement('span');
+      dotsWrap.className = 'studio-chat-typing-dots';
+      dotsWrap.setAttribute('aria-hidden', 'true');
+      dotsWrap.innerHTML = '<span></span><span></span><span></span>';
+
+      typingBubble.appendChild(typingText);
+      typingBubble.appendChild(dotsWrap);
+      row.appendChild(typingBubble);
+      return row;
+    };
+
+    const renderAllInstant = () => {
+      playbackId += 1;
+      clearChatTimers();
+      studioChatFeed.innerHTML = '';
+      STUDIO_MESSAGES.forEach((msg) => {
+        studioChatFeed.appendChild(createMessageNode(msg));
+      });
+      scrollChatToBottom(true);
+    };
+
+    const playConversation = (initialDelayMs = 240) => {
+      if (reducedMotionQuery.matches) {
+        renderAllInstant();
+        return;
+      }
+
+      playbackId += 1;
+      const runId = playbackId;
+      clearChatTimers();
+      studioChatFeed.innerHTML = '';
+      studioChatFeed.scrollTop = 0;
+
+      const step = (idx) => {
+        if (runId !== playbackId || idx >= STUDIO_MESSAGES.length) return;
+        const msg = STUDIO_MESSAGES[idx];
+
+        if (msg.role === 'ai') {
+          const typingNode = createTypingNode(msg.sender);
+          studioChatFeed.appendChild(typingNode);
+          scrollChatToBottom(false);
+
+          scheduleChatStep(() => {
+            if (typingNode.parentNode === studioChatFeed) {
+              studioChatFeed.removeChild(typingNode);
+            }
+            studioChatFeed.appendChild(createMessageNode(msg));
+            scrollChatToBottom(false);
+
+            scheduleChatStep(() => step(idx + 1), 950, runId);
+          }, 700, runId);
+        } else {
+          studioChatFeed.appendChild(createMessageNode(msg));
+          scrollChatToBottom(false);
+
+          scheduleChatStep(() => step(idx + 1), 950, runId);
+        }
+      };
+
+      scheduleChatStep(() => step(0), initialDelayMs, runId);
+    };
+
+    if (reducedMotionQuery.matches) {
+      hasAutoPlayed = true;
+      renderAllInstant();
+    } else if ('IntersectionObserver' in window) {
+      const studioChatObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !hasAutoPlayed) {
+              hasAutoPlayed = true;
+              studioChatObserver.disconnect();
+              playConversation(260);
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+      studioChatObserver.observe(studioChatSection);
+    } else {
+      hasAutoPlayed = true;
+      playConversation(260);
+    }
+
+    if (studioReplayBtn) {
+      studioReplayBtn.addEventListener('click', () => {
+        hasAutoPlayed = true;
+        playConversation(120);
+      });
+    }
+
+    const handleStudioMotionChange = (e) => {
+      if (e.matches) {
+        renderAllInstant();
+      }
+    };
+
+    if (reducedMotionQuery.addEventListener) {
+      reducedMotionQuery.addEventListener('change', handleStudioMotionChange);
+    } else if (reducedMotionQuery.addListener) {
+      reducedMotionQuery.addListener(handleStudioMotionChange);
+    }
+  }
+
+  // 17. About Page: Studio Wall Note Flip Cards (click/tap only, no dragging)
+  const studioWallNotes = document.querySelectorAll('.studio-note');
+  if (studioWallNotes.length > 0) {
+    studioWallNotes.forEach((noteBtn) => {
+      noteBtn.addEventListener('click', () => {
+        const nextFlipped = !noteBtn.classList.contains('is-flipped');
+        noteBtn.classList.toggle('is-flipped', nextFlipped);
+        noteBtn.setAttribute('aria-pressed', String(nextFlipped));
+      });
+    });
   }
 });
 

@@ -28,10 +28,10 @@
     <meta property="og:url" content="https://maryam-abdulkarim-portfolio.vercel.app/">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Google Fonts: Fraunces (Headings), Inter (Body) -->
+    <!-- Google Fonts: Fraunces (Headings), Inter (Body), Caveat (Handwriting) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Master Stylesheet -->
     <link rel="stylesheet" href="/css/style.css" />
@@ -69,7 +69,7 @@
           <nav>
             <ul class="nav-links">
               <li><a href="#work">Work</a></li>
-              <li><a href="#about">About</a></li>
+              <li><a href="about.html">About</a></li>
               <li><a href="illustrations.html">Illustrations</a></li>
               <li><a href="#contact">Contact</a></li>
               <li>
@@ -655,107 +655,158 @@
         </div>
       </section>
 
-      <!-- Community & Speaking Section (Compact) -->
-      <section class="section">
+      <!-- Illustrations Strip Section -->
+      <section class="section home-illus-section" aria-labelledby="homeIllusHeading">
         <div class="container">
           <div class="section-header">
-            <span class="category-tag">Community</span>
-            <h2 class="reveal-fade-up">Community & speaking</h2>
-            <p style="margin-top: 0.5rem; max-width: 640px; font-size: 1rem; color: var(--text-muted); line-height: 1.6;">
-              Women Techmakers Ambassador and lead of the Gwagwalada chapter, helping more women in Abuja build careers in tech.
+            <span class="category-tag">BEYOND UI</span>
+            <h2 id="homeIllusHeading" class="reveal-fade-up">I also illustrate</h2>
+            <p class="section-intro-copy">
+              Characters, scenes and visual stories, drawn by hand.
             </p>
           </div>
 
-          <div>
-            <table class="responsive-table">
-              <thead>
-                <tr>
-                  <th style="width: 50%;">Event</th>
-                  <th style="width: 32%;">My role</th>
-                  <th style="width: 18%;">When</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td data-label="Event"><strong>Break the Pattern · International Women's Day</strong></td>
-                  <td data-label="My role">Host and speaker</td>
-                  <td data-label="When">2026</td>
-                </tr>
-                <tr>
-                  <td data-label="Event"><strong>Build with AI · GDG Gwagwalada</strong></td>
-                  <td data-label="My role">Host</td>
-                  <td data-label="When">May 2025</td>
-                </tr>
-                <tr>
-                  <td data-label="Event"><strong>Redefine Possible · International Women's Day</strong></td>
-                  <td data-label="My role">Host</td>
-                  <td data-label="When">2025</td>
-                </tr>
-                <tr>
-                  <td data-label="Event"><strong>I/O Extended · GDG Gwagwalada</strong></td>
-                  <td data-label="My role">Host</td>
-                  <td data-label="When">Jul 2024</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="home-illus-grid reveal-fade-up">
+            <a href="illustrations.html" class="home-illus-card" aria-label="Croissant Character — view all illustrations">
+              <img
+                src="/assets/aistudio/Snack__7__779a4eca.png"
+                alt="Croissant Character illustration"
+                loading="lazy"
+                class="home-illus-img-character"
+              />
+              <span class="home-illus-overlay">
+                <span class="home-illus-title">Croissant Character</span>
+              </span>
+            </a>
+
+            <a href="illustrations.html" class="home-illus-card" aria-label="Casting the Ballot — view all illustrations">
+              <img
+                src="/assets/aistudio/FIFTH_SCENE_c1d7b4c3.png"
+                alt="Casting the Ballot illustration"
+                loading="lazy"
+                class="home-illus-img-scene"
+              />
+              <span class="home-illus-overlay">
+                <span class="home-illus-title">Casting the Ballot</span>
+              </span>
+            </a>
+
+            <a href="illustrations.html" class="home-illus-card home-illus-card-dark" aria-label="Strawberry Boba Character — view all illustrations">
+              <img
+                src="/assets/aistudio/Drink__5__85867869.png"
+                alt="Strawberry Boba Character illustration"
+                loading="lazy"
+                class="home-illus-img-boba"
+              />
+              <span class="home-illus-overlay">
+                <span class="home-illus-title">Strawberry Boba Character</span>
+              </span>
+            </a>
+
+            <a href="illustrations.html" class="home-illus-card" aria-label="Morning at GMS Alimosho (PU 003) — view all illustrations">
+              <img
+                src="/assets/aistudio/First_frame__1__cf2e54bc.png"
+                alt="Morning at GMS Alimosho (PU 003) illustration"
+                loading="lazy"
+                class="home-illus-img-scene"
+              />
+              <span class="home-illus-overlay">
+                <span class="home-illus-title">Morning at GMS Alimosho (PU 003)</span>
+              </span>
+            </a>
           </div>
 
-          <!-- Photo row (3:2 shape, opens in lightbox, swipe row on mobile) -->
-          <div class="community-photos-row reveal-fade-up">
-            <div class="community-photo-card" data-lightbox data-title="Break the Pattern · International Women's Day" data-desc="Topic: Breaking the Pattern: Navigating Life, Doubt, and Growth — Women Techmakers Gwagwalada">
-              <div class="photo-aspect-wrap">
-                <img src="/images/event-01.jpg" alt="Break the Pattern · International Women's Day" loading="lazy" />
-                <span class="photo-card-label">Break the Pattern</span>
-                <span class="photo-zoom-hint">⛶ View full screen</span>
-              </div>
-            </div>
-
-            <div class="community-photo-card" data-lightbox data-title="Build with AI · GDG Gwagwalada" data-desc="Speaking on stage and hosting the community Build with AI session — GDG Gwagwalada">
-              <div class="photo-aspect-wrap">
-                <img src="/images/event-02.jpg" alt="Build with AI · GDG Gwagwalada" loading="lazy" />
-                <span class="photo-card-label">Build with AI</span>
-                <span class="photo-zoom-hint">⛶ View full screen</span>
-              </div>
-            </div>
-
-            <div class="community-photo-card" data-lightbox data-title="Redefine Possible · International Women's Day" data-desc="Host — Women Techmakers International Women's Day 2025">
-              <div class="photo-aspect-wrap">
-                <img src="/images/event-03.jpg" alt="Redefine Possible · International Women's Day" loading="lazy" />
-                <span class="photo-card-label">Redefine Possible</span>
-                <span class="photo-zoom-hint">⛶ View full screen</span>
-              </div>
-            </div>
+          <div class="home-illus-footer">
+            <a href="illustrations.html" class="text-link">See all illustrations <span class="link-arrow" aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>
 
-      <!-- Tools I Use Section -->
-      <section class="section tools-section" aria-label="Tools I use">
+      <!-- How I Work with AI Section -->
+      <section class="section studio-chat-section" id="howIWorkSection" aria-labelledby="aiWorkHeading">
         <div class="container">
-          <div class="hero-toolkit-eyebrow">TOOLS I USE</div>
-          <div class="tools-static-row">
-            <span class="tool-pill">Figma</span>
-            <span class="tool-pill">Figma Draw</span>
-            <span class="tool-pill">Figma Make</span>
-            <span class="tool-pill">FigJam</span>
-            <span class="tool-pill">Framer</span>
-            <span class="tool-pill">Webflow</span>
-            <span class="tool-pill">Bolt</span>
-            <span class="tool-pill">Maze</span>
-            <span class="tool-pill">Miro</span>
-            <span class="tool-pill">Notion</span>
-            <span class="tool-pill">Jira</span>
-            <span class="tool-pill">Trello</span>
-            <span class="tool-pill">Google Forms</span>
-            <span class="tool-pill">Microsoft Forms</span>
-            <span class="tool-pill">Zoom</span>
-            <span class="tool-pill">Google Meet</span>
-            <span class="tool-pill">Claude</span>
+          <div class="studio-chat-grid">
+            <div class="studio-chat-copy">
+              <span class="category-tag">HOW I WORK</span>
+              <h2 id="aiWorkHeading" class="studio-chat-heading reveal-fade-up">My studio has a group chat</h2>
+              <p class="studio-chat-lead">
+                I design with AI every day. It's fast, tireless and full of ideas. But someone still has to know the user, and that's my job.
+              </p>
+
+              <div class="studio-chat-roster">
+                <span class="studio-chat-roster-label">In the chat</span>
+                <div class="studio-chat-pills" aria-label="AI and design tools in the chat">
+                  <span class="studio-chat-pill">Claude</span>
+                  <span class="studio-chat-pill">Claude Code</span>
+                  <span class="studio-chat-pill">ChatGPT</span>
+                  <span class="studio-chat-pill">Gemini</span>
+                  <span class="studio-chat-pill">Google AI Studio</span>
+                  <span class="studio-chat-pill">Lovable</span>
+                  <span class="studio-chat-pill">Bolt</span>
+                  <span class="studio-chat-pill">Figma Make</span>
+                  <span class="studio-chat-pill">Veo</span>
+                  <span class="studio-chat-pill">Figma</span>
+                </div>
+              </div>
+
+              <div class="studio-chat-actions">
+                <p class="studio-chat-handwritten">AI suggests. I decide.</p>
+                <div>
+                  <button type="button" id="studioReplayBtn" class="studio-replay-btn">
+                    Replay chat <span aria-hidden="true">↻</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="studio-chat-window" aria-label="Maryam's studio group chat">
+              <div class="studio-chat-header">
+                <div class="studio-chat-avatar" aria-hidden="true">MA</div>
+                <div class="studio-chat-meta">
+                  <div class="studio-chat-title">Maryam's studio</div>
+                  <div class="studio-chat-subtitle">Maryam + 9 AI tools</div>
+                </div>
+              </div>
+
+              <div class="studio-chat-messages" id="studioChatMessages" aria-label="Conversation transcript">
+                <!-- Populated by JavaScript (instant under prefers-reduced-motion) -->
+                <noscript>
+                  <div class="studio-chat-msg studio-chat-msg-ai is-visible">
+                    <span class="studio-chat-sender">Claude</span>
+                    <div class="studio-chat-bubble">I grouped notes from 137 households and 57 recyclers. Top theme: people would recycle if it paid.</div>
+                  </div>
+                  <div class="studio-chat-msg studio-chat-msg-me is-visible">
+                    <div class="studio-chat-bubble">Look closer. They've been cheated before. It's trust, not money. We design for trust.</div>
+                  </div>
+                  <div class="studio-chat-msg studio-chat-msg-ai is-visible">
+                    <span class="studio-chat-sender">Claude Code</span>
+                    <div class="studio-chat-bubble">Pickup screen is built. Show the recycler's phone number upfront?</div>
+                  </div>
+                  <div class="studio-chat-msg studio-chat-msg-me is-visible">
+                    <div class="studio-chat-bubble">No. In-app chat first, and only the area until they accept. Households need to feel safe.</div>
+                  </div>
+                  <div class="studio-chat-msg studio-chat-msg-ai is-visible">
+                    <span class="studio-chat-sender">Lovable</span>
+                    <div class="studio-chat-bubble">Verity is live with real sign-in. One 'AI or not' verdict on the result?</div>
+                  </div>
+                  <div class="studio-chat-msg studio-chat-msg-me is-visible">
+                    <div class="studio-chat-bubble">Two scores: Trust and Confidence. One number hides when the AI is unsure.</div>
+                  </div>
+                  <div class="studio-chat-msg studio-chat-msg-ai is-visible">
+                    <span class="studio-chat-sender">Veo</span>
+                    <div class="studio-chat-bubble">Here's your headshot, turning its head.</div>
+                  </div>
+                  <div class="studio-chat-msg studio-chat-msg-me is-visible">
+                    <div class="studio-chat-bubble">Slower. Calm, not flashy.</div>
+                  </div>
+                </noscript>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- About Section -->
+      <!-- About Teaser Section -->
       <section id="about" class="section">
         <div class="container">
           <div class="about-grid">
@@ -774,21 +825,11 @@
             <div>
               <span class="category-tag">About Me</span>
               <h2 class="reveal-fade-up" style="font-family: var(--font-heading); font-size: 2.25rem; margin-bottom: 1.25rem;">Hi, I'm Maryam.</h2>
-              <p class="about-bio" style="font-size: 1.08rem; line-height: 1.7; margin-bottom: 1.25rem;">
-                Product Designer based in Nigeria. I design AI, fintech, edtech and climate products for people in emerging markets, from learning platforms to marketplaces. I'm currently the founder and product lead at EcoSmart AI. Previously, I spent two years as the product designer on Carmpus, a learning management system that grew into an AI adaptive learning platform at CodeBoulevard Systems.
+              <p class="about-bio" style="font-size: 1.08rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                Product Designer based in Nigeria. I design AI, fintech, edtech and climate products for people in emerging markets, from learning platforms to marketplaces.
               </p>
-              <p style="margin-bottom: 1.25rem; font-size: 1.05rem; line-height: 1.7;">
-                As a founder and a designer, I fall in love with the problem before the solution. I've sat with recyclers who lost money to bad deals, and with market women keeping a whole group's savings in a notebook. Their problems shape everything I design.
-              </p>
-              <p style="margin-bottom: 1.25rem; font-size: 1.05rem; line-height: 1.7;">
-                I don't just build with AI, I design how AI behaves: when it should admit it's unsure, when it should stay out of the way, and how people can correct it. And I keep testing until people trust it.
-              </p>
-              <p style="margin-bottom: 1.75rem; font-size: 1.05rem; line-height: 1.7;">
-                I work closely with developers, from early ideas to handoff, so what I design is what ships. When I'm not designing products, I'm illustrating. See that side of me on <a href="https://www.instagram.com/uiux_maryambintkarim" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline; font-weight: 500;">Instagram</a>.
-              </p>
-              <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-                <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download my CV</a>
-                <a href="mailto:maryamabdulkarim06@gmail.com" class="btn btn-secondary">Email me</a>
+              <div>
+                <a href="about.html" class="text-link">More about me <span class="link-arrow" aria-hidden="true">→</span></a>
               </div>
             </div>
           </div>
