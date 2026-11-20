@@ -1188,7 +1188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 16. Homepage Hero Portrait Video (Whole-hero hover trigger on desktop, auto-play once on touch load)
+  // 16. Homepage Hero Portrait Video (Whole-hero hover trigger on desktop, continuous smooth loop on touch)
   const heroSection = document.getElementById('heroSection') || document.querySelector('.hero-section');
   const heroTurnVideo = document.getElementById('heroTurnVideo');
 
@@ -1197,9 +1197,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroPortraitMedia = document.getElementById('heroPortraitMedia');
     let isPointerInsideHero = false;
     let hasStartedHoverPlay = false;
-    let touchPlayedOnce = false;
-    let isHeroVisible = false;
-    let videoInitialized = false;
+    let isHeroVisible = (() => {
+      const rect = heroSection.getBoundingClientRect();
+      return rect.bottom > 0 && rect.top < (window.innerHeight || document.documentElement.clientHeight);
+    })();
     let rewindRafId = null;
 
     heroTurnVideo.muted = true;
@@ -1254,9 +1255,22 @@ document.addEventListener('DOMContentLoaded', () => {
       rewindRafId = requestAnimationFrame(stepRewind);
     };
 
+    const syncLoopAndRateForMode = () => {
+      if (hoverCapableQuery.matches) {
+        heroTurnVideo.loop = false;
+        heroTurnVideo.removeAttribute('loop');
+        heroTurnVideo.playbackRate = 1;
+      } else {
+        heroTurnVideo.loop = true;
+        heroTurnVideo.setAttribute('loop', '');
+        heroTurnVideo.playbackRate = 0.72;
+      }
+    };
+
     const playVideoOnce = () => {
       if (reducedMotionQuery.matches || heroTurnVideo.readyState < 2) return;
       cancelRewind();
+      syncLoopAndRateForMode();
       if (heroTurnVideo.currentTime > 0.05) {
         try { heroTurnVideo.currentTime = 0; } catch (err) {}
       }
@@ -1278,68 +1292,78 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    const maybeTriggerTouchPlayback = () => {
-      if (reducedMotionQuery.matches || hoverCapableQuery.matches || touchPlayedOnce) return;
-      if (!isHeroVisible) return;
+    const startTouchContinuousPlayback = () => {
+      if (reducedMotionQuery.matches || hoverCapableQuery.matches || !isHeroVisible) return;
+      cancelRewind();
+      syncLoopAndRateForMode();
       if (heroTurnVideo.readyState < 2) {
         if (heroTurnVideo.readyState === 0) {
           try { heroTurnVideo.load(); } catch (err) {}
         }
         return;
       }
-      touchPlayedOnce = true;
-      playVideoOnce();
+      if (!heroTurnVideo.paused) {
+        heroTurnVideo.classList.add('is-ready');
+        return;
+      }
+      const playPromise = heroTurnVideo.play();
+      if (playPromise && typeof playPromise.then === 'function') {
+        playPromise
+          .then(() => {
+            if (!reducedMotionQuery.matches && !hoverCapableQuery.matches) {
+              heroTurnVideo.classList.add('is-ready');
+            }
+          })
+          .catch(() => {
+            heroTurnVideo.classList.remove('is-ready');
+          });
+      } else {
+        heroTurnVideo.classList.add('is-ready');
+      }
     };
 
-    const onVideoReady = () => {
-      if (videoInitialized) return;
-      videoInitialized = true;
-      heroTurnVideo.pause();
+    const handleVideoCanPlay = () => {
       if (reducedMotionQuery.matches) {
+        heroTurnVideo.pause();
         heroTurnVideo.classList.remove('is-ready');
         return;
       }
+      syncLoopAndRateForMode();
       if (hoverCapableQuery.matches) {
-        heroTurnVideo.classList.add('is-ready');
-        if ((isPointerInsideHero || heroSection.matches(':hover')) && !hasStartedHoverPlay) {
+        if (heroTurnVideo.paused && !isPointerInsideHero && !heroSection.matches(':hover')) {
+          heroTurnVideo.classList.add('is-ready');
+        } else if ((isPointerInsideHero || heroSection.matches(':hover')) && !hasStartedHoverPlay) {
           isPointerInsideHero = true;
           hasStartedHoverPlay = true;
           playVideoOnce();
         }
       } else {
-        maybeTriggerTouchPlayback();
+        startTouchContinuousPlayback();
       }
     };
 
+    syncLoopAndRateForMode();
     heroTurnVideo.pause();
     heroTurnVideo.addEventListener('error', () => {
       heroTurnVideo.classList.remove('is-ready');
     });
 
-    if (heroTurnVideo.readyState >= 2) {
-      onVideoReady();
-    } else {
-      heroTurnVideo.addEventListener('loadeddata', onVideoReady, { once: true });
-      heroTurnVideo.addEventListener('canplay', onVideoReady, { once: true });
-    }
+    heroTurnVideo.addEventListener('loadeddata', handleVideoCanPlay);
+    heroTurnVideo.addEventListener('canplay', handleVideoCanPlay);
 
-    heroTurnVideo.addEventListener('ended', () => {
-      if (!hoverCapableQuery.matches) {
-        cancelRewind();
-        heroTurnVideo.pause();
-        try { heroTurnVideo.currentTime = 0; } catch (err) {}
-      }
-    });
+    if (heroTurnVideo.readyState >= 2) {
+      handleVideoCanPlay();
+    } else if (!hoverCapableQuery.matches && !reducedMotionQuery.matches) {
+      try { heroTurnVideo.load(); } catch (err) {}
+    }
 
     if (heroPortraitMedia) {
       heroPortraitMedia.addEventListener('click', () => {
         if (reducedMotionQuery.matches || hoverCapableQuery.matches) return;
         cancelRewind();
+        syncLoopAndRateForMode();
         if (heroTurnVideo.readyState === 0) {
           try { heroTurnVideo.load(); } catch (err) {}
-        }
-        if (heroTurnVideo.currentTime > 0.05) {
-          try { heroTurnVideo.currentTime = 0; } catch (err) {}
         }
         const tapPlayPromise = heroTurnVideo.play();
         if (tapPlayPromise && typeof tapPlayPromise.then === 'function') {
@@ -1377,33 +1401,46 @@ document.addEventListener('DOMContentLoaded', () => {
       const heroVisibilityObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              isHeroVisible = true;
-              maybeTriggerTouchPlayback();
+            isHeroVisible = entry.isIntersecting;
+            if (!hoverCapableQuery.matches && !reducedMotionQuery.matches) {
+              if (entry.isIntersecting) {
+                startTouchContinuousPlayback();
+              } else if (!heroTurnVideo.paused) {
+                heroTurnVideo.pause();
+              }
             }
           });
         },
-        { threshold: 0.2 }
+        { threshold: 0.15 }
       );
       heroVisibilityObserver.observe(heroSection);
-    } else {
-      isHeroVisible = true;
-      maybeTriggerTouchPlayback();
     }
 
-    const handleVideoMotionChange = () => {
+    const handleVideoModeOrMotionChange = () => {
+      syncLoopAndRateForMode();
       if (reducedMotionQuery.matches) {
         cancelRewind();
         heroTurnVideo.pause();
         try { heroTurnVideo.currentTime = 0; } catch (err) {}
         heroTurnVideo.classList.remove('is-ready');
-      } else if (hoverCapableQuery.matches && heroTurnVideo.readyState >= 2) {
-        heroTurnVideo.classList.add('is-ready');
+      } else if (hoverCapableQuery.matches) {
+        if (!isPointerInsideHero && !heroSection.matches(':hover')) {
+          heroTurnVideo.pause();
+          try { heroTurnVideo.currentTime = 0; } catch (err) {}
+        }
+        if (heroTurnVideo.readyState >= 2) {
+          heroTurnVideo.classList.add('is-ready');
+        }
+      } else {
+        startTouchContinuousPlayback();
       }
     };
 
     if (reducedMotionQuery.addEventListener) {
-      reducedMotionQuery.addEventListener('change', handleVideoMotionChange);
+      reducedMotionQuery.addEventListener('change', handleVideoModeOrMotionChange);
+    }
+    if (hoverCapableQuery.addEventListener) {
+      hoverCapableQuery.addEventListener('change', handleVideoModeOrMotionChange);
     }
   }
 
