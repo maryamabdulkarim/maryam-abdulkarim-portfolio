@@ -35,7 +35,6 @@
 
     <!-- Master Stylesheet -->
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="preload" as="image" href="/images/ecosmart/ecosmart-web-hero.webp" />
     <script>
       (function () {
         try {
@@ -572,27 +571,24 @@
             </article>
 
             <article class="project-card">
-              <div
-                class="project-media-wrap project-media-ecosmart-web reveal-fade-up"
-                data-gallery-trigger="ecosmart-web"
-                role="button"
-                tabindex="0"
-                aria-label="View 3 screens of the EcoSmart AI company website"
-                style="cursor: pointer;"
+              <a
+                href="https://ecosmartapp.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="display: block; text-decoration: none; color: inherit;"
               >
-                <img
-                  src="/images/ecosmart/ecosmart-web-hero.webp"
-                  alt="The EcoSmart AI homepage in a desktop browser and on a phone, showing the headline 'Turning waste into value'."
-                  loading="eager"
-                  fetchpriority="high"
-                  decoding="sync"
-                  style="object-fit: cover; object-position: center; width: 100%; height: 100%;"
-                />
-                <div class="project-hover-label" aria-hidden="true">
-                  <span>View 3 screens</span>
-                  <span>⛶</span>
+                <div class="project-media-wrap project-media-cover project-media-ecosmart-web reveal-fade-up">
+                  <img
+                    src="/images/covers/ecosmart-web-cover.png"
+                    alt="EcoSmart AI company website cover"
+                    loading="lazy"
+                  />
+                  <div class="project-hover-label" aria-hidden="true">
+                    <span>View site</span>
+                    <span>→</span>
+                  </div>
                 </div>
-              </div>
+              </a>
               <div class="project-info">
                 <div class="project-meta-row">
                   <span class="category-tag">Web design</span>

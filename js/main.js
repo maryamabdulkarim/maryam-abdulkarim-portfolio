@@ -183,8 +183,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hashTarget) {
       let userScrolled = false;
       let observer = null;
+      let alignRaf = null;
       const stopTracking = () => {
         userScrolled = true;
+        if (alignRaf !== null) {
+          cancelAnimationFrame(alignRaf);
+          alignRaf = null;
+        }
         if (observer) {
           observer.disconnect();
           observer = null;
@@ -204,20 +209,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
 
-      requestAnimationFrame(alignHashTarget);
+      const scheduleAlign = () => {
+        if (userScrolled || alignRaf !== null) return;
+        alignRaf = requestAnimationFrame(() => {
+          alignRaf = null;
+          alignHashTarget();
+        });
+      };
+
+      scheduleAlign();
       if (typeof ResizeObserver !== 'undefined') {
-        observer = new ResizeObserver(() => alignHashTarget());
+        observer = new ResizeObserver(scheduleAlign);
         observer.observe(document.body);
       }
       if (document.readyState === 'complete') {
-        setTimeout(alignHashTarget, 120);
+        setTimeout(scheduleAlign, 120);
       } else {
         window.addEventListener('load', () => {
-          requestAnimationFrame(alignHashTarget);
-          setTimeout(alignHashTarget, 150);
+          scheduleAlign();
+          setTimeout(scheduleAlign, 150);
         }, { once: true });
       }
       setTimeout(() => {
+        if (alignRaf !== null) {
+          cancelAnimationFrame(alignRaf);
+          alignRaf = null;
+        }
         if (observer) {
           observer.disconnect();
           observer = null;
@@ -1859,11 +1876,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
 
+      let resizeRaf = null;
+      const scheduleResize = () => {
+        if (resizeRaf !== null) return;
+        resizeRaf = requestAnimationFrame(() => {
+          resizeRaf = null;
+          handleResize();
+        });
+      };
+
       if ('ResizeObserver' in window) {
-        const heroResizeObserver = new ResizeObserver(handleResize);
+        const heroResizeObserver = new ResizeObserver(scheduleResize);
         heroResizeObserver.observe(heroSection);
       } else {
-        window.addEventListener('resize', handleResize, { passive: true });
+        window.addEventListener('resize', scheduleResize, { passive: true });
       }
 
       if ('MutationObserver' in window) {
