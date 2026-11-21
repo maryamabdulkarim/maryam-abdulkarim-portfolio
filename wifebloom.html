@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t !== 'dark' && t !== 'light') {
+          t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.style.colorScheme = t;
+      })();
+    </script>
+    <title>WifeBloom Farm — Maryam Abdulkarim</title>
+    <meta name="description" content="Fresh produce, grown in Abuja. A website where customers can order produce, book a farm visit and apply to the farm's Academy." />
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WifeBloom Farm — Maryam Abdulkarim">
+    <meta property="og:description" content="Fresh produce, grown in Abuja. A website where customers can order produce, book a farm visit and apply to the farm's Academy.">
+    <meta property="og:image" content="https://maryam-abdulkarim-portfolio.vercel.app/images/covers/wifebloom-cover.png">
+    <meta property="og:url" content="https://maryam-abdulkarim-portfolio.vercel.app/wifebloom.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Google Fonts: Fraunces (Headings), Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body id="top">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-bar" aria-hidden="true"></div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-fade-overlay" aria-hidden="true"></div>
+
+    <!-- Top Navigation -->
+    <header class="site-nav">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand">Maryam Abdulkarim</a>
+
+        <div class="nav-right-controls">
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html#work">Work</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="illustrations.html">Illustrations</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li>
+                <a href="Maryam-Abdulkarim-CV.pdf" download="Maryam-Abdulkarim-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-nav-cv" style="padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color); font-weight: 500; font-size: 0.85rem; text-decoration: none;">
+                  Download CV
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch to dark mode" title="Switch to dark mode">
+            <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+
+          <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg class="nav-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <svg class="nav-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="5" y1="5" x2="19" y2="19" />
+              <line x1="19" y1="5" x2="5" y2="19" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero & Project Facts -->
+      <section class="cs-header">
+        <div class="container">
+          <a href="index.html" class="text-link" style="margin-bottom: 1.75rem; display: inline-flex;">
+            ← Back to home
+          </a>
+
+          <span class="category-tag" style="display: block; margin-bottom: 0.75rem;">
+            Client project · Live
+          </span>
+
+          <h1 class="cs-title">WifeBloom Farm</h1>
+          <p class="cs-subtitle">
+            Fresh produce, grown in Abuja. A website where customers can order produce, book a farm visit and apply to the farm's Academy.
+          </p>
+
+          <div class="wifebloom-hero-actions">
+            <a
+              href="https://wifebloomfarm.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Visit live site <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="wifebloom-cover-frame reveal-fade-up">
+            <img
+              src="/images/covers/wifebloom-cover.png"
+              alt="WifeBloom Farm project cover"
+              loading="eager"
+            />
+          </div>
+
+          <div class="cs-info-row" style="border-bottom: none; padding-bottom: 0;">
+            <div class="cs-info-item">
+              <h4>Role</h4>
+              <p>Designer &amp; developer</p>
+            </div>
+            <div class="cs-info-item">
+              <h4>Client</h4>
+              <p>WifeBloom Farm, Abuja</p>
+            </div>
+            <div class="cs-info-item">
+              <h4>Scope</h4>
+              <p>Design, build, domain and hosting</p>
+            </div>
+            <div class="cs-info-item">
+              <h4>Platform</h4>
+              <p>Responsive website</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What I did -->
+      <section class="cs-section">
+        <div class="container">
+          <h2 class="cs-section-heading reveal-fade-up">What I did</h2>
+          <div class="cs-prose" style="margin-bottom: 0;">
+            <p style="margin-bottom: 0;">
+              I handled the whole project from start to finish: designed the website, built it, set up the domain and launched it on hosting.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- What the site does -->
+      <section class="cs-section">
+        <div class="container">
+          <h2 class="cs-section-heading reveal-fade-up">What the site does</h2>
+
+          <div class="wifebloom-features-grid reveal-fade-up">
+            <div class="cs-card">
+              <span class="wifebloom-feature-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+              </span>
+              <h4>Order produce</h4>
+              <p>Customers pick from six crops, picked to order, from 1 kg.</p>
+            </div>
+
+            <div class="cs-card">
+              <span class="wifebloom-feature-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </span>
+              <h4>Book a farm visit</h4>
+              <p>A simple form to request a visit.</p>
+            </div>
+
+            <div class="cs-card">
+              <span class="wifebloom-feature-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </span>
+              <h4>Apply to the Academy</h4>
+              <p>An application form for the farm's Academy.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key decisions -->
+      <section class="cs-section">
+        <div class="container">
+          <h2 class="cs-section-heading reveal-fade-up">Key decisions</h2>
+
+          <ul class="wifebloom-decisions-list reveal-fade-up">
+            <li>
+              No payment online. Customers send a request and the farm confirms first, which suits how the farm works.
+            </li>
+            <li>
+              Trust up front: the farm's feature on NTA Nigeria is shown early on the page.
+            </li>
+            <li>
+              Forms kept short so ordering and booking are quick on a phone.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Screens -->
+      <section class="cs-section">
+        <div class="container">
+          <h2 class="cs-section-heading reveal-fade-up">Screens</h2>
+
+          <div class="wifebloom-screens-grid reveal-fade-up">
+            <div class="wifebloom-screen-col">
+              <span class="wifebloom-screen-label">Desktop · Scroll inside frame</span>
+              <div class="wifebloom-browser-frame">
+                <div class="wifebloom-browser-bar" aria-hidden="true">
+                  <span class="wifebloom-browser-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                  <span class="wifebloom-browser-url">wifebloomfarm.com</span>
+                </div>
+                <div class="wifebloom-scroll-viewport" tabindex="0" aria-label="Scrollable desktop view of the WifeBloom Farm website">
+                  <img
+                    src="/images/wifebloom/wifebloom-desktop.png"
+                    alt="WifeBloom Farm homepage on desktop"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="wifebloom-screen-col">
+              <span class="wifebloom-screen-label">Mobile · Scroll inside frame</span>
+              <div class="wifebloom-phone-frame">
+                <div class="wifebloom-phone-screen" tabindex="0" aria-label="Scrollable mobile view of the WifeBloom Farm website">
+                  <img
+                    src="/images/wifebloom/wifebloom-mobile.png"
+                    alt="WifeBloom Farm homepage on mobile"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wifebloom-end-actions">
+            <a
+              href="https://wifebloomfarm.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Visit live site <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project Link -->
+      <section class="next-project-bar">
+        <div class="container">
+          <div>
+            <span class="category-tag">Next Project</span>
+            <br />
+            <a href="verity.html" class="next-project-link">
+              <span>Verity</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span class="footer-copy">© 2026 Maryam Abdulkarim</span>
+        <div class="footer-socials" aria-label="Social links">
+          <a href="https://linkedin.com/in/maryam-abdulkarim-a671931a3" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="LinkedIn" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/uiux_maryambintkarim" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="Instagram" title="Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a href="https://x.com/MaryamBintKarim" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="X" title="X">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+          <a href="https://wa.me/2349021399802" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="WhatsApp" title="WhatsApp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.79 14.08c-.24.68-1.42 1.3-1.95 1.38-.5.08-1.13.11-1.83-.11-.42-.14-.97-.32-1.66-.62-2.92-1.26-4.82-4.2-4.96-4.39-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.27-.29.58-.36.77-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2.02.9 2.17.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.31.38-.44.51-.14.14-.3.3-.13.59.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.46.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.12.07.7-.17 1.38z" />
+            </svg>
+          </a>
+        </div>
+        <a href="#top" class="text-link footer-back-top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+
+    <!-- Shared Lightbox Modal -->
+    <div id="portfolioLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+      <button class="lightbox-btn lightbox-prev" aria-label="Previous image">‹</button>
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
+        <p class="lightbox-caption-text"></p>
+      </div>
+      <button class="lightbox-btn lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <!-- Interactive JavaScript Engine -->
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
