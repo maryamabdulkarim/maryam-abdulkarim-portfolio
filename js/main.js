@@ -171,6 +171,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Re-align cross-page #hash targets once images and layout settle (unless user scrolls manually)
+  if (window.location.hash && window.location.hash.length > 1) {
+    let hashId = '';
+    try {
+      hashId = decodeURIComponent(window.location.hash.slice(1));
+    } catch (e) {
+      hashId = window.location.hash.slice(1);
+    }
+    const hashTarget = hashId ? document.getElementById(hashId) : null;
+    if (hashTarget) {
+      let userScrolled = false;
+      let observer = null;
+      const stopTracking = () => {
+        userScrolled = true;
+        if (observer) {
+          observer.disconnect();
+          observer = null;
+        }
+      };
+      window.addEventListener('wheel', stopTracking, { passive: true, once: true });
+      window.addEventListener('touchstart', stopTracking, { passive: true, once: true });
+      window.addEventListener('keydown', stopTracking, { passive: true, once: true });
+
+      const alignHashTarget = () => {
+        if (userScrolled) return;
+        const rect = hashTarget.getBoundingClientRect();
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        const targetTop = Math.min(maxScroll, Math.max(0, rect.top + window.scrollY));
+        if (Math.abs(window.scrollY - targetTop) > 40) {
+          window.scrollTo({ top: targetTop, behavior: 'instant' });
+        }
+      };
+
+      requestAnimationFrame(alignHashTarget);
+      if (typeof ResizeObserver !== 'undefined') {
+        observer = new ResizeObserver(() => alignHashTarget());
+        observer.observe(document.body);
+      }
+      if (document.readyState === 'complete') {
+        setTimeout(alignHashTarget, 120);
+      } else {
+        window.addEventListener('load', () => {
+          requestAnimationFrame(alignHashTarget);
+          setTimeout(alignHashTarget, 150);
+        }, { once: true });
+      }
+      setTimeout(() => {
+        if (observer) {
+          observer.disconnect();
+          observer = null;
+        }
+      }, 2500);
+    }
+  }
+
   // 2. Navigation Scroll Styling
   const nav = document.querySelector('.site-nav');
   if (nav) {
